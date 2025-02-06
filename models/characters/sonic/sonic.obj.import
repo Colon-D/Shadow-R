@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://byedpfy0le6ir"
+path="res://.godot/imported/sonic.obj-8837bee21ca41ab73b9d9f55f1f93e8f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/sonic.obj-8837bee21ca41ab73b9d9f55f1f93e8f.mesh"]
+
+source_file="res://models/characters/sonic/sonic.obj"
+dest_files=["res://.godot/imported/sonic.obj-8837bee21ca41ab73b9d9f55f1f93e8f.mesh", "res://.godot/imported/sonic.obj-8837bee21ca41ab73b9d9f55f1f93e8f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(0.1, 0.1, 0.1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

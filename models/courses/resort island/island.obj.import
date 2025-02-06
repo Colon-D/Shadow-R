@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bkos10ft218bf"
+path="res://.godot/imported/island.obj-dac6dd17b2b079dc4a1dd327207798a2.mesh"
+
+[deps]
+
+files=["res://.godot/imported/island.obj-dac6dd17b2b079dc4a1dd327207798a2.mesh"]
+
+source_file="res://models/courses/resort island/island.obj"
+dest_files=["res://.godot/imported/island.obj-dac6dd17b2b079dc4a1dd327207798a2.mesh", "res://.godot/imported/island.obj-dac6dd17b2b079dc4a1dd327207798a2.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

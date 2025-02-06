@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=4 uid="uid://r7kbjkp5iuni"]
+
+[ext_resource type="Texture2D" uid="uid://ik7va4534rep" path="res://models/courses/resort island/ISLAND02.png" id="1_3qssq"]
+[ext_resource type="Script" uid="uid://cgxgkrutt1d32" path="res://models/courses/resort island/spinner.gd" id="2_i06in"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dwuie"]
+resource_name = "2.002"
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_3qssq")
+texture_filter = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3dx75"]
+_surfaces = [{
+"aabb": AABB(-1.41647, -0.229412, -0.478821, 2.75, 0.54, 0.949997),
+"attribute_data": PackedByteArray("/+f/kP/u/5D/5/+X/+7/l//n/5D/7v+Q/+f/l//u/5f/5/+Q/+7/kP/n/5f/7v+X/+f/kP/u/5D/5/+X/+7/l//n/5D/7v+Q/+f/l//u/5f/3/+A//7/gP/f/7///v+//9//gP/+/4D/3/+///7/v//n/5D/7v+X/+f/l//n/5D/7v+X/+f/l//n/5D/7v+X/+f/l//n/5D/7v+X/+f/l//n/5D/7v+X/+f/lw=="),
+"format": 34896613399,
+"index_count": 57,
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABgAFAAcACAAJAAoACgAJAAsADAANAA4ADgANAA8AEAARABIAEgARABMAFAAVABYAFgAVABcAGAAZABoAGgAZABsAHAAdAB4AHwAgACEAIgAjACQAJQAmACcAKAApACoA"),
+"material": SubResource("StandardMaterial3D_dwuie"),
+"name": "2",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 43,
+"vertex_data": PackedByteArray("sqUAAIAwv+1jnBvHD0Ye+5FxAAAAAIPuSnUbx1YgK+T8UAAAWIG5zhZdG8dYgcTJkXEAAP//nLlKdRvHWuLbwLKlAAB9z9bNY5wbx6C82NqypQAAgDAV62OcG8cPRm/4kXEAAAAAf+5KdRvHViB/4/xQAABYgZfLFl0bx1iBq8eRcQAA//+kv0p1G8da4prFsqUAAH3P6MhjnBvHoLxs1v//G8dYgf+///8AAFiBvL1jnBvHWIEhubKlAABYgXm2AAAbx1iB//8AAAAAWIH//xZdG8dYgf///FAAAFiB//9jnBvHD0Y38Ih///9YgZXOSnUbx1YgSORKdRvHViDK4oh///9Ygf+/Fl0bx1iBoscWXRvHWIE44Yh///9YgdDOSnUbx1rissFjnBvHoLzc/Ih///9YgSzuY5wbxw9G+PdKdRvHWuKQ64h///9YgXzuY5wbx6C8rdZ8M+YscjHsJxG88MKvvRK3yNmFzAXl8b2m+xHhPPFdJ7gnsxb7Ll8M4DdqKVk0CCXcwbK+psLqs8DUWc6f4N6+KP5R4orvWCRHK50UyjGaCf9//3//f/9//3//f/9//3//P/+/a0JqwqJGocatSazJxb54mpmzVqbwvIu3Ae8OmaX/soCJ4OO+9PdrQADauTPr8M0mgR6eHH2RTLfbNIYk7eU8E+zIwRGeMcUJ")
+}]
+blend_shape_mode = 0
+
+[node name="Spinner" type="MeshInstance3D"]
+mesh = SubResource("ArrayMesh_3dx75")
+skeleton = NodePath("../Objects")
+script = ExtResource("2_i06in")

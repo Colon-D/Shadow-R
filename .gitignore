@@ -1,0 +1,7 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Lily's ignores
+sfx_src/
+*.blend
