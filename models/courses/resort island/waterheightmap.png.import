@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://6nrlnh4so731"
+path="res://.godot/imported/waterheightmap.png-3d2dfd393957b1ff100d92c50ed42e8b.image"
+
+[deps]
+
+source_file="res://models/courses/resort island/waterheightmap.png"
+dest_files=["res://.godot/imported/waterheightmap.png-3d2dfd393957b1ff100d92c50ed42e8b.image"]
+
+[params]
+

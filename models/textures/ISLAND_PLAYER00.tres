@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bqmitn4cw4jbn"]
+
+[ext_resource type="Shader" uid="uid://d0kiyqbjb3kru" path="res://models/characters/shadow/retro.gdshader" id="1_7iio0"]
+[ext_resource type="Texture2D" uid="uid://qbd731256of" path="res://models/characters/sonic/player00.png" id="2_7iio0"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_7iio0")
+shader_parameter/albedo_texture = ExtResource("2_7iio0")

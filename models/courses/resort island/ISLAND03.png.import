@@ -3,26 +3,25 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bbp8dy1rb20lm"
-path.s3tc="res://.godot/imported/ISLAND03.png-d3406b37a22e83d696f3122f52eca11d.s3tc.ctex"
+path="res://.godot/imported/ISLAND03.png-d3406b37a22e83d696f3122f52eca11d.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://models/courses/resort island/ISLAND03.png"
-dest_files=["res://.godot/imported/ISLAND03.png-d3406b37a22e83d696f3122f52eca11d.s3tc.ctex"]
+dest_files=["res://.godot/imported/ISLAND03.png-d3406b37a22e83d696f3122f52eca11d.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

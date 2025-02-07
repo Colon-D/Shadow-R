@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://b48hnartc8w6f"]
+
+[ext_resource type="Shader" uid="uid://d0kiyqbjb3kru" path="res://models/characters/shadow/retro.gdshader" id="1_6yxrw"]
+[ext_resource type="Texture2D" uid="uid://cdyl47uysv0sj" path="res://models/characters/shadow/shadow.png" id="2_8ekoa"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_6yxrw")
+shader_parameter/albedo_texture = ExtResource("2_8ekoa")
