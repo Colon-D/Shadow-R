@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://csnnasb8lylx6"]
+
+[ext_resource type="PackedScene" uid="uid://b76pkmfohc5wa" path="res://gameplay.tscn" id="1_n34vc"]
+[ext_resource type="Texture2D" uid="uid://caqhnlc0xl50w" path="res://models/courses/westopolis/skybox.png" id="2_jbbcb"]
+[ext_resource type="Shader" uid="uid://dx8hwc7picmdt" path="res://skybox.gdshader" id="2_pwdr1"]
+[ext_resource type="PackedScene" uid="uid://di6qq2akvcimt" path="res://models/courses/westopolis/map.blend" id="3_jbbcb"]
+[ext_resource type="PackedScene" uid="uid://b00nk1pecrvti" path="res://door.tscn" id="5_ggiq8"]
+[ext_resource type="PackedScene" uid="uid://c50m4yjituld" path="res://ring_path.tscn" id="6_a8woo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pwdr1"]
+shader = ExtResource("2_pwdr1")
+shader_parameter/source_panorama = ExtResource("2_jbbcb")
+
+[sub_resource type="Sky" id="Sky_ggiq8"]
+sky_material = SubResource("ShaderMaterial_pwdr1")
+radiance_size = 0
+
+[sub_resource type="Environment" id="Environment_a8woo"]
+background_mode = 2
+background_color = Color(0.68396, 0.789042, 1, 1)
+sky = SubResource("Sky_ggiq8")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.0
+reflected_light_source = 1
+
+[node name="Gameplay" instance=ExtResource("1_n34vc")]
+
+[node name="Camera3D" parent="." index="0"]
+current = true
+
+[node name="WorldEnvironment - Retro" parent="." index="2"]
+environment = SubResource("Environment_a8woo")
+
+[node name="Sonic" parent="." index="3"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 64.7125, 9.53532, 38.5479)
+rings = 50
+
+[node name="map" parent="." index="6" instance=ExtResource("3_jbbcb")]
+
+[node name="50 Doors" type="Node3D" parent="." index="7"]
+
+[node name="Door In" parent="50 Doors" index="0" instance=ExtResource("5_ggiq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.9831, 8.00084, 49.9127)
+skeleton = NodePath("../..")
+price = 50
+
+[node name="Door Out" parent="50 Doors" index="1" instance=ExtResource("5_ggiq8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 49.8901, 8, 65.0175)
+price = 50
+
+[node name="20 Door" parent="." index="8" instance=ExtResource("5_ggiq8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 39.0865, 0, -34.8299)
+skeleton = NodePath("../..")
+price = 50
+
+[node name="Ring Path" parent="." index="9" instance=ExtResource("6_a8woo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.0965, 7.64372, 29.1229)
+
+[connection signal="door_opened" from="50 Doors/Door In" to="50 Doors" method="queue_free"]
+[connection signal="door_opened" from="50 Doors/Door Out" to="50 Doors" method="queue_free"]

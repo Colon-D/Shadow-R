@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://c50m4yjituld"]
+
+[ext_resource type="Script" uid="uid://cdmpu6wl4evtm" path="res://ring_path.gd" id="1_u5cn7"]
+[ext_resource type="PackedScene" uid="uid://ydmqv03p2xwt" path="res://ring.tscn" id="2_10x57"]
+
+[sub_resource type="Curve3D" id="Curve3D_10x57"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.132828, 0.711511, 0.991879, 0, 0, 0, 0, 0, 0, -0.135651, -7.8109, -21.3785),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="Ring Path" type="Path3D"]
+curve = SubResource("Curve3D_10x57")
+script = ExtResource("1_u5cn7")
+ring = ExtResource("2_10x57")

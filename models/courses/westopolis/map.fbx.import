@@ -1,0 +1,65 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://b3tm4cxacfn4p"
+path="res://.godot/imported/map.fbx-8c9b6f39c7aa1c57cf801df883794ef3.scn"
+
+[deps]
+
+source_file="res://models/courses/westopolis/map.fbx"
+dest_files=["res://.godot/imported/map.fbx-8c9b6f39c7aa1c57cf801df883794ef3.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=false
+meshes/generate_lods=false
+meshes/create_shadow_meshes=false
+meshes/light_baking=0
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=true
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"brick": {
+"use_external/enabled": true,
+"use_external/path": "uid://eybesypxtxu4"
+},
+"brick_window": {
+"use_external/enabled": true,
+"use_external/path": "uid://d1vxnnrl4lm2o"
+},
+"foundation_rubble": {
+"use_external/enabled": true,
+"use_external/path": "uid://b2u5efrx66oft"
+},
+"inside_floor": {
+"use_external/enabled": true,
+"use_external/path": "uid://bfrg7xqktm7mh"
+},
+"road": {
+"use_external/enabled": true,
+"use_external/path": "uid://bwq58wwak8coo"
+},
+"road_side": {
+"use_external/enabled": true,
+"use_external/path": "uid://cgp88yk1dp6kp"
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1

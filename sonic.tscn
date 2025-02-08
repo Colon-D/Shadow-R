@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://deob3k1y1c47p"]
+[gd_scene load_steps=28 format=4 uid="uid://deob3k1y1c47p"]
 
 [ext_resource type="Script" uid="uid://ceyfxo3oyxeqe" path="res://PlayerMovement.gd" id="1_pqt7p"]
 [ext_resource type="Texture2D" uid="uid://qbd731256of" path="res://models/characters/sonic/player00.png" id="2_4f2us"]
@@ -8,7 +8,9 @@
 [ext_resource type="AudioStream" uid="uid://rstho7bw328m" path="res://sfx/spin.ogg" id="4_swh58"]
 [ext_resource type="PackedScene" uid="uid://chpo71y8nc4qy" path="res://models/characters/shadow/shadow.fbx" id="5_eeu7w"]
 [ext_resource type="AudioStream" uid="uid://bcatevyj4kn16" path="res://sfx/spingo.ogg" id="5_xifqy"]
+[ext_resource type="AudioStream" uid="uid://guyifoooeaxj" path="res://sfx/splash.ogg" id="6_b64bn"]
 [ext_resource type="AudioStream" uid="uid://ckyyg6nnjru88" path="res://sfx/ring.ogg" id="6_xye6k"]
+[ext_resource type="AudioStream" uid="uid://broe1kgc1ieej" path="res://sfx/warp.ogg" id="8_i42l3"]
 [ext_resource type="Texture2D" uid="uid://c7shu83vbhvjb" path="res://models/shadow.png" id="11_3ltlm"]
 [ext_resource type="Script" uid="uid://dy8um2v03w2s0" path="res://blob_shadow.gd" id="11_w8pru"]
 [ext_resource type="Texture2D" uid="uid://bdv5e4kptj7kj" path="res://models/ripple.png" id="12_0cu2c"]
@@ -234,10 +236,12 @@ jump_sfx = ExtResource("3_xxe3p")
 roll_sfx = ExtResource("3_xj0yx")
 spin_sfx = ExtResource("4_swh58")
 spin_go_sfx = ExtResource("5_xifqy")
+splash_sfx = ExtResource("6_b64bn")
 anim_player = NodePath("Model/AnimationPlayer")
 model = NodePath("Model")
 ripple = NodePath("Ripple")
 ring_sfx = ExtResource("6_xye6k")
+accelerator_sfx = ExtResource("8_i42l3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -352,7 +356,6 @@ bone_idx = 25
 [node name="Shadow Sprite" type="Sprite3D" parent="."]
 layers = 2
 pixel_size = 0.02
-axis = 1
 double_sided = false
 texture_filter = 0
 texture = ExtResource("11_3ltlm")
@@ -360,6 +363,7 @@ script = ExtResource("11_w8pru")
 
 [node name="Shadow Decal" type="Decal" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.45, 0)
+visible = false
 size = Vector3(0.75, 1, 0.75)
 texture_albedo = ExtResource("11_3ltlm")
 upper_fade = 0.0

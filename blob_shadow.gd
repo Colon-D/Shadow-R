@@ -1,4 +1,4 @@
-extends Sprite3D
+extends Node3D
 
 func _physics_process(delta: float) -> void:
 	var space_state = get_world_3d().direct_space_state
@@ -9,7 +9,7 @@ func _physics_process(delta: float) -> void:
 	if result:
 		show()
 		global_position = result.position + Vector3.UP * 0.04
-		global_rotation = result.normal
+		look_at(result.position - result.normal)
 	else:
 		pass
 		hide()

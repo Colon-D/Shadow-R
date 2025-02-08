@@ -1,9 +1,9 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bhqq5daemnvc2"]
 
 [ext_resource type="Shader" uid="uid://d0kiyqbjb3kru" path="res://models/characters/shadow/retro.gdshader" id="1_4es76"]
-[ext_resource type="Texture2D" uid="uid://yniqktvc0f1" path="res://models/courses/resort island/ISLAND00.png" id="2_f3dbb"]
+[ext_resource type="Texture2D" uid="uid://yniqktvc0f1" path="res://models/courses/resort island/ISLAND00.png" id="2_4es76"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_4es76")
-shader_parameter/albedo_texture = ExtResource("2_f3dbb")
+shader_parameter/texture_albedo = ExtResource("2_4es76")

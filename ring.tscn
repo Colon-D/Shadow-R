@@ -126,7 +126,7 @@ animations = [{
 [sub_resource type="SphereShape3D" id="SphereShape3D_nwk8b"]
 radius = 0.35
 
-[node name="Ring" type="AnimatedSprite3D"]
+[node name="Ring" type="AnimatedSprite3D" node_paths=PackedStringArray("hitbox", "respawn")]
 pixel_size = 0.02
 billboard = 1
 double_sided = false
@@ -136,6 +136,8 @@ sprite_frames = SubResource("SpriteFrames_7r3lg")
 autoplay = "default"
 frame_progress = 0.433809
 script = ExtResource("2_jiui3")
+hitbox = NodePath("Area3D/CollisionShape3D")
+respawn = NodePath("Timer")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 2
@@ -145,4 +147,9 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_nwk8b")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,7 +1,7 @@
 shader_type spatial;
 render_mode skip_vertex_transform, cull_disabled;
 
-uniform sampler2D albedo_texture : source_color, filter_nearest;
+uniform sampler2D texture_albedo : source_color, filter_nearest;
 
 void vertex() {
 	VERTEX = (MODELVIEW_MATRIX * vec4(VERTEX, 1.0)).xyz;
@@ -9,7 +9,7 @@ void vertex() {
 }
 
 void fragment() {
-	vec4 color = texture(albedo_texture, UV);
+	vec4 color = texture(texture_albedo, UV);
 	ALBEDO = color.rgb;
 	if (color.a < 0.5) discard;
 }

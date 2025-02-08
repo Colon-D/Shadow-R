@@ -6,4 +6,4 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_hq6al")
-shader_parameter/albedo_texture = ExtResource("2_hq6al")
+shader_parameter/texture_albedo = ExtResource("2_hq6al")

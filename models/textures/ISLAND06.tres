@@ -6,4 +6,4 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_ieg4g")
-shader_parameter/albedo_texture = ExtResource("2_ieg4g")
+shader_parameter/texture_albedo = ExtResource("2_ieg4g")

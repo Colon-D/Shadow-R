@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cgp88yk1dp6kp"]
+
+[ext_resource type="Texture2D" uid="uid://cipupu5f3q1fs" path="res://models/courses/westopolis/road_wall.png" id="1_54cno"]
+[ext_resource type="Shader" uid="uid://d0kiyqbjb3kru" path="res://models/characters/shadow/retro.gdshader" id="1_nybpu"]
+
+[resource]
+resource_name = "road_side"
+render_priority = 0
+shader = ExtResource("1_nybpu")
+shader_parameter/texture_albedo = ExtResource("1_54cno")

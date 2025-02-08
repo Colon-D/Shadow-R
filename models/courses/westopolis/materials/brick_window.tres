@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://d1vxnnrl4lm2o"]
+
+[ext_resource type="Shader" uid="uid://d0kiyqbjb3kru" path="res://models/characters/shadow/retro.gdshader" id="1_ia2ea"]
+[ext_resource type="Texture2D" uid="uid://kn2ofq0203bw" path="res://models/courses/westopolis/brick_window.png" id="1_n705w"]
+
+[resource]
+resource_name = "brick_window"
+render_priority = 0
+shader = ExtResource("1_ia2ea")
+shader_parameter/texture_albedo = ExtResource("1_n705w")
