@@ -1,18 +1,31 @@
 extends CharacterBody3D
 
-const ACCEL := 18.0
+# THIS FILE IS A BIG MESS AND COULD BE SIMPLIFIED A LOT.
+# RIGHT NOW THIS IS FEATURE CREEP OF ME TRYING TO MAKE IT MORE LIKE SONIC R.
+# IDEALLY THIS SHOULD MAYBE BE SPLIT INTO MULTIPLE FILES OR AT LEAST FUNCTIONS.
+# OR MAYBE I SHOULD ACTUALLY DO MATH INSTEAD OF TRIAL AND ERRORING UNTIL THINGS
+# FEEL RIGHT.
+# why am I in all caps? I'm tired.
+
+const ACCEL := 21.0
 const DECEL := 0.75
 const DECEL_LIN := 4.0
 const TURN := 0.55 # seems slow but that's what I calculated
 const BRAKE := 0.35 # turn speed too for l or r brake
 const FAST_BRAKE_MULT := 4.0 # multiplier for DECEL and DECEL_LIN
 const ROLLING_MULT := 0.25 # multiplier for TURN and BRAKE whilst rolling
-const MOVING_MULT := 3.5 # multiplier for TURN and BRAKE whilst moving
+const MOVING_MULT := 3.0 # multiplier for TURN whilst moving
+const MOVING_MULT_BRAKE := 2.0 # multiplier for BRAKE whilst moving
 const SWIM_MULT := 2.5 # multiplier for DECEL AND DECEL_LIN whilst swimming
 const JUMP_MULT := 0.5 # multiplier for TURN AND BRAKE whilst jumping
-const JUMP_VELOCITY := 10.0
+const JUMP_VELOCITY := 9.0
+const DOUBLE_JUMP_VELOCITY := 12.0
+var double_jumping := false
+var extend_jump := true # true until you let go of jump after jumping
+const JUMP_GRAV_MULT := 3.0 # when going up and not holding jump
 const MAX_JUMPS := 2
 const ROT_SPEED := 4.5
+const GRAVITY_AIR_MULT := 2.4 # multiplier when no kayote frames (we want less gravity on ground to make going uphill easier?)
 var jumps := 0
 @export var audio: AudioStreamPlayer3D
 @export var jump_sfx: AudioStream # not part of animation as don't want loop
@@ -27,7 +40,7 @@ var jumps := 0
 @export var ripple: AnimatedSprite3D
 
 var kayote_time := 0.0
-const MAX_KAYOTE_TIME := 0.2
+const MAX_KAYOTE_TIME := 0.1
 
 #var rolling := false # should be a state? alongside and exclusive to jumping?
 
@@ -73,23 +86,26 @@ func accelerator(new_accelerator_path: Path3D):
 func _physics_process(delta: float) -> void:
 	var vel_mag := velocity.length()
 	var moving := vel_mag > 1
-	var aim := transform.basis
 
 	if state == State.ACCELERATOR:
-		vel_mag = 32.0
+		vel_mag = 40.0
 		accelerator_progress += delta * vel_mag
 		var trans = accelerator_path.curve.sample_baked_with_rotation(accelerator_progress, true)
 		position = accelerator_path.global_position + trans.origin
 		look_at(position + trans.basis.z)
 		if accelerator_progress >= accelerator_fuel:
-			velocity = aim.z * 24.0
+			velocity = basis.z * 24.0
 			state = State.NORMAL
+			audio.stop()
 
 	else:
 		var on_floor := is_on_floor()
 		if on_floor:
 			jumps = 0
+			double_jumping = false
+			extend_jump = true
 			kayote_time = MAX_KAYOTE_TIME
+			set_new_up_direction(get_floor_normal())
 			if state == State.JUMP or state == State.SWIM:
 				state = State.NORMAL
 		else:
@@ -105,16 +121,23 @@ func _physics_process(delta: float) -> void:
 					state = State.SWIM
 				position.y = -0.001 # don't want to unswim yet
 				velocity.y = 0
+			# otherwise, if no kayote frames, we are jumping/falling
 			else:
-				# gravity
-				velocity += get_gravity() * delta
-
+				var gravity = get_gravity()
+				if (kayote_time <= 0):
+					gravity *= GRAVITY_AIR_MULT
+				# variable jump height (unless double jumping)
+				if velocity.y > 0:
+					if (not Input.is_action_pressed("jump")) and not double_jumping:
+						extend_jump = false
+						gravity *= JUMP_GRAV_MULT
+				velocity += gravity * delta
 
 		# jump
 		if state != State.SPINDASH and state != State.SWIM:
 			if Input.is_action_just_pressed("jump"):
 				var jump = false
-				var up = aim.y
+				var up = basis.y
 				if kayote_time > 0 and (up.y > 0.05):
 					jumps = MAX_JUMPS
 					jump = true
@@ -122,7 +145,11 @@ func _physics_process(delta: float) -> void:
 					jump = true
 				if jump:
 					jumps -= 1
-					velocity.y = JUMP_VELOCITY
+					if jumps == 0:
+						velocity.y = DOUBLE_JUMP_VELOCITY
+						double_jumping = true
+					else:
+						velocity.y = JUMP_VELOCITY
 					audio.stream = jump_sfx
 					audio.pitch_scale = lerp(1.1, 1.0, jumps / float(MAX_JUMPS - 1))
 					audio.play()
@@ -142,7 +169,7 @@ func _physics_process(delta: float) -> void:
 			decel_lin *= SWIM_MULT
 		# I have no clue if game has this but it would make somewhat sense?
 		# if it controls like a car, then cars should only move forwards?
-		var forwards_dot := 0.5 + velocity.normalized().dot(aim.z) / 2.0
+		var forwards_dot := 0.5 + velocity.normalized().dot(basis.z) / 2.0
 		var forwards_dot_mult := 4.0 - 3.0 * forwards_dot
 		decel *= forwards_dot_mult
 		decel_lin *= forwards_dot_mult
@@ -153,7 +180,7 @@ func _physics_process(delta: float) -> void:
 		# pressing back shouldn't make up move back nor decelerate
 		if state != State.SPINDASH:
 			var forwards_input := maxf(Input.get_action_strength("accel"), 0)
-			var forwards_accel := aim.z * forwards_input * ACCEL
+			var forwards_accel := basis.z * forwards_input * ACCEL
 			velocity += forwards_accel * delta
 
 		# roll
@@ -175,7 +202,7 @@ func _physics_process(delta: float) -> void:
 				audio.pitch_scale = 1.0
 				audio.play()
 			if not Input.is_action_pressed("duck"):
-				velocity = aim.z * spindash_charge
+				velocity = basis.z * spindash_charge
 				state = State.ROLL
 				audio.stream = spin_go_sfx
 				audio.pitch_scale = 1.0
@@ -187,12 +214,12 @@ func _physics_process(delta: float) -> void:
 
 		# rotate with input
 		var rotate_vel := TURN
-		var move_mult_factor = lerp(1.0, MOVING_MULT, min(vel_mag / 30.0, 1.0))
 		if state == State.ROLL:
 			rotate_vel *= ROLLING_MULT
 		elif state == State.JUMP:
 			rotate_vel *= JUMP_MULT
 		else:
+			var move_mult_factor = lerp(1.0, MOVING_MULT, min(vel_mag / 35.0, 1.0))
 			rotate_vel *= move_mult_factor
 		var input_dir := Input.get_axis("turn_left", "turn_right")
 		var rotate_by = -input_dir * delta * rotate_vel
@@ -210,38 +237,30 @@ func _physics_process(delta: float) -> void:
 			elif state == State.JUMP:
 				brake_vel *= JUMP_MULT
 			else:
-				brake_vel *= move_mult_factor
+				var move_mult_factor_brake = lerp(1.0, MOVING_MULT_BRAKE, min(vel_mag / 35.0, 1.0))
+				brake_vel *= move_mult_factor_brake
 			rotate_by = -brake_input * delta * brake_vel
 			rotate_y(rotate_by)
 			velocity = velocity.rotated(Vector3.UP, rotate_by)
 			# rotate model with brakes
-			var target_roll := brake_input * 0.035 * vel_mag
-			model.rotation.z = lerp(model.rotation.z, target_roll, 8.0 * delta)
-
+			var target_roll := brake_input * 0.025 * vel_mag
+			model.rotation.z = lerp(model.rotation.z, target_roll, 4.0 * delta)
 
 		# rotate along ground (janky!!)
-		var old_up_direction := aim.y
-		var new_target_up_direction := get_floor_normal() if kayote_time > 0 else Vector3.UP
-		# stop jittering at slight angles
-		if new_target_up_direction.y > 0.975:
-			new_target_up_direction = Vector3.UP
-		var orig_angle := old_up_direction.angle_to(new_target_up_direction)
-		# too sharp, consider wall
-		if orig_angle > PI / 4:
-			new_target_up_direction = Vector3.UP
-		var new_up_direction := old_up_direction.move_toward(
-			new_target_up_direction, ROT_SPEED * delta
-		).normalized()
-		if not old_up_direction.is_equal_approx(new_up_direction):
-			# calculate the rotation between the old and new up direction
-			var rotate_along := old_up_direction.cross(new_up_direction).normalized()
-			var by_angle := old_up_direction.angle_to(new_up_direction)
-			#if by_angle < PI / 16:
-			# rotate the velocity?
-			velocity = velocity.rotated(rotate_along, by_angle)
-			# rotate this models angle
-			rotate(rotate_along, by_angle)
-			up_direction = new_up_direction
+		var old_up_direction := basis.y
+		if on_floor or kayote_time <= 0:
+			var new_target_up_direction := get_floor_normal() if on_floor else Vector3.UP
+			# stop jittering at slight angles
+			if new_target_up_direction.y > 0.99:
+				new_target_up_direction = Vector3.UP
+			var orig_angle := old_up_direction.angle_to(new_target_up_direction)
+			# too sharp, consider wall
+			if orig_angle > PI / 4:
+				new_target_up_direction = Vector3.UP
+			var new_up_direction := old_up_direction.move_toward(
+				new_target_up_direction, ROT_SPEED * delta
+			).normalized()
+			set_new_up_direction(new_up_direction)
 
 		var collided := move_and_slide()
 		if collided:
@@ -271,9 +290,9 @@ func _physics_process(delta: float) -> void:
 		model.show()
 		ripple.hide()
 		ripple.get_node("Bubbles").stop()
-		if state != State.NORMAL and state != State.ACCELERATOR:
-			anim_player.play("Armature|jump")
-			if state == State.JUMP:
+		if state != State.NORMAL:
+			anim_player.play("jump")
+			if state == State.JUMP || State.ACCELERATOR:
 				anim_player.speed_scale = 2
 			elif state == State.ROLL:
 				anim_player.speed_scale = vel_mag * 0.33
@@ -281,10 +300,10 @@ func _physics_process(delta: float) -> void:
 				anim_player.speed_scale = spindash_charge * 0.33
 		else:
 			if moving:
-					anim_player.play("Armature|run")
+					anim_player.play("run")
 					anim_player.speed_scale = vel_mag * 0.33
 			else:
-				anim_player.play("Armature|idle")
+				anim_player.play("idle")
 				anim_player.speed_scale = 1
 
 	# calculate how far along path we are
@@ -311,3 +330,15 @@ func _physics_process(delta: float) -> void:
 
 	# laps
 	lap_time[lap] += delta
+
+func set_new_up_direction(new_up_direction: Vector3) -> void:
+	var old_up_direction := basis.y
+	if not old_up_direction.is_equal_approx(new_up_direction):
+		# calculate the rotation between the old and new up direction
+		var rotate_along := old_up_direction.cross(new_up_direction).normalized()
+		var by_angle := old_up_direction.angle_to(new_up_direction)
+		# rotate the velocity?
+		velocity = velocity.rotated(rotate_along, by_angle)
+		# rotate this object's angle
+		rotate(rotate_along, by_angle)
+		up_direction = new_up_direction

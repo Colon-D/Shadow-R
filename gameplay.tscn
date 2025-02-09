@@ -1,10 +1,48 @@
-[gd_scene load_steps=13 format=3 uid="uid://b76pkmfohc5wa"]
+[gd_scene load_steps=52 format=3 uid="uid://b76pkmfohc5wa"]
 
 [ext_resource type="Script" uid="uid://dg8b8ry3srv2d" path="res://gameplay.gd" id="1_eod45"]
 [ext_resource type="Shader" uid="uid://dx8hwc7picmdt" path="res://skybox.gdshader" id="3_xuee5"]
+[ext_resource type="Texture2D" uid="uid://cukm3ad3rrwv8" path="res://ring/ring_00.png" id="5_1ni6y"]
+[ext_resource type="Texture2D" uid="uid://cg5hmeyk1rsnc" path="res://models/courses/westopolis/minimap.png" id="5_cbffv"]
 [ext_resource type="Script" uid="uid://b8ehku6btf4ar" path="res://destroy_self.gd" id="5_smepj"]
+[ext_resource type="Script" uid="uid://c4wwwpimnif47" path="res://minimap.gd" id="6_0m7cd"]
+[ext_resource type="Texture2D" uid="uid://bbigmxcqauah1" path="res://minimap_player.png" id="6_fbudy"]
+[ext_resource type="Texture2D" uid="uid://bbk3nc636u0fk" path="res://ring/ring_01.png" id="6_xvjhw"]
+[ext_resource type="Texture2D" uid="uid://cl6jw8bx2wk57" path="res://ring/ring_10.png" id="7_d3t05"]
+[ext_resource type="Texture2D" uid="uid://bi5m3103lgjs3" path="res://pause/pause_txt.png" id="8_1qy1k"]
+[ext_resource type="Script" uid="uid://bjj3e4r0gowps" path="res://pause.gd" id="8_7y1a3"]
+[ext_resource type="Texture2D" uid="uid://c5elgmf8cp21m" path="res://ring/ring_11.png" id="8_j6kuv"]
+[ext_resource type="Texture2D" uid="uid://sxt2u3rr6ypy" path="res://pause/pause_bg.png" id="9_3n40r"]
+[ext_resource type="Texture2D" uid="uid://pb4imr2laoyd" path="res://ring/ring_12.png" id="9_s35uu"]
+[ext_resource type="Texture2D" uid="uid://dn48v6o5flhsw" path="res://ring/ring_13.png" id="10_5a717"]
 [ext_resource type="PackedScene" uid="uid://deob3k1y1c47p" path="res://sonic.tscn" id="10_jabn6"]
+[ext_resource type="Texture2D" uid="uid://gss7v61wbjpk" path="res://pause/continue.png" id="10_x2ust"]
+[ext_resource type="Texture2D" uid="uid://b3kbi3gai52dx" path="res://pause/continue_active.png" id="11_7y1a3"]
 [ext_resource type="Script" uid="uid://cphi1g26rvexf" path="res://FollowPlayer.gd" id="11_divyf"]
+[ext_resource type="Texture2D" uid="uid://gk8wgm6eksq4" path="res://ring/ring_14.png" id="11_dsr22"]
+[ext_resource type="Texture2D" uid="uid://d3kn8i6gtcddt" path="res://ring/ring_15.png" id="12_d8yap"]
+[ext_resource type="Texture2D" uid="uid://cp5krp844rxih" path="res://pause/retry.png" id="12_eglai"]
+[ext_resource type="Texture2D" uid="uid://ddjlv0eqdgcma" path="res://pause/retry_active.png" id="13_m1ld8"]
+[ext_resource type="Texture2D" uid="uid://bulnd2jf7skfm" path="res://ring/ring_02.png" id="13_nm2fk"]
+[ext_resource type="Texture2D" uid="uid://8gx1k1u0vlsp" path="res://pause/retire.png" id="14_2em84"]
+[ext_resource type="Texture2D" uid="uid://dewxtlvwodujr" path="res://ring/ring_03.png" id="14_xmqtf"]
+[ext_resource type="Texture2D" uid="uid://b00l5a4wokpb4" path="res://pause/retire_active.png" id="15_0kugc"]
+[ext_resource type="Texture2D" uid="uid://70rvv6unca14" path="res://ring/ring_04.png" id="15_yyn0e"]
+[ext_resource type="Texture2D" uid="uid://ch2qs6sl1vvfk" path="res://ring/ring_05.png" id="16_btttg"]
+[ext_resource type="Texture2D" uid="uid://0idx7kxkhp86" path="res://ring/ring_06.png" id="17_qosk1"]
+[ext_resource type="Texture2D" uid="uid://b6pdcas5nwdq0" path="res://ring/ring_07.png" id="18_qd3xc"]
+[ext_resource type="Texture2D" uid="uid://dj4shrnsbxy57" path="res://ring/ring_08.png" id="19_rpuk1"]
+[ext_resource type="Texture2D" uid="uid://c0judwgyi0mve" path="res://ring/ring_09.png" id="20_rj5u3"]
+[ext_resource type="AudioStream" uid="uid://c8rl0uajtgfrj" path="res://pause/pause.ogg" id="25_yyn0e"]
+[ext_resource type="AudioStream" uid="uid://bkxodkuywgv1f" path="res://pause/unpause.ogg" id="26_btttg"]
+[ext_resource type="AudioStream" uid="uid://fj3f2jw5q62w" path="res://menu_select.ogg" id="27_qosk1"]
+[ext_resource type="AudioStream" uid="uid://dhqvmuichi3wt" path="res://menu_accept.ogg" id="28_qd3xc"]
+[ext_resource type="Texture2D" uid="uid://f1ewt3hi4hvb" path="res://race_begin/ready.png" id="33_s35uu"]
+[ext_resource type="Texture2D" uid="uid://byjwlayu3h77f" path="res://race_begin/set.png" id="34_5a717"]
+[ext_resource type="Script" uid="uid://d3apwydbhkcbt" path="res://race_begin/race_begin.gd" id="34_d3t05"]
+[ext_resource type="Texture2D" uid="uid://cqbts5geqau7f" path="res://race_begin/go.png" id="35_5a717"]
+[ext_resource type="AudioStream" uid="uid://sj6h6rpaxh1w" path="res://race_begin/03 - Start Of Race.ogg" id="35_j6kuv"]
+[ext_resource type="Script" uid="uid://dw4whdidjbio1" path="res://grounded_path.gd" id="39_dsr22"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0kugc"]
 shader = ExtResource("3_xuee5")
@@ -29,6 +67,41 @@ shadow_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_eod45"]
 shadow_color = Color(0, 0, 0, 1)
 
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_7y1a3"]
+frames = 16
+speed_scale = 30.0
+frame_0/texture = ExtResource("5_1ni6y")
+frame_1/texture = ExtResource("6_xvjhw")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("13_nm2fk")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("14_xmqtf")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("15_yyn0e")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("16_btttg")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("17_qosk1")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("18_qd3xc")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("19_rpuk1")
+frame_8/duration = 1.0
+frame_9/texture = ExtResource("20_rj5u3")
+frame_9/duration = 1.0
+frame_10/texture = ExtResource("7_d3t05")
+frame_10/duration = 1.0
+frame_11/texture = ExtResource("8_j6kuv")
+frame_11/duration = 1.0
+frame_12/texture = ExtResource("9_s35uu")
+frame_12/duration = 1.0
+frame_13/texture = ExtResource("10_5a717")
+frame_13/duration = 1.0
+frame_14/texture = ExtResource("11_dsr22")
+frame_14/duration = 1.0
+frame_15/texture = ExtResource("12_d8yap")
+frame_15/duration = 1.0
+
 [sub_resource type="LabelSettings" id="LabelSettings_nwk8b"]
 font_size = 24
 font_color = Color(1, 0.666667, 0, 1)
@@ -41,13 +114,14 @@ shadow_color = Color(0, 0, 0, 1)
 
 [node name="Gameplay" type="Node3D" node_paths=PackedStringArray("total_time_ui", "lap_time_ui", "rings_ui", "main_player")]
 script = ExtResource("1_eod45")
-total_time_ui = NodePath("UI/MarginContainer/VBoxContainer/Total")
-lap_time_ui = [NodePath("UI/MarginContainer/VBoxContainer/Lap 1"), NodePath("UI/MarginContainer/VBoxContainer/Lap 2"), NodePath("UI/MarginContainer/VBoxContainer/Lap 3")]
-rings_ui = NodePath("UI/MarginContainer/HBoxContainer/Rings")
+total_time_ui = NodePath("UI/MarginContainer/Timer/Total")
+lap_time_ui = [NodePath("UI/MarginContainer/Timer/Lap 1"), NodePath("UI/MarginContainer/Timer/Lap 2"), NodePath("UI/MarginContainer/Timer/Lap 3")]
+rings_ui = NodePath("UI/MarginContainer/Rings/Rings Amount")
 main_player = NodePath("Sonic")
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+current = true
 fov = 45.0
 script = ExtResource("11_divyf")
 player = NodePath("../Sonic")
@@ -61,7 +135,8 @@ directional_shadow_blend_splits = true
 [node name="WorldEnvironment - Retro" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nkx55")
 
-[node name="Sonic" parent="." instance=ExtResource("10_jabn6")]
+[node name="Sonic" parent="." node_paths=PackedStringArray("path") instance=ExtResource("10_jabn6")]
+path = NodePath("../LapProgress")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -72,56 +147,212 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 4
+theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 4
+theme_override_constants/margin_bottom = 12
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+[node name="Timer" type="VBoxContainer" parent="UI/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 
-[node name="Total" type="Label" parent="UI/MarginContainer/VBoxContainer"]
+[node name="Total" type="Label" parent="UI/MarginContainer/Timer"]
 layout_mode = 2
 text = "00:00.00"
 label_settings = SubResource("LabelSettings_tyrfw")
 horizontal_alignment = 2
 
-[node name="Lap 1" type="Label" parent="UI/MarginContainer/VBoxContainer"]
+[node name="Lap 1" type="Label" parent="UI/MarginContainer/Timer"]
 layout_mode = 2
 text = "00:00.00"
 label_settings = SubResource("LabelSettings_eod45")
 horizontal_alignment = 2
 
-[node name="Lap 2" type="Label" parent="UI/MarginContainer/VBoxContainer"]
+[node name="Lap 2" type="Label" parent="UI/MarginContainer/Timer"]
 layout_mode = 2
 text = "00:00.00"
 label_settings = SubResource("LabelSettings_eod45")
 horizontal_alignment = 2
 
-[node name="Lap 3" type="Label" parent="UI/MarginContainer/VBoxContainer"]
+[node name="Lap 3" type="Label" parent="UI/MarginContainer/Timer"]
 layout_mode = 2
 text = "00:00.00"
 label_settings = SubResource("LabelSettings_eod45")
 horizontal_alignment = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer"]
+[node name="Rings" type="HBoxContainer" parent="UI/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="Rings Label" type="Label" parent="UI/MarginContainer/HBoxContainer"]
+[node name="Rings Texture" type="TextureRect" parent="UI/MarginContainer/Rings"]
+layout_mode = 2
+texture = SubResource("AnimatedTexture_7y1a3")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Rings Label" type="Label" parent="UI/MarginContainer/Rings"]
+visible = false
 layout_mode = 2
 text = "RINGS"
 label_settings = SubResource("LabelSettings_nwk8b")
 
-[node name="Rings" type="Label" parent="UI/MarginContainer/HBoxContainer"]
+[node name="Rings Amount" type="Label" parent="UI/MarginContainer/Rings"]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
-text = "0"
+text = "000"
 label_settings = SubResource("LabelSettings_x2ust")
 horizontal_alignment = 2
+
+[node name="Minimap" type="TextureRect" parent="UI/MarginContainer" node_paths=PackedStringArray("player_icon", "player")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("5_cbffv")
+stretch_mode = 5
+script = ExtResource("6_0m7cd")
+player_icon = NodePath("Player")
+player = NodePath("../../../Sonic")
+xform_rotate_degrees = 90.0
+xform_scale = Vector2(0.7, 0.7)
+
+[node name="Player" type="TextureRect" parent="UI/MarginContainer/Minimap"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_fbudy")
+
+[node name="pause" type="CenterContainer" parent="UI" node_paths=PackedStringArray("default_focus", "pause_player", "menu_player")]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("8_7y1a3")
+default_focus = NodePath("pause_options/continue")
+pause_sound = ExtResource("25_yyn0e")
+unpause_sound = ExtResource("26_btttg")
+menu_select_sound = ExtResource("27_qosk1")
+menu_confirm_sound = ExtResource("28_qd3xc")
+pause_player = NodePath("pause_audio")
+menu_player = NodePath("menu_audio")
+
+[node name="pause_bg" type="TextureRect" parent="UI/pause"]
+layout_mode = 2
+texture = ExtResource("9_3n40r")
+
+[node name="pause_options" type="VBoxContainer" parent="UI/pause"]
+layout_mode = 2
+
+[node name="pause_txt" type="TextureRect" parent="UI/pause/pause_options"]
+layout_mode = 2
+texture = ExtResource("8_1qy1k")
+stretch_mode = 5
+
+[node name="continue" type="TextureButton" parent="UI/pause/pause_options"]
+layout_mode = 2
+texture_normal = ExtResource("10_x2ust")
+texture_hover = ExtResource("11_7y1a3")
+texture_focused = ExtResource("11_7y1a3")
+stretch_mode = 5
+
+[node name="retry" type="TextureButton" parent="UI/pause/pause_options"]
+layout_mode = 2
+texture_normal = ExtResource("12_eglai")
+texture_hover = ExtResource("13_m1ld8")
+texture_focused = ExtResource("13_m1ld8")
+stretch_mode = 5
+
+[node name="retire" type="TextureButton" parent="UI/pause/pause_options"]
+layout_mode = 2
+texture_normal = ExtResource("14_2em84")
+texture_hover = ExtResource("15_0kugc")
+texture_focused = ExtResource("15_0kugc")
+stretch_mode = 5
+
+[node name="pause_audio" type="AudioStreamPlayer" parent="UI/pause"]
+
+[node name="menu_audio" type="AudioStreamPlayer" parent="UI/pause"]
+
+[node name="RaceBegin" type="CenterContainer" parent="UI"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Ready" type="TextureRect" parent="UI/RaceBegin"]
+visible = false
+layout_mode = 2
+texture = ExtResource("33_s35uu")
+
+[node name="Set" type="TextureRect" parent="UI/RaceBegin"]
+visible = false
+layout_mode = 2
+texture = ExtResource("34_5a717")
+
+[node name="Go" type="TextureRect" parent="UI/RaceBegin"]
+visible = false
+layout_mode = 2
+texture = ExtResource("35_5a717")
 
 [node name="stop_annoying_shader" type="ShaderGlobalsOverride" parent="."]
 params/in_editor = true
 script = ExtResource("5_smepj")
+
+[node name="RaceBegin" type="Node" parent="." node_paths=PackedStringArray("player", "ready_timer", "set_timer", "go_timer", "post_go_timer", "ui_ready", "ui_set", "ui_go")]
+script = ExtResource("34_d3t05")
+player = NodePath("../Sonic")
+ready_timer = NodePath("ReadyTimer")
+set_timer = NodePath("SetTimer")
+go_timer = NodePath("GoTimer")
+post_go_timer = NodePath("PostGoTimer")
+ui_ready = NodePath("../UI/RaceBegin/Ready")
+ui_set = NodePath("../UI/RaceBegin/Set")
+ui_go = NodePath("../UI/RaceBegin/Go")
+
+[node name="ReadyTimer" type="Timer" parent="RaceBegin"]
+wait_time = 4.0
+one_shot = true
+
+[node name="SetTimer" type="Timer" parent="RaceBegin"]
+wait_time = 5.0
+one_shot = true
+
+[node name="GoTimer" type="Timer" parent="RaceBegin"]
+wait_time = 6.0
+one_shot = true
+
+[node name="PostGoTimer" type="Timer" parent="RaceBegin"]
+wait_time = 7.0
+one_shot = true
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("35_j6kuv")
+
+[node name="LapProgress" type="Path3D" parent="."]
+script = ExtResource("39_dsr22")
+
+[connection signal="button_down" from="UI/pause/pause_options/continue" to="UI/pause" method="unpause"]
+[connection signal="focus_entered" from="UI/pause/pause_options/continue" to="UI/pause" method="focus_entered"]
+[connection signal="focus_entered" from="UI/pause/pause_options/retry" to="UI/pause" method="focus_entered"]
+[connection signal="pressed" from="UI/pause/pause_options/retry" to="UI/pause" method="reload"]
+[connection signal="focus_entered" from="UI/pause/pause_options/retire" to="UI/pause" method="focus_entered"]
+[connection signal="pressed" from="UI/pause/pause_options/retire" to="UI/pause" method="quit"]
+[connection signal="timeout" from="RaceBegin/ReadyTimer" to="RaceBegin" method="ready_timeout"]
+[connection signal="timeout" from="RaceBegin/SetTimer" to="RaceBegin" method="set_timeout"]
+[connection signal="timeout" from="RaceBegin/GoTimer" to="RaceBegin" method="go_timeout"]
+[connection signal="timeout" from="RaceBegin/PostGoTimer" to="RaceBegin" method="post_go_timeout"]

@@ -26,4 +26,4 @@ func _physics_process(_delta: float) -> void:
 
 	total_time_ui.text = format_time(total_time)
 
-	rings_ui.text = str(main_player.rings)
+	rings_ui.text = "%03d" % [main_player.rings]

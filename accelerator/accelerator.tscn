@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2btl25lwd133"]
+
+[ext_resource type="Script" uid="uid://dw4whdidjbio1" path="res://grounded_path.gd" id="1_jkfel"]
+[ext_resource type="Script" uid="uid://bl20cyofxs4s" path="res://accelerator/accelerator.gd" id="1_rki0y"]
+[ext_resource type="PackedScene" uid="uid://tjo3ifcrcxp6" path="res://accelerator/red_slime.blend" id="3_dqyfe"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rki0y"]
+height = 0.1
+radius = 0.75
+
+[node name="Accelerator" type="Path3D"]
+script = ExtResource("1_jkfel")
+
+[node name="Area3D" type="Area3D" parent="." node_paths=PackedStringArray("path")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_rki0y")
+path = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CylinderShape3D_rki0y")
+debug_color = Color(1, 0.966667, 0, 1)
+
+[node name="red_slime" parent="." instance=ExtResource("3_dqyfe")]
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="red_slime"]
+mode = 2
+path_node = NodePath("../..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

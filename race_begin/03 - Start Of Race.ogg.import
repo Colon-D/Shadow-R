@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://sj6h6rpaxh1w"
+path="res://.godot/imported/03 - Start Of Race.ogg-912ec0f589d3adc0e27061174cd0ba8a.oggvorbisstr"
+
+[deps]
+
+source_file="res://race_begin/03 - Start Of Race.ogg"
+dest_files=["res://.godot/imported/03 - Start Of Race.ogg-912ec0f589d3adc0e27061174cd0ba8a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

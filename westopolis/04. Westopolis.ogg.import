@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dc4aox2yu7ftx"
+path="res://.godot/imported/04. Westopolis.ogg-ab2477b08754d6843fb6e66e9c9cb566.oggvorbisstr"
+
+[deps]
+
+source_file="res://westopolis/04. Westopolis.ogg"
+dest_files=["res://.godot/imported/04. Westopolis.ogg-ab2477b08754d6843fb6e66e9c9cb566.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=69.8
+bpm=0
+beat_count=0
+bar_beats=4

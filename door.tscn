@@ -1,56 +1,15 @@
-[gd_scene load_steps=8 format=4 uid="uid://b00nk1pecrvti"]
+[gd_scene load_steps=5 format=3 uid="uid://b00nk1pecrvti"]
 
-[ext_resource type="Material" uid="uid://canupfv0e3k7j" path="res://models/textures/ISLAND03.tres" id="1_0phs7"]
 [ext_resource type="Script" uid="uid://c4fcgnspnkk6i" path="res://door.gd" id="2_0phs7"]
 [ext_resource type="AudioStream" uid="uid://xjb0qq2ak2sq" path="res://sfx/door.ogg" id="3_0phs7"]
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_pgibo"]
-_surfaces = [{
-"aabb": AABB(-2.43284, -0.00084, 0, 4.86001, 3.39, 1e-05),
-"format": 34359742465,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAgABAAMABAADAAEABQADAAQABAABAAYAAAAHAAEABgABAAcACAAHAAAACQAHAAgACgAHAAkACgAGAAcACwAGAAoA"),
-"name": "6",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 12,
-"vertex_data": PackedByteArray("s7MbwCgsoT8AAAAA3BI5uygsoT8AAAAAs7MbwHIzXLoAAAAA3BI5u3IzXLoAAAAAsFYbQCgsoT8AAAAAsFYbQHIzXLoAAAAABg8KQBSWIEAAAAAA3BI5uxSWIEAAAAAACWwKwBSWIEAAAAAAp+zCvwToWEAAAAAA3BI5uwToWEAAAAAAoDLCPwToWEAAAAAA")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_m1ld8"]
-_surfaces = [{
-"aabb": AABB(-2.43284, -0.00084, 0, 4.86001, 3.39, 1e-05),
-"attribute_data": PackedByteArray("AACAPvz/ID8IAP4+/P8gPwAAgD4AAEA/CAD+PgAAQD8AAIA+/P8APwgA/j78/wA/AACAPgAAID8IAP4+AAAgPwgA/j4AAEA/CAD+Pvz/ID8AAIA+AABAPwAAgD78/yA/AACAPgAAQD8IAP4+AABAPwAAgD78/yA/CAD+Pvz/ID8AAIA+AAAgPwgA/j4AACA/AACAPvz/AD8IAP4+/P8APwAAgD4AAEA/AACAPvz/ID8IAP4+AABAPwgA/j78/yA/"),
-"format": 34359742487,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABgAFAAcACAAJAAoACgAJAAsADAANAA4ADgANAA8AEAARABIAEgARABMAFAAVABYAFgAVABcA"),
-"material": ExtResource("1_0phs7"),
-"name": "6",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray("s7MbwCgsoT8AAAAA3BI5uygsoT8AAAAAs7MbwHIzXLoAAAAA3BI5u3IzXLoAAAAACWwKwBSWIEAAAAAA3BI5uxSWIEAAAAAAs7MbwCgsoT8AAAAA3BI5uygsoT8AAAAA3BI5uwToWEAAAAAA3BI5uxSWIEAAAAAAp+zCvwToWEAAAAAACWwKwBSWIEAAAAAAsFYbQHIzXLoAAAAA3BI5u3IzXLoAAAAAsFYbQCgsoT8AAAAA3BI5uygsoT8AAAAAsFYbQCgsoT8AAAAA3BI5uygsoT8AAAAABg8KQBSWIEAAAAAA3BI5uxSWIEAAAAAAoDLCPwToWEAAAAAABg8KQBSWIEAAAAAA3BI5uwToWEAAAAAA3BI5uxSWIEAAAAAA/3//f////7//f/9/////v/9//3////+//3//f////78TgOJ//v8JwP9//3////+//3//f////7//f/9/////v/9//3////8//3//f////z//f/9/////PxOA4n/+//U//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//fwAA/z//f/9/AAD/P/9//38AAP+//3//fwAA/7//f/9/AAD/v/9//38AAP+/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_pgibo")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_7y1a3"]
-size = Vector3(4.8, 3.5, 0.1)
+[ext_resource type="PackedScene" uid="uid://wu0wfcd23c8q" path="res://models/door.blend" id="3_50cdl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eglai"]
 size = Vector3(4.8, 3.5, 0.75)
 
-[node name="Door" type="MeshInstance3D"]
-mesh = SubResource("ArrayMesh_m1ld8")
+[node name="door" type="Node3D"]
 script = ExtResource("2_0phs7")
 door_sfx = ExtResource("3_0phs7")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
-shape = SubResource("BoxShape3D_7y1a3")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 0
@@ -60,5 +19,7 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 shape = SubResource("BoxShape3D_eglai")
+
+[node name="mesh" parent="." instance=ExtResource("3_50cdl")]
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

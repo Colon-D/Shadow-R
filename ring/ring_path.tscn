@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c50m4yjituld"]
+
+[ext_resource type="Script" uid="uid://cdmpu6wl4evtm" path="res://ring/ring_path.gd" id="1_u5cn7"]
+[ext_resource type="PackedScene" uid="uid://ydmqv03p2xwt" path="res://ring/ring.tscn" id="2_10x57"]
+
+[node name="Ring Path" type="Path3D"]
+script = ExtResource("1_u5cn7")
+ring = ExtResource("2_10x57")
+y_offset = 0.25
+
+[connection signal="curve_changed" from="." to="." method="create_rings"]

@@ -1,8 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://eybesypxtxu4"]
-
-[ext_resource type="Shader" uid="uid://d0kiyqbjb3kru" path="res://models/characters/shadow/retro.gdshader" id="1_p6xch"]
-
-[resource]
-resource_name = "brick"
-render_priority = 0
-shader = ExtResource("1_p6xch")

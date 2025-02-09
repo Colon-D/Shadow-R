@@ -1,7 +1,0 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cytme7vsbbkxn"]
-
-[ext_resource type="Texture2D" uid="uid://qbd731256of" path="res://models/characters/sonic/player00.png" id="1_5xp7l"]
-
-[resource]
-albedo_texture = ExtResource("1_5xp7l")
-texture_filter = 0

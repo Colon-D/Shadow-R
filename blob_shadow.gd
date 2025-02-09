@@ -9,7 +9,11 @@ func _physics_process(delta: float) -> void:
 	if result:
 		show()
 		global_position = result.position + Vector3.UP * 0.04
-		look_at(result.position - result.normal)
+		# don't give me some warning about vectors being the same...
+		if result.normal != Vector3.UP:
+			look_at(result.position - result.normal)
+		else:
+			global_rotation = Vector3(-PI / 2, 0, 0)
 	else:
 		pass
 		hide()
