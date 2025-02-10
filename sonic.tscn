@@ -1,23 +1,29 @@
-[gd_scene load_steps=25 format=3 uid="uid://deob3k1y1c47p"]
+[gd_scene load_steps=30 format=3 uid="uid://deob3k1y1c47p"]
 
 [ext_resource type="Script" uid="uid://ceyfxo3oyxeqe" path="res://PlayerMovement.gd" id="1_pqt7p"]
 [ext_resource type="AudioStream" uid="uid://28fue7syfrym" path="res://sfx/spinrev.ogg" id="3_xj0yx"]
 [ext_resource type="AudioStream" uid="uid://cvpwdt1negx0i" path="res://sfx/jump.ogg" id="3_xxe3p"]
 [ext_resource type="AudioStream" uid="uid://rstho7bw328m" path="res://sfx/spin.ogg" id="4_swh58"]
-[ext_resource type="PackedScene" path="res://models/characters/shadow/shadow.fbx" id="5_eeu7w"]
 [ext_resource type="AudioStream" uid="uid://bcatevyj4kn16" path="res://sfx/spingo.ogg" id="5_xifqy"]
 [ext_resource type="AudioStream" uid="uid://guyifoooeaxj" path="res://sfx/splash.ogg" id="6_b64bn"]
 [ext_resource type="AudioStream" uid="uid://ckyyg6nnjru88" path="res://ring/ring.ogg" id="6_xye6k"]
+[ext_resource type="Texture2D" uid="uid://do3ebl0mdsva1" path="res://shields/water_shield.png" id="7_0vv2l"]
 [ext_resource type="AudioStream" uid="uid://wak7mfjg4rkv" path="res://accelerator/red_slime.ogg" id="8_w8pru"]
-[ext_resource type="Texture2D" uid="uid://c7shu83vbhvjb" path="res://models/shadow.png" id="11_3ltlm"]
+[ext_resource type="Material" uid="uid://6e3664mm6vmu" path="res://shadow_mesh.tres" id="9_w8pru"]
 [ext_resource type="Script" uid="uid://dy8um2v03w2s0" path="res://blob_shadow.gd" id="11_w8pru"]
 [ext_resource type="Texture2D" uid="uid://bdv5e4kptj7kj" path="res://models/ripple.png" id="12_0cu2c"]
 [ext_resource type="AudioStream" uid="uid://c3vm3n1yht884" path="res://sfx/bubble.ogg" id="12_w8pru"]
 [ext_resource type="PackedScene" uid="uid://cyihnkkp3r05w" path="res://sonic.blend" id="14_b64bn"]
+[ext_resource type="Shader" uid="uid://qpvqndjl3eac" path="res://shields/shield.gdshader" id="14_i42l3"]
+[ext_resource type="Texture2D" uid="uid://wq2xdbd18nib" path="res://shields/lightning_shield.tres" id="15_i42l3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3ms8q"]
 radius = 0.25
 height = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_b64bn"]
+material = ExtResource("9_w8pru")
+size = Vector2(0.5, 0.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w8pru"]
 atlas = ExtResource("12_0cu2c")
@@ -83,10 +89,19 @@ animations = [{
 "speed": 30.0
 }]
 
-[node name="Sonic" type="CharacterBody3D" node_paths=PackedStringArray("audio", "anim_player", "model", "ripple")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0vv2l"]
+render_priority = 0
+shader = ExtResource("14_i42l3")
+shader_parameter/texture_albedo = ExtResource("7_0vv2l")
+
+[sub_resource type="QuadMesh" id="QuadMesh_352un"]
+material = SubResource("ShaderMaterial_0vv2l")
+
+[node name="Sonic" type="CharacterBody3D" node_paths=PackedStringArray("audio", "anim_player", "model", "ripple", "shield_mesh")]
 collision_layer = 4
 collision_mask = 21
 floor_max_angle = 1.0472
+platform_wall_layers = 17
 script = ExtResource("1_pqt7p")
 audio = NodePath("JumpAudioStream")
 jump_sfx = ExtResource("3_xxe3p")
@@ -94,9 +109,12 @@ roll_sfx = ExtResource("3_xj0yx")
 spin_sfx = ExtResource("4_swh58")
 spin_go_sfx = ExtResource("5_xifqy")
 splash_sfx = ExtResource("6_b64bn")
-anim_player = NodePath("Model2/AnimationPlayer")
-model = NodePath("Model2")
+anim_player = NodePath("Model/AnimationPlayer")
+model = NodePath("Model")
 ripple = NodePath("Ripple")
+shield_mesh = NodePath("Shield")
+water_shield_texture = ExtResource("7_0vv2l")
+lightning_shield_texture = ExtResource("15_i42l3")
 ring_sfx = ExtResource("6_xye6k")
 accelerator_sfx = ExtResource("8_w8pru")
 
@@ -109,60 +127,10 @@ shape = SubResource("CapsuleShape3D_3ms8q")
 [node name="JumpAudioStream" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_xxe3p")
 
-[node name="Model" parent="." instance=ExtResource("5_eeu7w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-visible = false
-
-[node name="tail" parent="Model/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.01, 4.21468e-10, 9.92095e-12, 9.92097e-12, -4.37114e-10, -0.01, -4.21468e-10, 0.01, -4.37114e-10, 0, -1.19209e-10, -1.16415e-10)
-bone_idx = 2
-
-[node name="torso_2" parent="Model/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.01, 4.21468e-10, 9.92095e-12, 9.92097e-12, -4.37114e-10, -0.01, -4.21468e-10, 0.01, -4.37114e-10, 0, -1.19209e-10, -1.16415e-10)
-bone_idx = 3
-
-[node name="head_2" parent="Model/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.01, 4.21468e-10, 2.17117e-11, 2.17117e-11, -4.37114e-10, -0.01, -4.21468e-10, 0.01, -4.37114e-10, 0, -1.19209e-10, 0)
-bone_idx = 5
-
-[node name="arm_l_2" parent="Model/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.00906308, -0.00422618, 2.60307e-09, 3.07248e-09, 7.27578e-10, -0.01, 0.00422618, 0.00906308, 1.98582e-09, 0.000265791, -1.56471e-10, -0.000278268)
-bone_idx = 8
-
-[node name="hand_l_2" parent="Model/Armature/Skeleton3D" index="4"]
-transform = Transform3D(0.00984807, -0.00173648, 2.6637e-09, 0.00122788, 0.00696364, -0.00707106, 0.00122788, 0.00696364, 0.00707107, 0.000241684, 3.90242e-05, -9.40228e-07)
-bone_idx = 10
-
-[node name="arm_r_2" parent="Model/Armature/Skeleton3D" index="5"]
-transform = Transform3D(0.00906308, 0.00422618, -2.60307e-09, -3.07248e-09, 7.27578e-10, -0.01, -0.00422618, 0.00906308, 1.98582e-09, -0.000265791, -1.56471e-10, -0.000278268)
-bone_idx = 13
-
-[node name="hand_r_2" parent="Model/Armature/Skeleton3D" index="6"]
-transform = Transform3D(0.00984808, 0.00173648, 1.15627e-09, -0.00122788, 0.00696364, -0.00707107, -0.00122788, 0.00696364, 0.00707107, -0.000241684, 3.90244e-05, -9.4017e-07)
-bone_idx = 15
-
-[node name="leg_l_2" parent="Model/Armature/Skeleton3D" index="7"]
-transform = Transform3D(4.45051e-09, -1.50996e-09, -0.01, -0.01, -2.06632e-09, -4.45051e-09, -2.06632e-09, 0.01, -1.50996e-09, 0, -2.06632e-10, -1.16415e-10)
-bone_idx = 18
-
-[node name="foot_l_2" parent="Model/Armature/Skeleton3D" index="8"]
-transform = Transform3D(-0.01, 4.21469e-10, 9.92095e-12, -9.92101e-12, -1.31134e-09, -0.01, 4.21468e-10, 0.01, -1.31134e-09, 0, -2.8577e-06, 2.5992e-05)
-bone_idx = 20
-
-[node name="leg_r_2" parent="Model/Armature/Skeleton3D" index="9"]
-transform = Transform3D(4.45051e-09, -1.50996e-09, -0.01, -0.01, -2.06632e-09, -4.45051e-09, -2.06632e-09, 0.01, -1.50996e-09, 0, -2.06632e-10, -1.16415e-10)
-bone_idx = 23
-
-[node name="foot_r_2" parent="Model/Armature/Skeleton3D" index="10"]
-transform = Transform3D(0.01, 4.21469e-10, 9.92099e-12, 9.92101e-12, -5.56363e-10, -0.01, -4.21468e-10, 0.01, -5.56363e-10, 0, -2.8577e-06, 2.5992e-05)
-bone_idx = 25
-
-[node name="Shadow Sprite" type="Sprite3D" parent="."]
-layers = 2
-pixel_size = 0.02
-double_sided = false
-texture_filter = 0
-texture = ExtResource("11_3ltlm")
+[node name="Shadow Mesh" type="MeshInstance3D" parent="."]
+process_mode = 3
+mesh = SubResource("QuadMesh_b64bn")
+skeleton = NodePath("")
 script = ExtResource("11_w8pru")
 
 [node name="Ripple" type="AnimatedSprite3D" parent="."]
@@ -179,10 +147,10 @@ autoplay = "default"
 stream = ExtResource("12_w8pru")
 autoplay = true
 
-[node name="Model2" parent="." instance=ExtResource("14_b64bn")]
+[node name="Model" parent="." instance=ExtResource("14_b64bn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="Skeleton3D" parent="Model2/Armature" index="0"]
+[node name="Skeleton3D" parent="Model/Armature" index="0"]
 bones/4/position = Vector3(0.0945766, 0.0866343, 1.66533e-16)
 bones/4/rotation = Quaternion(0.690346, 0.153046, -0.690346, 0.153046)
 bones/5/rotation = Quaternion(0.130526, 1.57573e-08, 7.77997e-09, 0.991445)
@@ -190,38 +158,42 @@ bones/8/position = Vector3(-0.0945766, 0.0866343, 1.66533e-16)
 bones/8/rotation = Quaternion(0.690346, -0.153046, 0.690346, 0.153046)
 bones/9/rotation = Quaternion(0.130526, -1.57573e-08, -7.77997e-09, 0.991445)
 
-[node name="head_2" parent="Model2/Armature/Skeleton3D" index="0"]
+[node name="head_2" parent="Model/Armature/Skeleton3D" index="0"]
 transform = Transform3D(0.01, 2.17117e-11, -4.21469e-10, -4.21469e-10, 0, -0.01, -2.17117e-11, 0.01, 0, 0, 0, 2.99534e-24)
 
-[node name="hand_l_2" parent="Model2/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.00984808, -5.54354e-10, 0.00173648, 0.00173648, 4.82556e-10, -0.00984808, 1.39924e-10, 0.01, 5.85556e-10, 0.0241684, 0.00152244, 8.31368e-10)
+[node name="hand_l_2" parent="Model/Armature/Skeleton3D" index="1"]
+transform = Transform3D(0.00984807, -1.74645e-09, 0.00173648, 0.00173648, 1.22761e-09, -0.00984807, -8.18714e-10, 0.01, 1.61376e-09, 0.0241684, 0.00152238, 1.62565e-08)
 
-[node name="arm_l_2" parent="Model2/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.00906308, -4.67399e-10, 0.00422618, 0.00422618, 1.66765e-09, -0.00906308, 4.44089e-17, 0.01, 1.04308e-09, 0.0265791, -0.0278268, -7.79682e-10)
+[node name="arm_l_2" parent="Model/Armature/Skeleton3D" index="2"]
+transform = Transform3D(0.00906308, -1.65949e-09, 0.00422618, 0.00422618, 2.41271e-09, -0.00906308, -1.19209e-09, 0.01, 1.78814e-09, 0.0265791, -0.0278268, 1.79213e-08)
 
-[node name="hand_r_2" parent="Model2/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.00984808, -6.19628e-10, -0.00173648, -0.00173648, 6.89561e-10, -0.00984808, 1.05217e-09, 0.01, 5.85556e-10, -0.0241684, 0.00152243, 8.31366e-10)
+[node name="hand_r_2" parent="Model/Armature/Skeleton3D" index="3"]
+transform = Transform3D(0.00984807, 5.72466e-10, -0.00173648, -0.00173649, 1.43462e-09, -0.00984807, 2.01081e-09, 0.01, 1.61376e-09, -0.0241684, 0.00152238, 1.62564e-08)
 
-[node name="arm_r_2" parent="Model2/Armature/Skeleton3D" index="4"]
-transform = Transform3D(0.00906308, 1.5842e-09, -0.00422618, -0.00422618, -1.68455e-10, -0.00906308, -1.19209e-09, 0.01, 4.47035e-10, -0.0265791, -0.0278268, -7.79682e-10)
+[node name="arm_r_2" parent="Model/Armature/Skeleton3D" index="4"]
+transform = Transform3D(0.00906308, 2.7763e-09, -0.00422618, -0.00422618, 5.76603e-10, -0.00906308, 1.11022e-16, 0.01, 1.19209e-09, -0.0265791, -0.0278268, 1.79213e-08)
 
-[node name="tail" parent="Model2/Armature/Skeleton3D" index="5"]
+[node name="tail" parent="Model/Armature/Skeleton3D" index="5"]
 transform = Transform3D(0.01, 9.92095e-12, -4.21469e-10, -4.21469e-10, 0, -0.01, -9.92095e-12, 0.01, 0, 0, -3.2306e-32, 5.87747e-39)
 
-[node name="torso_2" parent="Model2/Armature/Skeleton3D" index="6"]
+[node name="torso_2" parent="Model/Armature/Skeleton3D" index="6"]
 transform = Transform3D(0.01, 9.92095e-12, -4.21469e-10, -4.21469e-10, 0, -0.01, -9.92095e-12, 0.01, 0, 0, -3.2306e-32, 5.87747e-39)
 
-[node name="foot_l_2" parent="Model2/Armature/Skeleton3D" index="7"]
+[node name="foot_l_2" parent="Model/Armature/Skeleton3D" index="7"]
 transform = Transform3D(-0.01, 9.92095e-12, -4.21469e-10, 4.21469e-10, 0, -0.01, 9.92095e-12, 0.01, 0, 0, 0.00259921, 0.000285748)
 
-[node name="leg_l_2" parent="Model2/Armature/Skeleton3D" index="8"]
+[node name="leg_l_2" parent="Model/Armature/Skeleton3D" index="8"]
 transform = Transform3D(-3.17865e-10, -0.01, -5.96046e-10, -5.96046e-10, 1.19209e-09, -0.01, 0.01, 2.78181e-10, 5.2108e-17, 0, 0, -4.93038e-32)
 
-[node name="foot_r_2" parent="Model2/Armature/Skeleton3D" index="9"]
+[node name="foot_r_2" parent="Model/Armature/Skeleton3D" index="9"]
 transform = Transform3D(0.01, 9.92095e-12, -4.21469e-10, -4.21469e-10, 0, -0.01, -9.92095e-12, 0.01, 0, 0, 0.00259921, 0.000285748)
 
-[node name="leg_r_2" parent="Model2/Armature/Skeleton3D" index="10"]
+[node name="leg_r_2" parent="Model/Armature/Skeleton3D" index="10"]
 transform = Transform3D(-3.17865e-10, -0.01, -5.96046e-10, -5.96046e-10, 1.19209e-09, -0.01, 0.01, 2.78181e-10, 5.2108e-17, 0, 0, -4.93038e-32)
 
+[node name="Shield" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+visible = false
+mesh = SubResource("QuadMesh_352un")
+
 [editable path="Model"]
-[editable path="Model2"]

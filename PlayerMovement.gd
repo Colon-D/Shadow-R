@@ -8,6 +8,9 @@ extends CharacterBody3D
 # why am I in all caps? I'm tired.
 
 const ACCEL := 21.0
+const FLEET_FEET_ACCEL_MULT := 1.33 # I don't know what fleet feet actually does
+var fleet_feet_timer := 0.0
+const MAX_FLEET_FEET_TIME := 8.0
 const DECEL := 0.75
 const DECEL_LIN := 4.0
 const TURN := 0.55 # seems slow but that's what I calculated
@@ -38,6 +41,9 @@ var jumps := 0
 @export var anim_player: AnimationPlayer
 @export var model: Node3D
 @export var ripple: AnimatedSprite3D
+@export var shield_mesh: MeshInstance3D
+@export var water_shield_texture: Texture2D
+@export var lightning_shield_texture: Texture2D
 
 var kayote_time := 0.0
 const MAX_KAYOTE_TIME := 0.1
@@ -64,6 +70,25 @@ var accelerator_fuel := 0.0
 var accelerator_progress := 0.0
 @export var accelerator_sfx: AudioStream
 
+enum Shield { NONE, WATER, LIGHTNING }
+@onready var shield := Shield.NONE:
+	set(value):
+		shield = value
+		if shield == Shield.NONE:
+			shield_mesh.hide()
+		else:
+			shield_mesh.show()
+			var shield_texture := water_shield_texture if value == Shield.WATER else lightning_shield_texture
+			var material := shield_mesh.mesh.surface_get_material(0) as ShaderMaterial
+			material.set_shader_parameter("texture_albedo", shield_texture)
+			lightning_shield_countdown = 0.0
+			water_shield_triggered = false
+			if shield == Shield.LIGHTNING:
+				lightning_shield_countdown = LIGHTNING_SHIELD_TIME
+var water_shield_triggered := false
+var lightning_shield_countdown := 0.0
+const LIGHTNING_SHIELD_TIME := 30.0
+
 func collect_ring():
 	rings += 1
 	audio.stream = ring_sfx
@@ -83,6 +108,9 @@ func accelerator(new_accelerator_path: Path3D):
 	audio.pitch_scale = 1.0
 	audio.play()
 
+func _ready():
+	shield = Shield.LIGHTNING
+
 func _physics_process(delta: float) -> void:
 	var vel_mag := velocity.length()
 	var moving := vel_mag > 1
@@ -99,6 +127,11 @@ func _physics_process(delta: float) -> void:
 			audio.stop()
 
 	else:
+		if shield == Shield.LIGHTNING:
+			lightning_shield_countdown -= delta
+			if lightning_shield_countdown <= 0:
+				shield = Shield.NONE
+
 		var on_floor := is_on_floor()
 		if on_floor:
 			jumps = 0
@@ -108,21 +141,37 @@ func _physics_process(delta: float) -> void:
 			set_new_up_direction(get_floor_normal())
 			if state == State.JUMP or state == State.SWIM:
 				state = State.NORMAL
+			if water_shield_triggered:
+				shield = Shield.NONE
 		else:
 			kayote_time -= delta
 			# check if swimming
 			if position.y < 0:
-				anim_player.stop()
-				jumps = 0
-				if state != State.SWIM:
-					audio.stream = splash_sfx
-					audio.pitch_scale = 1.0
-					audio.play()
-					state = State.SWIM
 				position.y = -0.001 # don't want to unswim yet
 				velocity.y = 0
+				jumps = 0
+				if (shield == Shield.WATER):
+					water_shield_triggered = true
+					# WET principle in action: from on_floor above
+					double_jumping = false
+					extend_jump = true
+					kayote_time = MAX_KAYOTE_TIME
+					set_new_up_direction(Vector3.UP)
+					if state == State.JUMP or state == State.SWIM:
+						state = State.NORMAL
+				else:
+					if (shield == Shield.LIGHTNING):
+						shield = Shield.NONE
+					if state != State.SWIM:
+						anim_player.stop()
+						audio.stream = splash_sfx
+						audio.pitch_scale = 1.0
+						audio.play()
+						state = State.SWIM
 			# otherwise, if no kayote frames, we are jumping/falling
 			else:
+				if water_shield_triggered:
+					shield = Shield.NONE
 				var gravity = get_gravity()
 				if (kayote_time <= 0):
 					gravity *= GRAVITY_AIR_MULT
@@ -178,9 +227,13 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.move_toward(zero_xz, decel_lin * delta) # linear
 
 		# pressing back shouldn't make up move back nor decelerate
+		fleet_feet_timer -= delta
 		if state != State.SPINDASH:
 			var forwards_input := maxf(Input.get_action_strength("accel"), 0)
-			var forwards_accel := basis.z * forwards_input * ACCEL
+			var accel := ACCEL
+			if fleet_feet_timer > 0:
+				accel *= FLEET_FEET_ACCEL_MULT
+			var forwards_accel := basis.z * forwards_input * accel
 			velocity += forwards_accel * delta
 
 		# roll
@@ -307,7 +360,7 @@ func _physics_process(delta: float) -> void:
 				anim_player.speed_scale = 1
 
 	# calculate how far along path we are
-	if path != null:
+	if path != null and path.curve != null:
 		var curve := path.curve
 		var curve_percent := 100.0 * curve.get_closest_offset(position) / curve.get_baked_length()
 		# get the change in progress

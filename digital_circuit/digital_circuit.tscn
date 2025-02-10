@@ -1,0 +1,83 @@
+[gd_scene load_steps=13 format=3 uid="uid://hu88dmlcsvyy"]
+
+[ext_resource type="PackedScene" uid="uid://b76pkmfohc5wa" path="res://gameplay.tscn" id="1_guv5i"]
+[ext_resource type="Shader" uid="uid://dx8hwc7picmdt" path="res://skybox.gdshader" id="2_otoce"]
+[ext_resource type="Texture2D" uid="uid://6yf5hcqky6ti" path="res://digital_circuit/skybox.png" id="3_dli5l"]
+[ext_resource type="AudioStream" uid="uid://cejupphdhln1p" path="res://digital_circuit/09. Digital Circuit.ogg" id="4_dli5l"]
+[ext_resource type="PackedScene" uid="uid://bn12pjhmnj022" path="res://digital_circuit/digital_circuit.blend" id="5_wbl5o"]
+[ext_resource type="Script" uid="uid://d3w8t0h8btrk8" path="res://digital_circuit/autoplay_animation.gd" id="6_jchlv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jchlv"]
+size = Vector3(12.0009, 5.97476, 5.97456)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5qxeh"]
+size = Vector3(6.00061, 6.00092, 12.001)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wbl5o"]
+shader = ExtResource("2_otoce")
+shader_parameter/source_panorama = ExtResource("3_dli5l")
+
+[sub_resource type="Sky" id="Sky_jchlv"]
+sky_material = SubResource("ShaderMaterial_wbl5o")
+radiance_size = 0
+
+[sub_resource type="Environment" id="Environment_5qxeh"]
+background_mode = 2
+background_color = Color(0.68396, 0.789042, 1, 1)
+sky = SubResource("Sky_jchlv")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.0
+reflected_light_source = 1
+
+[sub_resource type="Curve3D" id="Curve3D_jchlv"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 25, 1, -45.02, 0, 0, 0, 0, 0, 0, 0, 1, 5, 0, 0, 0, 0, 0, 0, 0, 10, 5, 0, 0, 0, 0, 0, 0, 23.8687, 10, -47.6791, 0, 0, 0, 0, 0, 0, 42.1, 6, -64.79),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="Gameplay" instance=ExtResource("1_guv5i")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.00253, 3.01137, -6.00284)
+shape = SubResource("BoxShape3D_jchlv")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.99091, 2.99844, -3.01123)
+shape = SubResource("BoxShape3D_5qxeh")
+
+[node name="StaticBody3D" type="RigidBody3D" parent="." index="2"]
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+can_sleep = false
+freeze_mode = 1
+
+[node name="WorldEnvironment - Retro" parent="." index="5"]
+environment = SubResource("Environment_5qxeh")
+
+[node name="Sonic" parent="." index="6"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 25.2466, 4.76837e-07, -45.3909)
+
+[node name="RaceBegin" parent="." index="9"]
+skip = true
+music = ExtResource("4_dli5l")
+
+[node name="LapProgress" parent="." index="11"]
+curve = SubResource("Curve3D_jchlv")
+length = 174.688
+ring_fuel = 139.751
+
+[node name="digital_circuit" parent="." index="12" instance=ExtResource("5_wbl5o")]
+script = ExtResource("6_jchlv")
+
+[node name="AnimationPlayer" parent="digital_circuit" index="53"]
+speed_scale = 0.25
+
+[connection signal="focus_entered" from="UI/pause/pause_options/continue" to="UI/pause" method="focus_entered"]
+[connection signal="focus_entered" from="UI/pause/pause_options/retry" to="UI/pause" method="focus_entered"]
+[connection signal="focus_entered" from="UI/pause/pause_options/retire" to="UI/pause" method="focus_entered"]
+
+[editable path="digital_circuit"]

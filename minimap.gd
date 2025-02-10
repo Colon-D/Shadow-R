@@ -7,7 +7,7 @@ extends TextureRect
 @export var xform_rotate_degrees: float
 @export var xform_scale := Vector2.ONE
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if not player:
 		return
 	var xform = Transform2D(deg_to_rad(xform_rotate_degrees), xform_scale, 0, xform_translate)

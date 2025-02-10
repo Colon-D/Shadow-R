@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://6e3664mm6vmu"]
+
+[ext_resource type="Shader" uid="uid://c38bpihxgi25s" path="res://shadow.gdshader" id="1_txtft"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_txtft")

@@ -1,0 +1,29 @@
+[gd_resource type="AnimatedTexture" load_steps=9 format=3 uid="uid://wq2xdbd18nib"]
+
+[ext_resource type="Texture2D" uid="uid://bh3vj7abrosbn" path="res://shields/lightning_shield_0.png" id="1_wivhg"]
+[ext_resource type="Texture2D" uid="uid://chsb4efwoltgp" path="res://shields/lightning_shield_1.png" id="2_dnbsb"]
+[ext_resource type="Texture2D" uid="uid://srrljjl1adio" path="res://shields/lightning_shield_2.png" id="3_jk11x"]
+[ext_resource type="Texture2D" uid="uid://cojobli1ow5yj" path="res://shields/lightning_shield_3.png" id="4_nnjyg"]
+[ext_resource type="Texture2D" uid="uid://cbnlq8ndm3d31" path="res://shields/lightning_shield_4.png" id="5_1exmc"]
+[ext_resource type="Texture2D" uid="uid://c4efb4s5ubf1j" path="res://shields/lightning_shield_5.png" id="6_wqyx2"]
+[ext_resource type="Texture2D" uid="uid://b5fow7s18lvgk" path="res://shields/lightning_shield_6.png" id="7_2g0ef"]
+[ext_resource type="Texture2D" uid="uid://bdifb8xu5dtxv" path="res://shields/lightning_shield_7.png" id="8_ehfkx"]
+
+[resource]
+frames = 8
+speed_scale = 30.0
+frame_0/texture = ExtResource("1_wivhg")
+frame_1/texture = ExtResource("2_dnbsb")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_jk11x")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_nnjyg")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("5_1exmc")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("6_wqyx2")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("7_2g0ef")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("8_ehfkx")
+frame_7/duration = 1.0

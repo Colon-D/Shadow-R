@@ -112,7 +112,7 @@ shadow_color = Color(0, 0, 0, 1)
 font_size = 24
 shadow_color = Color(0, 0, 0, 1)
 
-[node name="Gameplay" type="Node3D" node_paths=PackedStringArray("total_time_ui", "lap_time_ui", "rings_ui", "main_player")]
+[node name="Gameplay3" type="Node3D" node_paths=PackedStringArray("total_time_ui", "lap_time_ui", "rings_ui", "main_player")]
 script = ExtResource("1_eod45")
 total_time_ui = NodePath("UI/MarginContainer/Timer/Total")
 lap_time_ui = [NodePath("UI/MarginContainer/Timer/Lap 1"), NodePath("UI/MarginContainer/Timer/Lap 2"), NodePath("UI/MarginContainer/Timer/Lap 3")]
@@ -232,6 +232,7 @@ grow_vertical = 2
 texture = ExtResource("6_fbudy")
 
 [node name="pause" type="CenterContainer" parent="UI" node_paths=PackedStringArray("default_focus", "pause_player", "menu_player")]
+process_mode = 3
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -313,9 +314,10 @@ texture = ExtResource("35_5a717")
 params/in_editor = true
 script = ExtResource("5_smepj")
 
-[node name="RaceBegin" type="Node" parent="." node_paths=PackedStringArray("player", "ready_timer", "set_timer", "go_timer", "post_go_timer", "ui_ready", "ui_set", "ui_go")]
+[node name="RaceBegin" type="Node" parent="." node_paths=PackedStringArray("player", "music_player", "ready_timer", "set_timer", "go_timer", "post_go_timer", "ui_ready", "ui_set", "ui_go")]
 script = ExtResource("34_d3t05")
 player = NodePath("../Sonic")
+music_player = NodePath("../MusicPlayer")
 ready_timer = NodePath("ReadyTimer")
 set_timer = NodePath("SetTimer")
 go_timer = NodePath("GoTimer")
@@ -346,8 +348,23 @@ stream = ExtResource("35_j6kuv")
 [node name="LapProgress" type="Path3D" parent="."]
 script = ExtResource("39_dsr22")
 
-[connection signal="button_down" from="UI/pause/pause_options/continue" to="UI/pause" method="unpause"]
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="LapProgress"]
+visible = false
+polygon = PackedVector2Array(0, 0, 0.5, 1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
 [connection signal="focus_entered" from="UI/pause/pause_options/continue" to="UI/pause" method="focus_entered"]
+[connection signal="pressed" from="UI/pause/pause_options/continue" to="UI/pause" method="unpause"]
 [connection signal="focus_entered" from="UI/pause/pause_options/retry" to="UI/pause" method="focus_entered"]
 [connection signal="pressed" from="UI/pause/pause_options/retry" to="UI/pause" method="reload"]
 [connection signal="focus_entered" from="UI/pause/pause_options/retire" to="UI/pause" method="focus_entered"]

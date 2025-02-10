@@ -4,6 +4,6 @@
 
 # Lily's ignores
 sfx_src/
-# *.blend # no longer ignore as we are importing westopolis map. I need to get rid of other blender files then...
 models/courses/westopolis/src_textures/
 models/courses/westopolis/src_models/
+*.blend1

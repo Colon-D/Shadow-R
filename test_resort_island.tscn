@@ -311,9 +311,6 @@ point_count = 6
 
 [node name="Gameplay" instance=ExtResource("1_by0eu")]
 
-[node name="Camera3D" parent="." index="0"]
-current = true
-
 [node name="WorldEnvironment - Retro" parent="." index="2"]
 environment = SubResource("Environment_u2uqs")
 

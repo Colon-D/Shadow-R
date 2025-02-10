@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cejupphdhln1p"
+path="res://.godot/imported/09. Digital Circuit.ogg-c4c69e2b7ca12f0a764277d405c532bd.oggvorbisstr"
+
+[deps]
+
+source_file="res://digital_circuit/09. Digital Circuit.ogg"
+dest_files=["res://.godot/imported/09. Digital Circuit.ogg-c4c69e2b7ca12f0a764277d405c532bd.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=6.09
+bpm=0
+beat_count=0
+bar_beats=4

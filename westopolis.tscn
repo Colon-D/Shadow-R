@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://csnnasb8lylx6"]
+[gd_scene load_steps=28 format=3 uid="uid://csnnasb8lylx6"]
 
 [ext_resource type="PackedScene" uid="uid://b76pkmfohc5wa" path="res://gameplay.tscn" id="1_n34vc"]
 [ext_resource type="Texture2D" uid="uid://caqhnlc0xl50w" path="res://models/courses/westopolis/skybox.png" id="2_jbbcb"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://c2btl25lwd133" path="res://accelerator/accelerator.tscn" id="7_hyl8t"]
 [ext_resource type="Material" uid="uid://cowkkiph03csk" path="res://accelerator/red_slime_material.tres" id="8_q2ret"]
 [ext_resource type="AudioStream" uid="uid://dc4aox2yu7ftx" path="res://westopolis/04. Westopolis.ogg" id="9_iunvk"]
+[ext_resource type="PackedScene" uid="uid://nehsc6ns5sd4" path="res://item_panel/item_panel.tscn" id="10_c18mg"]
+[ext_resource type="PackedScene" uid="uid://y2ogf7bco0ax" path="res://test_animated_texture.blend" id="11_c7yr7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pwdr1"]
 shader = ExtResource("2_pwdr1")
@@ -132,9 +134,6 @@ xform_translate = Vector2(70.5, 48)
 
 [node name="Player" parent="UI/MarginContainer/Minimap" index="0"]
 modulate = Color(1, 0, 0, 1)
-
-[node name="pause" parent="UI" index="1"]
-process_mode = 3
 
 [node name="map" parent="." index="6" instance=ExtResource("3_jbbcb")]
 
@@ -261,18 +260,24 @@ length = 17.7218
 ring_fuel = 14.1775
 metadata/_edit_group_ = true
 
-[node name="RaceBegin" parent="." index="11" node_paths=PackedStringArray("music_player")]
-music_player = NodePath("../MusicPlayer")
+[node name="RaceBegin" parent="." index="11"]
+skip = true
 music = ExtResource("9_iunvk")
 
 [node name="LapProgress" parent="." index="13"]
 curve = SubResource("Curve3D_87vfy")
-length = 333.822
+length = 333.823
 ring_fuel = 267.058
 
-[connection signal="focus_entered" from="UI/pause/pause_options/continue" to="UI/pause" method="focus_entered"]
-[connection signal="focus_entered" from="UI/pause/pause_options/retry" to="UI/pause" method="focus_entered"]
-[connection signal="focus_entered" from="UI/pause/pause_options/retire" to="UI/pause" method="focus_entered"]
+[node name="ItemPanel2" parent="." index="14" instance=ExtResource("10_c18mg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.8966, 8.7, 65.0045)
+
+[node name="ItemPanel" parent="." index="15" instance=ExtResource("10_c18mg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.9404, 0.7, -34.9355)
+
+[node name="test_animated_texture" parent="." index="16" instance=ExtResource("11_c7yr7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.0603, 8.12832, 30.7741)
+
 [connection signal="door_opened" from="50 Doors/Door In" to="50 Doors" method="queue_free"]
 [connection signal="door_opened" from="50 Doors/Door Out" to="50 Doors" method="queue_free"]
 
