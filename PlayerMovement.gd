@@ -44,6 +44,9 @@ var jumps := 0
 @export var shield_mesh: MeshInstance3D
 @export var water_shield_texture: Texture2D
 @export var lightning_shield_texture: Texture2D
+@export var ring_hitbox: CollisionShape3D
+const RING_RADIUS := 0.5
+const RING_RADIUS_LIGHTNING := 5.0
 
 var kayote_time := 0.0
 const MAX_KAYOTE_TIME := 0.1
@@ -68,12 +71,14 @@ var prev_lap_percent := 0.0
 var accelerator_path: Path3D
 var accelerator_fuel := 0.0
 var accelerator_progress := 0.0
+var accelerator_speed_mult := 1.0
 @export var accelerator_sfx: AudioStream
 
 enum Shield { NONE, WATER, LIGHTNING }
 @onready var shield := Shield.NONE:
 	set(value):
 		shield = value
+		ring_hitbox.shape.radius = RING_RADIUS
 		if shield == Shield.NONE:
 			shield_mesh.hide()
 		else:
@@ -82,10 +87,12 @@ enum Shield { NONE, WATER, LIGHTNING }
 			var material := shield_mesh.mesh.surface_get_material(0) as ShaderMaterial
 			material.set_shader_parameter("texture_albedo", shield_texture)
 			lightning_shield_countdown = 0.0
-			water_shield_triggered = false
+			water_shield_triggered = 0.0
 			if shield == Shield.LIGHTNING:
 				lightning_shield_countdown = LIGHTNING_SHIELD_TIME
-var water_shield_triggered := false
+				ring_hitbox.shape.radius = RING_RADIUS_LIGHTNING
+var water_shield_triggered := 0.0
+const WATER_SHIELD_LENIENCY := 0.1
 var lightning_shield_countdown := 0.0
 const LIGHTNING_SHIELD_TIME := 30.0
 
@@ -95,34 +102,32 @@ func collect_ring():
 	audio.pitch_scale = 1.0
 	audio.play()
 
-func accelerator(new_accelerator_path: Path3D):
+func accelerator(new_accelerator_path: Path3D, new_accelerator_speed_mult := 1.0):
 	var rings_taken: int = min(50, rings)
 	accelerator_fuel = rings_taken * 1.25
 	if accelerator_fuel <= 0:
 		return
 	accelerator_path = new_accelerator_path
 	accelerator_progress = 0.0
+	accelerator_speed_mult = new_accelerator_speed_mult
 	rings -= rings_taken
 	state = State.ACCELERATOR
 	audio.stream = accelerator_sfx
 	audio.pitch_scale = 1.0
 	audio.play()
 
-func _ready():
-	shield = Shield.LIGHTNING
-
 func _physics_process(delta: float) -> void:
 	var vel_mag := velocity.length()
 	var moving := vel_mag > 1
 
 	if state == State.ACCELERATOR:
-		vel_mag = 40.0
+		vel_mag = 32.0 * accelerator_speed_mult
 		accelerator_progress += delta * vel_mag
-		var trans = accelerator_path.curve.sample_baked_with_rotation(accelerator_progress, true)
-		position = accelerator_path.global_position + trans.origin
+		var trans = accelerator_path.transform * accelerator_path.curve.sample_baked_with_rotation(accelerator_progress, true)
+		position = trans.origin
 		look_at(position + trans.basis.z)
 		if accelerator_progress >= accelerator_fuel:
-			velocity = basis.z * 24.0
+			velocity = -trans.basis.z * 24.0 * accelerator_speed_mult
 			state = State.NORMAL
 			audio.stop()
 
@@ -141,7 +146,7 @@ func _physics_process(delta: float) -> void:
 			set_new_up_direction(get_floor_normal())
 			if state == State.JUMP or state == State.SWIM:
 				state = State.NORMAL
-			if water_shield_triggered:
+			if water_shield_triggered > WATER_SHIELD_LENIENCY:
 				shield = Shield.NONE
 		else:
 			kayote_time -= delta
@@ -151,7 +156,7 @@ func _physics_process(delta: float) -> void:
 				velocity.y = 0
 				jumps = 0
 				if (shield == Shield.WATER):
-					water_shield_triggered = true
+					water_shield_triggered += delta
 					# WET principle in action: from on_floor above
 					double_jumping = false
 					extend_jump = true
@@ -170,7 +175,7 @@ func _physics_process(delta: float) -> void:
 						state = State.SWIM
 			# otherwise, if no kayote frames, we are jumping/falling
 			else:
-				if water_shield_triggered:
+				if water_shield_triggered > WATER_SHIELD_LENIENCY:
 					shield = Shield.NONE
 				var gravity = get_gravity()
 				if (kayote_time <= 0):
@@ -317,7 +322,7 @@ func _physics_process(delta: float) -> void:
 
 		var collided := move_and_slide()
 		if collided:
-			# bounce off of wall
+			# bounce off of wall (doesn't work too well anymore)
 			var collided_with := get_last_slide_collision()
 			var collider: CollisionObject3D = collided_with.get_collider()
 			if collider.collision_layer == 1: # regular geometry, not track, bouncy

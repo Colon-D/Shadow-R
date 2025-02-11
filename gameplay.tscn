@@ -1,9 +1,8 @@
-[gd_scene load_steps=52 format=3 uid="uid://b76pkmfohc5wa"]
+[gd_scene load_steps=51 format=3 uid="uid://b76pkmfohc5wa"]
 
 [ext_resource type="Script" uid="uid://dg8b8ry3srv2d" path="res://gameplay.gd" id="1_eod45"]
 [ext_resource type="Shader" uid="uid://dx8hwc7picmdt" path="res://skybox.gdshader" id="3_xuee5"]
 [ext_resource type="Texture2D" uid="uid://cukm3ad3rrwv8" path="res://ring/ring_00.png" id="5_1ni6y"]
-[ext_resource type="Texture2D" uid="uid://cg5hmeyk1rsnc" path="res://models/courses/westopolis/minimap.png" id="5_cbffv"]
 [ext_resource type="Script" uid="uid://b8ehku6btf4ar" path="res://destroy_self.gd" id="5_smepj"]
 [ext_resource type="Script" uid="uid://c4wwwpimnif47" path="res://minimap.gd" id="6_0m7cd"]
 [ext_resource type="Texture2D" uid="uid://bbigmxcqauah1" path="res://minimap_player.png" id="6_fbudy"]
@@ -112,7 +111,7 @@ shadow_color = Color(0, 0, 0, 1)
 font_size = 24
 shadow_color = Color(0, 0, 0, 1)
 
-[node name="Gameplay3" type="Node3D" node_paths=PackedStringArray("total_time_ui", "lap_time_ui", "rings_ui", "main_player")]
+[node name="Gameplay" type="Node3D" node_paths=PackedStringArray("total_time_ui", "lap_time_ui", "rings_ui", "main_player")]
 script = ExtResource("1_eod45")
 total_time_ui = NodePath("UI/MarginContainer/Timer/Total")
 lap_time_ui = [NodePath("UI/MarginContainer/Timer/Lap 1"), NodePath("UI/MarginContainer/Timer/Lap 2"), NodePath("UI/MarginContainer/Timer/Lap 3")]
@@ -208,15 +207,13 @@ horizontal_alignment = 2
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource("5_cbffv")
 stretch_mode = 5
 script = ExtResource("6_0m7cd")
 player_icon = NodePath("Player")
 player = NodePath("../../../Sonic")
-xform_rotate_degrees = 90.0
-xform_scale = Vector2(0.7, 0.7)
 
 [node name="Player" type="TextureRect" parent="UI/MarginContainer/Minimap"]
+modulate = Color(1, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

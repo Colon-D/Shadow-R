@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://d3qde4rb72fyu"]
+
+[ext_resource type="Shader" uid="uid://c15gbcgybsxjc" path="res://iron_jungle/light_beam.gdshader" id="1_62paw"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_62paw")

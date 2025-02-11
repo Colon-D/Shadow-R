@@ -179,6 +179,7 @@ pause={
 3d_physics/layer_2="Ring"
 3d_physics/layer_3="Player"
 3d_physics/layer_5="Geometry Floor"
+3d_physics/layer_6="Layer 6"
 
 [physics]
 

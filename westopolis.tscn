@@ -1,16 +1,15 @@
-[gd_scene load_steps=28 format=3 uid="uid://csnnasb8lylx6"]
+[gd_scene load_steps=27 format=3 uid="uid://csnnasb8lylx6"]
 
 [ext_resource type="PackedScene" uid="uid://b76pkmfohc5wa" path="res://gameplay.tscn" id="1_n34vc"]
 [ext_resource type="Texture2D" uid="uid://caqhnlc0xl50w" path="res://models/courses/westopolis/skybox.png" id="2_jbbcb"]
 [ext_resource type="Shader" uid="uid://dx8hwc7picmdt" path="res://skybox.gdshader" id="2_pwdr1"]
 [ext_resource type="PackedScene" uid="uid://di6qq2akvcimt" path="res://models/courses/westopolis/map.blend" id="3_jbbcb"]
+[ext_resource type="Texture2D" uid="uid://cg5hmeyk1rsnc" path="res://models/courses/westopolis/minimap.png" id="4_c7yr7"]
 [ext_resource type="PackedScene" uid="uid://b00nk1pecrvti" path="res://door.tscn" id="5_ggiq8"]
 [ext_resource type="PackedScene" uid="uid://c50m4yjituld" path="res://ring/ring_path.tscn" id="6_a8woo"]
 [ext_resource type="PackedScene" uid="uid://c2btl25lwd133" path="res://accelerator/accelerator.tscn" id="7_hyl8t"]
-[ext_resource type="Material" uid="uid://cowkkiph03csk" path="res://accelerator/red_slime_material.tres" id="8_q2ret"]
 [ext_resource type="AudioStream" uid="uid://dc4aox2yu7ftx" path="res://westopolis/04. Westopolis.ogg" id="9_iunvk"]
 [ext_resource type="PackedScene" uid="uid://nehsc6ns5sd4" path="res://item_panel/item_panel.tscn" id="10_c18mg"]
-[ext_resource type="PackedScene" uid="uid://y2ogf7bco0ax" path="res://test_animated_texture.blend" id="11_c7yr7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pwdr1"]
 shader = ExtResource("2_pwdr1")
@@ -130,10 +129,10 @@ environment = SubResource("Environment_a8woo")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 64.9811, 8, 32.1669)
 
 [node name="Minimap" parent="UI/MarginContainer" index="2"]
+texture = ExtResource("4_c7yr7")
 xform_translate = Vector2(70.5, 48)
-
-[node name="Player" parent="UI/MarginContainer/Minimap" index="0"]
-modulate = Color(1, 0, 0, 1)
+xform_rotate_degrees = 90.0
+xform_scale = Vector2(0.7, 0.7)
 
 [node name="map" parent="." index="6" instance=ExtResource("3_jbbcb")]
 
@@ -156,17 +155,6 @@ curve = SubResource("Curve3D_c7yr7")
 length = 64.4884
 ring_fuel = 51.5907
 
-[node name="CSGPolygon3D" parent="Accelerator/red_slime" index="1"]
-polygon = PackedVector2Array(0, 0, 0.5, 0.25, 1, 0)
-path_interval = 2.0
-path_simplify_angle = 10.0
-path_rotation = 1
-path_rotation_accurate = true
-path_local = true
-path_u_distance = 2.0
-smooth_faces = true
-material = ExtResource("8_q2ret")
-
 [node name="Ring Paths" type="Node3D" parent="." index="10"]
 
 [node name="Ring Path start" parent="Ring Paths" index="0" instance=ExtResource("6_a8woo")]
@@ -180,7 +168,7 @@ metadata/_edit_group_ = true
 [node name="Ring Path inside" parent="Ring Paths" index="1" instance=ExtResource("6_a8woo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7174, 0.313408, -73.5245)
 curve = SubResource("Curve3D_hyl8t")
-children = 10
+children = 11
 length = 20.3758
 ring_fuel = 16.3006
 metadata/_edit_group_ = true
@@ -196,7 +184,7 @@ metadata/_edit_group_ = true
 [node name="Ring Path end" parent="Ring Paths" index="3" instance=ExtResource("6_a8woo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.0339, 15.0527, 66.5651)
 curve = SubResource("Curve3D_iunvk")
-children = 10
+children = 11
 length = 20.0
 ring_fuel = 16.0
 metadata/_edit_group_ = true
@@ -204,7 +192,7 @@ metadata/_edit_group_ = true
 [node name="Ring Path end 2" parent="Ring Paths" index="4" instance=ExtResource("6_a8woo")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 42.7438, 11.9038, 57.6065)
 curve = SubResource("Curve3D_c18mg")
-children = 10
+children = 11
 length = 20.0
 ring_fuel = 16.0
 metadata/_edit_group_ = true
@@ -212,7 +200,7 @@ metadata/_edit_group_ = true
 [node name="Ring Path rubble" parent="Ring Paths" index="5" instance=ExtResource("6_a8woo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2847, 13.0965, 109.234)
 curve = SubResource("Curve3D_4wvjp")
-children = 10
+children = 11
 length = 20.1464
 ring_fuel = 16.1172
 metadata/_edit_group_ = true
@@ -220,7 +208,7 @@ metadata/_edit_group_ = true
 [node name="Ring Path rubble2" parent="Ring Paths" index="6" instance=ExtResource("6_a8woo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2847, 13.0965, 107.759)
 curve = SubResource("Curve3D_cr4un")
-children = 10
+children = 11
 length = 20.2328
 ring_fuel = 16.1863
 metadata/_edit_group_ = true
@@ -228,7 +216,7 @@ metadata/_edit_group_ = true
 [node name="Ring Path rubble3" parent="Ring Paths" index="7" instance=ExtResource("6_a8woo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2847, 13.0965, 110.645)
 curve = SubResource("Curve3D_f0aor")
-children = 10
+children = 11
 length = 20.1891
 ring_fuel = 16.1513
 metadata/_edit_group_ = true
@@ -246,7 +234,7 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7174, 0.313408, -35.0312)
 curve = SubResource("Curve3D_5empj")
 distance = 4.0
-children = 5
+children = 6
 length = 20.0
 ring_fuel = 16.0
 metadata/_edit_group_ = true
@@ -274,9 +262,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.8966, 8.7, 65.0045)
 
 [node name="ItemPanel" parent="." index="15" instance=ExtResource("10_c18mg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.9404, 0.7, -34.9355)
-
-[node name="test_animated_texture" parent="." index="16" instance=ExtResource("11_c7yr7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.0603, 8.12832, 30.7741)
 
 [connection signal="door_opened" from="50 Doors/Door In" to="50 Doors" method="queue_free"]
 [connection signal="door_opened" from="50 Doors/Door Out" to="50 Doors" method="queue_free"]

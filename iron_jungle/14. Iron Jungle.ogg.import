@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://isbpnw4021mw"
+path="res://.godot/imported/14. Iron Jungle.ogg-0df7691c50ade39af830ba3e601e1a4b.oggvorbisstr"
+
+[deps]
+
+source_file="res://iron_jungle/14. Iron Jungle.ogg"
+dest_files=["res://.godot/imported/14. Iron Jungle.ogg-0df7691c50ade39af830ba3e601e1a4b.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.1
+bpm=0
+beat_count=0
+bar_beats=4

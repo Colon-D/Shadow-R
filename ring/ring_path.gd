@@ -24,7 +24,7 @@ func create_rings():
 		child.queue_free()
 	if curve == null:
 		return
-	for x in range(0, curve.get_baked_length(), distance):
+	for x in Vector3(0.0, curve.get_baked_length() + 0.01, distance):
 		var instance = ring.instantiate()
 		add_child(instance)
 		instance.global_position = transform * curve.sample_baked(x)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2btl25lwd133"]
+[gd_scene load_steps=6 format=3 uid="uid://c2btl25lwd133"]
 
 [ext_resource type="Script" uid="uid://dw4whdidjbio1" path="res://grounded_path.gd" id="1_jkfel"]
 [ext_resource type="Script" uid="uid://bl20cyofxs4s" path="res://accelerator/accelerator.gd" id="1_rki0y"]
 [ext_resource type="PackedScene" uid="uid://tjo3ifcrcxp6" path="res://accelerator/red_slime.blend" id="3_dqyfe"]
+[ext_resource type="Material" uid="uid://cowkkiph03csk" path="res://accelerator/red_slime_material.tres" id="4_j2wyt"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_rki0y"]
 height = 0.1
@@ -25,16 +26,19 @@ debug_color = Color(1, 0.966667, 0, 1)
 [node name="red_slime" parent="." instance=ExtResource("3_dqyfe")]
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="red_slime"]
+polygon = PackedVector2Array(-0.5, 0, 0, 0.25, 0.5, 0)
 mode = 2
 path_node = NodePath("../..")
 path_interval_type = 0
-path_interval = 1.0
-path_simplify_angle = 0.0
-path_rotation = 2
-path_rotation_accurate = false
-path_local = false
+path_interval = 0.5
+path_simplify_angle = 10.0
+path_rotation = 1
+path_rotation_accurate = true
+path_local = true
 path_continuous_u = true
-path_u_distance = 1.0
+path_u_distance = 2.0
 path_joined = false
+smooth_faces = true
+material = ExtResource("4_j2wyt")
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

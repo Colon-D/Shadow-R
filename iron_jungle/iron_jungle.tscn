@@ -1,0 +1,138 @@
+[gd_scene load_steps=18 format=3 uid="uid://budfsftlyj6uo"]
+
+[ext_resource type="PackedScene" uid="uid://b76pkmfohc5wa" path="res://gameplay.tscn" id="1_bvsi5"]
+[ext_resource type="Shader" uid="uid://dx8hwc7picmdt" path="res://skybox.gdshader" id="2_imacx"]
+[ext_resource type="Texture2D" uid="uid://cnk4quhyeyrvu" path="res://iron_jungle/skybox.png" id="3_qdm4r"]
+[ext_resource type="AudioStream" uid="uid://isbpnw4021mw" path="res://iron_jungle/14. Iron Jungle.ogg" id="4_qdm4r"]
+[ext_resource type="PackedScene" uid="uid://dfqr7un0u2nws" path="res://iron_jungle/iron_jungle.blend" id="5_0t6hg"]
+[ext_resource type="PackedScene" uid="uid://dancuapllbcva" path="res://iron_jungle/light_beam.blend" id="6_1s3gm"]
+[ext_resource type="Texture2D" uid="uid://cou4of8nd0kq5" path="res://iron_jungle/nights/nights_0.png" id="7_jjc3v"]
+[ext_resource type="Texture2D" uid="uid://c51l0hm6kye44" path="res://iron_jungle/nights/nights_1.png" id="8_nmnee"]
+[ext_resource type="Texture2D" uid="uid://c3lkmfmy4r1hn" path="res://iron_jungle/nights/nights_2.png" id="9_thpk0"]
+[ext_resource type="Texture2D" uid="uid://0bfocc35fhjq" path="res://iron_jungle/nights/nights_3.png" id="10_n20bw"]
+[ext_resource type="Texture2D" uid="uid://q6afk0fp0cgc" path="res://iron_jungle/nights/nights_4.png" id="11_xdwo2"]
+[ext_resource type="Script" uid="uid://fv4kku7n1vey" path="res://iron_jungle/nights.gd" id="13_nmnee"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0t6hg"]
+shader = ExtResource("2_imacx")
+shader_parameter/source_panorama = ExtResource("3_qdm4r")
+
+[sub_resource type="Sky" id="Sky_1s3gm"]
+sky_material = SubResource("ShaderMaterial_0t6hg")
+radiance_size = 0
+
+[sub_resource type="Environment" id="Environment_tbcog"]
+background_mode = 2
+background_color = Color(0.68396, 0.789042, 1, 1)
+sky = SubResource("Sky_1s3gm")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.0
+reflected_light_source = 1
+
+[sub_resource type="Curve3D" id="Curve3D_1s3gm"]
+closed = true
+_data = {
+"points": PackedVector3Array(64, 10, 0, -64, -10, 0, 0, 0, 0, 5.216, -10, 87.269, -5.216, 10, -87.269, -88.4084, 0, -120.606, -55.675, 10, 2.905, 55.675, -10, -2.905, -0.187323, 0, -242.248, -4.841, -10, -84.239, 4.841, 10, 84.239, 97.6072, 0, -125.088),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s5doq"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("7_jjc3v")
+}, {
+"duration": 1.5,
+"texture": ExtResource("8_nmnee")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_thpk0")
+}, {
+"duration": 1.5,
+"texture": ExtResource("10_n20bw")
+}, {
+"duration": 2.0,
+"texture": ExtResource("11_xdwo2")
+}, {
+"duration": 1.5,
+"texture": ExtResource("10_n20bw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_thpk0")
+}, {
+"duration": 1.5,
+"texture": ExtResource("8_nmnee")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Gameplay" instance=ExtResource("1_bvsi5")]
+
+[node name="WorldEnvironment - Retro" parent="." index="2"]
+environment = SubResource("Environment_tbcog")
+
+[node name="Sonic" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6075, 0, 1.53862)
+
+[node name="RaceBegin" parent="." index="6"]
+skip = true
+music = ExtResource("4_qdm4r")
+
+[node name="iron_jungle" parent="." index="9" instance=ExtResource("5_0t6hg")]
+
+[node name="light_beams" type="Node3D" parent="." index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.6293, 0, 73.567)
+
+[node name="light_beam" parent="light_beams" index="0" instance=ExtResource("6_1s3gm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8635, 0, 32.6898)
+
+[node name="light_beam2" parent="light_beams" index="1" instance=ExtResource("6_1s3gm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.1241, 0, 16.35)
+
+[node name="light_beam3" parent="light_beams" index="2" instance=ExtResource("6_1s3gm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.4542, 1.52588e-05, -26.9198)
+
+[node name="light_beam4" parent="light_beams" index="3" instance=ExtResource("6_1s3gm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.4728, 0, -127.74)
+
+[node name="light_beam5" parent="light_beams" index="4" instance=ExtResource("6_1s3gm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8924, 0, -154.457)
+
+[node name="light_beam6" parent="light_beams" index="5" instance=ExtResource("6_1s3gm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.5023, 0, -162.695)
+
+[node name="light_beam7" parent="light_beams" index="6" instance=ExtResource("6_1s3gm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 148.327, 0, -77.2207)
+
+[node name="light_beam8" parent="light_beams" index="7" instance=ExtResource("6_1s3gm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.427, 0, -146.812)
+
+[node name="light_beam9" parent="light_beams" index="8" instance=ExtResource("6_1s3gm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.3, 0, -16.7547)
+
+[node name="light_beam10" parent="light_beams" index="9" instance=ExtResource("6_1s3gm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.3809, 0, 27.1932)
+
+[node name="light_beam11" parent="light_beams" index="10" instance=ExtResource("6_1s3gm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.2959, 1.52588e-05, -83.0053)
+
+[node name="nights_path" type="Path3D" parent="." index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 128)
+curve = SubResource("Curve3D_1s3gm")
+
+[node name="nights_follow" type="PathFollow3D" parent="nights_path" index="0"]
+transform = Transform3D(7.66614e-08, -0.154374, 0.988009, -7.45051e-09, 0.987996, 0.154376, -0.999991, -1.91958e-08, 7.45926e-08, 0, 0, 0)
+script = ExtResource("13_nmnee")
+
+[node name="nights_sprite" type="AnimatedSprite3D" parent="nights_path/nights_follow" index="0"]
+pixel_size = 0.1
+billboard = 1
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_s5doq")
+autoplay = "default"

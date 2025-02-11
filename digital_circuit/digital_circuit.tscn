@@ -1,11 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://hu88dmlcsvyy"]
+[gd_scene load_steps=29 format=3 uid="uid://hu88dmlcsvyy"]
 
 [ext_resource type="PackedScene" uid="uid://b76pkmfohc5wa" path="res://gameplay.tscn" id="1_guv5i"]
 [ext_resource type="Shader" uid="uid://dx8hwc7picmdt" path="res://skybox.gdshader" id="2_otoce"]
 [ext_resource type="Texture2D" uid="uid://6yf5hcqky6ti" path="res://digital_circuit/skybox.png" id="3_dli5l"]
 [ext_resource type="AudioStream" uid="uid://cejupphdhln1p" path="res://digital_circuit/09. Digital Circuit.ogg" id="4_dli5l"]
+[ext_resource type="Texture2D" uid="uid://dgw284bgvbhrw" path="res://digital_circuit/minimap.png" id="4_e0d0w"]
 [ext_resource type="PackedScene" uid="uid://bn12pjhmnj022" path="res://digital_circuit/digital_circuit.blend" id="5_wbl5o"]
 [ext_resource type="Script" uid="uid://d3w8t0h8btrk8" path="res://digital_circuit/autoplay_animation.gd" id="6_jchlv"]
+[ext_resource type="PackedScene" uid="uid://c50m4yjituld" path="res://ring/ring_path.tscn" id="7_5qxeh"]
+[ext_resource type="PackedScene" uid="uid://b00nk1pecrvti" path="res://door.tscn" id="8_kupsk"]
+[ext_resource type="PackedScene" uid="uid://ydmqv03p2xwt" path="res://ring/ring.tscn" id="9_bq3c6"]
+[ext_resource type="PackedScene" uid="uid://nehsc6ns5sd4" path="res://item_panel/item_panel.tscn" id="9_nycok"]
+[ext_resource type="PackedScene" uid="uid://c2btl25lwd133" path="res://accelerator/accelerator.tscn" id="11_7l2na"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jchlv"]
 size = Vector3(12.0009, 5.97476, 5.97456)
@@ -38,6 +44,76 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="Curve3D" id="Curve3D_kupsk"]
+_data = {
+"points": PackedVector3Array(-0.529482, -3.66258, -37.4946, 5, 2, 35, 2.37072, 1.05856, 5.87311, -5, -2, 35, 0.543148, 2.63177, -35.385, -40.435, 6.2499, 6.727),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_5qxeh"]
+_data = {
+"points": PackedVector3Array(-0.529482, -0.794853, -37.4946, -3, 5, 25, 0.329803, 1.04485, 1.77398, 3, -5, 25, 0.543148, -5.05831, -35.385, 25.7818, 11.3186, 0.0771666),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_bq3c6"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -16),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_q2a2d"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 25, -1, 10, 0, 0.5, 0, 25, 1, -10, 0, 0, 0, 0.226, -5, -18.668),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_6thco"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 1, 0, 0, 0.250001, 0, -20, 6, 0, 0, 0, 0, 9.78091, -10.2365, -14.6395),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_72ars"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0.25, -2, 0.972992, 0, -0.804945, -0.972992, 0, 0.804945, -7.03302, 0.25, 1.22806, -0.00494194, 0, -1.30968, 0.00494194, 0, 1.30968, -9.90372, 0.25, 7.50575, -0.80728, 0, -1.11693, 0.80728, 0, 1.11693, -7.05088, 0.25, 13.6538),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_33dky"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0.25, -2, 0.972992, 0, -0.804945, -0.972992, 0, 0.804945, -7.03302, 0.25, 1.22806, -0.00494194, 0, -1.30968, 0.00494194, 0, 1.30968, -9.90372, 0.25, 10.4278, -0.80728, 0, -1.11693, 0.80728, 0, 1.11693, -5.49421, 0.25, 22.2286),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_1gskr"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0.177529, 0.396244, 0, 1, 0, 0, 9.53674e-07, 0, 21.917, -4.13653, 10.8375),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_xpp3y"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0.25, 0, 0, 0, 0, 0, 0, 0, 16.8265, 0, 15.4992),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_7l2na"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, -0.00644541, 0, 0, -4.76837e-07, 0, 0, -4.76837e-07, 0, 0.000550747, 1.99356, 2.23198, -2.38419e-07, -4.76837e-07, -4.76837e-07, -2.38419e-07, -4.76837e-07, -4.76837e-07, -0.105, 1.99356, 5.888, 0, -4.76837e-07, 0, 0, -4.76837e-07, 0, 1.837, 1.99356, 6.97, 0, 0, 0, 0, 0, 0, 1.89094, 4.13902, 6.9507, 0, 0, 0, 0, 0, 0, 4.95, 3.99355, 8.695, 0, 0, 0, 0, 0, 0, 7.075, 3.99355, 7.511, 0, -9.53674e-07, 0, 0, -9.53674e-07, 0, 6.89627, 6.01681, 7.50892, 0, -9.53674e-07, 0, 0, -9.53674e-07, 0, 10.163, 5.99356, 5.75, 0, -9.53674e-07, 4.76837e-07, 0, -9.53674e-07, 4.76837e-07, 10.162, 5.99356, 3.503, 0, -9.53674e-07, 0, 0, -9.53674e-07, 0, 10.1867, 7.99356, 3.43467, 0, -9.53674e-07, 0, 0, -9.53674e-07, 0, 10.3126, 7.99356, -0.146138, 0, -9.53674e-07, 4.76837e-07, 0, -9.53674e-07, 4.76837e-07, 9.10633, 7.99356, -1.57172, 0, 0, 0, 0, 0, 0, 9.17177, 10.2165, -1.57352, 0, 0, 0, 0, 0, 0, 6.017, 9.99356, -3.423, 0, 0, 0, 0, 0, 0, 2.76694, 10.0685, -2.16589, 0, 0, 0, 0, 0, 0, 2.69629, 3.86107, -2.00056, 0, 0, 0, 0, 0, 0, -3.33953, 3.94766, -3.42246, 0, 0, 0, 0, 0, 0, -3.58441, 10.3185, -3.42329, 0, 0, 0, 0, 0, 0, -6.65882, 10.0519, -5.39268),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 20
+
 [node name="Gameplay" instance=ExtResource("1_guv5i")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
@@ -58,8 +134,16 @@ freeze_mode = 1
 [node name="WorldEnvironment - Retro" parent="." index="5"]
 environment = SubResource("Environment_5qxeh")
 
-[node name="Sonic" parent="." index="6"]
+[node name="Sonic" parent="." index="6" node_paths=PackedStringArray("path")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 25.2466, 4.76837e-07, -45.3909)
+path = NodePath("../digital_circuit/hexamino_006/StaticBody3D/CollisionShape3D")
+rings = 50
+
+[node name="Minimap" parent="UI/MarginContainer" index="2"]
+texture = ExtResource("4_e0d0w")
+xform_translate = Vector2(142, 38)
+xform_rotate_degrees = 225.0
+xform_scale = Vector2(1.456, 1.456)
 
 [node name="RaceBegin" parent="." index="9"]
 skip = true
@@ -68,16 +152,758 @@ music = ExtResource("4_dli5l")
 [node name="LapProgress" parent="." index="11"]
 curve = SubResource("Curve3D_jchlv")
 length = 174.688
-ring_fuel = 139.751
+ring_fuel = 139.75
 
 [node name="digital_circuit" parent="." index="12" instance=ExtResource("5_wbl5o")]
 script = ExtResource("6_jchlv")
 
-[node name="AnimationPlayer" parent="digital_circuit" index="53"]
+[node name="AnimationPlayer" parent="digital_circuit" index="55"]
 speed_scale = 0.25
 
-[connection signal="focus_entered" from="UI/pause/pause_options/continue" to="UI/pause" method="focus_entered"]
-[connection signal="focus_entered" from="UI/pause/pause_options/retry" to="UI/pause" method="focus_entered"]
-[connection signal="focus_entered" from="UI/pause/pause_options/retire" to="UI/pause" method="focus_entered"]
+[node name="RingPaths" type="Node3D" parent="." index="13"]
+
+[node name="outerspiral" parent="RingPaths" index="0" instance=ExtResource("7_5qxeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7593, 0, -5.58468)
+curve = SubResource("Curve3D_kupsk")
+distance = 5.0
+children = 16
+length = 78.1898
+ring_fuel = 62.5518
+
+[node name="innerspiral" parent="RingPaths" index="1" instance=ExtResource("7_5qxeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2332, 1.90735e-06, 0.587382)
+curve = SubResource("Curve3D_5qxeh")
+distance = 3.4
+children = 16
+length = 52.7195
+ring_fuel = 42.1756
+
+[node name="up_left" parent="RingPaths" index="2" instance=ExtResource("7_5qxeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.3923, 6.01075, -12.1293)
+curve = SubResource("Curve3D_bq3c6")
+children = 9
+length = 16.0
+ring_fuel = 12.8
+
+[node name="up_left2" parent="RingPaths" index="3" instance=ExtResource("7_5qxeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.554, 6.01075, -12.1293)
+curve = SubResource("Curve3D_bq3c6")
+children = 9
+length = 16.0
+ring_fuel = 12.8
+
+[node name="up_right" parent="RingPaths" index="4" instance=ExtResource("7_5qxeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.9134, 6.01075, -12.1293)
+curve = SubResource("Curve3D_bq3c6")
+children = 9
+length = 16.0
+ring_fuel = 12.8
+
+[node name="up_right2" parent="RingPaths" index="5" instance=ExtResource("7_5qxeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.7517, 6.01075, -12.1293)
+curve = SubResource("Curve3D_bq3c6")
+children = 9
+length = 16.0
+ring_fuel = 12.8
+
+[node name="hex" type="Node3D" parent="RingPaths" index="6"]
+
+[node name="Ring" parent="RingPaths" index="7" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.50194, 4.43358, 3.76635)
+
+[node name="Ring2" parent="RingPaths" index="8" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.42092, 4.43356, 2.62556)
+
+[node name="Ring3" parent="RingPaths" index="9" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.50821, 4.43356, 6.19512)
+
+[node name="Ring4" parent="RingPaths" index="10" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.42092, 4.43356, 7.34464)
+
+[node name="Ring5" parent="RingPaths" index="11" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.30338, 4.43356, 6.19512)
+
+[node name="Ring6" parent="RingPaths" index="12" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.33363, 4.43356, 3.77508)
+
+[node name="Ring7" parent="RingPaths" index="13" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.54366, 6.43356, 8.76642)
+
+[node name="Ring8" parent="RingPaths" index="14" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.54366, 6.43356, 11.247)
+
+[node name="Ring9" parent="RingPaths" index="15" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.42612, 6.43356, 12.3662)
+
+[node name="Ring10" parent="RingPaths" index="16" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.30858, 6.43356, 11.1562)
+
+[node name="Ring11" parent="RingPaths" index="17" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33883, 6.43356, 8.73617)
+
+[node name="Ring12" parent="RingPaths" index="18" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.42612, 6.43356, 7.6169)
+
+[node name="Ring13" parent="RingPaths" index="19" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.415697, 8.43356, 11.247)
+
+[node name="Ring14" parent="RingPaths" index="20" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.56348, 8.43356, 12.3965)
+
+[node name="Ring15" parent="RingPaths" index="21" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.68102, 8.43356, 11.2167)
+
+[node name="Ring16" parent="RingPaths" index="22" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.71127, 8.43356, 8.79667)
+
+[node name="Ring17" parent="RingPaths" index="23" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.56348, 8.43356, 7.58665)
+
+[node name="Ring18" parent="RingPaths" index="24" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.506449, 8.43356, 8.76642)
+
+[node name="Ring19" parent="RingPaths" index="25" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.43024, 10.4336, 6.2299)
+
+[node name="Ring20" parent="RingPaths" index="26" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.57803, 10.4336, 7.40967)
+
+[node name="Ring21" parent="RingPaths" index="27" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.69557, 10.4336, 6.19965)
+
+[node name="Ring22" parent="RingPaths" index="28" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.66532, 10.4336, 3.77961)
+
+[node name="Ring23" parent="RingPaths" index="29" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.56588, 12.4336, 2.41131)
+
+[node name="Ring24" parent="RingPaths" index="30" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49421, 12.4336, 1.14781)
+
+[node name="Ring25" parent="RingPaths" index="31" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52446, 12.4336, -1.24198)
+
+[node name="Ring26" parent="RingPaths" index="32" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.69903, 12.4336, 1.20831)
+
+[node name="Ring27" parent="RingPaths" index="33" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.66878, 12.4336, -1.21173)
+
+[node name="Ring28" parent="RingPaths" index="34" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5815, 12.4336, -2.42175)
+
+[node name="Ring29" parent="RingPaths" index="35" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.49482, 12.4336, -5.5617)
+
+[node name="Ring30" parent="RingPaths" index="36" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.56649, 12.4336, -6.8252)
+
+[node name="Ring31" parent="RingPaths" index="37" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.53624, 12.4336, -9.21499)
+
+[node name="Ring32" parent="RingPaths" index="38" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.36167, 12.4336, -6.7647)
+
+[node name="Ring33" parent="RingPaths" index="39" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.39192, 12.4336, -9.18474)
+
+[node name="Ring34" parent="RingPaths" index="40" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.47921, 12.4336, -10.3948)
+
+[node name="Ring35" parent="RingPaths" index="41" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0538, 12.4336, -11.5862)
+
+[node name="Ring36" parent="RingPaths" index="42" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1255, 12.4336, -12.8497)
+
+[node name="Ring37" parent="RingPaths" index="43" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0953, 12.4336, -15.2395)
+
+[node name="Ring38" parent="RingPaths" index="44" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.92069, 12.4336, -12.7892)
+
+[node name="Ring39" parent="RingPaths" index="45" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.95094, 12.4336, -15.2092)
+
+[node name="Ring40" parent="RingPaths" index="46" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0382, 12.4336, -16.4192)
+
+[node name="Ring41" parent="RingPaths" index="47" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4936, 12.4336, -17.5709)
+
+[node name="Ring42" parent="RingPaths" index="48" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5652, 12.4336, -18.8344)
+
+[node name="Ring43" parent="RingPaths" index="49" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.535, 12.4336, -21.2242)
+
+[node name="Ring44" parent="RingPaths" index="50" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3604, 12.4336, -18.7739)
+
+[node name="Ring45" parent="RingPaths" index="51" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3907, 12.4336, -21.194)
+
+[node name="Ring46" parent="RingPaths" index="52" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.478, 12.4336, -22.404)
+
+[node name="Ring47" parent="RingPaths" index="53" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.034, 12.4336, -23.5755)
+
+[node name="Ring48" parent="RingPaths" index="54" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1056, 12.4336, -24.839)
+
+[node name="Ring49" parent="RingPaths" index="55" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0754, 12.4336, -27.2288)
+
+[node name="Ring50" parent="RingPaths" index="56" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.90081, 12.4336, -24.7785)
+
+[node name="Ring51" parent="RingPaths" index="57" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.93106, 12.4336, -27.1986)
+
+[node name="Ring52" parent="RingPaths" index="58" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0183, 12.4336, -28.4086)
+
+[node name="Ring53" parent="RingPaths" index="59" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.03049, 12.4336, -17.5433)
+
+[node name="Ring54" parent="RingPaths" index="60" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0411739, 12.4336, -18.8068)
+
+[node name="Ring55" parent="RingPaths" index="61" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0109243, 12.4336, -21.1966)
+
+[node name="Ring56" parent="RingPaths" index="62" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.16365, 12.4336, -18.7463)
+
+[node name="Ring57" parent="RingPaths" index="63" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1334, 12.4336, -21.1663)
+
+[node name="Ring58" parent="RingPaths" index="64" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04611, 12.4336, -22.3764)
+
+[node name="Ring59" parent="RingPaths" index="65" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.95538, 12.4336, -17.5703)
+
+[node name="Ring60" parent="RingPaths" index="66" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.88372, 12.4336, -18.8338)
+
+[node name="Ring61" parent="RingPaths" index="67" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.91397, 12.4336, -21.2236)
+
+[node name="Ring62" parent="RingPaths" index="68" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0885, 12.4336, -18.7733)
+
+[node name="Ring63" parent="RingPaths" index="69" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0583, 12.4336, -21.1934)
+
+[node name="Ring64" parent="RingPaths" index="70" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.971, 12.4336, -22.4034)
+
+[node name="Ring65" parent="RingPaths" index="71" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4178, 12.4336, -11.5652)
+
+[node name="Ring66" parent="RingPaths" index="72" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3462, 12.4336, -12.8287)
+
+[node name="Ring67" parent="RingPaths" index="73" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3764, 12.4336, -15.2185)
+
+[node name="Ring68" parent="RingPaths" index="74" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.551, 12.4336, -12.7682)
+
+[node name="Ring69" parent="RingPaths" index="75" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5207, 12.4336, -15.1882)
+
+[node name="Ring70" parent="RingPaths" index="76" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4334, 12.4336, -16.3982)
+
+[node name="Ring71" parent="RingPaths" index="77" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4719, 12.4336, -23.5485)
+
+[node name="Ring72" parent="RingPaths" index="78" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4003, 12.4336, -24.812)
+
+[node name="Ring73" parent="RingPaths" index="79" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4305, 12.4336, -27.2018)
+
+[node name="Ring74" parent="RingPaths" index="80" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6051, 12.4336, -24.7515)
+
+[node name="Ring75" parent="RingPaths" index="81" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5748, 12.4336, -27.1715)
+
+[node name="Ring76" parent="RingPaths" index="82" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4875, 12.4336, -28.3815)
+
+[node name="Ring77" parent="RingPaths" index="83" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0253382, 12.4336, -31.5554)
+
+[node name="Ring78" parent="RingPaths" index="84" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.097, 12.4336, -32.8189)
+
+[node name="Ring79" parent="RingPaths" index="85" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06675, 12.4336, -35.2087)
+
+[node name="Ring80" parent="RingPaths" index="86" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10782, 12.4336, -32.7584)
+
+[node name="Ring81" parent="RingPaths" index="87" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.07757, 12.4336, -35.1784)
+
+[node name="Ring82" parent="RingPaths" index="88" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00971889, 12.4336, -36.3884)
+
+[node name="Ring167" parent="RingPaths" index="89" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.53312, 12.4336, -37.5824)
+
+[node name="Ring168" parent="RingPaths" index="90" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.60478, 12.4336, -38.7372)
+
+[node name="Ring169" parent="RingPaths" index="91" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.57453, 12.4336, -41.127)
+
+[node name="Ring170" parent="RingPaths" index="92" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39996, 12.4336, -38.6767)
+
+[node name="Ring171" parent="RingPaths" index="93" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.43021, 12.4336, -41.0968)
+
+[node name="Ring172" parent="RingPaths" index="94" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5175, 12.4336, -42.3068)
+
+[node name="Ring173" parent="RingPaths" index="95" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.53158, 12.4336, -37.6089)
+
+[node name="Ring174" parent="RingPaths" index="96" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45992, 12.4336, -38.8724)
+
+[node name="Ring175" parent="RingPaths" index="97" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49017, 12.4336, -41.2622)
+
+[node name="Ring176" parent="RingPaths" index="98" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.66474, 12.4336, -38.8119)
+
+[node name="Ring177" parent="RingPaths" index="99" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.63449, 12.4336, -41.2319)
+
+[node name="Ring178" parent="RingPaths" index="100" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5472, 12.4336, -42.442)
+
+[node name="Ring83" parent="RingPaths" index="101" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0253382, 12.4336, -43.5928)
+
+[node name="Ring84" parent="RingPaths" index="102" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.097, 12.4336, -44.8563)
+
+[node name="Ring85" parent="RingPaths" index="103" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06675, 12.4336, -47.2461)
+
+[node name="Ring86" parent="RingPaths" index="104" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10782, 12.4336, -44.7958)
+
+[node name="Ring87" parent="RingPaths" index="105" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.07757, 12.4336, -47.2158)
+
+[node name="Ring88" parent="RingPaths" index="106" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00971889, 12.4336, -48.4258)
+
+[node name="Ring89" parent="RingPaths" index="107" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.444, 12.4336, -50.5177)
+
+[node name="Ring90" parent="RingPaths" index="108" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.37234, 12.4336, -51.7812)
+
+[node name="Ring91" parent="RingPaths" index="109" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.40259, 12.4336, -54.171)
+
+[node name="Ring92" parent="RingPaths" index="110" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5772, 12.4336, -51.7207)
+
+[node name="Ring93" parent="RingPaths" index="111" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5469, 12.4336, -54.1407)
+
+[node name="Ring94" parent="RingPaths" index="112" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4596, 12.4336, -55.3507)
+
+[node name="Ring95" parent="RingPaths" index="113" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.95451, 12.4336, -56.577)
+
+[node name="Ring96" parent="RingPaths" index="114" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.88285, 12.4336, -57.8404)
+
+[node name="Ring97" parent="RingPaths" index="115" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9131, 12.4336, -60.2302)
+
+[node name="Ring98" parent="RingPaths" index="116" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0877, 12.4336, -57.7799)
+
+[node name="Ring99" parent="RingPaths" index="117" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0574, 12.4336, -60.2)
+
+[node name="Ring100" parent="RingPaths" index="118" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.97013, 12.4336, -61.41)
+
+[node name="Ring101" parent="RingPaths" index="119" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.417, 12.4336, -62.5821)
+
+[node name="Ring102" parent="RingPaths" index="120" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.34529, 12.4336, -63.8456)
+
+[node name="Ring103" parent="RingPaths" index="121" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.37554, 12.4336, -66.2354)
+
+[node name="Ring104" parent="RingPaths" index="122" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5501, 12.4336, -63.7851)
+
+[node name="Ring105" parent="RingPaths" index="123" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5199, 12.4336, -66.2052)
+
+[node name="Ring106" parent="RingPaths" index="124" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4326, 12.4336, -67.4152)
+
+[node name="Ring107" parent="RingPaths" index="125" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4771, 12.4336, -50.5718)
+
+[node name="Ring108" parent="RingPaths" index="126" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4054, 12.4336, -51.8353)
+
+[node name="Ring109" parent="RingPaths" index="127" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4357, 12.4336, -54.2251)
+
+[node name="Ring110" parent="RingPaths" index="128" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.6103, 12.4336, -51.7748)
+
+[node name="Ring111" parent="RingPaths" index="129" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.58, 12.4336, -54.1948)
+
+[node name="Ring112" parent="RingPaths" index="130" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4927, 12.4336, -55.4048)
+
+[node name="Ring113" parent="RingPaths" index="131" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.9562, 12.4336, -56.5269)
+
+[node name="Ring114" parent="RingPaths" index="132" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.8846, 12.4336, -57.7904)
+
+[node name="Ring115" parent="RingPaths" index="133" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9148, 12.4336, -60.1802)
+
+[node name="Ring116" parent="RingPaths" index="134" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0894, 12.4336, -57.7299)
+
+[node name="Ring117" parent="RingPaths" index="135" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0592, 12.4336, -60.1499)
+
+[node name="Ring118" parent="RingPaths" index="136" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.9719, 12.4336, -61.3599)
+
+[node name="Ring119" parent="RingPaths" index="137" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4546, 12.4336, -62.5837)
+
+[node name="Ring120" parent="RingPaths" index="138" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.383, 12.4336, -63.8472)
+
+[node name="Ring121" parent="RingPaths" index="139" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4132, 12.4336, -66.237)
+
+[node name="Ring122" parent="RingPaths" index="140" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5878, 12.4336, -63.7867)
+
+[node name="Ring123" parent="RingPaths" index="141" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5575, 12.4336, -66.2068)
+
+[node name="Ring124" parent="RingPaths" index="142" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4702, 12.4336, -67.4168)
+
+[node name="Ring125" parent="RingPaths" index="143" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0116, 6.44821, -61.3562)
+
+[node name="Ring126" parent="RingPaths" index="144" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8814, 6.44821, -60.1943)
+
+[node name="Ring127" parent="RingPaths" index="145" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8814, 6.44821, -57.7747)
+
+[node name="Ring128" parent="RingPaths" index="146" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9683, 6.44821, -56.6254)
+
+[node name="Ring129" parent="RingPaths" index="147" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.1157, 6.44821, -57.805)
+
+[node name="Ring130" parent="RingPaths" index="148" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.1157, 6.44821, -60.1943)
+
+[node name="Ring131" parent="RingPaths" index="149" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5104, 6.44821, -67.3796)
+
+[node name="Ring132" parent="RingPaths" index="150" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3801, 6.44821, -66.2178)
+
+[node name="Ring133" parent="RingPaths" index="151" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3801, 6.44821, -63.7982)
+
+[node name="Ring134" parent="RingPaths" index="152" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4671, 6.44821, -62.6488)
+
+[node name="Ring135" parent="RingPaths" index="153" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.6145, 6.44821, -63.8284)
+
+[node name="Ring136" parent="RingPaths" index="154" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.6145, 6.44821, -66.2178)
+
+[node name="Ring137" parent="RingPaths" index="155" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.4784, 6.44821, -67.5136)
+
+[node name="Ring138" parent="RingPaths" index="156" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.3481, 6.44821, -66.3518)
+
+[node name="Ring139" parent="RingPaths" index="157" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.3481, 6.44821, -63.9322)
+
+[node name="Ring140" parent="RingPaths" index="158" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.4351, 6.44821, -62.7829)
+
+[node name="Ring141" parent="RingPaths" index="159" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5825, 6.44821, -63.9624)
+
+[node name="Ring142" parent="RingPaths" index="160" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5825, 6.44821, -66.3518)
+
+[node name="Ring143" parent="RingPaths" index="161" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.0223, 6.44821, -73.3868)
+
+[node name="Ring144" parent="RingPaths" index="162" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.892, 6.44821, -72.225)
+
+[node name="Ring145" parent="RingPaths" index="163" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.892, 6.44821, -69.8053)
+
+[node name="Ring146" parent="RingPaths" index="164" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.979, 6.44821, -68.656)
+
+[node name="Ring147" parent="RingPaths" index="165" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.1264, 6.44821, -69.8356)
+
+[node name="Ring148" parent="RingPaths" index="166" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.1264, 6.44821, -72.225)
+
+[node name="Ring149" parent="RingPaths" index="167" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0937, 6.53277, -73.3868)
+
+[node name="Ring150" parent="RingPaths" index="168" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9634, 6.53277, -72.225)
+
+[node name="Ring151" parent="RingPaths" index="169" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9634, 6.53277, -69.8053)
+
+[node name="Ring152" parent="RingPaths" index="170" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0504, 6.53277, -68.656)
+
+[node name="Ring153" parent="RingPaths" index="171" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.1978, 6.53277, -69.8356)
+
+[node name="Ring154" parent="RingPaths" index="172" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.1978, 6.53277, -72.225)
+
+[node name="Ring155" parent="RingPaths" index="173" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5759, 6.53277, -79.4377)
+
+[node name="Ring156" parent="RingPaths" index="174" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4456, 6.53277, -78.2758)
+
+[node name="Ring157" parent="RingPaths" index="175" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4456, 6.53277, -75.8562)
+
+[node name="Ring158" parent="RingPaths" index="176" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5326, 6.53277, -74.7069)
+
+[node name="Ring159" parent="RingPaths" index="177" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.68, 6.53277, -75.8864)
+
+[node name="Ring160" parent="RingPaths" index="178" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.68, 6.53277, -78.2758)
+
+[node name="Ring161" parent="RingPaths" index="179" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.4982, 6.53277, -79.3654)
+
+[node name="Ring162" parent="RingPaths" index="180" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.368, 6.53277, -78.2036)
+
+[node name="Ring163" parent="RingPaths" index="181" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.368, 6.53277, -75.784)
+
+[node name="Ring164" parent="RingPaths" index="182" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.4549, 6.53277, -74.6346)
+
+[node name="Ring165" parent="RingPaths" index="183" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.6024, 6.53277, -75.8142)
+
+[node name="Ring166" parent="RingPaths" index="184" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.6024, 6.53277, -78.2036)
+
+[node name="Ring Path end 1" parent="RingPaths" index="185" instance=ExtResource("7_5qxeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.0853, 5.81762, -45.2155)
+curve = SubResource("Curve3D_q2a2d")
+distance = 3.25
+children = 16
+length = 51.1621
+ring_fuel = 40.9297
+
+[node name="Ring Path end 2" parent="RingPaths" index="186" instance=ExtResource("7_5qxeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.11954, 11.9269, -69.2407)
+curve = SubResource("Curve3D_6thco")
+distance = 1.75
+children = 16
+length = 26.5346
+ring_fuel = 21.2276
+
+[node name="Ring Path mid" parent="RingPaths" index="187" instance=ExtResource("7_5qxeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.81059, 0, -27.6882)
+curve = SubResource("Curve3D_72ars")
+distance = 1.4
+children = 16
+length = 21.5637
+ring_fuel = 17.251
+
+[node name="Ring179" parent="RingPaths" index="188" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2601, 0.16, -18.3962)
+
+[node name="Ring180" parent="RingPaths" index="189" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.171, 0.16, -19.9022)
+
+[node name="Ring181" parent="RingPaths" index="190" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1713, 0.16, -21.5756)
+
+[node name="Ring182" parent="RingPaths" index="191" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0679, 0.16, -18.3962)
+
+[node name="Ring183" parent="RingPaths" index="192" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9788, 0.16, -19.9022)
+
+[node name="Ring184" parent="RingPaths" index="193" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9791, 0.16, -21.5756)
+
+[node name="Ring185" parent="RingPaths" index="194" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9763, 0.16, -18.3962)
+
+[node name="Ring186" parent="RingPaths" index="195" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8872, 0.16, -19.9022)
+
+[node name="Ring187" parent="RingPaths" index="196" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8875, 0.16, -21.5756)
+
+[node name="Ring Path mid2" parent="RingPaths" index="197" instance=ExtResource("7_5qxeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.93566, 0, -30.3914)
+curve = SubResource("Curve3D_33dky")
+children = 16
+length = 30.088
+ring_fuel = 24.0704
+
+[node name="Ring188" parent="RingPaths" index="198" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.32513, 12.435, -50.1028)
+
+[node name="Ring189" parent="RingPaths" index="199" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.68046, 12.435, -50.8714)
+
+[node name="Ring190" parent="RingPaths" index="200" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2892, 12.435, -51.8269)
+
+[node name="Ring191" parent="RingPaths" index="201" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5369, 7.55046, -58.574)
+
+[node name="Ring192" parent="RingPaths" index="202" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2489, 7.32174, -57.9785)
+
+[node name="Ring193" parent="RingPaths" index="203" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.70187, 7.14866, -57.1029)
+
+[node name="Ring194" parent="RingPaths" index="204" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.659, 7.45337, -57.6757)
+
+[node name="Ring195" parent="RingPaths" index="205" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.99179, 7.22468, -56.6541)
+
+[node name="Ring196" parent="RingPaths" index="206" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1575, 7.35118, -56.7178)
+
+[node name="Ring197" parent="RingPaths" index="207" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2811, 7.4559, -59.3437)
+
+[node name="Ring198" parent="RingPaths" index="208" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.77891, 7.31163, -59.2134)
+
+[node name="Ring199" parent="RingPaths" index="209" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.34303, 7.28734, -58.2572)
+
+[node name="Ring200" parent="RingPaths" index="210" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.88, 7.22477, -40.8379)
+
+[node name="Ring201" parent="RingPaths" index="211" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.6069, 7.44116, -41.7434)
+
+[node name="Ring202" parent="RingPaths" index="212" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.8019, 7.61534, -42.0438)
+
+[node name="Ring203" parent="RingPaths" index="213" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0219, 7.62169, -41.2829)
+
+[node name="Ring204" parent="RingPaths" index="214" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.4654, 7.49627, -40.1446)
+
+[node name="Ring205" parent="RingPaths" index="215" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5501, 7.12614, -39.7197)
+
+[node name="Ring206" parent="RingPaths" index="216" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3452, 7.12634, -39.1687)
+
+[node name="Ring207" parent="RingPaths" index="217" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4195, 7.27886, -39.432)
+
+[node name="Ring208" parent="RingPaths" index="218" instance=ExtResource("9_bq3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.6956, 7.37386, -40.5637)
+
+[node name="Ring Path" parent="RingPaths" index="219" instance=ExtResource("7_5qxeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.7774, 11.8333, -57.5016)
+curve = SubResource("Curve3D_1gskr")
+distance = 1.6
+children = 16
+length = 24.7261
+ring_fuel = 19.7809
+
+[node name="Ring Path2" parent="RingPaths" index="220" instance=ExtResource("7_5qxeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.308, 6.18671, -63.5784)
+curve = SubResource("Curve3D_xpp3y")
+distance = 1.5
+children = 16
+length = 22.8784
+ring_fuel = 18.3027
+
+[node name="door" parent="." index="14" instance=ExtResource("8_kupsk")]
+transform = Transform3D(-1.73205, 1, 0, 4.37114e-08, 7.57103e-08, -2, -1, -1.73205, -8.74228e-08, 20.2656, 4.61976, -68.0007)
+price = 50
+
+[node name="door2" parent="." index="15" instance=ExtResource("8_kupsk")]
+transform = Transform3D(0.649519, 0, 0.375, 0, 0.75, 0, -0.375, 0, 0.649519, 9.80333, 12.2758, -67.8942)
+
+[node name="ItemPanel" parent="." index="16" instance=ExtResource("9_nycok")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.598, 6.70923, -20.335)
+
+[node name="ItemPanel2" parent="." index="17" instance=ExtResource("9_nycok")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.6873, 2.01757, -62.6223)
+
+[node name="Accelerator" parent="." index="18" instance=ExtResource("11_7l2na")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -3.37036, 2.28002, -0.0443019)
+curve = SubResource("Curve3D_7l2na")
+length = 64.2421
+ring_fuel = 51.3937
+
+[node name="Area3D" parent="Accelerator" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0136409, 0.322759, -0.0295088)
+
+[node name="CSGPolygon3D" parent="Accelerator/red_slime" index="1"]
+path_simplify_angle = 0.0
+path_rotation = 2
 
 [editable path="digital_circuit"]
+[editable path="Accelerator"]
