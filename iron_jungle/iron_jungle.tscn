@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://budfsftlyj6uo"]
+[gd_scene load_steps=19 format=3 uid="uid://budfsftlyj6uo"]
 
 [ext_resource type="PackedScene" uid="uid://b76pkmfohc5wa" path="res://gameplay.tscn" id="1_bvsi5"]
 [ext_resource type="Shader" uid="uid://dx8hwc7picmdt" path="res://skybox.gdshader" id="2_imacx"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c3lkmfmy4r1hn" path="res://iron_jungle/nights/nights_2.png" id="9_thpk0"]
 [ext_resource type="Texture2D" uid="uid://0bfocc35fhjq" path="res://iron_jungle/nights/nights_3.png" id="10_n20bw"]
 [ext_resource type="Texture2D" uid="uid://q6afk0fp0cgc" path="res://iron_jungle/nights/nights_4.png" id="11_xdwo2"]
+[ext_resource type="PackedScene" uid="uid://v8k4402wn7m6" path="res://iron_jungle/box.blend" id="13_1skqk"]
 [ext_resource type="Script" uid="uid://fv4kku7n1vey" path="res://iron_jungle/nights.gd" id="13_nmnee"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0t6hg"]
@@ -76,7 +77,7 @@ animations = [{
 environment = SubResource("Environment_tbcog")
 
 [node name="Sonic" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6075, 0, 1.53862)
+transform = Transform3D(0.939693, 0, -0.34202, 0, 1, 0, 0.34202, 0, 0.939693, -18.5935, -2.38419e-07, 26.847)
 
 [node name="RaceBegin" parent="." index="6"]
 skip = true
@@ -125,7 +126,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 128)
 curve = SubResource("Curve3D_1s3gm")
 
 [node name="nights_follow" type="PathFollow3D" parent="nights_path" index="0"]
-transform = Transform3D(7.66614e-08, -0.154374, 0.988009, -7.45051e-09, 0.987996, 0.154376, -0.999991, -1.91958e-08, 7.45926e-08, 0, 0, 0)
+transform = Transform3D(7.66614e-08, -0.154374, 0.988009, -7.45051e-09, 0.987995, 0.154376, -0.999991, -1.91958e-08, 7.45926e-08, 0, 0, 0)
 script = ExtResource("13_nmnee")
 
 [node name="nights_sprite" type="AnimatedSprite3D" parent="nights_path/nights_follow" index="0"]
@@ -136,3 +137,85 @@ alpha_cut = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_s5doq")
 autoplay = "default"
+
+[node name="box" parent="." index="12" instance=ExtResource("13_1skqk")]
+transform = Transform3D(0.99774, 0, -0.0671969, 0, 1, 0, 0.0671969, 0, 0.99774, 8.88033, 0, 46.1195)
+
+[node name="box4" parent="." index="13" instance=ExtResource("13_1skqk")]
+transform = Transform3D(0.782825, 0, 0.622241, 0, 1, 0, -0.622241, 0, 0.782825, 7.95162, 2, 46.5037)
+
+[node name="box2" parent="." index="14" instance=ExtResource("13_1skqk")]
+transform = Transform3D(0.988951, 0, 0.148241, 0, 1, 0, -0.148241, 0, 0.988951, 6.85361, 0, 47.8388)
+
+[node name="box3" parent="." index="15" instance=ExtResource("13_1skqk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75586, 0, 45.5767)
+
+[node name="box5" parent="." index="16" instance=ExtResource("13_1skqk")]
+transform = Transform3D(0.99774, 0, -0.0671969, 0, 1, 0, 0.0671969, 0, 0.99774, 25.3408, 0, 54.2766)
+
+[node name="box6" parent="." index="17" instance=ExtResource("13_1skqk")]
+transform = Transform3D(0.782825, 0, 0.622241, 0, 1, 0, -0.622241, 0, 0.782825, 24.4121, 2, 54.6608)
+
+[node name="box7" parent="." index="18" instance=ExtResource("13_1skqk")]
+transform = Transform3D(0.988951, 0, 0.148241, 0, 1, 0, -0.148241, 0, 0.988951, 23.3141, 0, 55.9959)
+
+[node name="box8" parent="." index="19" instance=ExtResource("13_1skqk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2164, 0, 53.7338)
+
+[node name="box9" parent="." index="20" instance=ExtResource("13_1skqk")]
+transform = Transform3D(0.99774, 0, -0.0671969, 0, 1, 0, 0.0671969, 0, 0.99774, 38.3065, -4.76837e-07, 34.512)
+
+[node name="box10" parent="." index="21" instance=ExtResource("13_1skqk")]
+transform = Transform3D(0.782825, 0, 0.622241, 0, 1, 0, -0.622241, 0, 0.782825, 37.3778, 2, 34.8962)
+
+[node name="box11" parent="." index="22" instance=ExtResource("13_1skqk")]
+transform = Transform3D(0.988951, 0, 0.148241, 0, 1, 0, -0.148241, 0, 0.988951, 28.4317, -4.76837e-07, 36.2313)
+
+[node name="box13" parent="." index="23" instance=ExtResource("13_1skqk")]
+transform = Transform3D(0.979761, 0, -0.200172, 0, 1, 0, 0.200172, 0, 0.979761, 30.7776, -4.76837e-07, 35.4014)
+
+[node name="box12" parent="." index="24" instance=ExtResource("13_1skqk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.182, -4.76837e-07, 33.9692)
+
+[node name="box14" parent="." index="25" instance=ExtResource("13_1skqk")]
+transform = Transform3D(0.99774, 0, -0.0671969, 0, 1, 0, 0.0671969, 0, 0.99774, 6.73195, 9.87018, 46.1195)
+
+[node name="box15" parent="." index="26" instance=ExtResource("13_1skqk")]
+transform = Transform3D(0.782825, 0, 0.622241, 0, 1, 0, -0.622241, 0, 0.782825, 2.18383, 8.09, 33.0196)
+
+[node name="box16" parent="." index="27" instance=ExtResource("13_1skqk")]
+transform = Transform3D(0.988951, 0, 0.148241, 0, 1, 0, -0.148241, 0, 0.988951, 2.5267, 8.04469, 57.2901)
+
+[node name="box17" parent="." index="28" instance=ExtResource("13_1skqk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75586, 7.98303, 45.5767)
+
+[node name="box18" parent="." index="29" instance=ExtResource("13_1skqk")]
+transform = Transform3D(0.99774, 0, -0.0671969, 0, 1, 0, 0.0671969, 0, 0.99774, 29.2666, 8, 57.4692)
+
+[node name="box19" parent="." index="30" instance=ExtResource("13_1skqk")]
+transform = Transform3D(0.782825, 0, 0.622241, 0, 1, 0, -0.622241, 0, 0.782825, 34.6784, 8, 44.2846)
+
+[node name="box20" parent="." index="31" instance=ExtResource("13_1skqk")]
+transform = Transform3D(0.988951, 0, 0.148241, 0, 1, 0, -0.148241, 0, 0.988951, 33.6401, 8, 55.9305)
+
+[node name="box21" parent="." index="32" instance=ExtResource("13_1skqk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.8816, 8, 51.6968)
+
+[node name="box22" parent="." index="33" instance=ExtResource("13_1skqk")]
+transform = Transform3D(0.99774, 0, -0.0671969, 0, 1, 0, 0.0671969, 0, 0.99774, 1.35051, 8, 28.4305)
+
+[node name="box23" parent="." index="34" instance=ExtResource("13_1skqk")]
+transform = Transform3D(0.782825, 0, 0.622241, 0, 1, 0, -0.622241, 0, 0.782825, 13.0832, 8, 58.348)
+
+[node name="box24" parent="." index="35" instance=ExtResource("13_1skqk")]
+transform = Transform3D(0.988951, 0, 0.148241, 0, 1, 0, -0.148241, 0, 0.988951, 34.0292, 8, 48.1445)
+
+[node name="box25" parent="." index="36" instance=ExtResource("13_1skqk")]
+transform = Transform3D(0.979761, 0, -0.200172, 0, 1, 0, 0.200172, 0, 0.979761, 34.8223, 8, 23.8784)
+
+[node name="box26" parent="." index="37" instance=ExtResource("13_1skqk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.182, 8, 27.76)
+
+[connection signal="focus_entered" from="UI/pause/pause_options/continue" to="UI/pause" method="focus_entered"]
+[connection signal="focus_entered" from="UI/pause/pause_options/retry" to="UI/pause" method="focus_entered"]
+[connection signal="focus_entered" from="UI/pause/pause_options/retire" to="UI/pause" method="focus_entered"]

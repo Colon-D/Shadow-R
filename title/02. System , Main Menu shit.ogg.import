@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cqkdvrc0edvcg"
+path="res://.godot/imported/02. System , Main Menu shit.ogg-920b7f0efe5f099dadb770f1b70d321f.oggvorbisstr"
+
+[deps]
+
+source_file="res://title/02. System , Main Menu shit.ogg"
+dest_files=["res://.godot/imported/02. System , Main Menu shit.ogg-920b7f0efe5f099dadb770f1b70d321f.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=8.0
+bpm=0
+beat_count=0
+bar_beats=4

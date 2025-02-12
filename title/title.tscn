@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfmqwysj2i577"]
+
+[ext_resource type="Texture2D" uid="uid://ct6k6m3e71o4o" path="res://title/title.png" id="1_yx5l7"]
+[ext_resource type="Script" uid="uid://b2pbfvmn3jq7n" path="res://title/title_camera.gd" id="2_6s8lb"]
+[ext_resource type="PackedScene" uid="uid://dkrgg27win2wb" path="res://title/title.blend" id="2_nx56k"]
+[ext_resource type="Script" uid="uid://ci1is3r6ewfg4" path="res://title/title_rotate.gd" id="3_6s8lb"]
+[ext_resource type="AudioStream" uid="uid://cqkdvrc0edvcg" path="res://title/02. System , Main Menu shit.ogg" id="5_8xu2e"]
+
+[sub_resource type="Environment" id="Environment_nx56k"]
+background_mode = 4
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+reflected_light_source = 1
+
+[node name="Title" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nx56k")
+
+[node name="Background" type="Sprite3D" parent="."]
+texture = ExtResource("1_yx5l7")
+
+[node name="CameraTarget" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.1)
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("camera_target_out", "camera_target_in")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+script = ExtResource("2_6s8lb")
+camera_target_out = NodePath("../CameraTarget")
+camera_target_in = NodePath("../R/CameraTarget2")
+
+[node name="R" parent="." instance=ExtResource("2_nx56k")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.275, 0.28, 0.5)
+script = ExtResource("3_6s8lb")
+
+[node name="CameraTarget2" type="Node3D" parent="R"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 5.1, -1.12, 6.4)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8xu2e")
+autoplay = true

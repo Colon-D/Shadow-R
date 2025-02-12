@@ -137,7 +137,6 @@ environment = SubResource("Environment_5qxeh")
 [node name="Sonic" parent="." index="6" node_paths=PackedStringArray("path")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 25.2466, 4.76837e-07, -45.3909)
 path = NodePath("../digital_circuit/hexamino_006/StaticBody3D/CollisionShape3D")
-rings = 50
 
 [node name="Minimap" parent="UI/MarginContainer" index="2"]
 texture = ExtResource("4_e0d0w")
@@ -904,6 +903,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0136409, 0.322759, -0.02950
 [node name="CSGPolygon3D" parent="Accelerator/red_slime" index="1"]
 path_simplify_angle = 0.0
 path_rotation = 2
+
+[connection signal="focus_entered" from="UI/pause/pause_options/continue" to="UI/pause" method="focus_entered"]
+[connection signal="focus_entered" from="UI/pause/pause_options/retry" to="UI/pause" method="focus_entered"]
+[connection signal="focus_entered" from="UI/pause/pause_options/retire" to="UI/pause" method="focus_entered"]
 
 [editable path="digital_circuit"]
 [editable path="Accelerator"]
