@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfmqwysj2i577"]
+[gd_scene load_steps=8 format=3 uid="uid://cfmqwysj2i577"]
 
+[ext_resource type="Script" uid="uid://df24jtsb6fg74" path="res://title/title.gd" id="1_0tjwc"]
 [ext_resource type="Texture2D" uid="uid://ct6k6m3e71o4o" path="res://title/title.png" id="1_yx5l7"]
 [ext_resource type="Script" uid="uid://b2pbfvmn3jq7n" path="res://title/title_camera.gd" id="2_6s8lb"]
 [ext_resource type="PackedScene" uid="uid://dkrgg27win2wb" path="res://title/title.blend" id="2_nx56k"]
@@ -14,6 +15,7 @@ reflected_light_source = 1
 
 [node name="Title" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+script = ExtResource("1_0tjwc")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nx56k")

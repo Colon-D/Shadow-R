@@ -10,10 +10,13 @@ config_version=5
 
 [application]
 
-config/name="Sonic R 2"
-run/main_scene="uid://csnnasb8lylx6"
+config/name="Shadow R"
+config/description="shadow gaming"
+config/version="1.0.1"
+run/main_scene="uid://cfmqwysj2i577"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/show_image=false
+config/icon="uid://c4wmgbbe6mjwc"
 
 [display]
 

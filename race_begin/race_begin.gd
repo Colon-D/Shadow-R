@@ -1,17 +1,20 @@
 extends Node
 
 @export var skip := false
-@export var player : Node
+@export var players : Array[Node]
 @export var music_player : AudioStreamPlayer
 @export var music : AudioStream
+@export var end_music : AudioStream
 @export var ready_timer : Timer
 @export var set_timer : Timer
 @export var go_timer : Timer
 @export var post_go_timer : Timer
+@export var end_timer : Timer
 
 @export var ui_ready : Control
 @export var ui_set : Control
 @export var ui_go : Control
+@export var ui_end : Control
 
 func _ready():
 	if not skip:
@@ -20,7 +23,8 @@ func _ready():
 		go_timer.start()
 		post_go_timer.start()
 		music_player.play()
-		player.process_mode = PROCESS_MODE_DISABLED
+		for player in players:
+			player.process_mode = PROCESS_MODE_DISABLED
 	else:
 		music_player.stream = music
 		music_player.play()
@@ -35,9 +39,19 @@ func set_timeout() -> void:
 func go_timeout():
 	ui_set.hide()
 	ui_go.show()
-	player.process_mode = PROCESS_MODE_INHERIT
+	for player in players:
+		player.process_mode = PROCESS_MODE_INHERIT
 
 func post_go_timeout() -> void:
 	ui_go.hide()
 	music_player.stream = music
 	music_player.play()
+
+func main_player_end() -> void:
+	end_timer.start()
+	ui_end.show()
+	music_player.stream = end_music
+	music_player.play()
+
+func end_timeout() -> void:
+	get_tree().change_scene_to_file("res://menu/menu.tscn")

@@ -62,17 +62,28 @@ const item_tables := [
 	[Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.FIVE_RINGS, Item.ItemType.FIVE_RINGS, Item.ItemType.FIVE_RINGS, Item.ItemType.FIVE_RINGS, Item.ItemType.FIVE_RINGS, Item.ItemType.FIVE_RINGS, Item.ItemType.FIVE_RINGS, Item.ItemType.FIVE_RINGS, Item.ItemType.TEN_RINGS, Item.ItemType.TEN_RINGS, Item.ItemType.TEN_RINGS, Item.ItemType.TEN_RINGS, Item.ItemType.TWENTY_RINGS, Item.ItemType.TWENTY_RINGS, Item.ItemType.WATER_SHIELD, Item.ItemType.WATER_SHIELD, Item.ItemType.LIGHTNING_SHIELD, Item.ItemType.LIGHTNING_SHIELD],
 	[Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.FIVE_RINGS, Item.ItemType.FIVE_RINGS, Item.ItemType.FIVE_RINGS, Item.ItemType.FIVE_RINGS, Item.ItemType.FIVE_RINGS, Item.ItemType.FIVE_RINGS, Item.ItemType.TEN_RINGS, Item.ItemType.TEN_RINGS, Item.ItemType.TEN_RINGS, Item.ItemType.TEN_RINGS, Item.ItemType.TWENTY_RINGS, Item.ItemType.TWENTY_RINGS, Item.ItemType.WATER_SHIELD, Item.ItemType.WATER_SHIELD, Item.ItemType.LIGHTNING_SHIELD, Item.ItemType.LIGHTNING_SHIELD],
 	[Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.FIVE_RINGS, Item.ItemType.TEN_RINGS, Item.ItemType.TEN_RINGS, Item.ItemType.TWENTY_RINGS, Item.ItemType.TWENTY_RINGS, Item.ItemType.TWENTY_RINGS, Item.ItemType.TWENTY_RINGS, Item.ItemType.TWENTY_RINGS, Item.ItemType.LIGHTNING_SHIELD, Item.ItemType.LIGHTNING_SHIELD, Item.ItemType.LIGHTNING_SHIELD, Item.ItemType.LIGHTNING_SHIELD],
-	[Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.TWENTY_RINGS, Item.ItemType.TWENTY_RINGS, Item.ItemType.TWENTY_RINGS, Item.ItemType.TWENTY_RINGS, Item.ItemType.TWENTY_RINGS, Item.ItemType.TWENTY_RINGS, Item.ItemType.LIGHTNING_SHIELD, Item.ItemType.LIGHTNING_SHIELD, Item.ItemType.LIGHTNING_SHIELD, Item.ItemType.LIGHTNING_SHIELD]
+	[Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.FLEET_FEET, Item.ItemType.TWENTY_RINGS, Item.ItemType.TWENTY_RINGS, Item.ItemType.TWENTY_RINGS, Item.ItemType.TWENTY_RINGS, Item.ItemType.TWENTY_RINGS, Item.ItemType.TWENTY_RINGS, Item.ItemType.LIGHTNING_SHIELD, Item.ItemType.LIGHTNING_SHIELD, Item.ItemType.LIGHTNING_SHIELD, Item.ItemType.LIGHTNING_SHIELD],
+	# Debug
+	[Item.ItemType.LIGHTNING_SHIELD, Item.ItemType.WATER_SHIELD]
 ]
 
 func _on_body_entered(player: Node3D) -> void:
+	# oh no! I forgot that the item panel cooldown should be per player instead
+	# of per item panel! umm, I don't have time to implement a good fix, so
+	# for now I've just shoved a cooldown in the player, and set the item panel
+	# cooldown to be very very short. I can't just get rid of the item panel's
+	# cooldown as the player needs to exit the hitbox before they can re-enter,
+	# and I have no time to fix that.
+	respawn.start()
+	hitbox.disabled = true
+	if player.item_panel_cooldown > 0.0:
+		return
 	# speen!
 	spin_speed = FASTER_SPIN_SPEED
-	hitbox.disabled = true
-	respawn.start()
+	player.item_panel_cooldown = 3.0
 	# give player random item depending on their position
 	var instance := item.instantiate() as Item
-	var place := 2 # (there are no other players yet... todo: implement)
+	var place = player.place
 	instance.apply_to(player, item_tables[place].pick_random())
 
 func _on_timer_timeout() -> void:

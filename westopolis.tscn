@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://csnnasb8lylx6"]
+[gd_scene load_steps=28 format=3 uid="uid://csnnasb8lylx6"]
 
 [ext_resource type="PackedScene" uid="uid://b76pkmfohc5wa" path="res://gameplay.tscn" id="1_n34vc"]
 [ext_resource type="Texture2D" uid="uid://caqhnlc0xl50w" path="res://models/courses/westopolis/skybox.png" id="2_jbbcb"]
@@ -120,19 +120,27 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="Curve3D" id="Curve3D_m7xf4"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 65, 8, 32, 0, 0, 0, 0, 0, 0, 65, 7.99423, 30, 0, 8.9407e-08, 0, 0, 8.9407e-08, 0, 64.8888, 0, 4.68938, 0, 8.9407e-08, 0, 0, 8.9407e-08, 0, 44.9464, 0, -15.2073, 0, 9.68575e-08, 0, 0, 9.68575e-08, 0, 44.8726, 0, -34.9803, 0, 0, 0, 0, 0, -16, 44.419, 0, -45.101, 24, 0, 0, -24, 0, 0, 5.31, 0, -76.558, 0, 0, -16, 0, 0, 0, -33.458, 0, -45.611, 3.23873, -0.028389, -3.2387, -3.23873, 0.028389, 3.2387, -36.5667, 0, -38.334, 0, 8.9407e-08, 0, 0, 8.9407e-08, 0, -45.2367, 0, -34.8515, 0, 9.68575e-08, 0, 0, 9.68575e-08, 0, -75.8434, 0, -4.92498, 0, 9.68575e-08, 0, 0, 9.68575e-08, 0, -75.6734, 0, 5.1072, 0, 8.9407e-08, 0, 0, 8.9407e-08, 0, -50.9385, 0, 25.1849, 0, 2.6077e-07, 0, 0, 2.6077e-07, 0, -51.0034, 0.0368652, 30.0707, -4.25805, -0.0430489, -3.66084, 4.25805, 0.0430489, 3.66084, -47.7097, 8, 62.1191, 0, 0, 0, 0, 0, 0, -22.3954, 8, 65.7565, 0, 0, 0, 0, 0, 0, -10.7084, 8, 82.1874, 0, 0, 0, 0, 0, 0, 10.1491, 8, 82.5274, 0, 0, 0, 0, 0, 0, 31.9138, 8, 65.1837, 0, 0, 0, 0, 0, 0, 60.0307, 8, 39.844),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 20
+
 [node name="Gameplay" instance=ExtResource("1_n34vc")]
 
 [node name="WorldEnvironment - Retro" parent="." index="2"]
 environment = SubResource("Environment_a8woo")
-
-[node name="Sonic" parent="." index="3"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 64.9811, 8, 32.1669)
 
 [node name="Minimap" parent="UI/MarginContainer" index="2"]
 texture = ExtResource("4_c7yr7")
 xform_translate = Vector2(70.5, 48)
 xform_rotate_degrees = 90.0
 xform_scale = Vector2(0.7, 0.7)
+
+[node name="RaceBeginAndEnd" parent="." index="5"]
+music = ExtResource("9_iunvk")
 
 [node name="map" parent="." index="6" instance=ExtResource("3_jbbcb")]
 
@@ -248,14 +256,15 @@ length = 17.7218
 ring_fuel = 14.1775
 metadata/_edit_group_ = true
 
-[node name="RaceBegin" parent="." index="11"]
-skip = true
-music = ExtResource("9_iunvk")
-
-[node name="LapProgress" parent="." index="13"]
+[node name="LapProgress" parent="." index="12"]
 curve = SubResource("Curve3D_87vfy")
 length = 333.823
 ring_fuel = 267.058
+
+[node name="CPUPath" parent="." index="13"]
+curve = SubResource("Curve3D_m7xf4")
+length = 480.147
+ring_fuel = 384.117
 
 [node name="ItemPanel2" parent="." index="14" instance=ExtResource("10_c18mg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.8966, 8.7, 65.0045)
@@ -263,7 +272,60 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.8966, 8.7, 65.0045)
 [node name="ItemPanel" parent="." index="15" instance=ExtResource("10_c18mg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.9404, 0.7, -34.9355)
 
+[node name="Shadow" parent="." index="16"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 64.965, 8, 32.2384)
+
+[node name="hand_l_001" parent="Shadow/Model/Rouge/Skeleton3D" index="1"]
+transform = Transform3D(0.01, -3.17865e-10, -1.19209e-09, -1.19209e-09, 1.19209e-09, -0.01, 3.17865e-10, 0.01, 1.19209e-09, -7.45058e-09, -5.58794e-09, 4.80825e-09)
+
+[node name="hand_r_001" parent="Shadow/Model/Rouge/Skeleton3D" index="3"]
+transform = Transform3D(0.01, -8.74228e-10, 3.78925e-17, 0, 1.19209e-09, -0.01, 8.74228e-10, 0.01, 1.19209e-09, 0, -5.58794e-09, 4.80825e-09)
+
+[node name="Rouge" parent="." index="17"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 65.965, 8, 32.2384)
+
+[node name="Omega" parent="." index="18"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 63.965, 8, 32.2384)
+
+[node name="hand_l_001" parent="Omega/Model/Rouge/Skeleton3D" index="1"]
+transform = Transform3D(0.01, -3.17865e-10, -1.19209e-09, -1.19209e-09, 1.19209e-09, -0.01, 3.17865e-10, 0.01, 1.19209e-09, -7.45058e-09, -5.58794e-09, 4.80825e-09)
+
+[node name="hand_r_001" parent="Omega/Model/Rouge/Skeleton3D" index="3"]
+transform = Transform3D(0.01, -8.74228e-10, 3.78925e-17, 0, 1.19209e-09, -0.01, 8.74228e-10, 0.01, 1.19209e-09, 0, -5.58794e-09, 4.80825e-09)
+
+[node name="DoomsEye" parent="." index="19"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 62.965, 8, 32.2384)
+
+[node name="hand_l_001" parent="DoomsEye/Model/Rouge/Skeleton3D" index="1"]
+transform = Transform3D(0.01, -3.17865e-10, -1.19209e-09, -1.19209e-09, 1.19209e-09, -0.01, 3.17865e-10, 0.01, 1.19209e-09, -7.45058e-09, -5.58794e-09, 4.80825e-09)
+
+[node name="hand_r_001" parent="DoomsEye/Model/Rouge/Skeleton3D" index="3"]
+transform = Transform3D(0.01, -8.74228e-10, 3.78925e-17, 0, 1.19209e-09, -0.01, 8.74228e-10, 0.01, 1.19209e-09, 0, -5.58794e-09, 4.80825e-09)
+
+[node name="Zavok" parent="." index="20"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 66.965, 8, 32.2384)
+
+[node name="hand_l_001" parent="Zavok/Model/Rouge/Skeleton3D" index="1"]
+transform = Transform3D(0.01, -3.17865e-10, -1.19209e-09, -1.19209e-09, 1.19209e-09, -0.01, 3.17865e-10, 0.01, 1.19209e-09, -7.45058e-09, -5.58794e-09, 4.80825e-09)
+
+[node name="hand_r_001" parent="Zavok/Model/Rouge/Skeleton3D" index="3"]
+transform = Transform3D(0.01, -8.74228e-10, 3.78925e-17, 0, 1.19209e-09, -0.01, 8.74228e-10, 0.01, 1.19209e-09, 0, -5.58794e-09, 4.80825e-09)
+
+[connection signal="focus_entered" from="UI/pause/pause_options/continue" to="UI/pause" method="focus_entered"]
+[connection signal="focus_entered" from="UI/pause/pause_options/retry" to="UI/pause" method="focus_entered"]
+[connection signal="focus_entered" from="UI/pause/pause_options/retire" to="UI/pause" method="focus_entered"]
 [connection signal="door_opened" from="50 Doors/Door In" to="50 Doors" method="queue_free"]
 [connection signal="door_opened" from="50 Doors/Door Out" to="50 Doors" method="queue_free"]
 
+[editable path="map"]
 [editable path="Accelerator"]
+[editable path="Shadow"]
+[editable path="Shadow/Model"]
+[editable path="Rouge"]
+[editable path="Rouge/Model"]
+[editable path="Omega"]
+[editable path="Omega/Model"]
+[editable path="DoomsEye"]
+[editable path="DoomsEye/Model"]
+[editable path="Zavok"]
+[editable path="Zavok/Model"]

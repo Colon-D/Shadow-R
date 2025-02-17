@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://hu88dmlcsvyy"]
+[gd_scene load_steps=30 format=3 uid="uid://hu88dmlcsvyy"]
 
 [ext_resource type="PackedScene" uid="uid://b76pkmfohc5wa" path="res://gameplay.tscn" id="1_guv5i"]
 [ext_resource type="Shader" uid="uid://dx8hwc7picmdt" path="res://skybox.gdshader" id="2_otoce"]
@@ -43,6 +43,14 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
+
+[sub_resource type="Curve3D" id="Curve3D_tr73c"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 1.57462, 0, -4.49123, -1.57462, 0, 4.49123, -5.11866, 0, 14.2519, -0.76545, 0, -3.67743, 0.76545, 0, 3.67743, -5.23941, 0, 37.5145, 1.485, 0, -2, -1.485, 0, 28, -2.90593, 1.48355, 51.9436, 2.627, 0, 28, 0, 0, 0, -45.3879, 5.82621, 51.9436, -3.486, 0, 3.955, 2.316, 0, -3.955, -38.9214, 8, 32.7708, 0.253963, 0, 6.46325, -0.253963, 0, -6.46325, -46.943, 8, 23.902, -3.58654, 0, 5.32148, 0, 0, 0, -34.894, 8, 12.2078, -3.49825, 0, 3.62048, 3.49825, 0, -3.62048, -35.786, 8, -14.9903, -3.12555, 0, 2.98501, 3.12555, 0, -2.98501, -9.689, 8, -14.87, -2.03683, -0.622647, 1.94075, 2.03683, 0.622647, -1.94075, 4.50548, 7.04388, -27.367, 0, 0, 0, 0, 0, 0, 7.866, 7.39419, -26.506, 0, 0, -0.847, 24, 0, 0, 38.3375, 5.43104, 0.558163, 11.7899, 0, -1.57378, -11.7899, 0, 1.57378, 43.0449, 1.72947, -21.61, 5.87344, 0, -3.54593, -5.87344, 0, 3.54593, 17.3769, 1.81127, -13.5143),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 15
 
 [sub_resource type="Curve3D" id="Curve3D_kupsk"]
 _data = {
@@ -134,29 +142,35 @@ freeze_mode = 1
 [node name="WorldEnvironment - Retro" parent="." index="5"]
 environment = SubResource("Environment_5qxeh")
 
-[node name="Sonic" parent="." index="6" node_paths=PackedStringArray("path")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 25.2466, 4.76837e-07, -45.3909)
-path = NodePath("../digital_circuit/hexamino_006/StaticBody3D/CollisionShape3D")
-
 [node name="Minimap" parent="UI/MarginContainer" index="2"]
 texture = ExtResource("4_e0d0w")
 xform_translate = Vector2(142, 38)
 xform_rotate_degrees = 225.0
 xform_scale = Vector2(1.456, 1.456)
 
-[node name="RaceBegin" parent="." index="9"]
-skip = true
+[node name="RaceBeginAndEnd" parent="." index="8"]
 music = ExtResource("4_dli5l")
 
-[node name="LapProgress" parent="." index="11"]
+[node name="LapProgress" parent="." index="10"]
 curve = SubResource("Curve3D_jchlv")
 length = 174.688
 ring_fuel = 139.75
 
+[node name="CPUPath" parent="." index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5423, 0, -44.1432)
+visible = false
+curve = SubResource("Curve3D_tr73c")
+length = 378.233
+ring_fuel = 302.586
+
+[node name="CSGPolygon3D" parent="CPUPath" index="0"]
+visible = true
+path_local = true
+
 [node name="digital_circuit" parent="." index="12" instance=ExtResource("5_wbl5o")]
 script = ExtResource("6_jchlv")
 
-[node name="AnimationPlayer" parent="digital_circuit" index="55"]
+[node name="AnimationPlayer" parent="digital_circuit" index="56"]
 speed_scale = 0.25
 
 [node name="RingPaths" type="Node3D" parent="." index="13"]
@@ -904,9 +918,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0136409, 0.322759, -0.02950
 path_simplify_angle = 0.0
 path_rotation = 2
 
-[connection signal="focus_entered" from="UI/pause/pause_options/continue" to="UI/pause" method="focus_entered"]
-[connection signal="focus_entered" from="UI/pause/pause_options/retry" to="UI/pause" method="focus_entered"]
-[connection signal="focus_entered" from="UI/pause/pause_options/retire" to="UI/pause" method="focus_entered"]
+[node name="Shadow" parent="." index="19"]
+transform = Transform3D(0.702315, 0, -0.711867, 0, 1, 0, 0.711867, 0, 0.702315, 25.6628, 0, -45.0943)
+
+[node name="Rouge" parent="." index="20"]
+transform = Transform3D(0.702315, 0, -0.711867, 0, 1, 0, 0.711867, 0, 0.702315, 26.3651, 0, -44.3824)
+
+[node name="Omega" parent="." index="21"]
+transform = Transform3D(0.702315, 0, -0.711867, 0, 1, 0, 0.711867, 0, 0.702315, 24.9605, 0, -45.8062)
+
+[node name="DoomsEye" parent="." index="22"]
+transform = Transform3D(0.702315, 0, -0.711867, 0, 1, 0, 0.711867, 0, 0.702315, 24.2581, 0, -46.518)
+
+[node name="Zavok" parent="." index="23"]
+transform = Transform3D(0.702315, 0, -0.711867, 0, 1, 0, 0.711867, 0, 0.702315, 27.0674, 0, -43.6706)
 
 [editable path="digital_circuit"]
 [editable path="Accelerator"]
+[editable path="Shadow"]
+[editable path="Shadow/Model"]
+[editable path="Rouge"]
+[editable path="Rouge/Model"]
+[editable path="Omega"]
+[editable path="Omega/Model"]
+[editable path="DoomsEye"]
+[editable path="DoomsEye/Model"]
+[editable path="Zavok"]
+[editable path="Zavok/Model"]

@@ -32,7 +32,18 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path="uid://dmpn0enmpyvd4"
-_subresources={}
+_subresources={
+"materials": {
+"red_slime": {
+"use_external/enabled": true,
+"use_external/path": "uid://cowkkiph03csk"
+},
+"sludge": {
+"use_external/enabled": true,
+"use_external/path": "uid://bb7wtn41pet62"
+}
+}
+}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

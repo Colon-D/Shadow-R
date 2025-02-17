@@ -1,0 +1,37 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bb7wtn41pet62"]
+
+[ext_resource type="Texture2D" uid="uid://dkxyye2oi8xoq" path="res://iron_jungle/sludge.png" id="1_noiia"]
+
+[sub_resource type="Shader" id="Shader_4aeod"]
+code = "shader_type spatial;
+render_mode skip_vertex_transform, cull_disabled, depth_prepass_alpha;
+
+uniform sampler2D texture_albedo : source_color, filter_nearest;
+
+void vertex() {
+	VERTEX = (MODELVIEW_MATRIX * vec4(VERTEX, 1.0)).xyz;
+	VERTEX = round(VERTEX * 128.0) / 128.0;
+}
+
+void fragment() {
+	vec2 uv = UV;
+	uv.x += sin(TIME / 8.0) / 16.0;
+	uv.y += -TIME / 64.0 + cos(TIME / 8.0) / 16.0;
+	
+	vec4 color = texture(texture_albedo, uv);
+	ALBEDO = color.rgb;
+
+	vec4 world_vertex = INV_VIEW_MATRIX * vec4(VERTEX, 1.0);
+	if (world_vertex.y < -0.01) discard;
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the material.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[resource]
+render_priority = 0
+shader = SubResource("Shader_4aeod")
+shader_parameter/texture_albedo = ExtResource("1_noiia")

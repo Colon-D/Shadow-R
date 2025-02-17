@@ -8,6 +8,8 @@ extends Control
 @export var menu_confirm_sound: AudioStream
 @export var pause_player: AudioStreamPlayer
 @export var menu_player: AudioStreamPlayer
+@export var menu_timer: Timer
+@export var reload_timer: Timer
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause") and not get_tree().paused:
@@ -34,11 +36,14 @@ func unpause():
 
 func reload():
 	unpause()
-	menu_player.stream = menu_confirm_sound
-	menu_player.play()
+	reload_timer.start()
+
+func delayed_reload():
 	get_tree().reload_current_scene()
 
 func quit():
-	menu_player.stream = menu_confirm_sound
-	menu_player.play()
-	get_tree().quit()
+	unpause()
+	menu_timer.start()
+
+func to_menu():
+	get_tree().change_scene_to_file("res://menu/menu.tscn")

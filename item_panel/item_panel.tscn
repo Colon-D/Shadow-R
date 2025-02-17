@@ -26,7 +26,8 @@ monitorable = false
 shape = SubResource("SphereShape3D_nwk8b")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+process_callback = 0
+wait_time = 0.05
 one_shot = true
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_body_entered"]

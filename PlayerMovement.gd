@@ -74,6 +74,11 @@ var accelerator_progress := 0.0
 var accelerator_speed_mult := 1.0
 @export var accelerator_sfx: AudioStream
 
+# [0, 4] -> 1st to 5th
+var place := 0
+
+signal end()
+
 enum Shield { NONE, WATER, LIGHTNING }
 @onready var shield := Shield.NONE:
 	set(value):
@@ -95,6 +100,11 @@ var water_shield_triggered := 0.0
 const WATER_SHIELD_LENIENCY := 0.1
 var lightning_shield_countdown := 0.0
 const LIGHTNING_SHIELD_TIME := 30.0
+var item_panel_cooldown := 0.0
+
+@export var cpu := false
+@export var cpu_path: Path3D
+@export var cpu_debug: Node3D
 
 func collect_ring():
 	rings += 1
@@ -117,21 +127,71 @@ func accelerator(new_accelerator_path: Path3D, new_accelerator_speed_mult := 1.0
 	audio.play()
 
 func _physics_process(delta: float) -> void:
+	item_panel_cooldown -= delta
+
+	# I'm just calling this every frame now because there is a bug that
+	# seems to not call it when it should be called.
+	if shield == Shield.LIGHTNING:
+		ring_hitbox.shape.radius = RING_RADIUS_LIGHTNING
+	else:
+		ring_hitbox.shape.radius = RING_RADIUS
+
 	var vel_mag := velocity.length()
 	var moving := vel_mag > 1
 
 	if state == State.ACCELERATOR:
-		vel_mag = 32.0 * accelerator_speed_mult
+		vel_mag = 40.0 * accelerator_speed_mult
 		accelerator_progress += delta * vel_mag
 		var trans = accelerator_path.transform * accelerator_path.curve.sample_baked_with_rotation(accelerator_progress, true)
 		position = trans.origin
 		look_at(position + trans.basis.z)
 		if accelerator_progress >= accelerator_fuel:
-			velocity = -trans.basis.z * 24.0 * accelerator_speed_mult
+			velocity = -trans.basis.z * 28.0 * accelerator_speed_mult
 			state = State.NORMAL
 			audio.stop()
 
 	else:
+		var in_jump       := false
+		var in_just_jump  := false
+		var in_l_brake    := false
+		var in_r_brake    := false
+		var in_accel      := 0.0
+		var in_just_accel := false
+		var in_duck       := false
+		var in_x          := 0.0
+		var in_brake_x    := 0.0
+
+		if cpu:
+			var cpu_curve := cpu_path.curve
+			var cpu_offset := cpu_curve.get_closest_offset(position * cpu_path.transform)
+			# aim towards 1% further
+			var target_pos := cpu_path.transform * cpu_curve.sample_baked(cpu_offset + 0.25 + vel_mag / 1.75)
+			cpu_debug.global_position = target_pos
+			var target_angle := (basis.z).signed_angle_to(target_pos - position, Vector3.UP)
+			in_x = 0.0
+			in_brake_x = 0.0
+			if target_angle > 0.05:
+				in_x = -1.0
+				if target_angle > 0.2:
+					in_brake_x = -1.0
+			elif target_angle < -0.05:
+				in_x = 1.0
+				if target_angle < 0.2:
+					in_brake_x = 1.0
+			in_accel = 1.0 * (((PI / 2) - abs(target_angle)) / (PI / 2))
+			in_l_brake = (abs(target_angle) > PI / 2) and vel_mag > 5
+			in_r_brake = in_l_brake
+		else:
+			in_jump       = Input.is_action_pressed("jump")
+			in_just_jump  = Input.is_action_just_pressed("jump")
+			in_l_brake    = Input.is_action_pressed("left_brake")
+			in_r_brake    = Input.is_action_pressed("right_brake")
+			in_accel      = Input.get_action_strength("accel")
+			in_just_accel = Input.is_action_just_pressed("accel")
+			in_duck       = Input.is_action_pressed("duck")
+			in_x          = Input.get_axis("turn_left", "turn_right")
+			in_brake_x    = Input.get_axis("left_brake", "right_brake")
+
 		if shield == Shield.LIGHTNING:
 			lightning_shield_countdown -= delta
 			if lightning_shield_countdown <= 0:
@@ -182,14 +242,14 @@ func _physics_process(delta: float) -> void:
 					gravity *= GRAVITY_AIR_MULT
 				# variable jump height (unless double jumping)
 				if velocity.y > 0:
-					if (not Input.is_action_pressed("jump")) and not double_jumping:
+					if (not in_jump) and not double_jumping:
 						extend_jump = false
 						gravity *= JUMP_GRAV_MULT
 				velocity += gravity * delta
 
 		# jump
 		if state != State.SPINDASH and state != State.SWIM:
-			if Input.is_action_just_pressed("jump"):
+			if in_just_jump:
 				var jump = false
 				var up = basis.y
 				if kayote_time > 0 and (up.y > 0.05):
@@ -211,8 +271,7 @@ func _physics_process(delta: float) -> void:
 					state = State.JUMP
 
 		# drag (RANDOM MATH! GOOO!)
-		var fast_brake := Input.is_action_pressed("left_brake")\
-			and Input.is_action_pressed("right_brake")
+		var fast_brake := in_l_brake and in_r_brake
 		var decel := DECEL
 		var decel_lin := DECEL_LIN
 		if fast_brake:
@@ -234,7 +293,7 @@ func _physics_process(delta: float) -> void:
 		# pressing back shouldn't make up move back nor decelerate
 		fleet_feet_timer -= delta
 		if state != State.SPINDASH:
-			var forwards_input := maxf(Input.get_action_strength("accel"), 0)
+			var forwards_input := maxf(in_accel, 0)
 			var accel := ACCEL
 			if fleet_feet_timer > 0:
 				accel *= FLEET_FEET_ACCEL_MULT
@@ -246,7 +305,7 @@ func _physics_process(delta: float) -> void:
 			if on_floor and not moving:
 				state = State.NORMAL
 		else:
-			if on_floor and moving and Input.is_action_pressed("duck"):
+			if on_floor and moving and in_duck:
 				state = State.ROLL
 				audio.stream = roll_sfx
 				audio.pitch_scale = 1.0
@@ -254,19 +313,19 @@ func _physics_process(delta: float) -> void:
 
 		# spindash
 		if state == State.SPINDASH:
-			if Input.is_action_just_pressed("accel"):
+			if in_just_accel:
 				spindash_charge = lerp(spindash_charge, 30.0, 0.15)
 				audio.stream = spin_sfx
 				audio.pitch_scale = 1.0
 				audio.play()
-			if not Input.is_action_pressed("duck"):
+			if not in_duck:
 				velocity = basis.z * spindash_charge
 				state = State.ROLL
 				audio.stream = spin_go_sfx
 				audio.pitch_scale = 1.0
 				audio.play()
 		else:
-			if on_floor and not moving and Input.is_action_pressed("duck"):
+			if on_floor and not moving and in_duck:
 				state = State.SPINDASH
 				spindash_charge = 0
 
@@ -279,7 +338,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			var move_mult_factor = lerp(1.0, MOVING_MULT, min(vel_mag / 35.0, 1.0))
 			rotate_vel *= move_mult_factor
-		var input_dir := Input.get_axis("turn_left", "turn_right")
+		var input_dir := in_x
 		var rotate_by = -input_dir * delta * rotate_vel
 		rotate_y(rotate_by)
 		velocity = velocity.rotated(Vector3.UP, rotate_by * 0.75) # maybe og game has this?
@@ -288,7 +347,7 @@ func _physics_process(delta: float) -> void:
 		# (maybe combine with above?)
 		# (this is barely any different now that above rotates velocity too)
 		if state != State.SWIM:
-			var brake_input := Input.get_axis("left_brake", "right_brake")
+			var brake_input := in_brake_x
 			var brake_vel := BRAKE
 			if state == State.ROLL:
 				brake_vel *= ROLLING_MULT
@@ -383,11 +442,17 @@ func _physics_process(delta: float) -> void:
 		elif lap == 1 and total_progress >= 200:
 			lap += 1
 		elif lap == 2 and total_progress >= 300:
-			# you win!
-			pass
+			lap += 1
+			# fake further distance to make sorting easier
+			total_progress += (4 - place) * 1000
+			# stop processing
+			process_mode = PROCESS_MODE_DISABLED
+			# main player will end game
+			end.emit()
 
 	# laps
-	lap_time[lap] += delta
+	if (lap < 3):
+		lap_time[lap] += delta
 
 func set_new_up_direction(new_up_direction: Vector3) -> void:
 	var old_up_direction := basis.y
