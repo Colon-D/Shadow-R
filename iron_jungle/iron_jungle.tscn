@@ -1,10 +1,13 @@
-[gd_scene load_steps=36 format=3 uid="uid://budfsftlyj6uo"]
+[gd_scene load_steps=40 format=3 uid="uid://budfsftlyj6uo"]
 
 [ext_resource type="PackedScene" uid="uid://b76pkmfohc5wa" path="res://gameplay.tscn" id="1_bvsi5"]
 [ext_resource type="Shader" uid="uid://dx8hwc7picmdt" path="res://skybox.gdshader" id="2_imacx"]
+[ext_resource type="Material" uid="uid://ckmm34ftfflhk" path="res://player/fake_metal_shadow.tres" id="2_xdwo2"]
+[ext_resource type="Material" uid="uid://djnkc6ha1in64" path="res://player/fake_metal_rouge.tres" id="3_pgweh"]
 [ext_resource type="Texture2D" uid="uid://cnk4quhyeyrvu" path="res://iron_jungle/skybox.png" id="3_qdm4r"]
 [ext_resource type="Texture2D" uid="uid://r8btmet2sm44" path="res://iron_jungle/minimap.png" id="4_nmnee"]
 [ext_resource type="AudioStream" uid="uid://isbpnw4021mw" path="res://iron_jungle/14. Iron Jungle.ogg" id="4_qdm4r"]
+[ext_resource type="Material" uid="uid://csnqmmoj0jetg" path="res://player/fake_metal_omega.tres" id="4_rc5k6"]
 [ext_resource type="PackedScene" uid="uid://dfqr7un0u2nws" path="res://iron_jungle/iron_jungle.blend" id="5_0t6hg"]
 [ext_resource type="PackedScene" uid="uid://dancuapllbcva" path="res://iron_jungle/light_beam.blend" id="6_1s3gm"]
 [ext_resource type="Texture2D" uid="uid://cou4of8nd0kq5" path="res://iron_jungle/nights/nights_0.png" id="7_jjc3v"]
@@ -47,7 +50,7 @@ point_count = 21
 [sub_resource type="Curve3D" id="Curve3D_fcktm"]
 closed = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -18.2562, 0, 25.7541, 0.614698, -0.0557184, -3.12497, -0.614698, 0.0557184, 3.12497, -22.6055, 0, 42.0589, 0, 0, 0, 0, 0, 0, -23.3357, 0, 52.5497, 0, 0, 0, 0, 0, 18, -22.7398, 0.810049, 56.6207, 0, 0, 18, 0, 0, 0, 7.24946, 11.8839, 55.69, 0, 0, 0, 0, 0, 0, 7.43508, 11.7218, 13.5639, 0, 0, 0, 0, 0, -12, 7.91428, 8.94007, 4.04413, 0, 0, -12, 0, 0, 8, 26.2164, 3.58947, 2.9156, 4, 0, 0, 0, 0, 0, 16.0207, 0, 11.1821, 0.903547, 0.0895605, -5.77024, -0.903547, -0.0895605, 5.77024, 6.62235, -4.76837e-07, 14.7981, 0.131217, 0.457872, -0.452703, -0.131217, -0.457872, 0.452703, 5.89203, 0, 30.1384, -3.64524, 0.0177884, -4.13776, 3.64524, -0.0177884, 4.13776, 2.79894, 0, 55.0408, -2.4531, 0.0434709, 2.15176, 2.4531, -0.0434709, -2.15176, 27.0292, 0, 57.6063, -0.0341415, 0.014689, 4.97666, 0.0341415, -0.014689, -4.97666, 33.7405, 0, 32.4455, -0.327274, 0.222916, 7.04991, 0.327274, -0.222916, -7.04991, 36.0625, 0, 19.1567, 0, 0, 0, 0, 0, 0, 35.9763, 0, -13.1175, 2.94259, 0.185048, 4.34271, -2.94259, -0.185048, -4.34271, 36.1891, 0, -26.5101, 1.43263, 0.117287, 2.90011, -1.43263, -0.117287, -2.90011, 14.2187, 0, -30.0244, 2.13442, -0.0505934, 2.77642, -2.13442, 0.0505934, -2.77642, 9.88867, 0, -47.8368, 4.45, 0.000704765, 0.556637, -4.45, -0.000704765, -0.556637, -0.00788975, 0, -52.8843, 1.72392, -0.121047, -0.249417, -16.7248, 1.17435, 2.41975, -13, 0, -53, 0, 0, 0, 0, 0, 0, -29.9914, 0, -33.032, 1.11908, 0.119817, -3.68217, -1.11908, -0.119817, 3.68217, -29.4041, 0, -20.0998, 1.24799, -0.250185, -3.39688, -1.24799, 0.250185, 3.39688, -36.1539, 0, -10.0443, 0, 0, 0, 0, 0, 0, -35.054, 8.36115, 27.0329, -0.0572357, -0.166595, -2.6862, 0.0572357, 0.166595, 2.6862, -31.0954, 8, 36.1439, -0.0914345, -0.0181656, -3.04253, 0, 0, 0, -34.8612, 8, 46.864, -3.55284, -0.0149117, -1.76521, 3.55284, 0.0149117, 1.76521, -29.9123, 8, 55.0662, -3.09373, -0.00245953, 2.36099, 3.09373, 0.00245953, -2.36099, -20.6466, 8, 54.4954, 0.278559, -0.0269117, 2.88826, -0.278559, 0.0269117, -2.88826, -16.3926, 8, 46.525, -0.51613, 0.0458069, 9.12888, 0.51613, -0.0458069, -9.12888, -21.096, 8, 23.377, 0, 0, 0, 0, 0, -10, -20.9241, 8, 4.71, 0, 0, -10, 0, 0, 0, -2.59968, 0, 4.54059, 4.0815, -0.034502, -0.0480318, -4.0815, 0.034502, 0.0480318, -10.4976, 0.344675, 12.2247),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -18.2562, 0, 25.7541, 0.614698, -0.0557184, -3.12497, -0.614698, 0.0557184, 3.12497, -22.6055, 0, 42.0589, 0, 0, 0, 0, 0, 0, -23.3357, 0, 52.5497, 0, 0, 0, 0, 0, 18, -22.7398, 0.810049, 56.6207, 0, 0, 18, 0, 0, 0, 7.24946, 11.8839, 55.69, 0, 0, 0, 0, 0, 0, 7.43508, 9.38505, 23.4382, 0, 0, 0, 0, 0, -12, 7.91428, 8.94007, 4.04413, 0, 0, -12, 0, 0, 8, 26.2164, 3.58947, 2.9156, 4, 0, 0, 0, 0, 0, 16.0207, 0, 11.1821, 0.903547, 0.0895605, -5.77024, -0.903547, -0.0895605, 5.77024, 6.62235, -4.76837e-07, 14.7981, 0.131217, 0.457872, -0.452703, -0.131217, -0.457872, 0.452703, 5.89203, 0, 30.1384, -3.64524, 0.0177884, -4.13776, 3.64524, -0.0177884, 4.13776, 2.79894, 0, 55.0408, -2.4531, 0.0434709, 2.15176, 2.4531, -0.0434709, -2.15176, 27.0292, 0, 57.6063, -0.0341415, 0.014689, 4.97666, 0.0341415, -0.014689, -4.97666, 33.0307, 0, 32.4455, -0.327274, 0.222916, 7.04991, 0.327274, -0.222916, -7.04991, 35.1731, 0, 19.1567, 0, 0, 0, 0, 0, 0, 35.9763, 0, -13.1175, 2.94259, 0.185048, 4.34271, -2.94259, -0.185048, -4.34271, 36.1891, 0, -26.5101, 1.43263, 0.117287, 2.90011, -1.43263, -0.117287, -2.90011, 14.2187, 0, -30.0244, 2.13442, -0.0505934, 2.77642, -2.13442, 0.0505934, -2.77642, 9.88867, 0, -47.8368, 4.45, 0.000704765, 0.556637, -4.45, -0.000704765, -0.556637, -0.00788975, 0, -52.8843, 1.72392, -0.121047, -0.249417, -16.7248, 1.17435, 2.41975, -13, 0, -53, 0, 0, 0, 0, 0, 0, -28.9438, 0, -33.032, 1.11908, 0.119817, -3.68217, -1.11908, -0.119817, 3.68217, -29.4041, 0, -16.0544, 1.24799, -0.250185, -3.39688, -1.24799, 0.250185, 3.39688, -36.1539, 0, -4.52737, 0, 0, 0, 0, 0, 0, -35.054, 8.36115, 27.0329, -0.0572357, -0.166595, -2.6862, 0.0572357, 0.166595, 2.6862, -31.0954, 8, 36.1439, -0.0914345, -0.0181656, -3.04253, 0, 0, 0, -34.8612, 8, 46.864, -3.55284, -0.0149117, -1.76521, 3.55284, 0.0149117, 1.76521, -29.9123, 8, 55.0662, -3.09373, -0.00245953, 2.36099, 3.09373, 0.00245953, -2.36099, -20.6466, 8, 54.4954, 0.278559, -0.0269117, 2.88826, -0.278559, 0.0269117, -2.88826, -16.3926, 8, 46.525, -0.51613, 0.0458069, 9.12888, 0.51613, -0.0458069, -9.12888, -21.096, 8, 23.377, 0, 0, 0, 0, 0, -10, -20.9241, 8, 4.71, 0, 0, -10, 0, 0, 0, -2.59968, 0, 4.54059, 4.0815, -0.034502, -0.0480318, -4.0815, 0.034502, 0.0480318, -10.4976, 0.344675, 12.2247),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 34
@@ -98,6 +101,10 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 7
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xdwo2"]
+height = 0.1
+radius = 0.75
 
 [sub_resource type="Curve3D" id="Curve3D_nmnee"]
 _data = {
@@ -162,7 +169,12 @@ _data = {
 }
 point_count = 2
 
-[node name="Gameplay" instance=ExtResource("1_bvsi5")]
+[node name="Gameplay" node_paths=PackedStringArray("fake_metal_material_overrides") instance=ExtResource("1_bvsi5")]
+fake_metal_material_overrides = {
+NodePath("Shadow"): ExtResource("2_xdwo2"),
+NodePath("Rouge"): ExtResource("3_pgweh"),
+NodePath("Omega"): ExtResource("4_rc5k6")
+}
 
 [node name="WorldEnvironment - Retro" parent="." index="2"]
 environment = SubResource("Environment_tbcog")
@@ -184,8 +196,8 @@ ring_fuel = 486.121
 [node name="CPUPath" parent="." index="8"]
 visible = false
 curve = SubResource("Curve3D_fcktm")
-length = 645.316
-ring_fuel = 516.253
+length = 644.226
+ring_fuel = 515.381
 
 [node name="CSGPolygon3D" parent="CPUPath" index="0"]
 visible = true
@@ -233,7 +245,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 128)
 curve = SubResource("Curve3D_1s3gm")
 
 [node name="nights_follow" type="PathFollow3D" parent="nights_path" index="0"]
-transform = Transform3D(0.998802, -0.0100249, 0.0476634, 0.0153478, 0.993497, -0.112657, -0.0462245, 0.113253, 0.992487, -88.5872, 0.378073, -123.921)
+transform = Transform3D(0.998801, -0.0100249, 0.0476634, 0.0153478, 0.993497, -0.112657, -0.0462245, 0.113253, 0.992487, -88.5872, 0.378073, -123.921)
 progress = 175.775
 script = ExtResource("13_nmnee")
 
@@ -332,6 +344,10 @@ curve = SubResource("Curve3D_8hc23")
 length = 62.6575
 ring_fuel = 50.126
 
+[node name="CollisionShape3D" parent="Accelerator/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.95537, 0, -2.54311)
+shape = SubResource("CylinderShape3D_xdwo2")
+
 [node name="red_slime" parent="Accelerator" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
 
@@ -428,24 +444,16 @@ ring_fuel = 83.2013
 transform = Transform3D(0.946734, 0, -0.322018, 0, 1, 0, 0.322018, 0, 0.946734, -18.571, 9.53674e-07, 26.8992)
 
 [node name="Skeleton3D" parent="Shadow/Model/Shadow" index="0"]
-bones/4/position = Vector3(0.11, 0.075, 0)
 bones/4/rotation = Quaternion(0.707107, 0, -0.707107, 0)
 bones/5/rotation = Quaternion(0, 1.58933e-08, 0, 1)
-bones/8/position = Vector3(-0.11, 0.075, 0)
 bones/8/rotation = Quaternion(0.707107, 0, 0.707107, 0)
 bones/9/rotation = Quaternion(0, -1.58933e-08, 0, 1)
 
 [node name="hand_l_2" parent="Shadow/Model/Shadow/Skeleton3D" index="1"]
-transform = Transform3D(0.01, -3.17865e-10, -1.19209e-09, -1.19209e-09, 1.19209e-09, -0.01, 3.17865e-10, 0.01, 1.19209e-09, -7.45058e-09, -5.58794e-09, 4.80825e-09)
-
-[node name="arm_l_2" parent="Shadow/Model/Shadow/Skeleton3D" index="2"]
-transform = Transform3D(0.01, 5.96046e-10, 1.19209e-09, 5.96046e-10, 2.38419e-09, -0.01, 0, 0.01, 1.78814e-09, -7.45058e-09, 0, 4.80825e-09)
+transform = Transform3D(0.01, -3.17866e-10, -1.19209e-09, -1.19209e-09, 1.19209e-09, -0.01, 3.17866e-10, 0.01, 1.19209e-09, -7.45058e-09, -5.58794e-09, 4.80824e-09)
 
 [node name="hand_r_2" parent="Shadow/Model/Shadow/Skeleton3D" index="3"]
-transform = Transform3D(0.01, -8.74228e-10, 3.78925e-17, 0, 1.19209e-09, -0.01, 8.74228e-10, 0.01, 1.19209e-09, 0, -5.58794e-09, 4.80825e-09)
-
-[node name="arm_r_2" parent="Shadow/Model/Shadow/Skeleton3D" index="4"]
-transform = Transform3D(0.01, 1.19209e-09, 0, 0, 1.19209e-09, -0.01, -1.19209e-09, 0.01, 1.19209e-09, 7.45058e-09, 0, 4.80825e-09)
+transform = Transform3D(0.01, -8.74227e-10, 3.78926e-17, 0, 1.19209e-09, -0.01, 8.74227e-10, 0.01, 1.19209e-09, 0, -5.58794e-09, 4.80824e-09)
 
 [node name="hand_l_001" parent="Shadow/Model/Rouge/Skeleton3D" index="1"]
 transform = Transform3D(0.01, -3.17865e-10, -1.19209e-09, -1.19209e-09, 1.19209e-09, -0.01, 3.17865e-10, 0.01, 1.19209e-09, -7.45058e-09, -5.58794e-09, 4.80825e-09)
@@ -463,24 +471,10 @@ transform = Transform3D(-2.79368, -6.39223e-09, -9.10296e-07, -3.57157e-08, 0.5,
 transform = Transform3D(0.946734, 0, -0.322018, 0, 1, 0, 0.322018, 0, 0.946734, -17.6242, 9.53674e-07, 27.2212)
 
 [node name="Skeleton3D" parent="Rouge/Model/Shadow" index="0"]
-bones/4/position = Vector3(0.11, 0.075, 0)
 bones/4/rotation = Quaternion(0.707107, 0, -0.707107, 0)
 bones/5/rotation = Quaternion(0, 1.58933e-08, 0, 1)
-bones/8/position = Vector3(-0.11, 0.075, 0)
 bones/8/rotation = Quaternion(0.707107, 0, 0.707107, 0)
 bones/9/rotation = Quaternion(0, -1.58933e-08, 0, 1)
-
-[node name="hand_l_2" parent="Rouge/Model/Shadow/Skeleton3D" index="1"]
-transform = Transform3D(0.01, -3.17865e-10, -1.19209e-09, -1.19209e-09, 1.19209e-09, -0.01, 3.17865e-10, 0.01, 1.19209e-09, -7.45058e-09, -5.58794e-09, 4.80825e-09)
-
-[node name="arm_l_2" parent="Rouge/Model/Shadow/Skeleton3D" index="2"]
-transform = Transform3D(0.01, 5.96046e-10, 1.19209e-09, 5.96046e-10, 2.38419e-09, -0.01, 0, 0.01, 1.78814e-09, -7.45058e-09, 0, 4.80825e-09)
-
-[node name="hand_r_2" parent="Rouge/Model/Shadow/Skeleton3D" index="3"]
-transform = Transform3D(0.01, -8.74228e-10, 3.78925e-17, 0, 1.19209e-09, -0.01, 8.74228e-10, 0.01, 1.19209e-09, 0, -5.58794e-09, 4.80825e-09)
-
-[node name="arm_r_2" parent="Rouge/Model/Shadow/Skeleton3D" index="4"]
-transform = Transform3D(0.01, 1.19209e-09, 0, 0, 1.19209e-09, -0.01, -1.19209e-09, 0.01, 1.19209e-09, 7.45058e-09, 0, 4.80825e-09)
 
 [node name="o_hand_l" parent="Rouge/Model/Omega/Skeleton3D" index="0"]
 transform = Transform3D(2.79368, 6.39223e-09, 9.10296e-07, -3.57157e-08, 0.5, -5.91337e-09, -9.10296e-07, 1.05835e-09, 2.79368, 0.407702, 0.169699, -3.36669e-10)
@@ -492,24 +486,10 @@ transform = Transform3D(-2.79368, -6.39223e-09, -9.10296e-07, -3.57157e-08, 0.5,
 transform = Transform3D(0.946734, 0, -0.322018, 0, 1, 0, 0.322018, 0, 0.946734, -19.5177, 9.53674e-07, 26.5772)
 
 [node name="Skeleton3D" parent="Omega/Model/Shadow" index="0"]
-bones/4/position = Vector3(0.11, 0.075, 0)
 bones/4/rotation = Quaternion(0.707107, 0, -0.707107, 0)
 bones/5/rotation = Quaternion(0, 1.58933e-08, 0, 1)
-bones/8/position = Vector3(-0.11, 0.075, 0)
 bones/8/rotation = Quaternion(0.707107, 0, 0.707107, 0)
 bones/9/rotation = Quaternion(0, -1.58933e-08, 0, 1)
-
-[node name="hand_l_2" parent="Omega/Model/Shadow/Skeleton3D" index="1"]
-transform = Transform3D(0.01, -3.17865e-10, -1.19209e-09, -1.19209e-09, 1.19209e-09, -0.01, 3.17865e-10, 0.01, 1.19209e-09, -7.45058e-09, -5.58794e-09, 4.80825e-09)
-
-[node name="arm_l_2" parent="Omega/Model/Shadow/Skeleton3D" index="2"]
-transform = Transform3D(0.01, 5.96046e-10, 1.19209e-09, 5.96046e-10, 2.38419e-09, -0.01, 0, 0.01, 1.78814e-09, -7.45058e-09, 0, 4.80825e-09)
-
-[node name="hand_r_2" parent="Omega/Model/Shadow/Skeleton3D" index="3"]
-transform = Transform3D(0.01, -8.74228e-10, 3.78925e-17, 0, 1.19209e-09, -0.01, 8.74228e-10, 0.01, 1.19209e-09, 0, -5.58794e-09, 4.80825e-09)
-
-[node name="arm_r_2" parent="Omega/Model/Shadow/Skeleton3D" index="4"]
-transform = Transform3D(0.01, 1.19209e-09, 0, 0, 1.19209e-09, -0.01, -1.19209e-09, 0.01, 1.19209e-09, 7.45058e-09, 0, 4.80825e-09)
 
 [node name="hand_l_001" parent="Omega/Model/Rouge/Skeleton3D" index="1"]
 transform = Transform3D(0.01, -3.17865e-10, -1.19209e-09, -1.19209e-09, 1.19209e-09, -0.01, 3.17865e-10, 0.01, 1.19209e-09, -7.45058e-09, -5.58794e-09, 4.80825e-09)
@@ -521,24 +501,10 @@ transform = Transform3D(0.01, -8.74228e-10, 3.78925e-17, 0, 1.19209e-09, -0.01, 
 transform = Transform3D(0.946734, 0, -0.322018, 0, 1, 0, 0.322018, 0, 0.946734, -18.7106, 9.53674e-07, 26.1011)
 
 [node name="Skeleton3D" parent="DoomsEye/Model/Shadow" index="0"]
-bones/4/position = Vector3(0.11, 0.075, 0)
 bones/4/rotation = Quaternion(0.707107, 0, -0.707107, 0)
 bones/5/rotation = Quaternion(0, 1.58933e-08, 0, 1)
-bones/8/position = Vector3(-0.11, 0.075, 0)
 bones/8/rotation = Quaternion(0.707107, 0, 0.707107, 0)
 bones/9/rotation = Quaternion(0, -1.58933e-08, 0, 1)
-
-[node name="hand_l_2" parent="DoomsEye/Model/Shadow/Skeleton3D" index="1"]
-transform = Transform3D(0.01, -3.17865e-10, -1.19209e-09, -1.19209e-09, 1.19209e-09, -0.01, 3.17865e-10, 0.01, 1.19209e-09, -7.45058e-09, -5.58794e-09, 4.80825e-09)
-
-[node name="arm_l_2" parent="DoomsEye/Model/Shadow/Skeleton3D" index="2"]
-transform = Transform3D(0.01, 5.96046e-10, 1.19209e-09, 5.96046e-10, 2.38419e-09, -0.01, 0, 0.01, 1.78814e-09, -7.45058e-09, 0, 4.80825e-09)
-
-[node name="hand_r_2" parent="DoomsEye/Model/Shadow/Skeleton3D" index="3"]
-transform = Transform3D(0.01, -8.74228e-10, 3.78925e-17, 0, 1.19209e-09, -0.01, 8.74228e-10, 0.01, 1.19209e-09, 0, -5.58794e-09, 4.80825e-09)
-
-[node name="arm_r_2" parent="DoomsEye/Model/Shadow/Skeleton3D" index="4"]
-transform = Transform3D(0.01, 1.19209e-09, 0, 0, 1.19209e-09, -0.01, -1.19209e-09, 0.01, 1.19209e-09, 7.45058e-09, 0, 4.80825e-09)
 
 [node name="hand_l_001" parent="DoomsEye/Model/Rouge/Skeleton3D" index="1"]
 transform = Transform3D(0.01, -3.17865e-10, -1.19209e-09, -1.19209e-09, 1.19209e-09, -0.01, 3.17865e-10, 0.01, 1.19209e-09, -7.45058e-09, -5.58794e-09, 4.80825e-09)
@@ -556,24 +522,10 @@ transform = Transform3D(-2.79368, -6.39223e-09, -9.10296e-07, -3.57157e-08, 0.5,
 transform = Transform3D(0.946734, 0, -0.322018, 0, 1, 0, 0.322018, 0, 0.946734, -17.8375, 9.53674e-07, 26.4845)
 
 [node name="Skeleton3D" parent="Zavok/Model/Shadow" index="0"]
-bones/4/position = Vector3(0.11, 0.075, 0)
 bones/4/rotation = Quaternion(0.707107, 0, -0.707107, 0)
 bones/5/rotation = Quaternion(0, 1.58933e-08, 0, 1)
-bones/8/position = Vector3(-0.11, 0.075, 0)
 bones/8/rotation = Quaternion(0.707107, 0, 0.707107, 0)
 bones/9/rotation = Quaternion(0, -1.58933e-08, 0, 1)
-
-[node name="hand_l_2" parent="Zavok/Model/Shadow/Skeleton3D" index="1"]
-transform = Transform3D(0.01, -3.17865e-10, -1.19209e-09, -1.19209e-09, 1.19209e-09, -0.01, 3.17865e-10, 0.01, 1.19209e-09, -7.45058e-09, -5.58794e-09, 4.80825e-09)
-
-[node name="arm_l_2" parent="Zavok/Model/Shadow/Skeleton3D" index="2"]
-transform = Transform3D(0.01, 5.96046e-10, 1.19209e-09, 5.96046e-10, 2.38419e-09, -0.01, 0, 0.01, 1.78814e-09, -7.45058e-09, 0, 4.80825e-09)
-
-[node name="hand_r_2" parent="Zavok/Model/Shadow/Skeleton3D" index="3"]
-transform = Transform3D(0.01, -8.74228e-10, 3.78925e-17, 0, 1.19209e-09, -0.01, 8.74228e-10, 0.01, 1.19209e-09, 0, -5.58794e-09, 4.80825e-09)
-
-[node name="arm_r_2" parent="Zavok/Model/Shadow/Skeleton3D" index="4"]
-transform = Transform3D(0.01, 1.19209e-09, 0, 0, 1.19209e-09, -0.01, -1.19209e-09, 0.01, 1.19209e-09, 7.45058e-09, 0, 4.80825e-09)
 
 [node name="hand_l_001" parent="Zavok/Model/Rouge/Skeleton3D" index="1"]
 transform = Transform3D(0.01, -3.17865e-10, -1.19209e-09, -1.19209e-09, 1.19209e-09, -0.01, 3.17865e-10, 0.01, 1.19209e-09, -7.45058e-09, -5.58794e-09, 4.80825e-09)
@@ -587,9 +539,40 @@ transform = Transform3D(2.79368, 6.39223e-09, 9.10296e-07, -3.57157e-08, 0.5, -5
 [node name="o_hand_r" parent="Zavok/Model/Omega/Skeleton3D" index="4"]
 transform = Transform3D(-2.79368, -6.39223e-09, -9.10296e-07, -3.57157e-08, 0.5, -5.91337e-09, -9.10296e-07, 1.05835e-09, 2.79368, -0.407703, 0.169699, -3.36671e-10)
 
+[node name="Coin 1" parent="Coins" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2881, 8.7, 25.1659)
+
+[node name="Coin 2" parent="Coins" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1841, 0.7, -65.1545)
+
+[node name="Coin 3" parent="Coins" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3678, 0.700004, -36.6404)
+
+[node name="Coin 4" parent="Coins" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9032, 8.7, -36.8213)
+
+[node name="Coin 5" parent="Coins" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.7716, 2.16806, -34.262)
+
+[node name="SaveGameplayToFile" parent="SaveFile" index="0"]
+course_name = "Remote Lab"
+unlockable_character_name = "Fake Metal Omega"
+
+[connection signal="set_main_player" from="." to="Camera3D" method="set_main_player"]
+[connection signal="set_main_player" from="." to="RaceBeginAndEnd" method="set_main_player"]
 [connection signal="focus_entered" from="UI/pause/pause_options/continue" to="UI/pause" method="focus_entered"]
 [connection signal="focus_entered" from="UI/pause/pause_options/retry" to="UI/pause" method="focus_entered"]
 [connection signal="focus_entered" from="UI/pause/pause_options/retire" to="UI/pause" method="focus_entered"]
+[connection signal="set_cpu" from="Shadow" to="Shadow/LeftFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Shadow" to="Shadow/RightFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Rouge" to="Rouge/LeftFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Rouge" to="Rouge/RightFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Omega" to="Omega/LeftFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Omega" to="Omega/RightFoot" method="set_cpu"]
+[connection signal="set_cpu" from="DoomsEye" to="DoomsEye/LeftFoot" method="set_cpu"]
+[connection signal="set_cpu" from="DoomsEye" to="DoomsEye/RightFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Zavok" to="Zavok/LeftFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Zavok" to="Zavok/RightFoot" method="set_cpu"]
 
 [editable path="iron_jungle"]
 [editable path="Accelerator"]

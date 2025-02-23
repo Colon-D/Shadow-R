@@ -102,7 +102,11 @@ var lightning_shield_countdown := 0.0
 const LIGHTNING_SHIELD_TIME := 30.0
 var item_panel_cooldown := 0.0
 
-@export var cpu := false
+signal set_cpu(value: bool)
+@export var cpu := false:
+	set(value):
+		cpu = value
+		set_cpu.emit(value)
 @export var cpu_path: Path3D
 @export var cpu_debug: Node3D
 
@@ -164,22 +168,22 @@ func _physics_process(delta: float) -> void:
 		if cpu:
 			var cpu_curve := cpu_path.curve
 			var cpu_offset := cpu_curve.get_closest_offset(position * cpu_path.transform)
-			# aim towards 1% further
-			var target_pos := cpu_path.transform * cpu_curve.sample_baked(cpu_offset + 0.25 + vel_mag / 1.75)
+			# aim towards a little further
+			var target_pos := cpu_path.transform * cpu_curve.sample_baked(cpu_offset + 0.5 + vel_mag / 1.75)
 			cpu_debug.global_position = target_pos
 			var target_angle := (basis.z).signed_angle_to(target_pos - position, Vector3.UP)
 			in_x = 0.0
 			in_brake_x = 0.0
-			if target_angle > 0.05:
+			if target_angle > 0.075:
 				in_x = -1.0
 				if target_angle > 0.2:
 					in_brake_x = -1.0
-			elif target_angle < -0.05:
+			elif target_angle < -0.075:
 				in_x = 1.0
 				if target_angle < 0.2:
 					in_brake_x = 1.0
-			in_accel = 1.0 * (((PI / 2) - abs(target_angle)) / (PI / 2))
-			in_l_brake = (abs(target_angle) > PI / 2) and vel_mag > 5
+			in_accel = max(1.0 * (((PI / 2) - abs(target_angle)) / (PI / 2)), 0.5)
+			in_l_brake = (abs(target_angle) > PI / 2) and vel_mag > 20
 			in_r_brake = in_l_brake
 		else:
 			in_jump       = Input.is_action_pressed("jump")
@@ -191,6 +195,18 @@ func _physics_process(delta: float) -> void:
 			in_duck       = Input.is_action_pressed("duck")
 			in_x          = Input.get_axis("turn_left", "turn_right")
 			in_brake_x    = Input.get_axis("left_brake", "right_brake")
+		
+			# normalise in_x and accel
+			# (I know that the player should be allow to 100% accel and 100% turn
+			#  at the same time, but using the analog stick for accel and turn is
+			#  the most intuitive way to play, and it would be unfair to allow
+			#  using buttons/keys to be better than using a stick)
+			# CPU is allowed to cheat because they suck ass, and because they
+			# fall in the water and get stuck now when I change this. They are
+			# volatile little creatures
+			var analog_vec := Vector2(in_x, in_accel).limit_length(1.0)
+			in_x = analog_vec.x
+			in_accel = analog_vec.y
 
 		if shield == Shield.LIGHTNING:
 			lightning_shield_countdown -= delta

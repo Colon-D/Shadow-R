@@ -16,6 +16,8 @@ extends Node
 @export var ui_go : Control
 @export var ui_end : Control
 
+signal race_end()
+
 func _ready():
 	if not skip:
 		ready_timer.start()
@@ -28,6 +30,9 @@ func _ready():
 	else:
 		music_player.stream = music
 		music_player.play()
+
+func set_main_player(player: Node) -> void:
+	player.connect("end", main_player_end);
 
 func ready_timeout() -> void:
 	ui_ready.show()
@@ -52,6 +57,7 @@ func main_player_end() -> void:
 	ui_end.show()
 	music_player.stream = end_music
 	music_player.play()
+	race_end.emit()
 
 func end_timeout() -> void:
 	get_tree().change_scene_to_file("res://menu/menu.tscn")

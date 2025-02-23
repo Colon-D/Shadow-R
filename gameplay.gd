@@ -6,8 +6,43 @@ extends Node
 @export var rings_ui: Label
 
 @export var players: Array[Node]
-@export var main_player: Node
 @export var place_ui: Label
+
+@export var coins_ui: Label
+@export var coin_player : AudioStreamPlayer
+@export var get_coin : AudioStream
+@export var get_all_coin : AudioStream
+var coins := 0:
+	set(value):
+		coins = value
+		coins_ui.text = str(value)
+func collect_coin():
+	coins += 1
+	coin_player.stream = get_coin
+	if coins == 5:
+		coin_player.stream = get_all_coin
+	coin_player.play()
+
+var main_player: Node:
+	set(value):
+		main_player = value
+		set_main_player.emit(value)
+		main_player.cpu = false
+signal set_main_player(player: Node)
+
+func _ready() -> void:
+	main_player = get_node(Global.character)
+	set_fake_metal(Global.fake_metal)
+
+# WET: copied almost directly from `player_select.gd`
+@export var fake_metal_material_overrides: Dictionary[Node, ShaderMaterial]
+func set_fake_metal(enabled: bool):
+	if fake_metal_material_overrides.has(main_player):
+		if enabled:
+			var mat = fake_metal_material_overrides[main_player]
+			main_player.get_node("Model").propagate_call("set_surface_override_material", [0, mat])
+		else:
+			main_player.get_node("Model").propagate_call("set_surface_override_material", [0, null])
 
 func format_time(seconds : float) -> String:
 		var m = int(seconds / 60)

@@ -1,7 +1,11 @@
-[gd_scene load_steps=71 format=3 uid="uid://b76pkmfohc5wa"]
+[gd_scene load_steps=83 format=4 uid="uid://b76pkmfohc5wa"]
 
 [ext_resource type="Script" uid="uid://dg8b8ry3srv2d" path="res://gameplay.gd" id="1_eod45"]
+[ext_resource type="Material" uid="uid://ckmm34ftfflhk" path="res://player/fake_metal_shadow.tres" id="2_xtfhd"]
+[ext_resource type="Material" uid="uid://djnkc6ha1in64" path="res://player/fake_metal_rouge.tres" id="3_hnypg"]
+[ext_resource type="AudioStream" uid="uid://dm1wxpf4ewu17" path="res://sfx/get_all.ogg" id="3_mg1hl"]
 [ext_resource type="Shader" uid="uid://dx8hwc7picmdt" path="res://skybox.gdshader" id="3_xuee5"]
+[ext_resource type="Material" uid="uid://csnqmmoj0jetg" path="res://player/fake_metal_omega.tres" id="4_5oeyi"]
 [ext_resource type="Texture2D" uid="uid://cukm3ad3rrwv8" path="res://ring/ring_00.png" id="5_1ni6y"]
 [ext_resource type="Script" uid="uid://b8ehku6btf4ar" path="res://destroy_self.gd" id="5_smepj"]
 [ext_resource type="Script" uid="uid://c4wwwpimnif47" path="res://minimap.gd" id="6_0m7cd"]
@@ -32,10 +36,11 @@
 [ext_resource type="Texture2D" uid="uid://b6pdcas5nwdq0" path="res://ring/ring_07.png" id="18_qd3xc"]
 [ext_resource type="Texture2D" uid="uid://dj4shrnsbxy57" path="res://ring/ring_08.png" id="19_rpuk1"]
 [ext_resource type="Texture2D" uid="uid://c0judwgyi0mve" path="res://ring/ring_09.png" id="20_rj5u3"]
+[ext_resource type="Texture2D" uid="uid://bugjrrjn1hxpk" path="res://coin_ui.png" id="25_5oeyi"]
 [ext_resource type="AudioStream" uid="uid://c8rl0uajtgfrj" path="res://pause/pause.ogg" id="25_yyn0e"]
 [ext_resource type="AudioStream" uid="uid://bkxodkuywgv1f" path="res://pause/unpause.ogg" id="26_btttg"]
-[ext_resource type="AudioStream" uid="uid://fj3f2jw5q62w" path="res://menu_select.ogg" id="27_qosk1"]
-[ext_resource type="AudioStream" uid="uid://dhqvmuichi3wt" path="res://menu_accept.ogg" id="28_qd3xc"]
+[ext_resource type="AudioStream" uid="uid://fj3f2jw5q62w" path="res://sfx/menu_select.ogg" id="27_qosk1"]
+[ext_resource type="AudioStream" uid="uid://dhqvmuichi3wt" path="res://sfx/menu_accept.ogg" id="28_qd3xc"]
 [ext_resource type="Texture2D" uid="uid://f1ewt3hi4hvb" path="res://race_begin/ready.png" id="33_s35uu"]
 [ext_resource type="Texture2D" uid="uid://byjwlayu3h77f" path="res://race_begin/set.png" id="34_5a717"]
 [ext_resource type="Script" uid="uid://d3apwydbhkcbt" path="res://race_begin/race_begin.gd" id="34_d3t05"]
@@ -46,6 +51,11 @@
 [ext_resource type="AudioStream" uid="uid://b32o1tt3m75g6" path="res://race_begin/End Fanfare.ogg" id="41_qd3xc"]
 [ext_resource type="Shader" uid="uid://qpvqndjl3eac" path="res://shields/shield.gdshader" id="43_btttg"]
 [ext_resource type="Texture2D" uid="uid://do3ebl0mdsva1" path="res://shields/water_shield.png" id="44_qosk1"]
+[ext_resource type="AudioStream" uid="uid://b5ysgvqgi5psl" path="res://sfx/runshadow.ogg" id="48_hnypg"]
+[ext_resource type="PackedScene" uid="uid://brcipm3hwxc0q" path="res://coin.tscn" id="52_p4h56"]
+[ext_resource type="Script" uid="uid://c8pe066hh6agy" path="res://save_file.gd" id="53_87mwl"]
+[ext_resource type="AudioStream" uid="uid://dmkvmnghvqdew" path="res://sfx/get_token.ogg" id="53_gyere"]
+[ext_resource type="Script" uid="uid://d1akawmh2jcjh" path="res://save_gameplay_to_file.gd" id="54_iubtp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0kugc"]
 shader = ExtResource("3_xuee5")
@@ -150,6 +160,14 @@ size = Vector2(1.5, 1.5)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hnypg"]
 
+[sub_resource type="OggPacketSequence" id="OggPacketSequence_0ilah"]
+packet_data = Array[Array]([[PackedByteArray("AXZvcmJpcwAAAAABIlYAAAAAAACHXwEAAAAAAKkB")], [PackedByteArray("A3ZvcmJpczQAAABYaXBoLk9yZyBsaWJWb3JiaXMgSSAyMDIwMDcwNCAoUmVkdWNpbmcgRW52aXJvbm1lbnQpAgAAABMAAABUSVRMRT1CM19TSEFET1dfRV8wRgAAAFNvZnR3YXJlPUZpbGUgY3JlYXRlZCBieSBHb2xkV2F2ZS4gIEdvbGRXYXZlIGNvcHlyaWdodCAoQykgQ2hyaXMgQ3JhaWcB"), PackedByteArray("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lFJKCaGUUkoppZRSSimllBJKKaWUUkoppZRSSikllFJKKaWUUkoppZRSSiillFJKKaWUUkoppZRQSimllFJKKaWUUkopoZRSSimllFJKKaWUUgoAADpwAAAIMKLSQuw048ojcEQhwwRUaMhKACAcAABABDoIIYQQQggRcxBCCCGEEEKImIMQQgghhBBCCCGEEEIIpZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppRQAdZnhABg9YeMMK0lnhaPBhYasBADSAgAAYxhjjCnIpLMWY60NYxBCB52EFGqoJaaGMQghdFBKSi22WHMGoaRSSkktxliDzT2DUEoppaQWY605F+NBSCWl1GKrteccjO4glJJSSjHWmnPuvWjQSUmptVpz7j0HXzwIpaTWWow9Bx+MMKKUlmKssdYcfBFGGFFKSy3GmnvNvRhjhEopxlp7zrnnXIwRPqUWY6659x58LsL44mLMOffigw8+CGGMkDHm2HPwvRdjjA/CyFxzLsIY44swwvggbK25B1+MEUYYY3zvNfigezHCCCOMMcII3XPRRfhijDFGGF+EAQC5EQ4AiAtGElJnGVYaceMJGCKQQkNWAQAxAAAEMcYgpJBSSinFGGOMMcYYY4wxxhhjjDHGnGPOOeecAADABAcAgAAr2JVZWrVR3NRJXvRB4BM6YjMy5FIqZnIi6JEaarES7NAKbvACsNCQlQAAGQAA5KSUlFotGkLKQWk1iMgg5STFJCJjkILSgqeQMYhJyh1jCiEFqXbQMYUUoxpSCplSCmqqOYaOMagxJ+FSCaUGAABAEAAgICQAwABBwQwAMDhAGDkQ6AggcGgDAAxEyExgUAgNDjIB4AEiQioASExQlC50QQgRpIsgiwcunLjxxA0ndGiDAAAAAACAAIAPAICEAoiIZmauwuICI0Njg6PD4wMkRGQkAAAAAABAAOADACAhASKimZmrsLjAyNDY4Ojw+AAJERkJAAAAAAAAAAAAAgICAAAAAAABAAAAAgI=")], [PackedByteArray("TBUDlrs/DCUZHUMVUD9pn8+tflIv4AIuYHC0wfpJF3ABo42W9c7u+gWcfAEXcNJ53bvuX/de757vPn/37OjpPgfHx8cHcRxz6Z/cdez0+yRf3qkXKN+cFx9/b/6pV6tXx+Ob1e+yqbPbfw90MszktNfWY9VX87CzzExUjk5ept0fOg/+H/7/57Wl0a9MvdKYxB+zGsV/Xxjf35u+23p8L9p/11XX6Odt7cPj8vrR7TauP30rVnEw8/XsDi90tIt4m0/2JwA="), PackedByteArray("XJ9Ng/P4FAAg5qnXb/Y9c2tb7n3tYx4pHjrXdVmr8z9jPHope4175fT28Dw29524cy2eazvVDzVRs5lsK3GdNKUWC80jCwbQqXmY8DzX7Om/6D64vTpLpyxT1znv2Tmj+I9S79DjzY5fuegNq55L5efhnFnWTX+zOLEXPbQo6q9xI2FZxqlRXp12NTjxf10ef75WXZvCoyxVlN4xaqXI1tdZ/jhJ+DQe"), PackedByteArray("VCHfZ30GAFBmVTtW12xC1ybU5t08+ZWXT2sYpBzOq6vrZVP1B/lCTIhur5uy8dbCdyFWHCSZRA7dAIAXy/G7xaVP8UwVvK3F6zrP8aFuZzLwZ/Rism8tV+hmvF/dvbZ2KsuFMv3a6Vh+O25Nyj/Oo5TXxH1C7erIvZSv2WT9RpRYlllZ1MNbl5rUpFyUY0vj727ixpbLluxYWePy76IhFyEtCg=="), PackedByteArray("TCGipT4HAIi01wugW7KHwxqZ3K63FepN5H7vIYRF1ffVEilDVcVPrV5NrboqlTcB0kHn6S4AIK3C7Q9xn4l9vdafvBd9//+qX+j533CV6dO6+UYStNtlNT/1p2vptGfC8yTjMeOzu2x3QtEtdHburaWN3etknI55KE3ZjFPiwpA9U0yBRXE+jNynhonJ1tsrO/euszBMkw4="), PackedByteArray("ZKG9B+kzAID9xyxHS9w8cqmW1ctqr2Uh5mq7FSPFVuVJtaedO3/1sue5bt649b5khtyIOAYATK7vrjpW+E2EGlcqp+r1YwedZ/laI73pcXrOjzmlEoeu9mz/8uqin4/cr79uT9UPx1vJva3t6HNKv/toZWn++aGujibD7NWk2oBVj3kuOsMKq2HepyRvn3YuDc2z/esP/7BM1OJCqQA="), PackedByteArray("ZKE6lJ3PAADqKtfzEb0VOXr2gikv0ac1XxZ2dDo+ciiGSbud9fvtXP3+ufr9o6984d/vC3zhEH9qWfiFu7XTfcJg9fvn6n3iVgCglF6NEs92/48VObfS9kj55ud7T6tVam31xP36+ninX5UdvL4/VO2eyqn+WdYplo8X9Rvz+WnezOmaP9dvz+Rgy7G13Hl7XEkOm1Zz25+aaZNVmFItWtRmt2w+qBzPF+rMIwEAAA=="), PackedByteArray("XB8ajQ367fdSBA3Qx46UpfWae5923D2+efeR4n4Zrl9fPr/O5vRtBTzOLzu+b73ZkWyv29XmcID3Ow/7xar3PqZ43Xb33Kymt0qlM/q+m8jJcMcX/rk+0VYPLrXVz6nGYku5Z2k97tzepmtmVCs6W+SsRsn2Wl/FdKOGil7b/15eT190dluau7HuH+dr5j1ptfdBZKubYyRjOHWr/3wj/O2J+mL9cjxOWnXFKQA="), PackedByteArray("RJ+Mwdtfv9OjAKBHWqpZpuyjX/37NmbDnb/vzWWzLF3lsao6urPw5YXL5oX6R7V8FtPaXpzfyFa7+Cg3y33h65/XP0Qvy4sxH2ne98L8LmttBaDSHadlidKUPbkqf9s3h3T/wO85DL+6tvLEetr9ZupfrJZCxtnfPffZOeOVuZcedUzKvyrNmX+V38vHnsr74nKtWZx2Qty+Hb1eR/K/PH4w2k/X7n+Na54PO7z8sKLYto0PAA=="), PackedByteArray("RJfYx8Ovb70YANw6Lo/S3r31Y/p9r7b6SFV41jVvruXe0FUtIyHtjFRzvVyWMEdre7iE2iF+fSFy593wncux2iGmlzzf/dayvRQ6OzqEsM1KyK53Br4umPujo6S5O+OXVYS9lNKiR88/xhGeO8I2wjRdjM4lyeaHNsnefbXdWt1luwu3i6uSb65O49M8yyXxa2pxmN9fG+OqqY2c7w0jwvMmyQ+dpSGiCQhNAA=="), PackedByteArray("bBtnad7Z3Q9VsW4bGfX+lGENmdWz8ib6yPHv7uH1r9Xr9XP/ciurJXvJsB8Oe887Lu6Lzzq/nXePOX3NtXCM2qzrqWEuXo9RngHCMS8zr5va5qvS7s+5013z5KZU7FPPU/SM4v93/9lyRhHfLy8GNWWKX99Mnnf8Orkn3/KHkD71be2fMHWYSt9eGlnuuE6c/33uaLo0VdOZ6tDs+rasaXI7k6xCDQ=="), PackedByteArray("bBvkrp/Xx+UAEC4Xqj4cmFAnEnJzXZ8/K875utnzo37ZI+HmlVdurjdrKsuy3Lt3b3HDbG9955Vbub+/d29xf78MwfWV77z6Jpq9v//I3ePEhGndObbluLPdOtWq2N5lSp82sPp/hj4qujzWutIo+e+rXd1Wx9VLlk2QV88ophRx6Kk+V5/pztmFrRJ76GGVzfq1GPvaTI+EOuq5fTP9R7RFsUzZsK/Kqxc="), PackedByteArray("dJk8C55vnH1wZZyw5uIMtb/u/b879oacFx5/M1d9bH+7CYdHH/1QXl58cXXXi5feD/3B8cU59+ebHxasOKoy+MaYFRROR7nXFF/x1hw72DhZG68uFv8UY9daOovihK39bbS5OZqW3/r4ef7T9bX5fDzRqojy8eM9o4cfXdfPx49XtW6y4uPVsOC+K+1VbP39n9E7Vq8c/15UbV4/eR9cm3Ffl5Ye4Hq/cgEO"), PackedByteArray("bCHfB/38dHBLABiqyrJ8ULh+3sRU1blj+4OjuRGL/seFI9XTy8X3jvz6rvsXXQ+Gmsg3ZXN7trf8PH8qa7NEutPunruiVZsCLlUZLf5+vLr4fvU05Tzv+Pj4/ulIfbenVt7sv9r+Om3qbxmpzLUL4gqP5qfU3u326/bkozNP8X3d//Wx1Z9cXfnpyn54Ze7NsgsavcNh86JNf6MifWcxFQA="), PackedByteArray("ZCPfGe4zAAC10zq3n+WDB2a9VN0LdrVmOS7axNV5U3hsxFdHvX/x07Gn6nnls6eAiGtZAGAXU3EnqbOvP5KMpUxXrfyIjd6BZ6v9jfszkQ/cIysHE0s9noW65ajrp76L9QfD2vjR12T5fLVa1vg7OmEcZ/9fa/VXWmk64tzcl+NvonCSH21N27i6nn7e23kv/177v4+vzritPZwjEAA="), PackedByteArray("ZKFx+dafn35fZwEc9h6v+P1Py/Hfa9dDrjshlGWgLMvm+Z/9pe99jVdW5d69+2UZQrLerya2m3Vd1/M1u37vuXdTPBPjFSYb97L737mXvd/hStcb9nim5UzR9pTS7D4uraMKo4qkLK36ovo2XuQYvjVfCntW8L/5+3vc++El/SKefPPq43R9utZV7+fLekaoYye5XnmaZvcHftbH+CIWAA=="), PackedByteArray("ZKFD8UV/9u/OzAMQ2VqrY4XnEnIix37psYZZ7MXrxUyXvvTkJz/50imAWno/dEvVWPlRY5MILa+1agU9lSkenIZ1qu56cH2emPppoa9ND+O/0Gmcl6na8r/7h+6eDMfe9EzdJUh071XnCql/cg3uHNyuKnk3DtXxjsz8YHlkZGftYPz0IP3N36dvx8dQs/ROEZzvzqzM8ZA2oSOHuDELCQ=="), PackedByteArray("TBfX4MtrjX2hADrGJ/D/ddl6Pn3nKfZ6dN3/9uh6lGv2Z0B9uGqOv9tfqnC3GInNEH8uzkKrDwcvAINmcwftYZTu7jz+xFxjWzAK5PB3H755O5LWzDj6Gc4OtJMnI0qy9a6XPqKMLrpI23lqttPuX19uZkQfFzqbXeQ/Zbap3Fq6NePHhkYpdah17+v/U5mLp6qzk6n4pOshqZ52XLTzqFJyHTHzUakB"), PackedByteArray("TJVJOuw3zzE4n1fC+dOT1kVpgsK3RfpjYyL2p2p9YLYTywu5IxpsiuWl12Mntke7FHfseFmsX2izPIWjWq43XYUja4YyTZW7jMx5PYrsV7n0elKgM9XZK6PT7ab0taxOTn585npBhmpN3e6m5r8ZF7O/IlX0mrRHw5s/TYUua5SfZcSWfRt7w35n/RB/il1aX16vbw+X9d4z957SE0W9MJ3z8aQe3khGXVI="), PackedByteArray("bBlUlrf33z8qDJ0LPeJtzZzrTa9dlL1ZpyzL8NpHisv5HM0Oz699Fzfp1NvZ2bEO+oLC3FUxK8vo68eXDLOuz/P6cp+YhTL404O9uFe2tF9W1l+Hkt4c/cqvdP1RNNY3O9jg+6uFeGQwI8Xw9a1TnjdXKy51xHt67Y2jGTfTI1SmlrTsNFYakn+ZbmoeZa0ctvR9l9b9tHW6Xj/M58fPStetVXHQ5/t+4p8u"), PackedByteArray("ZBnb1Jvnu54yp5Ytp/8nu42yl1vbDMfs5bKt88KzF+/olBITlr0hzCoP0bT2N/X3Qyed2styfrHOfXV0rDrP/PR44zMLrdHro16PPNWM1LuaUEY6hV4lG1+Ld5laenbjsHXhy1VyV2U+f5ro7/197YGuX5tWrzOWlL74fX/3lVLenjyzbo693Plv37NmHCr5Me5A6SvI5vU5ij73nVRfudRmYNFbwhQ="), PackedByteArray("dB/0hXf7+73HQC9B9M+qVUe2ofh03i+jbWtVmQ+O6j7mZN8W3jtVJMsRiYav8Y9EqiCwIR8+0v4Ue/x5X2rl7H/dFdbDTbV37eUms2pSy87l0NqHZutuWDR/r+pOovSaU5rxiKnMOGklfXcIMJNwV6aNbfGqo1wLWX9lytmj1tWzbTIuw1LlvO69ae20oHr/vy/+9kull1qufKyBKM3O7wYACw=="), PackedByteArray("ZKN8GPy3P86HBnA4in/hzvo7itd/uqPM6Jq7gjn88rC8AOi0vPB/AmOsxebo2Ae3Lvfn1Gr9wuNHI7O5plV0WZuY04HOcB9uaj7jwOa7qirqP5JoqMpTqSRHjX35Ouy1Lc59rGlGvxw1SqGN2EWG6moWw4/nal9e3ijWcveP8bv02//2aHqjpOZz/eLdvToLhEzfEggA"), PackedByteArray("dKPR0r/el9YCM+AV7/7j4znHPrwpn34q4Hvn1uvFZVth7tF/MmIdXnxe3V+uZdxsy8icJxxtwiXakbW663r0C8R9Pb0JM0oJnLRTq5njZGv6DjjlptUcOe354Sczcfx27Fhbe/Z4eZ0xHaw/jI5829VKSkuJjtWS3q1blROnOg1TXmCsPd/6Kcx4tzfZyDz6mHcHFdxAJ5MG/bfXEghiAQA="), PackedByteArray("ZCOro/39VGMhJLh/MN4GUrTcafoobJaqis75/sT6Ysyx4cxIyubz00fx11PdV6fuP9ivf+rhgaX3Hi/LXs7rGprIc6ybymS20BsGcekzG0h4fnG2ffl7NueHw7df77PmIYkT1lx+tGr33265+89U2dJJ+evb/9akspoSXmpfayB+t7dfYo2yo8tXihlXFd9rlG/gZeW8V6PQv4qihAoA"), PackedByteArray("ZB+nX6O/Px9hphUavCsF251z19PuesjDSVlWmcvitf08+la+sn1YnKq43GQvM+clsjy/Ho4/e1k+zqnf5vEfT7qpj/h1rhCz6vSvcwUzJ5xQhrO9O5ZZdumnyaxxBwd2tHQV9XY67Uxp2cy8T8aTPWxLez//t1JrbXdjsumMlfMbxVgn0k/P5fXl//JzKfmyU/mwc+Y5enik//9/qaLyY9uh3/vd8Ve3ULT4FxY=")], [PackedByteArray("bCOi5bifAQBU1dIXWdyZlegh985nTDi69GF/k9XXh/bXV+3FYp09PngLtwMrBh5bPe3sY89e8OiJ7enlwQlivlEdBfZiADDDOuGO0Z24Kt3fY947lu3jbje3537QTtK//bo8YfVk7L6k711uNf9utz1G2snX99dnx5Mv1Si0qcfXeF7z/GSvlXmwbA7G15aEbRun0Xb/tzAC291jPO2TiiEmjRVBsggA"), PackedByteArray("bCEiTP/xD5XQPWDRR5HwdDip+N+v69aM2a45KrnO3X/2iPWm6St7vxZHdWXfWd2KHeb7QwSHP7vU6jWeWfqXU2aWuEopeJKSlXOHG4drrY5Tdow26TGjP2p8VTX25Pn1kMgYZg/v9JeO9G/2VhxTehereh0bJ+theezx32j1y8y1VnnXfnOlwbFO2Sxt63F1ikfLCApQAQ=="), PackedByteArray("XB2U3Z8BABT3n726swx6zWK/sOOsB6nX1fkHCrJ++XTtaQgI1tRfy7V4tS4X0chN8eXdp3If78t+NKhAYL8UAwC+6B9kVkk/pXM9s3PVnp/qkOfLYGxm4e5jiqTcTfNY2+iaH1YPOAYL1969qc1aXvY5z5vW+cuHx+20g/WOULWWcXRyo2k0JIn3cm/cSsphssNq8jr/UoxGPh517osgMmakpkjP3w6RALAA"), PackedByteArray("VBkL6m/fPb/EArnjden0NsUObLDCqH1/VmWfW+0y1dyy/JPthNOH2lwWjm0mNtdCc7y9WUXM6oNb75i9z/nxV81mt7b3bTJ8Pt/h1yfaT6++J8WvfA0PF1zmK79XB09HN9dHo435sTfvjjfKevTmy/EmxKrrWu726mPs01Ny607/8rdDd/v5q+J+MkN70J66rfmu92e9g0Urm5uTmncXjzEH"), PackedByteArray("PBW+Cr7202sveSzAYLbIUz+u2rthDsutu0uW1WcIXboINXno3pT57xfubm1/6fwpD0+R+TyFm6W4HHu+7b0e+awtwSY6jj6UzGK62rWmjPG+ufmF1VfdPaSXUnBdOybVwb+jlafntL83hZ1L+6RnpFiaOddGpfIbbypG494n75G2jm7yk+4JH6uuWcoT+hZGinNjECac+ZOJx90Quxxlq3/LcF2CO9HEp9hcAA=="), PackedByteArray("PBVVtD8efRTSZYAl+/kHe6CzykuQZ9/W1ZeeDpUMCwAwh+neeWP3rovUhWIjebRn/KYM18Ou5w+fbQ51C/LYpVgZXNbkwjEm8dtU/8hy7+JuFlRpJayS0WCK/m308VqxxS1VeqL4a8y7xTebBkorlvonNUkd7OO+PPn5/WRzJf1ir0uIePacr3SyW014Kd9/+icpzotRQevxpmLSq6SvuzNitwRyJvVBKAU="), PackedByteArray("LBNY6s/DKvXWElhe+r+eNLDQe2z92LXq/fsTUUIISzVhCGG9Pwrzj+tqx29xD1bG2/r+WOHcVNXDvY9bT7l34/jOpf4ytbWj5VIAulJFbi/+/bP3681qGljSVGSyz581uZVoT4t971ZTin5VWhfiOSl63UoMcSlTff16qF/kTXdeLpdVn2t0dY7lqztxO5Wqqleh3ZMl5ri9V0qH990z73rXdro8hX3rEkxDfB+2AQ=="), PackedByteArray("LJNAsT6uafzDqWY3WlIb99rlVafwgx/3bi6T5d1HljWU1lE7uqkP/NsqiyfNvSyLA+1zWa2tZl5Yjl75RBt48R/KQ5dnh27zpd62InHiVX3c82uq/bbg+fw+8SnuKW3YVUxJyoZK//Ltm7ern7dEsMs9He9i+qVKXv7xSHV9rU7/j7PYh69vRvrbuxsTG4vs7q31zJNG5e0TdfB+pvTG1kM9mh4L4dQbCmv+AA=="), PackedByteArray("LBGk4qX6oXQYYesdB6X3o2HZb1jvirKHYafY7hcvp/cnQ3jw8x11rGkmpNO1L0vI+p5Viodu9orvYN2xzlzDJhpatKBR3HsOuVn505Qb3dRuetmoLSrvP9+z8r9Xnzf6y6di7d08HWzNX/159JXEyhuv9VHNr/r2nfc/XkflfExKZXf+TrPUje94fnIsm0x6ZI+vVO7tj+LSAGnbMPnPE2wTyV+7UV7T8309Ew=="), PackedByteArray("DJVgEjDrifp/jS6bzeTmUDTBsnet12aJfvnhO/u3Ll0/an+tiuuVdvvx/D9x3N57t8cOxetniPQaInHCKMV+Bo4fl4WmvreUN6rYLv/VtXkuxwuby1W3X6q67187i7ZTx2m2N+tP157SLjwKeunVlV7TX+un2nQlTuSlNv39Xtr1aWUu1vTvnm6nnWY9P06bt4f71wNPU+jaSEwdj5XnQp5uQ/z2o3YA"), PackedByteArray("DBPZA+72Q9EHsecqYhuJyf1imHGo2jx7V6uFYpYT87XF79s+zMg2zOThr+b2XNpUnh8VKp+t4evX59frwWp9tDfPlYsdPeux5Xq6ynVTr0gFbSv7s/by/uLML/8UYbdlrxec0XL+oJbw8bllVdUnKzsjW88jG/+02zonqx0O1/7RUdYig+gr/bW/b6Y1HzpTYeK1dlHetdbx1udRU3QlCqS53VrfsaqGrYInAg=="), PackedByteArray("/BBlXtZeQ93797F7uKwTMtwcLoq9rpcsaxdfeg7XKeaer3l/IjfFbKFPq/rRnD9WXp2RhUP3fMV7nt+ejhgvFgrX2RGqJUMvWdyG677BwdSPNS4rov5j6dGsDD/+MJ2JYqc6/ZCynj9ncN6KZMVtP+Nxrpsa25fXEyvRy8Nq5+RA+zx9//eju//3bpXcnv8ruNOF2gJvhVF92XXrv/PibfVvzONOq/DmDq5c7ctRYQM="), PackedByteArray("5A7WyPpzXRr48eUapOGq76oR675qx+0ZCq2K4dnsLbfr3vD8eh++RLtcn/dyzp66fJ9Hl87pJ/uVy/vB7LrVlsjtk91abFqryL+61n/c7FtHkwUlV54dTztq5sPYx2zzV22TDnoIccw9Ob04tjDdRW+SMzF0ylPFP9GpL2aLns/51ndpL23rKH337dv/f071NdWPV7PM1vLPRpdnwjhLyVxbaIi3+xQ+2k8="), PackedByteArray("zArEL7R/2YPYMlwK7VzDmFBtd+x4uiynvj/x5SLsl22t1eXmbtzL3p+z4vNqz+ux4tLOysz9sN2fyPrB/q4P7r7sOi9re8/Ru079+uSEH09aJ2Dydvk/Pj1XtGanmcrS0p3qZ3J3NCOHkjEEb8pyFkw9dh/pehzfz8FpWvtbf97ayJerKtPvvv3m/lZ1Njy5txrVHW9DIsRFf3XMPz7uoU1f0hrVxP7knmbNyy4xyDM="), PackedByteArray("vAaTau44XfdjF3eDvV6M79dt+rZvj0/VlUtLSqfqC64+nfd6sCcdm+uc632ixcHK5X+3bTRgGq16XdFpWSw/zjSoXW3nmrzekM/LqZGVR933853B5Ja1Pw4KlbNn6CP7PtD6vfzwKOsn3/USyw8Xy7eOv3deLS6qHrr0zxfbXhmLc/F36ftbkYWbpfnC+bb/fHf4cLPlX6rbqtqZelipztOjaHwpyclq1eTG27kjPm0C"), PackedByteArray("3ABrRmcefOSxNUu4nA5VVVU5PwQrvqOsy4uRow899s5Hj/3Cv/zR249/7MeeumGW05vQ1bHE2hdfnHx+8cVNHztWzWUTjo4dqyXj803NN1rjfty6B5Xem9az8WlJP97pmDg9fvD/XxdXBL3L30mW2HMaW9qgXrj6tzMSIT/4qymp86moZez6VXurgsrV+Bv2kKoUykujR+rh+P83R7cc44vU7/1/T1lqzz3hSeslaX/zjAA=")]])
+granule_positions = PackedInt64Array(0, 0, 6144, 10176)
+sampling_rate = 22050.0
+
+[sub_resource type="AudioStreamOggVorbis" id="AudioStreamOggVorbis_hnypg"]
+packet_sequence = SubResource("OggPacketSequence_0ilah")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5oeyi"]
 render_priority = 0
 shader = ExtResource("43_btttg")
@@ -171,21 +189,28 @@ size = Vector2(1.5, 1.5)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mg1hl"]
 
-[node name="Gameplay" type="Node3D" node_paths=PackedStringArray("total_time_ui", "lap_time_ui", "rings_ui", "players", "main_player", "place_ui")]
+[node name="Gameplay" type="Node3D" node_paths=PackedStringArray("total_time_ui", "lap_time_ui", "rings_ui", "players", "place_ui", "coins_ui", "coin_player", "fake_metal_material_overrides")]
 script = ExtResource("1_eod45")
 total_time_ui = NodePath("UI/MarginContainer/Timer/Total")
 lap_time_ui = [NodePath("UI/MarginContainer/Timer/Lap 1"), NodePath("UI/MarginContainer/Timer/Lap 2"), NodePath("UI/MarginContainer/Timer/Lap 3")]
 rings_ui = NodePath("UI/MarginContainer/Rings/Rings Amount")
 players = [NodePath("Shadow"), NodePath("Rouge"), NodePath("Omega"), NodePath("DoomsEye"), NodePath("Zavok")]
-main_player = NodePath("Shadow")
-place_ui = NodePath("UI/MarginContainer/Place")
+place_ui = NodePath("UI/MarginContainer/VBoxContainer/Place")
+coins_ui = NodePath("UI/MarginContainer/VBoxContainer/HBoxContainer/Coins")
+coin_player = NodePath("Coins/CoinPlayer")
+get_coin = ExtResource("53_gyere")
+get_all_coin = ExtResource("3_mg1hl")
+fake_metal_material_overrides = {
+NodePath("Shadow"): ExtResource("2_xtfhd"),
+NodePath("Rouge"): ExtResource("3_hnypg"),
+NodePath("Omega"): ExtResource("4_5oeyi")
+}
 
-[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player")]
+[node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 current = true
 fov = 45.0
 script = ExtResource("11_divyf")
-player = NodePath("../Shadow")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
@@ -280,13 +305,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_fbudy")
+expand_mode = 1
 
 [node name="Rouge" type="TextureRect" parent="UI/MarginContainer/Minimap"]
 modulate = Color(1, 0.521569, 0.658824, 1)
@@ -356,11 +382,40 @@ grow_vertical = 2
 texture = ExtResource("6_fbudy")
 expand_mode = 1
 
-[node name="Place" type="Label" parent="UI/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Place" type="Label" parent="UI/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 text = "1st"
+label_settings = SubResource("LabelSettings_btttg")
+vertical_alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("25_5oeyi")
+expand_mode = 2
+
+[node name="Coins" type="Label" parent="UI/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "0"
+label_settings = SubResource("LabelSettings_btttg")
+vertical_alignment = 2
+
+[node name="CoinsMax" type="Label" parent="UI/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "/ 5"
 label_settings = SubResource("LabelSettings_btttg")
 vertical_alignment = 2
 
@@ -546,49 +601,17 @@ path_joined = false
 
 [node name="Shadow" parent="." node_paths=PackedStringArray("path", "cpu_path") instance=ExtResource("10_jabn6")]
 path = NodePath("../LapProgress")
+cpu = true
 cpu_path = NodePath("../CPUPath")
 
-[node name="head_2" parent="Shadow/Model/Shadow/Skeleton3D" index="0"]
-transform = Transform3D(0.01, 2.17117e-11, -4.21469e-10, -4.21469e-10, 0, -0.01, -2.17117e-11, 0.01, 0, 0, 0, 2.99534e-24)
+[node name="LeftFoot" parent="Shadow" index="1"]
+stream = ExtResource("48_hnypg")
 
-[node name="hand_l_2" parent="Shadow/Model/Shadow/Skeleton3D" index="1"]
-transform = Transform3D(0.00984807, -1.74645e-09, 0.00173648, 0.00173648, 1.22761e-09, -0.00984807, -8.18714e-10, 0.01, 1.61376e-09, 0.0241684, 0.00152238, 1.62565e-08)
-
-[node name="arm_l_2" parent="Shadow/Model/Shadow/Skeleton3D" index="2"]
-transform = Transform3D(0.00906308, -1.65949e-09, 0.00422618, 0.00422618, 2.41271e-09, -0.00906308, -1.19209e-09, 0.01, 1.78814e-09, 0.0265791, -0.0278268, 1.79213e-08)
-
-[node name="hand_r_2" parent="Shadow/Model/Shadow/Skeleton3D" index="3"]
-transform = Transform3D(0.00984807, 5.72466e-10, -0.00173648, -0.00173649, 1.43462e-09, -0.00984807, 2.01081e-09, 0.01, 1.61376e-09, -0.0241684, 0.00152238, 1.62564e-08)
-
-[node name="arm_r_2" parent="Shadow/Model/Shadow/Skeleton3D" index="4"]
-transform = Transform3D(0.00906308, 2.7763e-09, -0.00422618, -0.00422618, 5.76603e-10, -0.00906308, 1.11022e-16, 0.01, 1.19209e-09, -0.0265791, -0.0278268, 1.79213e-08)
-
-[node name="tail" parent="Shadow/Model/Shadow/Skeleton3D" index="5"]
-transform = Transform3D(0.01, 9.92095e-12, -4.21469e-10, -4.21469e-10, 0, -0.01, -9.92095e-12, 0.01, 0, 0, -3.2306e-32, 5.87747e-39)
-
-[node name="torso_2" parent="Shadow/Model/Shadow/Skeleton3D" index="6"]
-transform = Transform3D(0.01, 9.92095e-12, -4.21469e-10, -4.21469e-10, 0, -0.01, -9.92095e-12, 0.01, 0, 0, -3.2306e-32, 5.87747e-39)
-
-[node name="foot_l_2" parent="Shadow/Model/Shadow/Skeleton3D" index="7"]
-transform = Transform3D(-0.01, 9.92095e-12, -4.21469e-10, 4.21469e-10, 0, -0.01, 9.92095e-12, 0.01, 0, 0, 0.00259921, 0.000285748)
-
-[node name="leg_l_2" parent="Shadow/Model/Shadow/Skeleton3D" index="8"]
-transform = Transform3D(-3.17865e-10, -0.01, -5.96046e-10, -5.96046e-10, 1.19209e-09, -0.01, 0.01, 2.78181e-10, 5.2108e-17, 0, 0, -4.93038e-32)
-
-[node name="foot_r_2" parent="Shadow/Model/Shadow/Skeleton3D" index="9"]
-transform = Transform3D(0.01, 9.92095e-12, -4.21469e-10, -4.21469e-10, 0, -0.01, -9.92095e-12, 0.01, 0, 0, 0.00259921, 0.000285748)
-
-[node name="leg_r_2" parent="Shadow/Model/Shadow/Skeleton3D" index="10"]
-transform = Transform3D(-3.17865e-10, -0.01, -5.96046e-10, -5.96046e-10, 1.19209e-09, -0.01, 0.01, 2.78181e-10, 5.2108e-17, 0, 0, -4.93038e-32)
+[node name="RightFoot" parent="Shadow" index="2"]
+stream = null
 
 [node name="Rouge" parent="Shadow/Model" index="1"]
 visible = false
-
-[node name="hand_l_001" parent="Shadow/Model/Rouge/Skeleton3D" index="1"]
-transform = Transform3D(0.01, -3.17865e-10, -1.19209e-09, -1.19209e-09, 1.19209e-09, -0.01, 3.17865e-10, 0.01, 1.19209e-09, -7.45058e-09, -3.72529e-09, 6.04785e-09)
-
-[node name="hand_r_001" parent="Shadow/Model/Rouge/Skeleton3D" index="3"]
-transform = Transform3D(0.01, 9.13912e-10, 1.89462e-17, 5.96046e-10, 1.19209e-09, -0.01, -1.50996e-09, 0.01, 5.96047e-10, 1.49012e-08, -3.72529e-09, 1.53131e-09)
 
 [node name="Zavok" parent="Shadow/Model" index="2"]
 visible = false
@@ -599,13 +622,7 @@ visible = false
 [node name="Omega" parent="Shadow/Model" index="4"]
 visible = false
 
-[node name="o_hand_l" parent="Shadow/Model/Omega/Skeleton3D" index="0"]
-transform = Transform3D(2.79368, 1.52192e-08, 9.10296e-07, -8.50353e-08, 0.5, 7.15247e-08, -9.10296e-07, -1.28012e-08, 2.79368, 0.407702, 0.169699, -9.63976e-09)
-
-[node name="o_hand_r" parent="Shadow/Model/Omega/Skeleton3D" index="4"]
-transform = Transform3D(-2.79368, -9.56191e-09, -9.10296e-07, -5.34258e-08, 0.5, 3.99152e-08, -9.10296e-07, -7.14385e-09, 2.79368, -0.407702, 0.169699, -2.88262e-08)
-
-[node name="Shield" parent="Shadow" index="6"]
+[node name="Shield" parent="Shadow" index="7"]
 mesh = SubResource("QuadMesh_rpuk1")
 
 [node name="CollisionShape3D" parent="Shadow/RingHitbox" index="0"]
@@ -617,63 +634,8 @@ path = NodePath("../LapProgress")
 cpu = true
 cpu_path = NodePath("../CPUPath")
 
-[node name="AnimationPlayerAudioStream" parent="Rouge" index="1"]
-process_mode = 4
-volume_db = -80.0
-
 [node name="Shadow" parent="Rouge/Model" index="0"]
 visible = false
-
-[node name="hand_l_2" parent="Rouge/Model/Shadow/Skeleton3D" index="1"]
-transform = Transform3D(0.00984808, -5.54354e-10, 0.00173648, 0.00173648, 4.82556e-10, -0.00984808, 1.39924e-10, 0.01, 5.85556e-10, 0.0241684, 0.00152244, 8.31368e-10)
-
-[node name="arm_l_2" parent="Rouge/Model/Shadow/Skeleton3D" index="2"]
-transform = Transform3D(0.00906308, -4.67399e-10, 0.00422618, 0.00422618, 1.66765e-09, -0.00906308, 4.44089e-17, 0.01, 1.04308e-09, 0.0265791, -0.0278268, -7.79682e-10)
-
-[node name="hand_r_2" parent="Rouge/Model/Shadow/Skeleton3D" index="3"]
-transform = Transform3D(0.00984808, -6.19628e-10, -0.00173648, -0.00173648, 6.89561e-10, -0.00984808, 1.05217e-09, 0.01, 5.85556e-10, -0.0241684, 0.00152243, 8.31366e-10)
-
-[node name="arm_r_2" parent="Rouge/Model/Shadow/Skeleton3D" index="4"]
-transform = Transform3D(0.00906308, 1.5842e-09, -0.00422618, -0.00422618, -1.68455e-10, -0.00906308, -1.19209e-09, 0.01, 4.47035e-10, -0.0265791, -0.0278268, -7.79682e-10)
-
-[node name="head_001" parent="Rouge/Model/Rouge/Skeleton3D" index="0"]
-transform = Transform3D(0.01, 2.17117e-11, -4.21469e-10, -4.21469e-10, 0, -0.01, -2.17117e-11, 0.01, 0, 0, 0, 2.99534e-24)
-
-[node name="hand_l_001" parent="Rouge/Model/Rouge/Skeleton3D" index="1"]
-transform = Transform3D(0.01, -3.17865e-10, -1.19209e-09, -1.19209e-09, 1.19209e-09, -0.01, 3.17865e-10, 0.01, 1.19209e-09, -7.45058e-09, -5.58794e-09, 4.80825e-09)
-
-[node name="arm_l_001" parent="Rouge/Model/Rouge/Skeleton3D" index="2"]
-transform = Transform3D(0.01, 5.96046e-10, 1.19209e-09, 5.96046e-10, 2.38419e-09, -0.01, 0, 0.01, 1.78814e-09, -7.45058e-09, 0, 4.80825e-09)
-
-[node name="hand_r_001" parent="Rouge/Model/Rouge/Skeleton3D" index="3"]
-transform = Transform3D(0.01, -8.74228e-10, 3.78925e-17, 0, 1.19209e-09, -0.01, 8.74228e-10, 0.01, 1.19209e-09, 0, -5.58794e-09, 4.80825e-09)
-
-[node name="arm_r_001" parent="Rouge/Model/Rouge/Skeleton3D" index="4"]
-transform = Transform3D(0.01, 1.19209e-09, 0, 0, 1.19209e-09, -0.01, -1.19209e-09, 0.01, 1.19209e-09, 7.45058e-09, 0, 4.80825e-09)
-
-[node name="tail_001" parent="Rouge/Model/Rouge/Skeleton3D" index="5"]
-transform = Transform3D(0.01, 9.92095e-12, -4.21469e-10, -4.21469e-10, 0, -0.01, -9.92095e-12, 0.01, 0, 0, -3.2306e-32, 5.87747e-39)
-
-[node name="torso_001" parent="Rouge/Model/Rouge/Skeleton3D" index="6"]
-transform = Transform3D(0.01, 9.92095e-12, -4.21469e-10, -4.21469e-10, 0, -0.01, -9.92095e-12, 0.01, 0, 0, -3.2306e-32, 5.87747e-39)
-
-[node name="rouge_wing" parent="Rouge/Model/Rouge/Skeleton3D" index="7"]
-transform = Transform3D(0.25, 9.92095e-10, -1.05367e-08, -1.05367e-08, 0, -0.25, -2.48024e-10, 1, 0, -0.277846, 0.0391953, -0.0972994)
-
-[node name="rouge_wing_2" parent="Rouge/Model/Rouge/Skeleton3D" index="8"]
-transform = Transform3D(-0.25, 9.9209e-10, -1.05367e-08, 1.05367e-08, -1.19209e-07, -0.25, 2.48024e-10, 1, -2.98023e-08, 0.277846, 0.0391953, -0.0972994)
-
-[node name="foot_l_001" parent="Rouge/Model/Rouge/Skeleton3D" index="9"]
-transform = Transform3D(-0.01, 9.92095e-12, -4.21469e-10, 4.21469e-10, 0, -0.01, 9.92095e-12, 0.01, 0, 0, 0.00259921, 0.000285748)
-
-[node name="leg_l_001" parent="Rouge/Model/Rouge/Skeleton3D" index="10"]
-transform = Transform3D(-3.17865e-10, -0.01, -5.96046e-10, -5.96046e-10, 1.19209e-09, -0.01, 0.01, 2.78181e-10, 5.2108e-17, 0, 0, -4.93038e-32)
-
-[node name="foot_r_001" parent="Rouge/Model/Rouge/Skeleton3D" index="11"]
-transform = Transform3D(0.01, 9.92095e-12, -4.21469e-10, -4.21469e-10, 0, -0.01, -9.92095e-12, 0.01, 0, 0, 0.00259921, 0.000285748)
-
-[node name="leg_r_001" parent="Rouge/Model/Rouge/Skeleton3D" index="12"]
-transform = Transform3D(-3.17865e-10, -0.01, -5.96046e-10, -5.96046e-10, 1.19209e-09, -0.01, 0.01, 2.78181e-10, 5.2108e-17, 0, 0, -4.93038e-32)
 
 [node name="Zavok" parent="Rouge/Model" index="2"]
 visible = false
@@ -690,7 +652,7 @@ transform = Transform3D(2.79368, 1.52192e-08, 9.10296e-07, -8.50353e-08, 0.5, 7.
 [node name="o_hand_r" parent="Rouge/Model/Omega/Skeleton3D" index="4"]
 transform = Transform3D(-2.79368, -9.56191e-09, -9.10296e-07, -5.34258e-08, 0.5, 3.99152e-08, -9.10296e-07, -7.14385e-09, 2.79368, -0.407702, 0.169699, -2.88262e-08)
 
-[node name="Shield" parent="Rouge" index="6"]
+[node name="Shield" parent="Rouge" index="7"]
 mesh = SubResource("QuadMesh_qd3xc")
 
 [node name="CollisionShape3D" parent="Rouge/RingHitbox" index="0"]
@@ -702,24 +664,8 @@ path = NodePath("../LapProgress")
 cpu = true
 cpu_path = NodePath("../CPUPath")
 
-[node name="AnimationPlayerAudioStream" parent="Omega" index="1"]
-process_mode = 4
-volume_db = -80.0
-
 [node name="Shadow" parent="Omega/Model" index="0"]
 visible = false
-
-[node name="hand_l_2" parent="Omega/Model/Shadow/Skeleton3D" index="1"]
-transform = Transform3D(0.00984808, -5.54354e-10, 0.00173648, 0.00173648, 4.82556e-10, -0.00984808, 1.39924e-10, 0.01, 5.85556e-10, 0.0241684, 0.00152244, 8.31368e-10)
-
-[node name="arm_l_2" parent="Omega/Model/Shadow/Skeleton3D" index="2"]
-transform = Transform3D(0.00906308, -4.67399e-10, 0.00422618, 0.00422618, 1.66765e-09, -0.00906308, 4.44089e-17, 0.01, 1.04308e-09, 0.0265791, -0.0278268, -7.79682e-10)
-
-[node name="hand_r_2" parent="Omega/Model/Shadow/Skeleton3D" index="3"]
-transform = Transform3D(0.00984808, -6.19628e-10, -0.00173648, -0.00173648, 6.89561e-10, -0.00984808, 1.05217e-09, 0.01, 5.85556e-10, -0.0241684, 0.00152243, 8.31366e-10)
-
-[node name="arm_r_2" parent="Omega/Model/Shadow/Skeleton3D" index="4"]
-transform = Transform3D(0.00906308, 1.5842e-09, -0.00422618, -0.00422618, -1.68455e-10, -0.00906308, -1.19209e-09, 0.01, 4.47035e-10, -0.0265791, -0.0278268, -7.79682e-10)
 
 [node name="Rouge" parent="Omega/Model" index="1"]
 visible = false
@@ -736,37 +682,7 @@ visible = false
 [node name="DoomsEye" parent="Omega/Model" index="3"]
 visible = false
 
-[node name="o_hand_l" parent="Omega/Model/Omega/Skeleton3D" index="0"]
-transform = Transform3D(2.79368, 6.39223e-09, 9.10296e-07, -3.57157e-08, 0.5, -5.91337e-09, -9.10296e-07, 1.05835e-09, 2.79368, 0.407702, 0.169699, -3.36669e-10)
-
-[node name="o_arm_l" parent="Omega/Model/Omega/Skeleton3D" index="1"]
-transform = Transform3D(1, -4.16078e-17, 0, 8.32155e-17, 0.5, 8.32153e-17, 0, -4.16077e-17, 1, 0.407702, 0.408195, -3.36671e-10)
-
-[node name="o_head" parent="Omega/Model/Omega/Skeleton3D" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.545822, 0)
-
-[node name="o_leg_r" parent="Omega/Model/Omega/Skeleton3D" index="3"]
-transform = Transform3D(-1, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.120564, 0.119671, 0)
-
-[node name="o_hand_r" parent="Omega/Model/Omega/Skeleton3D" index="4"]
-transform = Transform3D(-2.79368, -6.39223e-09, -9.10296e-07, -3.57157e-08, 0.5, -5.91337e-09, -9.10296e-07, 1.05835e-09, 2.79368, -0.407703, 0.169699, -3.36671e-10)
-
-[node name="o_arm_r" parent="Omega/Model/Omega/Skeleton3D" index="5"]
-transform = Transform3D(-1, 4.16078e-17, 0, 8.32155e-17, 0.5, 8.32153e-17, 0, -4.16077e-17, 1, -0.407703, 0.408195, -3.3669e-10)
-
-[node name="o_torso" parent="Omega/Model/Omega/Skeleton3D" index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.545822, 0)
-
-[node name="o_foot_l" parent="Omega/Model/Omega/Skeleton3D" index="7"]
-transform = Transform3D(0.01, 1.19209e-09, -4.21468e-10, -4.21468e-10, 0, -0.01, -1.19209e-09, 0.01, 0, 0.124313, -0.2961, 0.017261)
-
-[node name="o_leg_l" parent="Omega/Model/Omega/Skeleton3D" index="8"]
-transform = Transform3D(8.74228e-08, 0, -1, 0, 0.5, 0, 1, 0, 8.74228e-08, 0.125, 0.119671, -0.00443602)
-
-[node name="o_foot_r" parent="Omega/Model/Omega/Skeleton3D" index="9"]
-transform = Transform3D(-0.01, -1.19209e-09, -4.21468e-10, 4.21468e-10, 0, -0.01, -1.19209e-09, 0.01, 0, -0.124313, -0.2961, 0.0172609)
-
-[node name="Shield" parent="Omega" index="6"]
+[node name="Shield" parent="Omega" index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 mesh = SubResource("QuadMesh_xtfhd")
 
@@ -779,24 +695,14 @@ path = NodePath("../LapProgress")
 cpu = true
 cpu_path = NodePath("../CPUPath")
 
-[node name="AnimationPlayerAudioStream" parent="DoomsEye" index="1"]
-process_mode = 4
-volume_db = -80.0
+[node name="LeftFoot" parent="DoomsEye" index="1"]
+stream = SubResource("AudioStreamOggVorbis_hnypg")
+
+[node name="RightFoot" parent="DoomsEye" index="2"]
+stream = null
 
 [node name="Shadow" parent="DoomsEye/Model" index="0"]
 visible = false
-
-[node name="hand_l_2" parent="DoomsEye/Model/Shadow/Skeleton3D" index="1"]
-transform = Transform3D(0.00984808, -5.54354e-10, 0.00173648, 0.00173648, 4.82556e-10, -0.00984808, 1.39924e-10, 0.01, 5.85556e-10, 0.0241684, 0.00152244, 8.31368e-10)
-
-[node name="arm_l_2" parent="DoomsEye/Model/Shadow/Skeleton3D" index="2"]
-transform = Transform3D(0.00906308, -4.67399e-10, 0.00422618, 0.00422618, 1.66765e-09, -0.00906308, 4.44089e-17, 0.01, 1.04308e-09, 0.0265791, -0.0278268, -7.79682e-10)
-
-[node name="hand_r_2" parent="DoomsEye/Model/Shadow/Skeleton3D" index="3"]
-transform = Transform3D(0.00984808, -6.19628e-10, -0.00173648, -0.00173648, 6.89561e-10, -0.00984808, 1.05217e-09, 0.01, 5.85556e-10, -0.0241684, 0.00152243, 8.31366e-10)
-
-[node name="arm_r_2" parent="DoomsEye/Model/Shadow/Skeleton3D" index="4"]
-transform = Transform3D(0.00906308, 1.5842e-09, -0.00422618, -0.00422618, -1.68455e-10, -0.00906308, -1.19209e-09, 0.01, 4.47035e-10, -0.0265791, -0.0278268, -7.79682e-10)
 
 [node name="Rouge" parent="DoomsEye/Model" index="1"]
 visible = false
@@ -810,48 +716,6 @@ transform = Transform3D(0.01, 9.13912e-10, 1.89462e-17, 5.96046e-10, 1.19209e-09
 [node name="Zavok" parent="DoomsEye/Model" index="2"]
 visible = false
 
-[node name="de_up_leg2" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="0"]
-transform = Transform3D(0.5, 0, 0, 0, -1.45705e-08, 0.5, 0, -1, -7.28523e-09, 0, 1.15907e-07, -0.976648)
-
-[node name="de_up_leg1" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="1"]
-transform = Transform3D(1, 0, 0, 0, -1.49012e-08, 1, 0, -1, -1.49012e-08, 0, -1.49012e-08, -0.497574)
-
-[node name="de_down_leg2" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="2"]
-transform = Transform3D(-0.5, -3.25841e-07, 3.55271e-15, 1.06581e-14, -5.86125e-08, 0.5, -1.62921e-07, 1, 2.93063e-08, 9.90711e-09, -1.58919e-07, 0.976648)
-
-[node name="de_down_leg1" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="3"]
-transform = Transform3D(-1, -3.25841e-07, 0, 1.42109e-14, -4.47035e-08, 1, -3.25841e-07, 1, 4.47035e-08, -2.13175e-15, -4.47035e-08, 0.497574)
-
-[node name="de_up_right_leg2" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="4"]
-transform = Transform3D(0.25, 0.866026, -4.355e-08, -1.76377e-08, 1.19705e-07, 0.5, 0.433013, -0.5, 6.20986e-08, 0.845802, -1.86551e-07, -0.488324)
-
-[node name="de_up_right_leg1" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="5"]
-transform = Transform3D(0.5, 0.866026, -1.04308e-07, -1.93572e-08, 1.30385e-07, 1, 0.866025, -0.5, 1.15751e-07, 0.430913, 5.73406e-07, -0.248787)
-
-[node name="de_down_left_leg2" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="6"]
-transform = Transform3D(-0.25, -0.866026, -2.47615e-08, -1.1609e-08, -2.65729e-08, 0.5, -0.433013, 0.499999, 1.53402e-08, -0.845802, 2.14962e-07, 0.488324)
-
-[node name="de_down_left_leg1" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="7"]
-transform = Transform3D(-0.499999, -0.866026, -8.59852e-08, -5.18341e-08, -5.21542e-08, 1, -0.866026, 0.499999, 1.86886e-08, -0.430912, 2.30968e-07, 0.248787)
-
-[node name="de_down_right_leg2" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="8"]
-transform = Transform3D(-0.25, 0.866026, -2.18553e-08, -4.85962e-08, -2.28478e-08, 0.5, 0.433013, 0.5, 1.30759e-08, 0.845802, 3.77483e-07, 0.488324)
-
-[node name="de_down_right_leg1" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="9"]
-transform = Transform3D(-0.5, 0.866025, -4.547e-08, -1.12757e-07, -2.98023e-08, 1, 0.866025, 0.5, 4.31083e-08, 0.430912, 5.32717e-07, 0.248787)
-
-[node name="de_up_left_leg2" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="10"]
-transform = Transform3D(0.25, -0.866025, 8.88974e-10, -1.10265e-08, -1.06794e-08, 0.5, -0.433012, -0.500001, -1.22191e-08, -0.845801, 1.88761e-07, -0.488323)
-
-[node name="de_up_left_leg1" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="11"]
-transform = Transform3D(0.500001, -0.866025, -1.33322e-08, -2.49547e-08, -2.98023e-08, 1, -0.866025, -0.500001, -3.65126e-08, -0.430912, 1.41561e-07, -0.248787)
-
-[node name="de_body" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="12"]
-transform = Transform3D(0.285714, 0, 0, 0, 0, 0.214286, 0, -0.285714, 0, 0, 0, -6.77626e-21)
-
-[node name="de_eye" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="13"]
-transform = Transform3D(0.616507, 1.12213e-08, 0.256713, -1.12213e-08, 0.667819, -2.24293e-09, -0.256713, -2.24293e-09, 0.616507, 0, 0.173361, -7.57784e-09)
-
 [node name="Omega" parent="DoomsEye/Model" index="4"]
 visible = false
 
@@ -861,7 +725,7 @@ transform = Transform3D(2.79368, 1.52192e-08, 9.10296e-07, -8.50353e-08, 0.5, 7.
 [node name="o_hand_r" parent="DoomsEye/Model/Omega/Skeleton3D" index="4"]
 transform = Transform3D(-2.79368, -9.56191e-09, -9.10296e-07, -5.34258e-08, 0.5, 3.99152e-08, -9.10296e-07, -7.14385e-09, 2.79368, -0.407702, 0.169699, -2.88262e-08)
 
-[node name="Shield" parent="DoomsEye" index="6"]
+[node name="Shield" parent="DoomsEye" index="7"]
 mesh = SubResource("QuadMesh_p4h56")
 
 [node name="CollisionShape3D" parent="DoomsEye/RingHitbox" index="0"]
@@ -873,24 +737,14 @@ path = NodePath("../LapProgress")
 cpu = true
 cpu_path = NodePath("../CPUPath")
 
-[node name="AnimationPlayerAudioStream" parent="Zavok" index="1"]
-process_mode = 4
-volume_db = -80.0
+[node name="LeftFoot" parent="Zavok" index="1"]
+stream = null
+
+[node name="RightFoot" parent="Zavok" index="2"]
+stream = null
 
 [node name="Shadow" parent="Zavok/Model" index="0"]
 visible = false
-
-[node name="hand_l_2" parent="Zavok/Model/Shadow/Skeleton3D" index="1"]
-transform = Transform3D(0.00984808, -5.54354e-10, 0.00173648, 0.00173648, 4.82556e-10, -0.00984808, 1.39924e-10, 0.01, 5.85556e-10, 0.0241684, 0.00152244, 8.31368e-10)
-
-[node name="arm_l_2" parent="Zavok/Model/Shadow/Skeleton3D" index="2"]
-transform = Transform3D(0.00906308, -4.67399e-10, 0.00422618, 0.00422618, 1.66765e-09, -0.00906308, 4.44089e-17, 0.01, 1.04308e-09, 0.0265791, -0.0278268, -7.79682e-10)
-
-[node name="hand_r_2" parent="Zavok/Model/Shadow/Skeleton3D" index="3"]
-transform = Transform3D(0.00984808, -6.19628e-10, -0.00173648, -0.00173648, 6.89561e-10, -0.00984808, 1.05217e-09, 0.01, 5.85556e-10, -0.0241684, 0.00152243, 8.31366e-10)
-
-[node name="arm_r_2" parent="Zavok/Model/Shadow/Skeleton3D" index="4"]
-transform = Transform3D(0.00906308, 1.5842e-09, -0.00422618, -0.00422618, -1.68455e-10, -0.00906308, -1.19209e-09, 0.01, 4.47035e-10, -0.0265791, -0.0278268, -7.79682e-10)
 
 [node name="Rouge" parent="Zavok/Model" index="1"]
 visible = false
@@ -913,13 +767,38 @@ transform = Transform3D(2.79368, 1.52192e-08, 9.10296e-07, -8.50353e-08, 0.5, 7.
 [node name="o_hand_r" parent="Zavok/Model/Omega/Skeleton3D" index="4"]
 transform = Transform3D(-2.79368, -9.56191e-09, -9.10296e-07, -5.34258e-08, 0.5, 3.99152e-08, -9.10296e-07, -7.14385e-09, 2.79368, -0.407702, 0.169699, -2.88262e-08)
 
-[node name="Shield" parent="Zavok" index="6"]
+[node name="Shield" parent="Zavok" index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 mesh = SubResource("QuadMesh_gyere")
 
 [node name="CollisionShape3D" parent="Zavok/RingHitbox" index="0"]
 shape = SubResource("SphereShape3D_mg1hl")
 
+[node name="Coins" type="Node" parent="."]
+
+[node name="Coin 1" parent="Coins" instance=ExtResource("52_p4h56")]
+
+[node name="Coin 2" parent="Coins" instance=ExtResource("52_p4h56")]
+
+[node name="Coin 3" parent="Coins" instance=ExtResource("52_p4h56")]
+
+[node name="Coin 4" parent="Coins" instance=ExtResource("52_p4h56")]
+
+[node name="Coin 5" parent="Coins" instance=ExtResource("52_p4h56")]
+
+[node name="CoinPlayer" type="AudioStreamPlayer" parent="Coins"]
+stream = ExtResource("53_gyere")
+
+[node name="SaveFile" type="Node" parent="."]
+script = ExtResource("53_87mwl")
+
+[node name="SaveGameplayToFile" type="Node" parent="SaveFile" node_paths=PackedStringArray("save_file", "gameplay")]
+script = ExtResource("54_iubtp")
+save_file = NodePath("..")
+gameplay = NodePath("../..")
+
+[connection signal="set_main_player" from="." to="Camera3D" method="set_main_player"]
+[connection signal="set_main_player" from="." to="RaceBeginAndEnd" method="set_main_player"]
 [connection signal="timeout" from="UI/pause/to_menu_timer_because_web_sucks" to="UI/pause" method="to_menu"]
 [connection signal="timeout" from="UI/pause/reload_timer_because_web_sucks2" to="UI/pause" method="delayed_reload"]
 [connection signal="focus_entered" from="UI/pause/pause_options/continue" to="UI/pause" method="focus_entered"]
@@ -928,16 +807,27 @@ shape = SubResource("SphereShape3D_mg1hl")
 [connection signal="pressed" from="UI/pause/pause_options/retry" to="UI/pause" method="reload"]
 [connection signal="focus_entered" from="UI/pause/pause_options/retire" to="UI/pause" method="focus_entered"]
 [connection signal="pressed" from="UI/pause/pause_options/retire" to="UI/pause" method="quit"]
+[connection signal="race_end" from="RaceBeginAndEnd" to="SaveFile/SaveGameplayToFile" method="_on_race_end"]
 [connection signal="timeout" from="RaceBeginAndEnd/ReadyTimer" to="RaceBeginAndEnd" method="ready_timeout"]
 [connection signal="timeout" from="RaceBeginAndEnd/SetTimer" to="RaceBeginAndEnd" method="set_timeout"]
 [connection signal="timeout" from="RaceBeginAndEnd/GoTimer" to="RaceBeginAndEnd" method="go_timeout"]
 [connection signal="timeout" from="RaceBeginAndEnd/PostGoTimer" to="RaceBeginAndEnd" method="post_go_timeout"]
 [connection signal="timeout" from="RaceBeginAndEnd/EndTimer" to="RaceBeginAndEnd" method="end_timeout"]
-[connection signal="end" from="Shadow" to="RaceBeginAndEnd" method="main_player_end"]
-[connection signal="ready" from="Rouge/AnimationPlayerAudioStream" to="Rouge/AnimationPlayerAudioStream" method="queue_free"]
-[connection signal="ready" from="Omega/AnimationPlayerAudioStream" to="Omega/AnimationPlayerAudioStream" method="queue_free"]
-[connection signal="ready" from="DoomsEye/AnimationPlayerAudioStream" to="DoomsEye/AnimationPlayerAudioStream" method="queue_free"]
-[connection signal="ready" from="Zavok/AnimationPlayerAudioStream" to="Zavok/AnimationPlayerAudioStream" method="queue_free"]
+[connection signal="set_cpu" from="Shadow" to="Shadow/LeftFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Shadow" to="Shadow/RightFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Rouge" to="Rouge/LeftFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Rouge" to="Rouge/RightFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Omega" to="Omega/LeftFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Omega" to="Omega/RightFoot" method="set_cpu"]
+[connection signal="set_cpu" from="DoomsEye" to="DoomsEye/LeftFoot" method="set_cpu"]
+[connection signal="set_cpu" from="DoomsEye" to="DoomsEye/RightFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Zavok" to="Zavok/LeftFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Zavok" to="Zavok/RightFoot" method="set_cpu"]
+[connection signal="coin_collected" from="Coins/Coin 1" to="." method="collect_coin"]
+[connection signal="coin_collected" from="Coins/Coin 2" to="." method="collect_coin"]
+[connection signal="coin_collected" from="Coins/Coin 3" to="." method="collect_coin"]
+[connection signal="coin_collected" from="Coins/Coin 4" to="." method="collect_coin"]
+[connection signal="coin_collected" from="Coins/Coin 5" to="." method="collect_coin"]
 
 [editable path="Shadow"]
 [editable path="Shadow/Model"]

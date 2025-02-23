@@ -1,8 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://hu88dmlcsvyy"]
+[gd_scene load_steps=33 format=3 uid="uid://hu88dmlcsvyy"]
 
 [ext_resource type="PackedScene" uid="uid://b76pkmfohc5wa" path="res://gameplay.tscn" id="1_guv5i"]
+[ext_resource type="Material" uid="uid://ckmm34ftfflhk" path="res://player/fake_metal_shadow.tres" id="2_72ars"]
 [ext_resource type="Shader" uid="uid://dx8hwc7picmdt" path="res://skybox.gdshader" id="2_otoce"]
+[ext_resource type="Material" uid="uid://djnkc6ha1in64" path="res://player/fake_metal_rouge.tres" id="3_33dky"]
 [ext_resource type="Texture2D" uid="uid://6yf5hcqky6ti" path="res://digital_circuit/skybox.png" id="3_dli5l"]
+[ext_resource type="Material" uid="uid://csnqmmoj0jetg" path="res://player/fake_metal_omega.tres" id="4_1gskr"]
 [ext_resource type="AudioStream" uid="uid://cejupphdhln1p" path="res://digital_circuit/09. Digital Circuit.ogg" id="4_dli5l"]
 [ext_resource type="Texture2D" uid="uid://dgw284bgvbhrw" path="res://digital_circuit/minimap.png" id="4_e0d0w"]
 [ext_resource type="PackedScene" uid="uid://bn12pjhmnj022" path="res://digital_circuit/digital_circuit.blend" id="5_wbl5o"]
@@ -47,7 +50,7 @@ point_count = 5
 [sub_resource type="Curve3D" id="Curve3D_tr73c"]
 closed = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 1.57462, 0, -4.49123, -1.57462, 0, 4.49123, -5.11866, 0, 14.2519, -0.76545, 0, -3.67743, 0.76545, 0, 3.67743, -5.23941, 0, 37.5145, 1.485, 0, -2, -1.485, 0, 28, -2.90593, 1.48355, 51.9436, 2.627, 0, 28, 0, 0, 0, -45.3879, 5.82621, 51.9436, -3.486, 0, 3.955, 2.316, 0, -3.955, -38.9214, 8, 32.7708, 0.253963, 0, 6.46325, -0.253963, 0, -6.46325, -46.943, 8, 23.902, -3.58654, 0, 5.32148, 0, 0, 0, -34.894, 8, 12.2078, -3.49825, 0, 3.62048, 3.49825, 0, -3.62048, -35.786, 8, -14.9903, -3.12555, 0, 2.98501, 3.12555, 0, -2.98501, -9.689, 8, -14.87, -2.03683, -0.622647, 1.94075, 2.03683, 0.622647, -1.94075, 4.50548, 7.04388, -27.367, 0, 0, 0, 0, 0, 0, 7.866, 7.39419, -26.506, 0, 0, -0.847, 24, 0, 0, 38.3375, 5.43104, 0.558163, 11.7899, 0, -1.57378, -11.7899, 0, 1.57378, 43.0449, 1.72947, -21.61, 5.87344, 0, -3.54593, -5.87344, 0, 3.54593, 17.3769, 1.81127, -13.5143),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 1.57462, 0, -4.49123, -1.57462, 0, 4.49123, -5.11866, 0, 14.2519, -0.76545, 0, -3.67743, 0.76545, 0, 3.67743, -5.23941, 0, 37.5145, 1.485, 0, -2, -1.485, 0, 30, -2.90593, 1.48355, 51.9436, 2.627, 0, 30, 0, 0, 0, -46.822, 5.82621, 49.418, -3.486, 0, 3.955, 2.316, 0, -3.955, -38.9214, 8, 32.7708, 0.253963, 0, 6.46325, -0.253963, 0, -6.46325, -43.9837, 8, 23.902, -3.58654, 0, 5.32148, 0, 0, 0, -36.0573, 8, 8.71774, -3.49825, 0, 3.62048, 3.49825, 0, -3.62048, -35.786, 8, -14.9903, -3.12555, 0, 2.98501, 3.12555, 0, -2.98501, -9.689, 8, -14.87, -2.03683, -0.622647, 1.94075, 2.03683, 0.622647, -1.94075, 4.50548, 7.04388, -27.367, 0, 0, 0, 0, 0, 0, 7.866, 7.39419, -26.506, 0, 0, -0.847, 24, 0, 0, 38.3375, 5.43104, 0.558163, 11.7899, 0, -1.57378, -11.7899, 0, 1.57378, 43.0449, 1.72947, -21.61, 5.87344, 0, -3.54593, -5.87344, 0, 3.54593, 17.3769, 1.81127, -13.5143),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 15
@@ -122,7 +125,12 @@ _data = {
 }
 point_count = 20
 
-[node name="Gameplay" instance=ExtResource("1_guv5i")]
+[node name="Gameplay" node_paths=PackedStringArray("fake_metal_material_overrides") instance=ExtResource("1_guv5i")]
+fake_metal_material_overrides = {
+NodePath("Shadow"): ExtResource("2_72ars"),
+NodePath("Rouge"): ExtResource("3_33dky"),
+NodePath("Omega"): ExtResource("4_1gskr")
+}
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.00253, 3.01137, -6.00284)
@@ -158,10 +166,9 @@ ring_fuel = 139.75
 
 [node name="CPUPath" parent="." index="11"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5423, 0, -44.1432)
-visible = false
 curve = SubResource("Curve3D_tr73c")
-length = 378.233
-ring_fuel = 302.586
+length = 374.29
+ring_fuel = 299.432
 
 [node name="CSGPolygon3D" parent="CPUPath" index="0"]
 visible = true
@@ -932,6 +939,41 @@ transform = Transform3D(0.702315, 0, -0.711867, 0, 1, 0, 0.711867, 0, 0.702315, 
 
 [node name="Zavok" parent="." index="23"]
 transform = Transform3D(0.702315, 0, -0.711867, 0, 1, 0, 0.711867, 0, 0.702315, 27.0674, 0, -43.6706)
+
+[node name="Coin 1" parent="Coins" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.55464, 12.9736, -0.136988)
+
+[node name="Coin 2" parent="Coins" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4569, 12.0594, -0.581581)
+
+[node name="Coin 3" parent="Coins" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7897, 12.9745, -58.7518)
+
+[node name="Coin 4" parent="Coins" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7214, 7.05809, -6.68753)
+
+[node name="Coin 5" parent="Coins" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2902, 1.58715, -73.1229)
+
+[node name="SaveGameplayToFile" parent="SaveFile" index="0"]
+course_name = "RAM Jam"
+unlockable_character_name = "Fake Metal Rouge"
+
+[connection signal="set_main_player" from="." to="Camera3D" method="set_main_player"]
+[connection signal="set_main_player" from="." to="RaceBeginAndEnd" method="set_main_player"]
+[connection signal="focus_entered" from="UI/pause/pause_options/continue" to="UI/pause" method="focus_entered"]
+[connection signal="focus_entered" from="UI/pause/pause_options/retry" to="UI/pause" method="focus_entered"]
+[connection signal="focus_entered" from="UI/pause/pause_options/retire" to="UI/pause" method="focus_entered"]
+[connection signal="set_cpu" from="Shadow" to="Shadow/LeftFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Shadow" to="Shadow/RightFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Rouge" to="Rouge/LeftFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Rouge" to="Rouge/RightFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Omega" to="Omega/LeftFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Omega" to="Omega/RightFoot" method="set_cpu"]
+[connection signal="set_cpu" from="DoomsEye" to="DoomsEye/LeftFoot" method="set_cpu"]
+[connection signal="set_cpu" from="DoomsEye" to="DoomsEye/RightFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Zavok" to="Zavok/LeftFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Zavok" to="Zavok/RightFoot" method="set_cpu"]
 
 [editable path="digital_circuit"]
 [editable path="Accelerator"]

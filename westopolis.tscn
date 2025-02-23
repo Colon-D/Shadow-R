@@ -1,10 +1,13 @@
-[gd_scene load_steps=28 format=3 uid="uid://csnnasb8lylx6"]
+[gd_scene load_steps=31 format=3 uid="uid://csnnasb8lylx6"]
 
 [ext_resource type="PackedScene" uid="uid://b76pkmfohc5wa" path="res://gameplay.tscn" id="1_n34vc"]
+[ext_resource type="Material" uid="uid://ckmm34ftfflhk" path="res://player/fake_metal_shadow.tres" id="2_cr4un"]
 [ext_resource type="Texture2D" uid="uid://caqhnlc0xl50w" path="res://models/courses/westopolis/skybox.png" id="2_jbbcb"]
 [ext_resource type="Shader" uid="uid://dx8hwc7picmdt" path="res://skybox.gdshader" id="2_pwdr1"]
+[ext_resource type="Material" uid="uid://djnkc6ha1in64" path="res://player/fake_metal_rouge.tres" id="3_f0aor"]
 [ext_resource type="PackedScene" uid="uid://di6qq2akvcimt" path="res://models/courses/westopolis/map.blend" id="3_jbbcb"]
 [ext_resource type="Texture2D" uid="uid://cg5hmeyk1rsnc" path="res://models/courses/westopolis/minimap.png" id="4_c7yr7"]
+[ext_resource type="Material" uid="uid://csnqmmoj0jetg" path="res://player/fake_metal_omega.tres" id="4_u5p40"]
 [ext_resource type="PackedScene" uid="uid://b00nk1pecrvti" path="res://door.tscn" id="5_ggiq8"]
 [ext_resource type="PackedScene" uid="uid://c50m4yjituld" path="res://ring/ring_path.tscn" id="6_a8woo"]
 [ext_resource type="PackedScene" uid="uid://c2btl25lwd133" path="res://accelerator/accelerator.tscn" id="7_hyl8t"]
@@ -128,7 +131,12 @@ _data = {
 }
 point_count = 20
 
-[node name="Gameplay" instance=ExtResource("1_n34vc")]
+[node name="Gameplay" node_paths=PackedStringArray("fake_metal_material_overrides") instance=ExtResource("1_n34vc")]
+fake_metal_material_overrides = {
+NodePath("Shadow"): ExtResource("2_cr4un"),
+NodePath("Rouge"): ExtResource("3_f0aor"),
+NodePath("Omega"): ExtResource("4_u5p40")
+}
 
 [node name="WorldEnvironment - Retro" parent="." index="2"]
 environment = SubResource("Environment_a8woo")
@@ -311,11 +319,42 @@ transform = Transform3D(0.01, -3.17865e-10, -1.19209e-09, -1.19209e-09, 1.19209e
 [node name="hand_r_001" parent="Zavok/Model/Rouge/Skeleton3D" index="3"]
 transform = Transform3D(0.01, -8.74228e-10, 3.78925e-17, 0, 1.19209e-09, -0.01, 8.74228e-10, 0.01, 1.19209e-09, 0, -5.58794e-09, 4.80825e-09)
 
+[node name="Coin 1" parent="Coins" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72465, 3.53884, 100.253)
+
+[node name="Coin 2" parent="Coins" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4501, 0.7, -35.0519)
+
+[node name="Coin 3" parent="Coins" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.40866, 20.7, 67.962)
+
+[node name="Coin 4" parent="Coins" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.6019, 11.8033, 12.3636)
+
+[node name="Coin 5" parent="Coins" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.9332, 8.7, 64.4553)
+
+[node name="SaveGameplayToFile" parent="SaveFile" index="0"]
+course_name = "Rubble Route"
+unlockable_character_name = "Fake Metal Shadow"
+
+[connection signal="set_main_player" from="." to="Camera3D" method="set_main_player"]
+[connection signal="set_main_player" from="." to="RaceBeginAndEnd" method="set_main_player"]
 [connection signal="focus_entered" from="UI/pause/pause_options/continue" to="UI/pause" method="focus_entered"]
 [connection signal="focus_entered" from="UI/pause/pause_options/retry" to="UI/pause" method="focus_entered"]
 [connection signal="focus_entered" from="UI/pause/pause_options/retire" to="UI/pause" method="focus_entered"]
 [connection signal="door_opened" from="50 Doors/Door In" to="50 Doors" method="queue_free"]
 [connection signal="door_opened" from="50 Doors/Door Out" to="50 Doors" method="queue_free"]
+[connection signal="set_cpu" from="Shadow" to="Shadow/LeftFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Shadow" to="Shadow/RightFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Rouge" to="Rouge/LeftFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Rouge" to="Rouge/RightFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Omega" to="Omega/LeftFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Omega" to="Omega/RightFoot" method="set_cpu"]
+[connection signal="set_cpu" from="DoomsEye" to="DoomsEye/LeftFoot" method="set_cpu"]
+[connection signal="set_cpu" from="DoomsEye" to="DoomsEye/RightFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Zavok" to="Zavok/LeftFoot" method="set_cpu"]
+[connection signal="set_cpu" from="Zavok" to="Zavok/RightFoot" method="set_cpu"]
 
 [editable path="map"]
 [editable path="Accelerator"]
