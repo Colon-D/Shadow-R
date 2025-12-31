@@ -25,6 +25,12 @@ func iterate(node):
 				new_material.shader = preload("res://models/retro.gdshader")
 				new_material.set_shader_parameter("texture_albedo", surface_mat.albedo_texture)
 				mesh.surface_set_material(s, new_material)
+		# 2025-12-31 addition, because Godot 4.5 (then 4.4.1) disabled backface_collision
+		elif node is CollisionShape3D:
+			var shape_instance = node as CollisionShape3D
+			if shape_instance.shape is ConcavePolygonShape3D:
+				var shape = shape_instance.shape as ConcavePolygonShape3D
+				shape.backface_collision = true
 
 		for child in node.get_children():
 			iterate(child)

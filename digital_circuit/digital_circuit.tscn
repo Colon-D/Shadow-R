@@ -161,14 +161,14 @@ music = ExtResource("4_dli5l")
 
 [node name="LapProgress" parent="." index="10"]
 curve = SubResource("Curve3D_jchlv")
-length = 174.688
-ring_fuel = 139.75
+length = 174.68808
+ring_fuel = 139.7504638671875
 
 [node name="CPUPath" parent="." index="11"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5423, 0, -44.1432)
 curve = SubResource("Curve3D_tr73c")
-length = 374.29
-ring_fuel = 299.432
+length = 374.29007
+ring_fuel = 299.4320556640625
 
 [node name="CSGPolygon3D" parent="CPUPath" index="0"]
 path_local = true
@@ -186,16 +186,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7593, 0, -5.58468)
 curve = SubResource("Curve3D_kupsk")
 distance = 5.0
 children = 16
-length = 78.1898
-ring_fuel = 62.5518
+length = 78.18977
+ring_fuel = 62.55182
 
 [node name="innerspiral" parent="RingPaths" index="1" instance=ExtResource("7_5qxeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2332, 1.90735e-06, 0.587382)
 curve = SubResource("Curve3D_5qxeh")
 distance = 3.4
 children = 16
-length = 52.7195
-ring_fuel = 42.1756
+length = 52.719456
+ring_fuel = 42.17556457519531
 
 [node name="up_left" parent="RingPaths" index="2" instance=ExtResource("7_5qxeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.3923, 6.01075, -12.1293)
@@ -766,24 +766,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.0853, 5.81762, -45.2155)
 curve = SubResource("Curve3D_q2a2d")
 distance = 3.25
 children = 16
-length = 51.1621
-ring_fuel = 40.9297
+length = 51.162125
+ring_fuel = 40.92969970703125
 
 [node name="Ring Path end 2" parent="RingPaths" index="186" instance=ExtResource("7_5qxeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.11954, 11.9269, -69.2407)
 curve = SubResource("Curve3D_6thco")
 distance = 1.75
 children = 16
-length = 26.5346
-ring_fuel = 21.2276
+length = 26.534555
+ring_fuel = 21.22764434814453
 
 [node name="Ring Path mid" parent="RingPaths" index="187" instance=ExtResource("7_5qxeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.81059, 0, -27.6882)
 curve = SubResource("Curve3D_72ars")
 distance = 1.4
 children = 16
-length = 21.5637
-ring_fuel = 17.251
+length = 21.563696
+ring_fuel = 17.250956726074218
 
 [node name="Ring179" parent="RingPaths" index="188" instance=ExtResource("9_bq3c6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2601, 0.16, -18.3962)
@@ -816,8 +816,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8875, 0.16, -21.5756)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.93566, 0, -30.3914)
 curve = SubResource("Curve3D_33dky")
 children = 16
-length = 30.088
-ring_fuel = 24.0704
+length = 30.08797
+ring_fuel = 24.070376586914062
 
 [node name="Ring188" parent="RingPaths" index="198" instance=ExtResource("9_bq3c6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.32513, 12.435, -50.1028)
@@ -887,16 +887,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.7774, 11.8333, -57.5016)
 curve = SubResource("Curve3D_1gskr")
 distance = 1.6
 children = 16
-length = 24.7261
-ring_fuel = 19.7809
+length = 24.726088
+ring_fuel = 19.780870056152345
 
 [node name="Ring Path2" parent="RingPaths" index="220" instance=ExtResource("7_5qxeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.308, 6.18671, -63.5784)
 curve = SubResource("Curve3D_xpp3y")
 distance = 1.5
 children = 16
-length = 22.8784
-ring_fuel = 18.3027
+length = 22.878351
+ring_fuel = 18.302681
 
 [node name="door" parent="." index="14" instance=ExtResource("8_kupsk")]
 transform = Transform3D(-1.73205, 1, 0, 4.37114e-08, 7.57103e-08, -2, -1, -1.73205, -8.74228e-08, 20.2656, 4.61976, -68.0007)
@@ -914,8 +914,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.6873, 2.01757, -62.6223)
 [node name="Accelerator" parent="." index="18" instance=ExtResource("11_7l2na")]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -3.37036, 2.28002, -0.0443019)
 curve = SubResource("Curve3D_7l2na")
-length = 64.2421
-ring_fuel = 51.3937
+length = 64.24214
+ring_fuel = 51.39371337890625
 
 [node name="Area3D" parent="Accelerator" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0136409, 0.322759, -0.0295088)
@@ -928,160 +928,896 @@ path_rotation = 2
 transform = Transform3D(0.702315, 0, -0.711867, 0, 1, 0, 0.711867, 0, 0.702315, 25.6628, 0, -45.0943)
 
 [node name="head_2" parent="Shadow/Model/Shadow/Skeleton3D" index="0"]
-transform = Transform3D(0.01, 2.17117e-11, -4.21469e-10, -4.21469e-10, 0, -0.01, -2.17117e-11, 0.01, 0, 0, 0, 2.99534e-24)
+transform = Transform3D(0.01, 2.1711716e-11, -4.2146858e-10, -4.2146858e-10, 0, -0.01, -2.1711716e-11, 0.01, 0, 0, 0, 2.9953396e-24)
 
 [node name="hand_l_2" parent="Shadow/Model/Shadow/Skeleton3D" index="1"]
-transform = Transform3D(0.01, -3.17865e-10, -1.19209e-09, -1.19209e-09, 1.19209e-09, -0.01, 3.17865e-10, 0.01, 1.19209e-09, -7.45058e-09, -5.58794e-09, 4.80825e-09)
+transform = Transform3D(0.01, -3.1786512e-10, -1.1920931e-09, -1.1920928e-09, 1.1920928e-09, -0.010000001, 3.1786512e-10, 0.01, 1.1920931e-09, -7.450581e-09, -5.5879354e-09, 4.8082534e-09)
 
 [node name="arm_l_2" parent="Shadow/Model/Shadow/Skeleton3D" index="2"]
-transform = Transform3D(0.01, 5.96046e-10, 1.19209e-09, 5.96046e-10, 2.38419e-09, -0.01, 0, 0.01, 1.78814e-09, -7.45058e-09, 0, 4.80825e-09)
+transform = Transform3D(0.01, 5.9604643e-10, 1.1920931e-09, 5.960464e-10, 2.3841855e-09, -0.010000001, 0, 0.01, 1.7881396e-09, -7.450581e-09, 0, 4.808254e-09)
 
 [node name="hand_r_2" parent="Shadow/Model/Shadow/Skeleton3D" index="3"]
-transform = Transform3D(0.01, -8.74228e-10, 3.78925e-17, 0, 1.19209e-09, -0.01, 8.74228e-10, 0.01, 1.19209e-09, 0, -5.58794e-09, 4.80825e-09)
+transform = Transform3D(0.01, -8.7422775e-10, 3.7892482e-17, 0, 1.1920928e-09, -0.010000001, 8.7422775e-10, 0.01, 1.1920931e-09, 0, -5.5879354e-09, 4.808253e-09)
 
 [node name="arm_r_2" parent="Shadow/Model/Shadow/Skeleton3D" index="4"]
-transform = Transform3D(0.01, 1.19209e-09, 0, 0, 1.19209e-09, -0.01, -1.19209e-09, 0.01, 1.19209e-09, 7.45058e-09, 0, 4.80825e-09)
+transform = Transform3D(0.01, 1.1920929e-09, 0, 0, 1.1920928e-09, -0.010000002, -1.1920929e-09, 0.01, 1.1920932e-09, 7.450581e-09, 0, 4.808254e-09)
 
 [node name="tail" parent="Shadow/Model/Shadow/Skeleton3D" index="5"]
-transform = Transform3D(0.01, 9.92095e-12, -4.21469e-10, -4.21469e-10, 0, -0.01, -9.92095e-12, 0.01, 0, 0, -3.2306e-32, 5.87747e-39)
+transform = Transform3D(0.01, 9.920953e-12, -4.2146853e-10, -4.2146853e-10, 0, -0.01, -9.920953e-12, 0.01, 0, 0, -3.230598e-32, 5.877472e-39)
 
 [node name="torso_2" parent="Shadow/Model/Shadow/Skeleton3D" index="6"]
-transform = Transform3D(0.01, 9.92095e-12, -4.21469e-10, -4.21469e-10, 0, -0.01, -9.92095e-12, 0.01, 0, 0, -3.2306e-32, 5.87747e-39)
+transform = Transform3D(0.01, 9.920953e-12, -4.2146853e-10, -4.2146853e-10, 0, -0.01, -9.920953e-12, 0.01, 0, 0, -3.230598e-32, 5.877472e-39)
 
 [node name="foot_l_2" parent="Shadow/Model/Shadow/Skeleton3D" index="7"]
-transform = Transform3D(-0.01, 9.92095e-12, -4.21469e-10, 4.21469e-10, 0, -0.01, 9.92095e-12, 0.01, 0, 0, 0.00259921, 0.000285748)
+transform = Transform3D(-0.01, 9.920953e-12, -4.2146853e-10, 4.2146853e-10, 0, -0.01, 9.920953e-12, 0.01, 0, 0, 0.0025992095, 0.0002857484)
 
 [node name="leg_l_2" parent="Shadow/Model/Shadow/Skeleton3D" index="8"]
-transform = Transform3D(-3.17865e-10, -0.01, -5.96046e-10, -5.96046e-10, 1.19209e-09, -0.01, 0.01, 2.78181e-10, 5.2108e-17, 0, 0, -4.93038e-32)
+transform = Transform3D(-3.1786512e-10, -0.01, -5.9604643e-10, -5.9604643e-10, 1.1920929e-09, -0.01, 0.01, 2.781813e-10, 5.2108034e-17, 0, 0, -4.9303807e-32)
 
 [node name="foot_r_2" parent="Shadow/Model/Shadow/Skeleton3D" index="9"]
-transform = Transform3D(0.01, 9.92095e-12, -4.21469e-10, -4.21469e-10, 0, -0.01, -9.92095e-12, 0.01, 0, 0, 0.00259921, 0.000285748)
+transform = Transform3D(0.01, 9.920953e-12, -4.2146853e-10, -4.2146853e-10, 0, -0.01, -9.920953e-12, 0.01, 0, 0, 0.0025992095, 0.0002857484)
 
 [node name="leg_r_2" parent="Shadow/Model/Shadow/Skeleton3D" index="10"]
-transform = Transform3D(-3.17865e-10, -0.01, -5.96046e-10, -5.96046e-10, 1.19209e-09, -0.01, 0.01, 2.78181e-10, 5.2108e-17, 0, 0, -4.93038e-32)
+transform = Transform3D(-3.1786512e-10, -0.01, -5.9604643e-10, -5.9604643e-10, 1.1920929e-09, -0.01, 0.01, 2.781813e-10, 5.2108034e-17, 0, 0, -4.9303807e-32)
+
+[node name="Skeleton3D" parent="Shadow/Model/Rouge" index="0"]
+bones/4/position = Vector3(0.11, 0.075, 0)
+bones/4/rotation = Quaternion(0.70710677, 0, -0.70710677, 0)
+bones/5/rotation = Quaternion(0, 1.5893256e-08, 0, 1)
+bones/8/position = Vector3(-0.11, 0.075, 0)
+bones/8/rotation = Quaternion(0.70710677, 0, 0.70710677, 0)
+bones/9/rotation = Quaternion(0, -1.5893256e-08, 0, 1)
+
+[node name="head_001" parent="Shadow/Model/Rouge/Skeleton3D" index="0"]
+transform = Transform3D(0.01, 3.9253916e-11, -4.2493659e-10, -4.2493659e-10, 0, -0.01, -3.9253916e-11, 0.01, 0, 9.163159e-11, 7.450581e-09, -1.5818458e-12)
+
+[node name="hand_l_001" parent="Shadow/Model/Rouge/Skeleton3D" index="1"]
+transform = Transform3D(0.010000001, 1.4702742e-09, 1.192093e-09, 5.9604643e-10, 2.3841857e-09, -0.010000001, -8.742278e-10, 0.010000001, 1.7881396e-09, -3.7252903e-08, -5.5879354e-09, 7.155484e-09)
+
+[node name="arm_l_001" parent="Shadow/Model/Rouge/Skeleton3D" index="2"]
+transform = Transform3D(0.009999999, 5.9604643e-10, 1.192093e-09, 5.960463e-10, 2.3841855e-09, -0.01, 0, 0.01, 1.7881394e-09, -7.450581e-09, 7.450581e-09, 8.58563e-09)
+
+[node name="hand_r_001" parent="Shadow/Model/Rouge/Skeleton3D" index="3"]
+transform = Transform3D(0.01, 9.139115e-10, 1.894624e-17, 5.960464e-10, 1.1920926e-09, -0.01, -1.5099579e-09, 0.009999999, 5.960465e-10, 7.450581e-09, -1.8626451e-09, 7.009967e-09)
+
+[node name="arm_r_001" parent="Shadow/Model/Rouge/Skeleton3D" index="4"]
+transform = Transform3D(0.010000001, 5.9604643e-10, 0, 5.9604643e-10, 1.1920928e-09, -0.010000001, -1.192093e-09, 0.01, 5.9604655e-10, 7.450581e-09, 7.450581e-09, 8.018105e-09)
+
+[node name="tail_001" parent="Shadow/Model/Rouge/Skeleton3D" index="5"]
+transform = Transform3D(0.01, 9.920953e-12, -4.3655754e-10, -4.3655754e-10, 0, -0.01, -9.920953e-12, 0.01, 0, 0, -3.2305982e-32, 5.877472e-39)
+
+[node name="torso_001" parent="Shadow/Model/Rouge/Skeleton3D" index="6"]
+transform = Transform3D(0.01, 9.920953e-12, -4.3655754e-10, -4.3655754e-10, 0, -0.01, -9.920953e-12, 0.01, 0, 0, -3.2305982e-32, 5.877472e-39)
+
+[node name="rouge_wing" parent="Shadow/Model/Rouge/Skeleton3D" index="7"]
+transform = Transform3D(0.24999996, 9.920953e-10, -1.0913936e-08, -1.0913936e-08, 0, -0.24999996, -2.480238e-10, 1, 0, -0.27784634, 0.039195325, -0.09729944)
+
+[node name="rouge_wing_2" parent="Shadow/Model/Rouge/Skeleton3D" index="8"]
+transform = Transform3D(-0.24999996, 9.920901e-10, -1.0913936e-08, 1.0913936e-08, -1.1920927e-07, -0.24999996, 2.480238e-10, 1, -2.9802314e-08, 0.2778463, 0.039195318, -0.09729942)
+
+[node name="foot_l_001" parent="Shadow/Model/Rouge/Skeleton3D" index="9"]
+transform = Transform3D(-0.01, 9.920953e-12, -4.2146853e-10, 4.2146853e-10, 0, -0.01, 9.920953e-12, 0.01, 0, 3.7252903e-09, 0.0025992095, 0.0002857494)
+
+[node name="leg_l_001" parent="Shadow/Model/Rouge/Skeleton3D" index="10"]
+transform = Transform3D(-3.1786512e-10, -0.01, -5.9604643e-10, -5.9604643e-10, 1.1920929e-09, -0.01, 0.01, 2.781813e-10, 5.2108034e-17, 3.7252903e-09, 7.450581e-09, -3.1624747e-10)
+
+[node name="foot_r_001" parent="Shadow/Model/Rouge/Skeleton3D" index="11"]
+transform = Transform3D(0.01, 9.920953e-12, -4.2146858e-10, -4.2146853e-10, 0, -0.010000001, -9.920953e-12, 0.01, 0, 3.7252903e-09, 0.0025992244, 0.00028574758)
+
+[node name="leg_r_001" parent="Shadow/Model/Rouge/Skeleton3D" index="12"]
+transform = Transform3D(-3.1786507e-10, -0.01, -5.960464e-10, -5.960464e-10, 1.1920929e-09, -0.009999999, 0.009999999, 2.781813e-10, 5.210803e-17, 0, 0, -1.8956436e-09)
+
+[node name="Skeleton3D" parent="Shadow/Model/DoomsEye" index="0"]
+bones/1/rotation = Quaternion(-0.70710677, 0, 0, 0.70710677)
+bones/2/rotation = Quaternion(-7.285231e-09, 0, 0, 1)
+bones/5/rotation = Quaternion(0.70710677, -3.090862e-08, -3.090862e-08, 0.70710677)
+bones/6/rotation = Quaternion(2.185569e-08, 3.0367018e-23, -1.9106853e-15, 1)
+bones/9/rotation = Quaternion(-0.6123724, -0.3535534, -0.35355338, 0.61237246)
+bones/10/rotation = Quaternion(-1.0927846e-08, 1.5775083e-08, 3.608225e-16, 1)
+bones/13/rotation = Quaternion(0.61237234, -0.35355335, 0.3535536, 0.61237246)
+bones/14/rotation = Quaternion(1.8874474e-08, -4.8571735e-07, -8.35443e-15, 1)
+bones/17/position = Vector3(0, 0.100000024, 0)
+bones/17/rotation = Quaternion(0.3535533, 0.61237246, 0.6123725, -0.35355338)
+bones/18/rotation = Quaternion(1.0927845e-08, 1.693121e-08, -1.1379786e-15, 1)
+bones/21/position = Vector3(0, 0.100000024, 0)
+bones/21/rotation = Quaternion(0.35355335, -0.61237246, 0.61237246, 0.35355335)
+bones/22/rotation = Quaternion(1.0927842e-08, -5.067888e-07, 1.0130785e-15, 1)
+
+[node name="de_up_leg2" parent="Shadow/Model/DoomsEye/Skeleton3D" index="0"]
+transform = Transform3D(0.5, 0, 0, 0, -2.9471623e-08, 0.5, 0, -1, -1.4735812e-08, 0, -1.0752949e-08, -0.97664803)
+
+[node name="de_up_leg1" parent="Shadow/Model/DoomsEye/Skeleton3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, -1.4901161e-08, 1, 0, -1, -1.4901161e-08, 0, 7.450581e-09, -0.4975743)
+
+[node name="de_down_leg2" parent="Shadow/Model/DoomsEye/Skeleton3D" index="2"]
+transform = Transform3D(-0.5, -3.2584137e-07, 0, 7.1054274e-15, -4.3711356e-08, 0.5, -1.6292068e-07, 1, 2.1855678e-08, 9.907105e-09, 4.224697e-08, 0.9766479)
+
+[node name="de_down_leg1" parent="Shadow/Model/DoomsEye/Skeleton3D" index="3"]
+transform = Transform3D(-1, -3.2584137e-07, 1.4210855e-14, 2.842171e-14, -5.9604645e-08, 1, -3.2584137e-07, 1, 5.9604645e-08, 2.4868407e-15, -2.2351742e-08, 0.49757433)
+
+[node name="de_up_right_leg2" parent="Shadow/Model/DoomsEye/Skeleton3D" index="4"]
+transform = Transform3D(0.25, 0.86602557, -4.7275286e-08, -1.0187145e-08, 1.1970536e-07, 0.49999994, 0.43301272, -0.50000006, 5.5646197e-08, 0.8458026, 1.561755e-07, -0.4883241)
+
+[node name="de_up_right_leg1" parent="Shadow/Model/DoomsEye/Skeleton3D" index="5"]
+transform = Transform3D(0.5000002, 0.8660256, -1.4209117e-07, -1.8626398e-09, 1.639128e-07, 1.0000001, 0.8660256, -0.5000002, 1.1736457e-07, 0.43091172, 3.5733868e-07, -0.2487872)
+
+[node name="de_down_left_leg2" parent="Shadow/Model/DoomsEye/Skeleton3D" index="6"]
+transform = Transform3D(-0.2499996, -0.8660256, -3.7915854e-08, -1.533428e-08, -5.264991e-08, 0.49999997, -0.43301284, 0.49999914, 1.8633216e-08, -0.84580195, -2.823648e-07, 0.48832408)
+
+[node name="de_down_left_leg1" parent="Shadow/Model/DoomsEye/Skeleton3D" index="7"]
+transform = Transform3D(-0.49999928, -0.8660258, -9.545836e-08, -7.078049e-08, -5.2154196e-08, 1.0000001, -0.86602575, 0.4999993, 2.2805295e-09, -0.43091217, -7.897616e-07, 0.24878684)
+
+[node name="de_down_right_leg2" parent="Shadow/Model/DoomsEye/Skeleton3D" index="8"]
+transform = Transform3D(-0.2500001, 0.8660254, -3.562451e-08, -3.7420307e-08, 2.18557e-08, 0.5, 0.43301266, 0.5000001, -7.778581e-09, 0.8458022, -2.1483855e-07, 0.48832422)
+
+[node name="de_down_right_leg1" parent="Shadow/Model/DoomsEye/Skeleton3D" index="9"]
+transform = Transform3D(-0.5000002, 0.8660253, -4.53363e-08, -9.313226e-08, -1.8626455e-08, 1, 0.8660253, 0.5000001, 2.0524936e-08, 0.4309117, 2.0489097e-07, 0.24878708)
+
+[node name="de_up_left_leg2" parent="Shadow/Model/DoomsEye/Skeleton3D" index="10"]
+transform = Transform3D(0.25000036, -0.86602485, 2.5020483e-09, -1.1026543e-08, -6.954159e-09, 0.5, -0.43301243, -0.50000066, -1.1287824e-08, -0.8458025, 1.6454693e-07, -0.48832417)
+
+[node name="de_up_left_leg1" parent="Shadow/Model/DoomsEye/Skeleton3D" index="11"]
+transform = Transform3D(0.5000007, -0.8660248, 1.0244558e-08, -2.0489097e-08, -8.534841e-15, 1, -0.86602485, -0.50000066, -1.7744075e-08, -0.43091154, 3.3527613e-07, -0.24878691)
+
+[node name="de_body" parent="Shadow/Model/DoomsEye/Skeleton3D" index="12"]
+transform = Transform3D(0.28571427, 0, 0, 0, 0, 0.21428572, 0, -0.2857143, 0, 0, 7.450581e-09, -1.16415204e-10)
+
+[node name="de_eye" parent="Shadow/Model/DoomsEye/Skeleton3D" index="13"]
+transform = Transform3D(0.61650676, 1.2129908e-08, 0.25671327, -1.2129907e-08, 0.6678191, -2.4245466e-09, -0.25671327, -2.4245475e-09, 0.61650676, 0, 0.1733608, -5.7043508e-09)
+
+[node name="Skeleton3D" parent="Shadow/Model/Omega" index="0"]
+bones/2/position = Vector3(0.4, 0.40000004, 0)
+bones/2/rotation = Quaternion(0.70710677, 0, -0.70710677, 0)
+bones/3/rotation = Quaternion(0, 1.5893256e-08, 0, 1)
+bones/9/position = Vector3(-0.4, 0.40000004, 0)
+bones/9/rotation = Quaternion(0.70710677, 0, 0.70710677, 0)
+bones/10/rotation = Quaternion(0, -1.5893256e-08, 0, 1)
+
+[node name="o_hand_l" parent="Shadow/Model/Omega/Skeleton3D" index="0"]
+transform = Transform3D(2.7936785, -1.0410466e-08, 9.1029614e-07, 5.8166968e-08, 0.5, 7.5197335e-08, -9.1029614e-07, -1.3458479e-08, 2.7936785, 0.4077022, 0.16969934, -3.4804641e-09)
+
+[node name="o_arm_l" parent="Shadow/Model/Omega/Skeleton3D" index="1"]
+transform = Transform3D(0.99999994, 4.1909534e-09, 0, -8.381904e-09, 0.5, 7.683413e-09, 0, -3.8417074e-09, 1, 0.40770227, 0.40819502, -3.213063e-08)
+
+[node name="o_head" parent="Shadow/Model/Omega/Skeleton3D" index="2"]
+transform = Transform3D(0.99999994, 4.5474773e-13, -9.3155e-10, -4.5474773e-13, 0.99999994, -1.4551915e-11, 9.3155e-10, 1.4551915e-11, 0.99999994, 9.6020244e-08, 0.5458224, 6.8030204e-10)
+
+[node name="o_leg_r" parent="Shadow/Model/Omega/Skeleton3D" index="3"]
+transform = Transform3D(-0.99999994, 2.2737387e-13, -9.3155e-10, 4.5474773e-13, 0.49999997, -1.4551915e-11, -9.3155e-10, 7.275958e-12, 0.99999994, -0.120564006, 0.11967051, 2.4374458e-09)
+
+[node name="o_hand_r" parent="Shadow/Model/Omega/Skeleton3D" index="4"]
+transform = Transform3D(-2.7936783, 5.261047e-09, -9.102959e-07, 2.9395315e-08, 0.5, 1.0750906e-07, -9.10296e-07, -1.924149e-08, 2.793678, -0.40770262, 0.1696994, -6.3085096e-08)
+
+[node name="o_arm_r" parent="Shadow/Model/Omega/Skeleton3D" index="5"]
+transform = Transform3D(-1, 1.3562387e-08, 0, 2.7124765e-08, 0.50000006, 5.8207567e-10, 0, -2.9103792e-10, 1, -0.40770262, 0.40819502, -1.9790605e-08)
+
+[node name="o_torso" parent="Shadow/Model/Omega/Skeleton3D" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6542693e-08, 0.54582244, 0)
+
+[node name="o_foot_l" parent="Shadow/Model/Omega/Skeleton3D" index="7"]
+transform = Transform3D(0.01, 1.1920932e-09, -4.214686e-10, -4.2146853e-10, 0, -0.010000002, -1.1920932e-09, 0.01, 0, 0.124312826, -0.29609984, 0.01726098)
+
+[node name="o_leg_l" parent="Shadow/Model/Omega/Skeleton3D" index="8"]
+transform = Transform3D(8.742278e-08, 1.2628788e-15, -1, -5.2735604e-16, 0.50000006, 2.5257574e-15, 1, 2.6367794e-16, 8.742278e-08, 0.12499999, 0.11967054, -0.004435849)
+
+[node name="o_foot_r" parent="Shadow/Model/Omega/Skeleton3D" index="9"]
+transform = Transform3D(-0.01, -1.1920933e-09, -4.214686e-10, 4.2146853e-10, 0, -0.010000002, -1.1920932e-09, 0.010000001, 0, -0.12431257, -0.2960999, 0.017260846)
 
 [node name="Rouge" parent="." index="20"]
 transform = Transform3D(0.702315, 0, -0.711867, 0, 1, 0, 0.711867, 0, 0.702315, 26.3651, 0, -44.3824)
 
+[node name="head_2" parent="Rouge/Model/Shadow/Skeleton3D" index="0"]
+transform = Transform3D(0.01, 2.1711716e-11, -4.2146858e-10, -4.2146858e-10, 0, -0.01, -2.1711716e-11, 0.01, 0, 0, 0, 2.9953396e-24)
+
+[node name="hand_l_2" parent="Rouge/Model/Shadow/Skeleton3D" index="1"]
+transform = Transform3D(0.01, -3.1786512e-10, -1.1920931e-09, -1.1920928e-09, 1.1920928e-09, -0.010000001, 3.1786512e-10, 0.01, 1.1920931e-09, -7.450581e-09, -5.5879354e-09, 4.8082534e-09)
+
+[node name="arm_l_2" parent="Rouge/Model/Shadow/Skeleton3D" index="2"]
+transform = Transform3D(0.01, 5.9604643e-10, 1.1920931e-09, 5.960464e-10, 2.3841855e-09, -0.010000001, 0, 0.01, 1.7881396e-09, -7.450581e-09, 0, 4.808254e-09)
+
+[node name="hand_r_2" parent="Rouge/Model/Shadow/Skeleton3D" index="3"]
+transform = Transform3D(0.01, -8.7422775e-10, 3.7892482e-17, 0, 1.1920928e-09, -0.010000001, 8.7422775e-10, 0.01, 1.1920931e-09, 0, -5.5879354e-09, 4.808253e-09)
+
+[node name="arm_r_2" parent="Rouge/Model/Shadow/Skeleton3D" index="4"]
+transform = Transform3D(0.01, 1.1920929e-09, 0, 0, 1.1920928e-09, -0.010000002, -1.1920929e-09, 0.01, 1.1920932e-09, 7.450581e-09, 0, 4.808254e-09)
+
+[node name="tail" parent="Rouge/Model/Shadow/Skeleton3D" index="5"]
+transform = Transform3D(0.01, 9.920953e-12, -4.2146853e-10, -4.2146853e-10, 0, -0.01, -9.920953e-12, 0.01, 0, 0, -3.230598e-32, 5.877472e-39)
+
+[node name="torso_2" parent="Rouge/Model/Shadow/Skeleton3D" index="6"]
+transform = Transform3D(0.01, 9.920953e-12, -4.2146853e-10, -4.2146853e-10, 0, -0.01, -9.920953e-12, 0.01, 0, 0, -3.230598e-32, 5.877472e-39)
+
+[node name="foot_l_2" parent="Rouge/Model/Shadow/Skeleton3D" index="7"]
+transform = Transform3D(-0.01, 9.920953e-12, -4.2146853e-10, 4.2146853e-10, 0, -0.01, 9.920953e-12, 0.01, 0, 0, 0.0025992095, 0.0002857484)
+
+[node name="leg_l_2" parent="Rouge/Model/Shadow/Skeleton3D" index="8"]
+transform = Transform3D(-3.1786512e-10, -0.01, -5.9604643e-10, -5.9604643e-10, 1.1920929e-09, -0.01, 0.01, 2.781813e-10, 5.2108034e-17, 0, 0, -4.9303807e-32)
+
+[node name="foot_r_2" parent="Rouge/Model/Shadow/Skeleton3D" index="9"]
+transform = Transform3D(0.01, 9.920953e-12, -4.2146853e-10, -4.2146853e-10, 0, -0.01, -9.920953e-12, 0.01, 0, 0, 0.0025992095, 0.0002857484)
+
+[node name="leg_r_2" parent="Rouge/Model/Shadow/Skeleton3D" index="10"]
+transform = Transform3D(-3.1786512e-10, -0.01, -5.9604643e-10, -5.9604643e-10, 1.1920929e-09, -0.01, 0.01, 2.781813e-10, 5.2108034e-17, 0, 0, -4.9303807e-32)
+
+[node name="Skeleton3D" parent="Rouge/Model/Rouge" index="0"]
+bones/4/position = Vector3(0.11, 0.075, 0)
+bones/4/rotation = Quaternion(0.70710677, 0, -0.70710677, 0)
+bones/5/rotation = Quaternion(0, 1.5893256e-08, 0, 1)
+bones/8/position = Vector3(-0.11, 0.075, 0)
+bones/8/rotation = Quaternion(0.70710677, 0, 0.70710677, 0)
+bones/9/rotation = Quaternion(0, -1.5893256e-08, 0, 1)
+
 [node name="head_001" parent="Rouge/Model/Rouge/Skeleton3D" index="0"]
-transform = Transform3D(0.01, 3.92539e-11, -4.24937e-10, -4.24937e-10, 0, -0.01, -3.92539e-11, 0.01, 0, 9.16316e-11, 7.45058e-09, -1.58185e-12)
+transform = Transform3D(0.01, 3.9253916e-11, -4.2493659e-10, -4.2493659e-10, 0, -0.01, -3.9253916e-11, 0.01, 0, 9.163159e-11, 7.450581e-09, -1.5818458e-12)
 
 [node name="hand_l_001" parent="Rouge/Model/Rouge/Skeleton3D" index="1"]
-transform = Transform3D(0.00984808, -1.9248e-10, 0.00173649, 0.00173649, 2.7121e-09, -0.00984807, -2.01081e-09, 0.01, 2.20981e-09, 0.0241683, 0.00152237, 1.86037e-08)
+transform = Transform3D(0.010000001, 1.4702742e-09, 1.192093e-09, 5.9604643e-10, 2.3841857e-09, -0.010000001, -8.742278e-10, 0.010000001, 1.7881396e-09, -3.7252903e-08, -5.5879354e-09, 7.155484e-09)
 
 [node name="arm_l_001" parent="Rouge/Model/Rouge/Skeleton3D" index="2"]
-transform = Transform3D(0.00906308, -1.65949e-09, 0.00422618, 0.00422618, 2.41271e-09, -0.00906308, -1.19209e-09, 0.01, 1.78814e-09, 0.0265791, -0.0278268, 2.16987e-08)
+transform = Transform3D(0.009999999, 5.9604643e-10, 1.192093e-09, 5.960463e-10, 2.3841855e-09, -0.01, 0, 0.01, 1.7881394e-09, -7.450581e-09, 7.450581e-09, 8.58563e-09)
 
 [node name="hand_r_001" parent="Rouge/Model/Rouge/Skeleton3D" index="3"]
-transform = Transform3D(0.00984807, 2.33344e-09, -0.00173648, -0.00173648, 1.12411e-09, -0.00984807, -3.73379e-10, 0.01, 1.01772e-09, -0.0241684, 0.00152238, 1.84582e-08)
+transform = Transform3D(0.01, 9.139115e-10, 1.894624e-17, 5.960464e-10, 1.1920926e-09, -0.01, -1.5099579e-09, 0.009999999, 5.960465e-10, 7.450581e-09, -1.8626451e-09, 7.009967e-09)
 
 [node name="arm_r_001" parent="Rouge/Model/Rouge/Skeleton3D" index="4"]
-transform = Transform3D(0.00906308, 2.23609e-09, -0.00422618, -0.00422618, 8.28503e-10, -0.00906308, 1.11022e-16, 0.01, 5.96046e-10, -0.0265791, -0.0278268, 2.11311e-08)
+transform = Transform3D(0.010000001, 5.9604643e-10, 0, 5.9604643e-10, 1.1920928e-09, -0.010000001, -1.192093e-09, 0.01, 5.9604655e-10, 7.450581e-09, 7.450581e-09, 8.018105e-09)
 
 [node name="tail_001" parent="Rouge/Model/Rouge/Skeleton3D" index="5"]
-transform = Transform3D(0.01, 9.92095e-12, -4.36558e-10, -4.36558e-10, 0, -0.01, -9.92095e-12, 0.01, 0, 0, -3.2306e-32, 5.87747e-39)
+transform = Transform3D(0.01, 9.920953e-12, -4.3655754e-10, -4.3655754e-10, 0, -0.01, -9.920953e-12, 0.01, 0, 0, -3.2305982e-32, 5.877472e-39)
 
 [node name="torso_001" parent="Rouge/Model/Rouge/Skeleton3D" index="6"]
-transform = Transform3D(0.01, 9.92095e-12, -4.36558e-10, -4.36558e-10, 0, -0.01, -9.92095e-12, 0.01, 0, 0, -3.2306e-32, 5.87747e-39)
+transform = Transform3D(0.01, 9.920953e-12, -4.3655754e-10, -4.3655754e-10, 0, -0.01, -9.920953e-12, 0.01, 0, 0, -3.2305982e-32, 5.877472e-39)
 
 [node name="rouge_wing" parent="Rouge/Model/Rouge/Skeleton3D" index="7"]
-transform = Transform3D(0.25, 9.92095e-10, -1.09139e-08, -1.09139e-08, 0, -0.25, -2.48024e-10, 1, 0, -0.277846, 0.0391953, -0.0972994)
+transform = Transform3D(0.24999996, 9.920953e-10, -1.0913936e-08, -1.0913936e-08, 0, -0.24999996, -2.480238e-10, 1, 0, -0.27784634, 0.039195325, -0.09729944)
 
 [node name="rouge_wing_2" parent="Rouge/Model/Rouge/Skeleton3D" index="8"]
-transform = Transform3D(-0.25, 9.9209e-10, -1.09139e-08, 1.09139e-08, -1.19209e-07, -0.25, 2.48024e-10, 1, -2.98023e-08, 0.277846, 0.0391953, -0.0972994)
+transform = Transform3D(-0.24999996, 9.920901e-10, -1.0913936e-08, 1.0913936e-08, -1.1920927e-07, -0.24999996, 2.480238e-10, 1, -2.9802314e-08, 0.2778463, 0.039195318, -0.09729942)
 
 [node name="foot_l_001" parent="Rouge/Model/Rouge/Skeleton3D" index="9"]
-transform = Transform3D(-0.01, 9.92095e-12, -4.21469e-10, 4.21469e-10, 0, -0.01, 9.92095e-12, 0.01, 0, 3.72529e-09, 0.00259921, 0.000285749)
+transform = Transform3D(-0.01, 9.920953e-12, -4.2146853e-10, 4.2146853e-10, 0, -0.01, 9.920953e-12, 0.01, 0, 3.7252903e-09, 0.0025992095, 0.0002857494)
 
 [node name="leg_l_001" parent="Rouge/Model/Rouge/Skeleton3D" index="10"]
-transform = Transform3D(-3.17865e-10, -0.01, -5.96046e-10, -5.96046e-10, 1.19209e-09, -0.01, 0.01, 2.78181e-10, 5.2108e-17, 3.72529e-09, 7.45058e-09, -3.16247e-10)
+transform = Transform3D(-3.1786512e-10, -0.01, -5.9604643e-10, -5.9604643e-10, 1.1920929e-09, -0.01, 0.01, 2.781813e-10, 5.2108034e-17, 3.7252903e-09, 7.450581e-09, -3.1624747e-10)
 
 [node name="foot_r_001" parent="Rouge/Model/Rouge/Skeleton3D" index="11"]
-transform = Transform3D(0.01, 9.92095e-12, -4.21469e-10, -4.21469e-10, 0, -0.01, -9.92095e-12, 0.01, 0, 3.72529e-09, 0.00259922, 0.000285748)
+transform = Transform3D(0.01, 9.920953e-12, -4.2146858e-10, -4.2146853e-10, 0, -0.010000001, -9.920953e-12, 0.01, 0, 3.7252903e-09, 0.0025992244, 0.00028574758)
 
 [node name="leg_r_001" parent="Rouge/Model/Rouge/Skeleton3D" index="12"]
-transform = Transform3D(-3.17865e-10, -0.01, -5.96046e-10, -5.96046e-10, 1.19209e-09, -0.01, 0.01, 2.78181e-10, 5.2108e-17, 0, 0, -1.89564e-09)
+transform = Transform3D(-3.1786507e-10, -0.01, -5.960464e-10, -5.960464e-10, 1.1920929e-09, -0.009999999, 0.009999999, 2.781813e-10, 5.210803e-17, 0, 0, -1.8956436e-09)
+
+[node name="Skeleton3D" parent="Rouge/Model/DoomsEye" index="0"]
+bones/1/rotation = Quaternion(-0.70710677, 0, 0, 0.70710677)
+bones/2/rotation = Quaternion(-7.285231e-09, 0, 0, 1)
+bones/5/rotation = Quaternion(0.70710677, -3.090862e-08, -3.090862e-08, 0.70710677)
+bones/6/rotation = Quaternion(2.185569e-08, 3.0367018e-23, -1.9106853e-15, 1)
+bones/9/rotation = Quaternion(-0.6123724, -0.3535534, -0.35355338, 0.61237246)
+bones/10/rotation = Quaternion(-1.0927846e-08, 1.5775083e-08, 3.608225e-16, 1)
+bones/13/rotation = Quaternion(0.61237234, -0.35355335, 0.3535536, 0.61237246)
+bones/14/rotation = Quaternion(1.8874474e-08, -4.8571735e-07, -8.35443e-15, 1)
+bones/17/position = Vector3(0, 0.100000024, 0)
+bones/17/rotation = Quaternion(0.3535533, 0.61237246, 0.6123725, -0.35355338)
+bones/18/rotation = Quaternion(1.0927845e-08, 1.693121e-08, -1.1379786e-15, 1)
+bones/21/position = Vector3(0, 0.100000024, 0)
+bones/21/rotation = Quaternion(0.35355335, -0.61237246, 0.61237246, 0.35355335)
+bones/22/rotation = Quaternion(1.0927842e-08, -5.067888e-07, 1.0130785e-15, 1)
+
+[node name="de_up_leg2" parent="Rouge/Model/DoomsEye/Skeleton3D" index="0"]
+transform = Transform3D(0.5, 0, 0, 0, -2.9471623e-08, 0.5, 0, -1, -1.4735812e-08, 0, -1.0752949e-08, -0.97664803)
+
+[node name="de_up_leg1" parent="Rouge/Model/DoomsEye/Skeleton3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, -1.4901161e-08, 1, 0, -1, -1.4901161e-08, 0, 7.450581e-09, -0.4975743)
+
+[node name="de_down_leg2" parent="Rouge/Model/DoomsEye/Skeleton3D" index="2"]
+transform = Transform3D(-0.5, -3.2584137e-07, 0, 7.1054274e-15, -4.3711356e-08, 0.5, -1.6292068e-07, 1, 2.1855678e-08, 9.907105e-09, 4.224697e-08, 0.9766479)
+
+[node name="de_down_leg1" parent="Rouge/Model/DoomsEye/Skeleton3D" index="3"]
+transform = Transform3D(-1, -3.2584137e-07, 1.4210855e-14, 2.842171e-14, -5.9604645e-08, 1, -3.2584137e-07, 1, 5.9604645e-08, 2.4868407e-15, -2.2351742e-08, 0.49757433)
+
+[node name="de_up_right_leg2" parent="Rouge/Model/DoomsEye/Skeleton3D" index="4"]
+transform = Transform3D(0.25, 0.86602557, -4.7275286e-08, -1.0187145e-08, 1.1970536e-07, 0.49999994, 0.43301272, -0.50000006, 5.5646197e-08, 0.8458026, 1.561755e-07, -0.4883241)
+
+[node name="de_up_right_leg1" parent="Rouge/Model/DoomsEye/Skeleton3D" index="5"]
+transform = Transform3D(0.5000002, 0.8660256, -1.4209117e-07, -1.8626398e-09, 1.639128e-07, 1.0000001, 0.8660256, -0.5000002, 1.1736457e-07, 0.43091172, 3.5733868e-07, -0.2487872)
+
+[node name="de_down_left_leg2" parent="Rouge/Model/DoomsEye/Skeleton3D" index="6"]
+transform = Transform3D(-0.2499996, -0.8660256, -3.7915854e-08, -1.533428e-08, -5.264991e-08, 0.49999997, -0.43301284, 0.49999914, 1.8633216e-08, -0.84580195, -2.823648e-07, 0.48832408)
+
+[node name="de_down_left_leg1" parent="Rouge/Model/DoomsEye/Skeleton3D" index="7"]
+transform = Transform3D(-0.49999928, -0.8660258, -9.545836e-08, -7.078049e-08, -5.2154196e-08, 1.0000001, -0.86602575, 0.4999993, 2.2805295e-09, -0.43091217, -7.897616e-07, 0.24878684)
+
+[node name="de_down_right_leg2" parent="Rouge/Model/DoomsEye/Skeleton3D" index="8"]
+transform = Transform3D(-0.2500001, 0.8660254, -3.562451e-08, -3.7420307e-08, 2.18557e-08, 0.5, 0.43301266, 0.5000001, -7.778581e-09, 0.8458022, -2.1483855e-07, 0.48832422)
+
+[node name="de_down_right_leg1" parent="Rouge/Model/DoomsEye/Skeleton3D" index="9"]
+transform = Transform3D(-0.5000002, 0.8660253, -4.53363e-08, -9.313226e-08, -1.8626455e-08, 1, 0.8660253, 0.5000001, 2.0524936e-08, 0.4309117, 2.0489097e-07, 0.24878708)
+
+[node name="de_up_left_leg2" parent="Rouge/Model/DoomsEye/Skeleton3D" index="10"]
+transform = Transform3D(0.25000036, -0.86602485, 2.5020483e-09, -1.1026543e-08, -6.954159e-09, 0.5, -0.43301243, -0.50000066, -1.1287824e-08, -0.8458025, 1.6454693e-07, -0.48832417)
+
+[node name="de_up_left_leg1" parent="Rouge/Model/DoomsEye/Skeleton3D" index="11"]
+transform = Transform3D(0.5000007, -0.8660248, 1.0244558e-08, -2.0489097e-08, -8.534841e-15, 1, -0.86602485, -0.50000066, -1.7744075e-08, -0.43091154, 3.3527613e-07, -0.24878691)
+
+[node name="de_body" parent="Rouge/Model/DoomsEye/Skeleton3D" index="12"]
+transform = Transform3D(0.28571427, 0, 0, 0, 0, 0.21428572, 0, -0.2857143, 0, 0, 7.450581e-09, -1.16415204e-10)
+
+[node name="de_eye" parent="Rouge/Model/DoomsEye/Skeleton3D" index="13"]
+transform = Transform3D(0.61650676, 1.2129908e-08, 0.25671327, -1.2129907e-08, 0.6678191, -2.4245466e-09, -0.25671327, -2.4245475e-09, 0.61650676, 0, 0.1733608, -5.7043508e-09)
+
+[node name="Skeleton3D" parent="Rouge/Model/Omega" index="0"]
+bones/2/position = Vector3(0.4, 0.40000004, 0)
+bones/2/rotation = Quaternion(0.70710677, 0, -0.70710677, 0)
+bones/3/rotation = Quaternion(0, 1.5893256e-08, 0, 1)
+bones/9/position = Vector3(-0.4, 0.40000004, 0)
+bones/9/rotation = Quaternion(0.70710677, 0, 0.70710677, 0)
+bones/10/rotation = Quaternion(0, -1.5893256e-08, 0, 1)
+
+[node name="o_hand_l" parent="Rouge/Model/Omega/Skeleton3D" index="0"]
+transform = Transform3D(2.7936785, -1.0410466e-08, 9.1029614e-07, 5.8166968e-08, 0.5, 7.5197335e-08, -9.1029614e-07, -1.3458479e-08, 2.7936785, 0.4077022, 0.16969934, -3.4804641e-09)
+
+[node name="o_arm_l" parent="Rouge/Model/Omega/Skeleton3D" index="1"]
+transform = Transform3D(0.99999994, 4.1909534e-09, 0, -8.381904e-09, 0.5, 7.683413e-09, 0, -3.8417074e-09, 1, 0.40770227, 0.40819502, -3.213063e-08)
+
+[node name="o_head" parent="Rouge/Model/Omega/Skeleton3D" index="2"]
+transform = Transform3D(0.99999994, 4.5474773e-13, -9.3155e-10, -4.5474773e-13, 0.99999994, -1.4551915e-11, 9.3155e-10, 1.4551915e-11, 0.99999994, 9.6020244e-08, 0.5458224, 6.8030204e-10)
+
+[node name="o_leg_r" parent="Rouge/Model/Omega/Skeleton3D" index="3"]
+transform = Transform3D(-0.99999994, 2.2737387e-13, -9.3155e-10, 4.5474773e-13, 0.49999997, -1.4551915e-11, -9.3155e-10, 7.275958e-12, 0.99999994, -0.120564006, 0.11967051, 2.4374458e-09)
+
+[node name="o_hand_r" parent="Rouge/Model/Omega/Skeleton3D" index="4"]
+transform = Transform3D(-2.7936783, 5.261047e-09, -9.102959e-07, 2.9395315e-08, 0.5, 1.0750906e-07, -9.10296e-07, -1.924149e-08, 2.793678, -0.40770262, 0.1696994, -6.3085096e-08)
+
+[node name="o_arm_r" parent="Rouge/Model/Omega/Skeleton3D" index="5"]
+transform = Transform3D(-1, 1.3562387e-08, 0, 2.7124765e-08, 0.50000006, 5.8207567e-10, 0, -2.9103792e-10, 1, -0.40770262, 0.40819502, -1.9790605e-08)
+
+[node name="o_torso" parent="Rouge/Model/Omega/Skeleton3D" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6542693e-08, 0.54582244, 0)
+
+[node name="o_foot_l" parent="Rouge/Model/Omega/Skeleton3D" index="7"]
+transform = Transform3D(0.01, 1.1920932e-09, -4.214686e-10, -4.2146853e-10, 0, -0.010000002, -1.1920932e-09, 0.01, 0, 0.124312826, -0.29609984, 0.01726098)
+
+[node name="o_leg_l" parent="Rouge/Model/Omega/Skeleton3D" index="8"]
+transform = Transform3D(8.742278e-08, 1.2628788e-15, -1, -5.2735604e-16, 0.50000006, 2.5257574e-15, 1, 2.6367794e-16, 8.742278e-08, 0.12499999, 0.11967054, -0.004435849)
+
+[node name="o_foot_r" parent="Rouge/Model/Omega/Skeleton3D" index="9"]
+transform = Transform3D(-0.01, -1.1920933e-09, -4.214686e-10, 4.2146853e-10, 0, -0.010000002, -1.1920932e-09, 0.010000001, 0, -0.12431257, -0.2960999, 0.017260846)
 
 [node name="Omega" parent="." index="21"]
 transform = Transform3D(0.702315, 0, -0.711867, 0, 1, 0, 0.711867, 0, 0.702315, 24.9605, 0, -45.8062)
 
+[node name="head_2" parent="Omega/Model/Shadow/Skeleton3D" index="0"]
+transform = Transform3D(0.01, 2.1711716e-11, -4.2146858e-10, -4.2146858e-10, 0, -0.01, -2.1711716e-11, 0.01, 0, 0, 0, 2.9953396e-24)
+
+[node name="hand_l_2" parent="Omega/Model/Shadow/Skeleton3D" index="1"]
+transform = Transform3D(0.01, -3.1786512e-10, -1.1920931e-09, -1.1920928e-09, 1.1920928e-09, -0.010000001, 3.1786512e-10, 0.01, 1.1920931e-09, -7.450581e-09, -5.5879354e-09, 4.8082534e-09)
+
+[node name="arm_l_2" parent="Omega/Model/Shadow/Skeleton3D" index="2"]
+transform = Transform3D(0.01, 5.9604643e-10, 1.1920931e-09, 5.960464e-10, 2.3841855e-09, -0.010000001, 0, 0.01, 1.7881396e-09, -7.450581e-09, 0, 4.808254e-09)
+
+[node name="hand_r_2" parent="Omega/Model/Shadow/Skeleton3D" index="3"]
+transform = Transform3D(0.01, -8.7422775e-10, 3.7892482e-17, 0, 1.1920928e-09, -0.010000001, 8.7422775e-10, 0.01, 1.1920931e-09, 0, -5.5879354e-09, 4.808253e-09)
+
+[node name="arm_r_2" parent="Omega/Model/Shadow/Skeleton3D" index="4"]
+transform = Transform3D(0.01, 1.1920929e-09, 0, 0, 1.1920928e-09, -0.010000002, -1.1920929e-09, 0.01, 1.1920932e-09, 7.450581e-09, 0, 4.808254e-09)
+
+[node name="tail" parent="Omega/Model/Shadow/Skeleton3D" index="5"]
+transform = Transform3D(0.01, 9.920953e-12, -4.2146853e-10, -4.2146853e-10, 0, -0.01, -9.920953e-12, 0.01, 0, 0, -3.230598e-32, 5.877472e-39)
+
+[node name="torso_2" parent="Omega/Model/Shadow/Skeleton3D" index="6"]
+transform = Transform3D(0.01, 9.920953e-12, -4.2146853e-10, -4.2146853e-10, 0, -0.01, -9.920953e-12, 0.01, 0, 0, -3.230598e-32, 5.877472e-39)
+
+[node name="foot_l_2" parent="Omega/Model/Shadow/Skeleton3D" index="7"]
+transform = Transform3D(-0.01, 9.920953e-12, -4.2146853e-10, 4.2146853e-10, 0, -0.01, 9.920953e-12, 0.01, 0, 0, 0.0025992095, 0.0002857484)
+
+[node name="leg_l_2" parent="Omega/Model/Shadow/Skeleton3D" index="8"]
+transform = Transform3D(-3.1786512e-10, -0.01, -5.9604643e-10, -5.9604643e-10, 1.1920929e-09, -0.01, 0.01, 2.781813e-10, 5.2108034e-17, 0, 0, -4.9303807e-32)
+
+[node name="foot_r_2" parent="Omega/Model/Shadow/Skeleton3D" index="9"]
+transform = Transform3D(0.01, 9.920953e-12, -4.2146853e-10, -4.2146853e-10, 0, -0.01, -9.920953e-12, 0.01, 0, 0, 0.0025992095, 0.0002857484)
+
+[node name="leg_r_2" parent="Omega/Model/Shadow/Skeleton3D" index="10"]
+transform = Transform3D(-3.1786512e-10, -0.01, -5.9604643e-10, -5.9604643e-10, 1.1920929e-09, -0.01, 0.01, 2.781813e-10, 5.2108034e-17, 0, 0, -4.9303807e-32)
+
+[node name="Skeleton3D" parent="Omega/Model/Rouge" index="0"]
+bones/4/position = Vector3(0.11, 0.075, 0)
+bones/4/rotation = Quaternion(0.70710677, 0, -0.70710677, 0)
+bones/5/rotation = Quaternion(0, 1.5893256e-08, 0, 1)
+bones/8/position = Vector3(-0.11, 0.075, 0)
+bones/8/rotation = Quaternion(0.70710677, 0, 0.70710677, 0)
+bones/9/rotation = Quaternion(0, -1.5893256e-08, 0, 1)
+
+[node name="head_001" parent="Omega/Model/Rouge/Skeleton3D" index="0"]
+transform = Transform3D(0.01, 3.9253916e-11, -4.2493659e-10, -4.2493659e-10, 0, -0.01, -3.9253916e-11, 0.01, 0, 9.163159e-11, 7.450581e-09, -1.5818458e-12)
+
+[node name="hand_l_001" parent="Omega/Model/Rouge/Skeleton3D" index="1"]
+transform = Transform3D(0.010000001, 1.4702742e-09, 1.192093e-09, 5.9604643e-10, 2.3841857e-09, -0.010000001, -8.742278e-10, 0.010000001, 1.7881396e-09, -3.7252903e-08, -5.5879354e-09, 7.155484e-09)
+
+[node name="arm_l_001" parent="Omega/Model/Rouge/Skeleton3D" index="2"]
+transform = Transform3D(0.009999999, 5.9604643e-10, 1.192093e-09, 5.960463e-10, 2.3841855e-09, -0.01, 0, 0.01, 1.7881394e-09, -7.450581e-09, 7.450581e-09, 8.58563e-09)
+
+[node name="hand_r_001" parent="Omega/Model/Rouge/Skeleton3D" index="3"]
+transform = Transform3D(0.01, 9.139115e-10, 1.894624e-17, 5.960464e-10, 1.1920926e-09, -0.01, -1.5099579e-09, 0.009999999, 5.960465e-10, 7.450581e-09, -1.8626451e-09, 7.009967e-09)
+
+[node name="arm_r_001" parent="Omega/Model/Rouge/Skeleton3D" index="4"]
+transform = Transform3D(0.010000001, 5.9604643e-10, 0, 5.9604643e-10, 1.1920928e-09, -0.010000001, -1.192093e-09, 0.01, 5.9604655e-10, 7.450581e-09, 7.450581e-09, 8.018105e-09)
+
+[node name="tail_001" parent="Omega/Model/Rouge/Skeleton3D" index="5"]
+transform = Transform3D(0.01, 9.920953e-12, -4.3655754e-10, -4.3655754e-10, 0, -0.01, -9.920953e-12, 0.01, 0, 0, -3.2305982e-32, 5.877472e-39)
+
+[node name="torso_001" parent="Omega/Model/Rouge/Skeleton3D" index="6"]
+transform = Transform3D(0.01, 9.920953e-12, -4.3655754e-10, -4.3655754e-10, 0, -0.01, -9.920953e-12, 0.01, 0, 0, -3.2305982e-32, 5.877472e-39)
+
+[node name="rouge_wing" parent="Omega/Model/Rouge/Skeleton3D" index="7"]
+transform = Transform3D(0.24999996, 9.920953e-10, -1.0913936e-08, -1.0913936e-08, 0, -0.24999996, -2.480238e-10, 1, 0, -0.27784634, 0.039195325, -0.09729944)
+
+[node name="rouge_wing_2" parent="Omega/Model/Rouge/Skeleton3D" index="8"]
+transform = Transform3D(-0.24999996, 9.920901e-10, -1.0913936e-08, 1.0913936e-08, -1.1920927e-07, -0.24999996, 2.480238e-10, 1, -2.9802314e-08, 0.2778463, 0.039195318, -0.09729942)
+
+[node name="foot_l_001" parent="Omega/Model/Rouge/Skeleton3D" index="9"]
+transform = Transform3D(-0.01, 9.920953e-12, -4.2146853e-10, 4.2146853e-10, 0, -0.01, 9.920953e-12, 0.01, 0, 3.7252903e-09, 0.0025992095, 0.0002857494)
+
+[node name="leg_l_001" parent="Omega/Model/Rouge/Skeleton3D" index="10"]
+transform = Transform3D(-3.1786512e-10, -0.01, -5.9604643e-10, -5.9604643e-10, 1.1920929e-09, -0.01, 0.01, 2.781813e-10, 5.2108034e-17, 3.7252903e-09, 7.450581e-09, -3.1624747e-10)
+
+[node name="foot_r_001" parent="Omega/Model/Rouge/Skeleton3D" index="11"]
+transform = Transform3D(0.01, 9.920953e-12, -4.2146858e-10, -4.2146853e-10, 0, -0.010000001, -9.920953e-12, 0.01, 0, 3.7252903e-09, 0.0025992244, 0.00028574758)
+
+[node name="leg_r_001" parent="Omega/Model/Rouge/Skeleton3D" index="12"]
+transform = Transform3D(-3.1786507e-10, -0.01, -5.960464e-10, -5.960464e-10, 1.1920929e-09, -0.009999999, 0.009999999, 2.781813e-10, 5.210803e-17, 0, 0, -1.8956436e-09)
+
+[node name="Skeleton3D" parent="Omega/Model/DoomsEye" index="0"]
+bones/1/rotation = Quaternion(-0.70710677, 0, 0, 0.70710677)
+bones/2/rotation = Quaternion(-7.285231e-09, 0, 0, 1)
+bones/5/rotation = Quaternion(0.70710677, -3.090862e-08, -3.090862e-08, 0.70710677)
+bones/6/rotation = Quaternion(2.185569e-08, 3.0367018e-23, -1.9106853e-15, 1)
+bones/9/rotation = Quaternion(-0.6123724, -0.3535534, -0.35355338, 0.61237246)
+bones/10/rotation = Quaternion(-1.0927846e-08, 1.5775083e-08, 3.608225e-16, 1)
+bones/13/rotation = Quaternion(0.61237234, -0.35355335, 0.3535536, 0.61237246)
+bones/14/rotation = Quaternion(1.8874474e-08, -4.8571735e-07, -8.35443e-15, 1)
+bones/17/position = Vector3(0, 0.100000024, 0)
+bones/17/rotation = Quaternion(0.3535533, 0.61237246, 0.6123725, -0.35355338)
+bones/18/rotation = Quaternion(1.0927845e-08, 1.693121e-08, -1.1379786e-15, 1)
+bones/21/position = Vector3(0, 0.100000024, 0)
+bones/21/rotation = Quaternion(0.35355335, -0.61237246, 0.61237246, 0.35355335)
+bones/22/rotation = Quaternion(1.0927842e-08, -5.067888e-07, 1.0130785e-15, 1)
+
+[node name="de_up_leg2" parent="Omega/Model/DoomsEye/Skeleton3D" index="0"]
+transform = Transform3D(0.5, 0, 0, 0, -2.9471623e-08, 0.5, 0, -1, -1.4735812e-08, 0, -1.0752949e-08, -0.97664803)
+
+[node name="de_up_leg1" parent="Omega/Model/DoomsEye/Skeleton3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, -1.4901161e-08, 1, 0, -1, -1.4901161e-08, 0, 7.450581e-09, -0.4975743)
+
+[node name="de_down_leg2" parent="Omega/Model/DoomsEye/Skeleton3D" index="2"]
+transform = Transform3D(-0.5, -3.2584137e-07, 0, 7.1054274e-15, -4.3711356e-08, 0.5, -1.6292068e-07, 1, 2.1855678e-08, 9.907105e-09, 4.224697e-08, 0.9766479)
+
+[node name="de_down_leg1" parent="Omega/Model/DoomsEye/Skeleton3D" index="3"]
+transform = Transform3D(-1, -3.2584137e-07, 1.4210855e-14, 2.842171e-14, -5.9604645e-08, 1, -3.2584137e-07, 1, 5.9604645e-08, 2.4868407e-15, -2.2351742e-08, 0.49757433)
+
+[node name="de_up_right_leg2" parent="Omega/Model/DoomsEye/Skeleton3D" index="4"]
+transform = Transform3D(0.25, 0.86602557, -4.7275286e-08, -1.0187145e-08, 1.1970536e-07, 0.49999994, 0.43301272, -0.50000006, 5.5646197e-08, 0.8458026, 1.561755e-07, -0.4883241)
+
+[node name="de_up_right_leg1" parent="Omega/Model/DoomsEye/Skeleton3D" index="5"]
+transform = Transform3D(0.5000002, 0.8660256, -1.4209117e-07, -1.8626398e-09, 1.639128e-07, 1.0000001, 0.8660256, -0.5000002, 1.1736457e-07, 0.43091172, 3.5733868e-07, -0.2487872)
+
+[node name="de_down_left_leg2" parent="Omega/Model/DoomsEye/Skeleton3D" index="6"]
+transform = Transform3D(-0.2499996, -0.8660256, -3.7915854e-08, -1.533428e-08, -5.264991e-08, 0.49999997, -0.43301284, 0.49999914, 1.8633216e-08, -0.84580195, -2.823648e-07, 0.48832408)
+
+[node name="de_down_left_leg1" parent="Omega/Model/DoomsEye/Skeleton3D" index="7"]
+transform = Transform3D(-0.49999928, -0.8660258, -9.545836e-08, -7.078049e-08, -5.2154196e-08, 1.0000001, -0.86602575, 0.4999993, 2.2805295e-09, -0.43091217, -7.897616e-07, 0.24878684)
+
+[node name="de_down_right_leg2" parent="Omega/Model/DoomsEye/Skeleton3D" index="8"]
+transform = Transform3D(-0.2500001, 0.8660254, -3.562451e-08, -3.7420307e-08, 2.18557e-08, 0.5, 0.43301266, 0.5000001, -7.778581e-09, 0.8458022, -2.1483855e-07, 0.48832422)
+
+[node name="de_down_right_leg1" parent="Omega/Model/DoomsEye/Skeleton3D" index="9"]
+transform = Transform3D(-0.5000002, 0.8660253, -4.53363e-08, -9.313226e-08, -1.8626455e-08, 1, 0.8660253, 0.5000001, 2.0524936e-08, 0.4309117, 2.0489097e-07, 0.24878708)
+
+[node name="de_up_left_leg2" parent="Omega/Model/DoomsEye/Skeleton3D" index="10"]
+transform = Transform3D(0.25000036, -0.86602485, 2.5020483e-09, -1.1026543e-08, -6.954159e-09, 0.5, -0.43301243, -0.50000066, -1.1287824e-08, -0.8458025, 1.6454693e-07, -0.48832417)
+
+[node name="de_up_left_leg1" parent="Omega/Model/DoomsEye/Skeleton3D" index="11"]
+transform = Transform3D(0.5000007, -0.8660248, 1.0244558e-08, -2.0489097e-08, -8.534841e-15, 1, -0.86602485, -0.50000066, -1.7744075e-08, -0.43091154, 3.3527613e-07, -0.24878691)
+
+[node name="de_body" parent="Omega/Model/DoomsEye/Skeleton3D" index="12"]
+transform = Transform3D(0.28571427, 0, 0, 0, 0, 0.21428572, 0, -0.2857143, 0, 0, 7.450581e-09, -1.16415204e-10)
+
+[node name="de_eye" parent="Omega/Model/DoomsEye/Skeleton3D" index="13"]
+transform = Transform3D(0.61650676, 1.2129908e-08, 0.25671327, -1.2129907e-08, 0.6678191, -2.4245466e-09, -0.25671327, -2.4245475e-09, 0.61650676, 0, 0.1733608, -5.7043508e-09)
+
+[node name="Skeleton3D" parent="Omega/Model/Omega" index="0"]
+bones/2/position = Vector3(0.4, 0.40000004, 0)
+bones/2/rotation = Quaternion(0.70710677, 0, -0.70710677, 0)
+bones/3/rotation = Quaternion(0, 1.5893256e-08, 0, 1)
+bones/9/position = Vector3(-0.4, 0.40000004, 0)
+bones/9/rotation = Quaternion(0.70710677, 0, 0.70710677, 0)
+bones/10/rotation = Quaternion(0, -1.5893256e-08, 0, 1)
+
 [node name="o_hand_l" parent="Omega/Model/Omega/Skeleton3D" index="0"]
-transform = Transform3D(2.75124, -0.0868242, 5.4079e-07, 0.485118, 0.492404, 2.6253e-07, -1.22782e-06, -3.45419e-08, 2.79368, 0.575154, 0.221368, -9.69845e-10)
+transform = Transform3D(2.7936785, -1.0410466e-08, 9.1029614e-07, 5.8166968e-08, 0.5, 7.5197335e-08, -9.1029614e-07, -1.3458479e-08, 2.7936785, 0.4077022, 0.16969934, -3.4804641e-09)
 
 [node name="o_arm_l" parent="Omega/Model/Omega/Skeleton3D" index="1"]
-transform = Transform3D(0.906308, -0.211309, -1.22456e-07, 0.422618, 0.453154, 6.96354e-09, -1.19209e-07, -3.84171e-09, 1, 0.493749, 0.445739, -3.30488e-08)
+transform = Transform3D(0.99999994, 4.1909534e-09, 0, -8.381904e-09, 0.5, 7.683413e-09, 0, -3.8417074e-09, 1, 0.40770227, 0.40819502, -3.213063e-08)
 
 [node name="o_head" parent="Omega/Model/Omega/Skeleton3D" index="2"]
-transform = Transform3D(1, 4.54748e-13, -9.3155e-10, -4.54748e-13, 1, -1.45519e-11, 9.3155e-10, 1.45519e-11, 1, 9.60202e-08, 0.545822, 6.80302e-10)
+transform = Transform3D(0.99999994, 4.5474773e-13, -9.3155e-10, -4.5474773e-13, 0.99999994, -1.4551915e-11, 9.3155e-10, 1.4551915e-11, 0.99999994, 9.6020244e-08, 0.5458224, 6.8030204e-10)
 
 [node name="o_leg_r" parent="Omega/Model/Omega/Skeleton3D" index="3"]
-transform = Transform3D(-1, 2.27374e-13, -9.3155e-10, 4.54748e-13, 0.5, -1.45519e-11, -9.3155e-10, 7.27596e-12, 1, -0.120564, 0.119671, 2.43745e-09)
+transform = Transform3D(-0.99999994, 2.2737387e-13, -9.3155e-10, 4.5474773e-13, 0.49999997, -1.4551915e-11, -9.3155e-10, 7.275958e-12, 0.99999994, -0.120564006, 0.11967051, 2.4374458e-09)
 
 [node name="o_hand_r" parent="Omega/Model/Omega/Skeleton3D" index="4"]
-transform = Transform3D(-2.75124, 0.0868242, -5.35179e-07, 0.485118, 0.492404, 2.9435e-07, -1.22782e-06, -4.0325e-08, 2.79368, -0.575154, 0.221368, -6.05745e-08)
+transform = Transform3D(-2.7936783, 5.261047e-09, -9.102959e-07, 2.9395315e-08, 0.5, 1.0750906e-07, -9.10296e-07, -1.924149e-08, 2.793678, -0.40770262, 0.1696994, -6.3085096e-08)
 
 [node name="o_arm_r" parent="Omega/Model/Omega/Skeleton3D" index="5"]
-transform = Transform3D(-0.906308, 0.211309, 1.19455e-07, 0.422618, 0.453154, 5.2754e-10, -1.19209e-07, -2.91036e-10, 1, -0.493749, 0.44574, -2.07088e-08)
+transform = Transform3D(-1, 1.3562387e-08, 0, 2.7124765e-08, 0.50000006, 5.8207567e-10, 0, -2.9103792e-10, 1, -0.40770262, 0.40819502, -1.9790605e-08)
 
 [node name="o_torso" parent="Omega/Model/Omega/Skeleton3D" index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65427e-08, 0.545822, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6542693e-08, 0.54582244, 0)
 
 [node name="o_foot_l" parent="Omega/Model/Omega/Skeleton3D" index="7"]
-transform = Transform3D(0.01, 1.19209e-09, -4.21469e-10, -4.21469e-10, 0, -0.01, -1.19209e-09, 0.01, 0, 0.124313, -0.2961, 0.017261)
+transform = Transform3D(0.01, 1.1920932e-09, -4.214686e-10, -4.2146853e-10, 0, -0.010000002, -1.1920932e-09, 0.01, 0, 0.124312826, -0.29609984, 0.01726098)
 
 [node name="o_leg_l" parent="Omega/Model/Omega/Skeleton3D" index="8"]
-transform = Transform3D(8.74228e-08, 1.26288e-15, -1, -5.27356e-16, 0.5, 2.52576e-15, 1, 2.63678e-16, 8.74228e-08, 0.125, 0.119671, -0.00443585)
+transform = Transform3D(8.742278e-08, 1.2628788e-15, -1, -5.2735604e-16, 0.50000006, 2.5257574e-15, 1, 2.6367794e-16, 8.742278e-08, 0.12499999, 0.11967054, -0.004435849)
 
 [node name="o_foot_r" parent="Omega/Model/Omega/Skeleton3D" index="9"]
-transform = Transform3D(-0.01, -1.19209e-09, -4.21469e-10, 4.21469e-10, 0, -0.01, -1.19209e-09, 0.01, 0, -0.124313, -0.2961, 0.0172608)
+transform = Transform3D(-0.01, -1.1920933e-09, -4.214686e-10, 4.2146853e-10, 0, -0.010000002, -1.1920932e-09, 0.010000001, 0, -0.12431257, -0.2960999, 0.017260846)
 
 [node name="DoomsEye" parent="." index="22"]
 transform = Transform3D(0.702315, 0, -0.711867, 0, 1, 0, 0.711867, 0, 0.702315, 24.2581, 0, -46.518)
 
+[node name="head_2" parent="DoomsEye/Model/Shadow/Skeleton3D" index="0"]
+transform = Transform3D(0.01, 2.1711716e-11, -4.2146858e-10, -4.2146858e-10, 0, -0.01, -2.1711716e-11, 0.01, 0, 0, 0, 2.9953396e-24)
+
+[node name="hand_l_2" parent="DoomsEye/Model/Shadow/Skeleton3D" index="1"]
+transform = Transform3D(0.01, -3.1786512e-10, -1.1920931e-09, -1.1920928e-09, 1.1920928e-09, -0.010000001, 3.1786512e-10, 0.01, 1.1920931e-09, -7.450581e-09, -5.5879354e-09, 4.8082534e-09)
+
+[node name="arm_l_2" parent="DoomsEye/Model/Shadow/Skeleton3D" index="2"]
+transform = Transform3D(0.01, 5.9604643e-10, 1.1920931e-09, 5.960464e-10, 2.3841855e-09, -0.010000001, 0, 0.01, 1.7881396e-09, -7.450581e-09, 0, 4.808254e-09)
+
+[node name="hand_r_2" parent="DoomsEye/Model/Shadow/Skeleton3D" index="3"]
+transform = Transform3D(0.01, -8.7422775e-10, 3.7892482e-17, 0, 1.1920928e-09, -0.010000001, 8.7422775e-10, 0.01, 1.1920931e-09, 0, -5.5879354e-09, 4.808253e-09)
+
+[node name="arm_r_2" parent="DoomsEye/Model/Shadow/Skeleton3D" index="4"]
+transform = Transform3D(0.01, 1.1920929e-09, 0, 0, 1.1920928e-09, -0.010000002, -1.1920929e-09, 0.01, 1.1920932e-09, 7.450581e-09, 0, 4.808254e-09)
+
+[node name="tail" parent="DoomsEye/Model/Shadow/Skeleton3D" index="5"]
+transform = Transform3D(0.01, 9.920953e-12, -4.2146853e-10, -4.2146853e-10, 0, -0.01, -9.920953e-12, 0.01, 0, 0, -3.230598e-32, 5.877472e-39)
+
+[node name="torso_2" parent="DoomsEye/Model/Shadow/Skeleton3D" index="6"]
+transform = Transform3D(0.01, 9.920953e-12, -4.2146853e-10, -4.2146853e-10, 0, -0.01, -9.920953e-12, 0.01, 0, 0, -3.230598e-32, 5.877472e-39)
+
+[node name="foot_l_2" parent="DoomsEye/Model/Shadow/Skeleton3D" index="7"]
+transform = Transform3D(-0.01, 9.920953e-12, -4.2146853e-10, 4.2146853e-10, 0, -0.01, 9.920953e-12, 0.01, 0, 0, 0.0025992095, 0.0002857484)
+
+[node name="leg_l_2" parent="DoomsEye/Model/Shadow/Skeleton3D" index="8"]
+transform = Transform3D(-3.1786512e-10, -0.01, -5.9604643e-10, -5.9604643e-10, 1.1920929e-09, -0.01, 0.01, 2.781813e-10, 5.2108034e-17, 0, 0, -4.9303807e-32)
+
+[node name="foot_r_2" parent="DoomsEye/Model/Shadow/Skeleton3D" index="9"]
+transform = Transform3D(0.01, 9.920953e-12, -4.2146853e-10, -4.2146853e-10, 0, -0.01, -9.920953e-12, 0.01, 0, 0, 0.0025992095, 0.0002857484)
+
+[node name="leg_r_2" parent="DoomsEye/Model/Shadow/Skeleton3D" index="10"]
+transform = Transform3D(-3.1786512e-10, -0.01, -5.9604643e-10, -5.9604643e-10, 1.1920929e-09, -0.01, 0.01, 2.781813e-10, 5.2108034e-17, 0, 0, -4.9303807e-32)
+
+[node name="Skeleton3D" parent="DoomsEye/Model/Rouge" index="0"]
+bones/4/position = Vector3(0.11, 0.075, 0)
+bones/4/rotation = Quaternion(0.70710677, 0, -0.70710677, 0)
+bones/5/rotation = Quaternion(0, 1.5893256e-08, 0, 1)
+bones/8/position = Vector3(-0.11, 0.075, 0)
+bones/8/rotation = Quaternion(0.70710677, 0, 0.70710677, 0)
+bones/9/rotation = Quaternion(0, -1.5893256e-08, 0, 1)
+
+[node name="head_001" parent="DoomsEye/Model/Rouge/Skeleton3D" index="0"]
+transform = Transform3D(0.01, 3.9253916e-11, -4.2493659e-10, -4.2493659e-10, 0, -0.01, -3.9253916e-11, 0.01, 0, 9.163159e-11, 7.450581e-09, -1.5818458e-12)
+
+[node name="hand_l_001" parent="DoomsEye/Model/Rouge/Skeleton3D" index="1"]
+transform = Transform3D(0.010000001, 1.4702742e-09, 1.192093e-09, 5.9604643e-10, 2.3841857e-09, -0.010000001, -8.742278e-10, 0.010000001, 1.7881396e-09, -3.7252903e-08, -5.5879354e-09, 7.155484e-09)
+
+[node name="arm_l_001" parent="DoomsEye/Model/Rouge/Skeleton3D" index="2"]
+transform = Transform3D(0.009999999, 5.9604643e-10, 1.192093e-09, 5.960463e-10, 2.3841855e-09, -0.01, 0, 0.01, 1.7881394e-09, -7.450581e-09, 7.450581e-09, 8.58563e-09)
+
+[node name="hand_r_001" parent="DoomsEye/Model/Rouge/Skeleton3D" index="3"]
+transform = Transform3D(0.01, 9.139115e-10, 1.894624e-17, 5.960464e-10, 1.1920926e-09, -0.01, -1.5099579e-09, 0.009999999, 5.960465e-10, 7.450581e-09, -1.8626451e-09, 7.009967e-09)
+
+[node name="arm_r_001" parent="DoomsEye/Model/Rouge/Skeleton3D" index="4"]
+transform = Transform3D(0.010000001, 5.9604643e-10, 0, 5.9604643e-10, 1.1920928e-09, -0.010000001, -1.192093e-09, 0.01, 5.9604655e-10, 7.450581e-09, 7.450581e-09, 8.018105e-09)
+
+[node name="tail_001" parent="DoomsEye/Model/Rouge/Skeleton3D" index="5"]
+transform = Transform3D(0.01, 9.920953e-12, -4.3655754e-10, -4.3655754e-10, 0, -0.01, -9.920953e-12, 0.01, 0, 0, -3.2305982e-32, 5.877472e-39)
+
+[node name="torso_001" parent="DoomsEye/Model/Rouge/Skeleton3D" index="6"]
+transform = Transform3D(0.01, 9.920953e-12, -4.3655754e-10, -4.3655754e-10, 0, -0.01, -9.920953e-12, 0.01, 0, 0, -3.2305982e-32, 5.877472e-39)
+
+[node name="rouge_wing" parent="DoomsEye/Model/Rouge/Skeleton3D" index="7"]
+transform = Transform3D(0.24999996, 9.920953e-10, -1.0913936e-08, -1.0913936e-08, 0, -0.24999996, -2.480238e-10, 1, 0, -0.27784634, 0.039195325, -0.09729944)
+
+[node name="rouge_wing_2" parent="DoomsEye/Model/Rouge/Skeleton3D" index="8"]
+transform = Transform3D(-0.24999996, 9.920901e-10, -1.0913936e-08, 1.0913936e-08, -1.1920927e-07, -0.24999996, 2.480238e-10, 1, -2.9802314e-08, 0.2778463, 0.039195318, -0.09729942)
+
+[node name="foot_l_001" parent="DoomsEye/Model/Rouge/Skeleton3D" index="9"]
+transform = Transform3D(-0.01, 9.920953e-12, -4.2146853e-10, 4.2146853e-10, 0, -0.01, 9.920953e-12, 0.01, 0, 3.7252903e-09, 0.0025992095, 0.0002857494)
+
+[node name="leg_l_001" parent="DoomsEye/Model/Rouge/Skeleton3D" index="10"]
+transform = Transform3D(-3.1786512e-10, -0.01, -5.9604643e-10, -5.9604643e-10, 1.1920929e-09, -0.01, 0.01, 2.781813e-10, 5.2108034e-17, 3.7252903e-09, 7.450581e-09, -3.1624747e-10)
+
+[node name="foot_r_001" parent="DoomsEye/Model/Rouge/Skeleton3D" index="11"]
+transform = Transform3D(0.01, 9.920953e-12, -4.2146858e-10, -4.2146853e-10, 0, -0.010000001, -9.920953e-12, 0.01, 0, 3.7252903e-09, 0.0025992244, 0.00028574758)
+
+[node name="leg_r_001" parent="DoomsEye/Model/Rouge/Skeleton3D" index="12"]
+transform = Transform3D(-3.1786507e-10, -0.01, -5.960464e-10, -5.960464e-10, 1.1920929e-09, -0.009999999, 0.009999999, 2.781813e-10, 5.210803e-17, 0, 0, -1.8956436e-09)
+
+[node name="Skeleton3D" parent="DoomsEye/Model/DoomsEye" index="0"]
+bones/1/rotation = Quaternion(-0.70710677, 0, 0, 0.70710677)
+bones/2/rotation = Quaternion(-7.285231e-09, 0, 0, 1)
+bones/5/rotation = Quaternion(0.70710677, -3.090862e-08, -3.090862e-08, 0.70710677)
+bones/6/rotation = Quaternion(2.185569e-08, 3.0367018e-23, -1.9106853e-15, 1)
+bones/9/rotation = Quaternion(-0.6123724, -0.3535534, -0.35355338, 0.61237246)
+bones/10/rotation = Quaternion(-1.0927846e-08, 1.5775083e-08, 3.608225e-16, 1)
+bones/13/rotation = Quaternion(0.61237234, -0.35355335, 0.3535536, 0.61237246)
+bones/14/rotation = Quaternion(1.8874474e-08, -4.8571735e-07, -8.35443e-15, 1)
+bones/17/position = Vector3(0, 0.100000024, 0)
+bones/17/rotation = Quaternion(0.3535533, 0.61237246, 0.6123725, -0.35355338)
+bones/18/rotation = Quaternion(1.0927845e-08, 1.693121e-08, -1.1379786e-15, 1)
+bones/21/position = Vector3(0, 0.100000024, 0)
+bones/21/rotation = Quaternion(0.35355335, -0.61237246, 0.61237246, 0.35355335)
+bones/22/rotation = Quaternion(1.0927842e-08, -5.067888e-07, 1.0130785e-15, 1)
+
 [node name="de_up_leg2" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="0"]
-transform = Transform3D(0.5, 0, 0, 0, -0.866025, 0.25, 0, -0.5, -0.433013, 0, -0.571283, -0.762843)
+transform = Transform3D(0.5, 0, 0, 0, -2.9471623e-08, 0.5, 0, -1, -1.4735812e-08, 0, -1.0752949e-08, -0.97664803)
 
 [node name="de_up_leg1" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="1"]
-transform = Transform3D(1, 0, 0, 0, -0.5, 0.866026, 0, -0.866026, -0.5, 0, -0.248787, -0.430912)
+transform = Transform3D(1, 0, 0, 0, -1.4901161e-08, 1, 0, -1, -1.4901161e-08, 0, 7.450581e-09, -0.4975743)
 
 [node name="de_down_leg2" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="2"]
-transform = Transform3D(-0.5, -3.69553e-07, -5.85616e-09, 1.57093e-07, -0.866025, 0.25, -9.74599e-08, 0.5, 0.433013, 3.85876e-14, -0.571283, 0.762843)
+transform = Transform3D(-0.5, -3.2584137e-07, 0, 7.1054274e-15, -4.3711356e-08, 0.5, -1.6292068e-07, 1, 2.1855678e-08, 9.907105e-09, 4.224697e-08, 0.9766479)
 
 [node name="de_down_leg1" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="3"]
-transform = Transform3D(-1, -3.25841e-07, 1.06581e-13, 1.62921e-07, -0.5, 0.866026, -2.82187e-07, 0.866026, 0.5, 2.1932e-14, -0.248787, 0.430912)
+transform = Transform3D(-1, -3.2584137e-07, 1.4210855e-14, 2.842171e-14, -5.9604645e-08, 1, -3.2584137e-07, 1, 5.9604645e-08, 2.4868407e-15, -2.2351742e-08, 0.49757433)
 
 [node name="de_up_right_leg2" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="4"]
-transform = Transform3D(0.25, 0.433013, 0.375, -2.6983e-07, -0.866025, 0.25, 0.433013, -0.25, -0.216506, 0.660642, -0.571283, -0.381422)
+transform = Transform3D(0.25, 0.86602557, -4.7275286e-08, -1.0187145e-08, 1.1970536e-07, 0.49999994, 0.43301272, -0.50000006, 5.5646197e-08, 0.8458026, 1.561755e-07, -0.4883241)
 
 [node name="de_up_right_leg1" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="5"]
-transform = Transform3D(0.5, 0.75, 0.433013, -5.04795e-07, -0.5, 0.866026, 0.866026, -0.433013, -0.25, 0.373181, -0.248787, -0.215456)
+transform = Transform3D(0.5000002, 0.8660256, -1.4209117e-07, -1.8626398e-09, 1.639128e-07, 1.0000001, 0.8660256, -0.5000002, 1.1736457e-07, 0.43091172, 3.5733868e-07, -0.2487872)
 
 [node name="de_down_left_leg2" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="6"]
-transform = Transform3D(-0.25, -0.433013, -0.375, 8.92491e-08, -0.866025, 0.25, -0.433013, 0.25, 0.216506, -0.660641, -0.571283, 0.381422)
+transform = Transform3D(-0.2499996, -0.8660256, -3.7915854e-08, -1.533428e-08, -5.264991e-08, 0.49999997, -0.43301284, 0.49999914, 1.8633216e-08, -0.84580195, -2.823648e-07, 0.48832408)
 
 [node name="de_down_left_leg1" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="7"]
-transform = Transform3D(-0.499999, -0.75, -0.433013, 2.83576e-08, -0.5, 0.866026, -0.866026, 0.433012, 0.25, -0.373181, -0.248788, 0.215456)
+transform = Transform3D(-0.49999928, -0.8660258, -9.545836e-08, -7.078049e-08, -5.2154196e-08, 1.0000001, -0.86602575, 0.4999993, 2.2805295e-09, -0.43091217, -7.897616e-07, 0.24878684)
 
 [node name="de_down_right_leg2" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="8"]
-transform = Transform3D(-0.25, 0.433013, 0.375, 2.64849e-07, -0.866025, 0.25, 0.433013, 0.25, 0.216506, 0.660641, -0.571283, 0.381422)
+transform = Transform3D(-0.2500001, 0.8660254, -3.562451e-08, -3.7420307e-08, 2.18557e-08, 0.5, 0.43301266, 0.5000001, -7.778581e-09, 0.8458022, -2.1483855e-07, 0.48832422)
 
 [node name="de_down_right_leg1" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="9"]
-transform = Transform3D(-0.5, 0.75, 0.433013, 5.32681e-07, -0.5, 0.866026, 0.866026, 0.433013, 0.249999, 0.373181, -0.248787, 0.215456)
+transform = Transform3D(-0.5000002, 0.8660253, -4.53363e-08, -9.313226e-08, -1.8626455e-08, 1, 0.8660253, 0.5000001, 2.0524936e-08, 0.4309117, 2.0489097e-07, 0.24878708)
 
 [node name="de_up_left_leg2" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="10"]
-transform = Transform3D(0.25, -0.433012, -0.375, 6.05545e-07, -0.866025, 0.25, -0.433013, -0.250001, -0.216506, -0.660642, -0.571283, -0.381422)
+transform = Transform3D(0.25000036, -0.86602485, 2.5020483e-09, -1.1026543e-08, -6.954159e-09, 0.5, -0.43301243, -0.50000066, -1.1287824e-08, -0.8458025, 1.6454693e-07, -0.48832417)
 
 [node name="de_up_left_leg1" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="11"]
-transform = Transform3D(0.5, -0.75, -0.433013, 8.83776e-07, -0.5, 0.866026, -0.866025, -0.433013, -0.249999, -0.373181, -0.248787, -0.215456)
+transform = Transform3D(0.5000007, -0.8660248, 1.0244558e-08, -2.0489097e-08, -8.534841e-15, 1, -0.86602485, -0.50000066, -1.7744075e-08, -0.43091154, 3.3527613e-07, -0.24878691)
 
 [node name="de_body" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="12"]
-transform = Transform3D(0.285714, 0, 0, 0, 0, 0.214286, 0, -0.285714, 0, 0, 7.45058e-09, -1.16415e-10)
+transform = Transform3D(0.28571427, 0, 0, 0, 0, 0.21428572, 0, -0.2857143, 0, 0, 7.450581e-09, -1.16415204e-10)
 
 [node name="de_eye" parent="DoomsEye/Model/DoomsEye/Skeleton3D" index="13"]
-transform = Transform3D(0.616507, 1.21299e-08, 0.256713, -1.21299e-08, 0.667819, -2.42455e-09, -0.256713, -2.42455e-09, 0.616507, 0, 0.173361, -5.70435e-09)
+transform = Transform3D(0.61650676, 1.2129908e-08, 0.25671327, -1.2129907e-08, 0.6678191, -2.4245466e-09, -0.25671327, -2.4245475e-09, 0.61650676, 0, 0.1733608, -5.7043508e-09)
+
+[node name="Skeleton3D" parent="DoomsEye/Model/Omega" index="0"]
+bones/2/position = Vector3(0.4, 0.40000004, 0)
+bones/2/rotation = Quaternion(0.70710677, 0, -0.70710677, 0)
+bones/3/rotation = Quaternion(0, 1.5893256e-08, 0, 1)
+bones/9/position = Vector3(-0.4, 0.40000004, 0)
+bones/9/rotation = Quaternion(0.70710677, 0, 0.70710677, 0)
+bones/10/rotation = Quaternion(0, -1.5893256e-08, 0, 1)
+
+[node name="o_hand_l" parent="DoomsEye/Model/Omega/Skeleton3D" index="0"]
+transform = Transform3D(2.7936785, -1.0410466e-08, 9.1029614e-07, 5.8166968e-08, 0.5, 7.5197335e-08, -9.1029614e-07, -1.3458479e-08, 2.7936785, 0.4077022, 0.16969934, -3.4804641e-09)
+
+[node name="o_arm_l" parent="DoomsEye/Model/Omega/Skeleton3D" index="1"]
+transform = Transform3D(0.99999994, 4.1909534e-09, 0, -8.381904e-09, 0.5, 7.683413e-09, 0, -3.8417074e-09, 1, 0.40770227, 0.40819502, -3.213063e-08)
+
+[node name="o_head" parent="DoomsEye/Model/Omega/Skeleton3D" index="2"]
+transform = Transform3D(0.99999994, 4.5474773e-13, -9.3155e-10, -4.5474773e-13, 0.99999994, -1.4551915e-11, 9.3155e-10, 1.4551915e-11, 0.99999994, 9.6020244e-08, 0.5458224, 6.8030204e-10)
+
+[node name="o_leg_r" parent="DoomsEye/Model/Omega/Skeleton3D" index="3"]
+transform = Transform3D(-0.99999994, 2.2737387e-13, -9.3155e-10, 4.5474773e-13, 0.49999997, -1.4551915e-11, -9.3155e-10, 7.275958e-12, 0.99999994, -0.120564006, 0.11967051, 2.4374458e-09)
+
+[node name="o_hand_r" parent="DoomsEye/Model/Omega/Skeleton3D" index="4"]
+transform = Transform3D(-2.7936783, 5.261047e-09, -9.102959e-07, 2.9395315e-08, 0.5, 1.0750906e-07, -9.10296e-07, -1.924149e-08, 2.793678, -0.40770262, 0.1696994, -6.3085096e-08)
+
+[node name="o_arm_r" parent="DoomsEye/Model/Omega/Skeleton3D" index="5"]
+transform = Transform3D(-1, 1.3562387e-08, 0, 2.7124765e-08, 0.50000006, 5.8207567e-10, 0, -2.9103792e-10, 1, -0.40770262, 0.40819502, -1.9790605e-08)
+
+[node name="o_torso" parent="DoomsEye/Model/Omega/Skeleton3D" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6542693e-08, 0.54582244, 0)
+
+[node name="o_foot_l" parent="DoomsEye/Model/Omega/Skeleton3D" index="7"]
+transform = Transform3D(0.01, 1.1920932e-09, -4.214686e-10, -4.2146853e-10, 0, -0.010000002, -1.1920932e-09, 0.01, 0, 0.124312826, -0.29609984, 0.01726098)
+
+[node name="o_leg_l" parent="DoomsEye/Model/Omega/Skeleton3D" index="8"]
+transform = Transform3D(8.742278e-08, 1.2628788e-15, -1, -5.2735604e-16, 0.50000006, 2.5257574e-15, 1, 2.6367794e-16, 8.742278e-08, 0.12499999, 0.11967054, -0.004435849)
+
+[node name="o_foot_r" parent="DoomsEye/Model/Omega/Skeleton3D" index="9"]
+transform = Transform3D(-0.01, -1.1920933e-09, -4.214686e-10, 4.2146853e-10, 0, -0.010000002, -1.1920932e-09, 0.010000001, 0, -0.12431257, -0.2960999, 0.017260846)
 
 [node name="Zavok" parent="." index="23"]
 transform = Transform3D(0.702315, 0, -0.711867, 0, 1, 0, 0.711867, 0, 0.702315, 27.0674, 0, -43.6706)
+
+[node name="head_2" parent="Zavok/Model/Shadow/Skeleton3D" index="0"]
+transform = Transform3D(0.01, 2.1711716e-11, -4.2146858e-10, -4.2146858e-10, 0, -0.01, -2.1711716e-11, 0.01, 0, 0, 0, 2.9953396e-24)
+
+[node name="hand_l_2" parent="Zavok/Model/Shadow/Skeleton3D" index="1"]
+transform = Transform3D(0.01, -3.1786512e-10, -1.1920931e-09, -1.1920928e-09, 1.1920928e-09, -0.010000001, 3.1786512e-10, 0.01, 1.1920931e-09, -7.450581e-09, -5.5879354e-09, 4.8082534e-09)
+
+[node name="arm_l_2" parent="Zavok/Model/Shadow/Skeleton3D" index="2"]
+transform = Transform3D(0.01, 5.9604643e-10, 1.1920931e-09, 5.960464e-10, 2.3841855e-09, -0.010000001, 0, 0.01, 1.7881396e-09, -7.450581e-09, 0, 4.808254e-09)
+
+[node name="hand_r_2" parent="Zavok/Model/Shadow/Skeleton3D" index="3"]
+transform = Transform3D(0.01, -8.7422775e-10, 3.7892482e-17, 0, 1.1920928e-09, -0.010000001, 8.7422775e-10, 0.01, 1.1920931e-09, 0, -5.5879354e-09, 4.808253e-09)
+
+[node name="arm_r_2" parent="Zavok/Model/Shadow/Skeleton3D" index="4"]
+transform = Transform3D(0.01, 1.1920929e-09, 0, 0, 1.1920928e-09, -0.010000002, -1.1920929e-09, 0.01, 1.1920932e-09, 7.450581e-09, 0, 4.808254e-09)
+
+[node name="tail" parent="Zavok/Model/Shadow/Skeleton3D" index="5"]
+transform = Transform3D(0.01, 9.920953e-12, -4.2146853e-10, -4.2146853e-10, 0, -0.01, -9.920953e-12, 0.01, 0, 0, -3.230598e-32, 5.877472e-39)
+
+[node name="torso_2" parent="Zavok/Model/Shadow/Skeleton3D" index="6"]
+transform = Transform3D(0.01, 9.920953e-12, -4.2146853e-10, -4.2146853e-10, 0, -0.01, -9.920953e-12, 0.01, 0, 0, -3.230598e-32, 5.877472e-39)
+
+[node name="foot_l_2" parent="Zavok/Model/Shadow/Skeleton3D" index="7"]
+transform = Transform3D(-0.01, 9.920953e-12, -4.2146853e-10, 4.2146853e-10, 0, -0.01, 9.920953e-12, 0.01, 0, 0, 0.0025992095, 0.0002857484)
+
+[node name="leg_l_2" parent="Zavok/Model/Shadow/Skeleton3D" index="8"]
+transform = Transform3D(-3.1786512e-10, -0.01, -5.9604643e-10, -5.9604643e-10, 1.1920929e-09, -0.01, 0.01, 2.781813e-10, 5.2108034e-17, 0, 0, -4.9303807e-32)
+
+[node name="foot_r_2" parent="Zavok/Model/Shadow/Skeleton3D" index="9"]
+transform = Transform3D(0.01, 9.920953e-12, -4.2146853e-10, -4.2146853e-10, 0, -0.01, -9.920953e-12, 0.01, 0, 0, 0.0025992095, 0.0002857484)
+
+[node name="leg_r_2" parent="Zavok/Model/Shadow/Skeleton3D" index="10"]
+transform = Transform3D(-3.1786512e-10, -0.01, -5.9604643e-10, -5.9604643e-10, 1.1920929e-09, -0.01, 0.01, 2.781813e-10, 5.2108034e-17, 0, 0, -4.9303807e-32)
+
+[node name="Skeleton3D" parent="Zavok/Model/Rouge" index="0"]
+bones/4/position = Vector3(0.11, 0.075, 0)
+bones/4/rotation = Quaternion(0.70710677, 0, -0.70710677, 0)
+bones/5/rotation = Quaternion(0, 1.5893256e-08, 0, 1)
+bones/8/position = Vector3(-0.11, 0.075, 0)
+bones/8/rotation = Quaternion(0.70710677, 0, 0.70710677, 0)
+bones/9/rotation = Quaternion(0, -1.5893256e-08, 0, 1)
+
+[node name="head_001" parent="Zavok/Model/Rouge/Skeleton3D" index="0"]
+transform = Transform3D(0.01, 3.9253916e-11, -4.2493659e-10, -4.2493659e-10, 0, -0.01, -3.9253916e-11, 0.01, 0, 9.163159e-11, 7.450581e-09, -1.5818458e-12)
+
+[node name="hand_l_001" parent="Zavok/Model/Rouge/Skeleton3D" index="1"]
+transform = Transform3D(0.010000001, 1.4702742e-09, 1.192093e-09, 5.9604643e-10, 2.3841857e-09, -0.010000001, -8.742278e-10, 0.010000001, 1.7881396e-09, -3.7252903e-08, -5.5879354e-09, 7.155484e-09)
+
+[node name="arm_l_001" parent="Zavok/Model/Rouge/Skeleton3D" index="2"]
+transform = Transform3D(0.009999999, 5.9604643e-10, 1.192093e-09, 5.960463e-10, 2.3841855e-09, -0.01, 0, 0.01, 1.7881394e-09, -7.450581e-09, 7.450581e-09, 8.58563e-09)
+
+[node name="hand_r_001" parent="Zavok/Model/Rouge/Skeleton3D" index="3"]
+transform = Transform3D(0.01, 9.139115e-10, 1.894624e-17, 5.960464e-10, 1.1920926e-09, -0.01, -1.5099579e-09, 0.009999999, 5.960465e-10, 7.450581e-09, -1.8626451e-09, 7.009967e-09)
+
+[node name="arm_r_001" parent="Zavok/Model/Rouge/Skeleton3D" index="4"]
+transform = Transform3D(0.010000001, 5.9604643e-10, 0, 5.9604643e-10, 1.1920928e-09, -0.010000001, -1.192093e-09, 0.01, 5.9604655e-10, 7.450581e-09, 7.450581e-09, 8.018105e-09)
+
+[node name="tail_001" parent="Zavok/Model/Rouge/Skeleton3D" index="5"]
+transform = Transform3D(0.01, 9.920953e-12, -4.3655754e-10, -4.3655754e-10, 0, -0.01, -9.920953e-12, 0.01, 0, 0, -3.2305982e-32, 5.877472e-39)
+
+[node name="torso_001" parent="Zavok/Model/Rouge/Skeleton3D" index="6"]
+transform = Transform3D(0.01, 9.920953e-12, -4.3655754e-10, -4.3655754e-10, 0, -0.01, -9.920953e-12, 0.01, 0, 0, -3.2305982e-32, 5.877472e-39)
+
+[node name="rouge_wing" parent="Zavok/Model/Rouge/Skeleton3D" index="7"]
+transform = Transform3D(0.24999996, 9.920953e-10, -1.0913936e-08, -1.0913936e-08, 0, -0.24999996, -2.480238e-10, 1, 0, -0.27784634, 0.039195325, -0.09729944)
+
+[node name="rouge_wing_2" parent="Zavok/Model/Rouge/Skeleton3D" index="8"]
+transform = Transform3D(-0.24999996, 9.920901e-10, -1.0913936e-08, 1.0913936e-08, -1.1920927e-07, -0.24999996, 2.480238e-10, 1, -2.9802314e-08, 0.2778463, 0.039195318, -0.09729942)
+
+[node name="foot_l_001" parent="Zavok/Model/Rouge/Skeleton3D" index="9"]
+transform = Transform3D(-0.01, 9.920953e-12, -4.2146853e-10, 4.2146853e-10, 0, -0.01, 9.920953e-12, 0.01, 0, 3.7252903e-09, 0.0025992095, 0.0002857494)
+
+[node name="leg_l_001" parent="Zavok/Model/Rouge/Skeleton3D" index="10"]
+transform = Transform3D(-3.1786512e-10, -0.01, -5.9604643e-10, -5.9604643e-10, 1.1920929e-09, -0.01, 0.01, 2.781813e-10, 5.2108034e-17, 3.7252903e-09, 7.450581e-09, -3.1624747e-10)
+
+[node name="foot_r_001" parent="Zavok/Model/Rouge/Skeleton3D" index="11"]
+transform = Transform3D(0.01, 9.920953e-12, -4.2146858e-10, -4.2146853e-10, 0, -0.010000001, -9.920953e-12, 0.01, 0, 3.7252903e-09, 0.0025992244, 0.00028574758)
+
+[node name="leg_r_001" parent="Zavok/Model/Rouge/Skeleton3D" index="12"]
+transform = Transform3D(-3.1786507e-10, -0.01, -5.960464e-10, -5.960464e-10, 1.1920929e-09, -0.009999999, 0.009999999, 2.781813e-10, 5.210803e-17, 0, 0, -1.8956436e-09)
+
+[node name="Skeleton3D" parent="Zavok/Model/DoomsEye" index="0"]
+bones/1/rotation = Quaternion(-0.70710677, 0, 0, 0.70710677)
+bones/2/rotation = Quaternion(-7.285231e-09, 0, 0, 1)
+bones/5/rotation = Quaternion(0.70710677, -3.090862e-08, -3.090862e-08, 0.70710677)
+bones/6/rotation = Quaternion(2.185569e-08, 3.0367018e-23, -1.9106853e-15, 1)
+bones/9/rotation = Quaternion(-0.6123724, -0.3535534, -0.35355338, 0.61237246)
+bones/10/rotation = Quaternion(-1.0927846e-08, 1.5775083e-08, 3.608225e-16, 1)
+bones/13/rotation = Quaternion(0.61237234, -0.35355335, 0.3535536, 0.61237246)
+bones/14/rotation = Quaternion(1.8874474e-08, -4.8571735e-07, -8.35443e-15, 1)
+bones/17/position = Vector3(0, 0.100000024, 0)
+bones/17/rotation = Quaternion(0.3535533, 0.61237246, 0.6123725, -0.35355338)
+bones/18/rotation = Quaternion(1.0927845e-08, 1.693121e-08, -1.1379786e-15, 1)
+bones/21/position = Vector3(0, 0.100000024, 0)
+bones/21/rotation = Quaternion(0.35355335, -0.61237246, 0.61237246, 0.35355335)
+bones/22/rotation = Quaternion(1.0927842e-08, -5.067888e-07, 1.0130785e-15, 1)
+
+[node name="de_up_leg2" parent="Zavok/Model/DoomsEye/Skeleton3D" index="0"]
+transform = Transform3D(0.5, 0, 0, 0, -2.9471623e-08, 0.5, 0, -1, -1.4735812e-08, 0, -1.0752949e-08, -0.97664803)
+
+[node name="de_up_leg1" parent="Zavok/Model/DoomsEye/Skeleton3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, -1.4901161e-08, 1, 0, -1, -1.4901161e-08, 0, 7.450581e-09, -0.4975743)
+
+[node name="de_down_leg2" parent="Zavok/Model/DoomsEye/Skeleton3D" index="2"]
+transform = Transform3D(-0.5, -3.2584137e-07, 0, 7.1054274e-15, -4.3711356e-08, 0.5, -1.6292068e-07, 1, 2.1855678e-08, 9.907105e-09, 4.224697e-08, 0.9766479)
+
+[node name="de_down_leg1" parent="Zavok/Model/DoomsEye/Skeleton3D" index="3"]
+transform = Transform3D(-1, -3.2584137e-07, 1.4210855e-14, 2.842171e-14, -5.9604645e-08, 1, -3.2584137e-07, 1, 5.9604645e-08, 2.4868407e-15, -2.2351742e-08, 0.49757433)
+
+[node name="de_up_right_leg2" parent="Zavok/Model/DoomsEye/Skeleton3D" index="4"]
+transform = Transform3D(0.25, 0.86602557, -4.7275286e-08, -1.0187145e-08, 1.1970536e-07, 0.49999994, 0.43301272, -0.50000006, 5.5646197e-08, 0.8458026, 1.561755e-07, -0.4883241)
+
+[node name="de_up_right_leg1" parent="Zavok/Model/DoomsEye/Skeleton3D" index="5"]
+transform = Transform3D(0.5000002, 0.8660256, -1.4209117e-07, -1.8626398e-09, 1.639128e-07, 1.0000001, 0.8660256, -0.5000002, 1.1736457e-07, 0.43091172, 3.5733868e-07, -0.2487872)
+
+[node name="de_down_left_leg2" parent="Zavok/Model/DoomsEye/Skeleton3D" index="6"]
+transform = Transform3D(-0.2499996, -0.8660256, -3.7915854e-08, -1.533428e-08, -5.264991e-08, 0.49999997, -0.43301284, 0.49999914, 1.8633216e-08, -0.84580195, -2.823648e-07, 0.48832408)
+
+[node name="de_down_left_leg1" parent="Zavok/Model/DoomsEye/Skeleton3D" index="7"]
+transform = Transform3D(-0.49999928, -0.8660258, -9.545836e-08, -7.078049e-08, -5.2154196e-08, 1.0000001, -0.86602575, 0.4999993, 2.2805295e-09, -0.43091217, -7.897616e-07, 0.24878684)
+
+[node name="de_down_right_leg2" parent="Zavok/Model/DoomsEye/Skeleton3D" index="8"]
+transform = Transform3D(-0.2500001, 0.8660254, -3.562451e-08, -3.7420307e-08, 2.18557e-08, 0.5, 0.43301266, 0.5000001, -7.778581e-09, 0.8458022, -2.1483855e-07, 0.48832422)
+
+[node name="de_down_right_leg1" parent="Zavok/Model/DoomsEye/Skeleton3D" index="9"]
+transform = Transform3D(-0.5000002, 0.8660253, -4.53363e-08, -9.313226e-08, -1.8626455e-08, 1, 0.8660253, 0.5000001, 2.0524936e-08, 0.4309117, 2.0489097e-07, 0.24878708)
+
+[node name="de_up_left_leg2" parent="Zavok/Model/DoomsEye/Skeleton3D" index="10"]
+transform = Transform3D(0.25000036, -0.86602485, 2.5020483e-09, -1.1026543e-08, -6.954159e-09, 0.5, -0.43301243, -0.50000066, -1.1287824e-08, -0.8458025, 1.6454693e-07, -0.48832417)
+
+[node name="de_up_left_leg1" parent="Zavok/Model/DoomsEye/Skeleton3D" index="11"]
+transform = Transform3D(0.5000007, -0.8660248, 1.0244558e-08, -2.0489097e-08, -8.534841e-15, 1, -0.86602485, -0.50000066, -1.7744075e-08, -0.43091154, 3.3527613e-07, -0.24878691)
+
+[node name="de_body" parent="Zavok/Model/DoomsEye/Skeleton3D" index="12"]
+transform = Transform3D(0.28571427, 0, 0, 0, 0, 0.21428572, 0, -0.2857143, 0, 0, 7.450581e-09, -1.16415204e-10)
+
+[node name="de_eye" parent="Zavok/Model/DoomsEye/Skeleton3D" index="13"]
+transform = Transform3D(0.61650676, 1.2129908e-08, 0.25671327, -1.2129907e-08, 0.6678191, -2.4245466e-09, -0.25671327, -2.4245475e-09, 0.61650676, 0, 0.1733608, -5.7043508e-09)
+
+[node name="Skeleton3D" parent="Zavok/Model/Omega" index="0"]
+bones/2/position = Vector3(0.4, 0.40000004, 0)
+bones/2/rotation = Quaternion(0.70710677, 0, -0.70710677, 0)
+bones/3/rotation = Quaternion(0, 1.5893256e-08, 0, 1)
+bones/9/position = Vector3(-0.4, 0.40000004, 0)
+bones/9/rotation = Quaternion(0.70710677, 0, 0.70710677, 0)
+bones/10/rotation = Quaternion(0, -1.5893256e-08, 0, 1)
+
+[node name="o_hand_l" parent="Zavok/Model/Omega/Skeleton3D" index="0"]
+transform = Transform3D(2.7936785, -1.0410466e-08, 9.1029614e-07, 5.8166968e-08, 0.5, 7.5197335e-08, -9.1029614e-07, -1.3458479e-08, 2.7936785, 0.4077022, 0.16969934, -3.4804641e-09)
+
+[node name="o_arm_l" parent="Zavok/Model/Omega/Skeleton3D" index="1"]
+transform = Transform3D(0.99999994, 4.1909534e-09, 0, -8.381904e-09, 0.5, 7.683413e-09, 0, -3.8417074e-09, 1, 0.40770227, 0.40819502, -3.213063e-08)
+
+[node name="o_head" parent="Zavok/Model/Omega/Skeleton3D" index="2"]
+transform = Transform3D(0.99999994, 4.5474773e-13, -9.3155e-10, -4.5474773e-13, 0.99999994, -1.4551915e-11, 9.3155e-10, 1.4551915e-11, 0.99999994, 9.6020244e-08, 0.5458224, 6.8030204e-10)
+
+[node name="o_leg_r" parent="Zavok/Model/Omega/Skeleton3D" index="3"]
+transform = Transform3D(-0.99999994, 2.2737387e-13, -9.3155e-10, 4.5474773e-13, 0.49999997, -1.4551915e-11, -9.3155e-10, 7.275958e-12, 0.99999994, -0.120564006, 0.11967051, 2.4374458e-09)
+
+[node name="o_hand_r" parent="Zavok/Model/Omega/Skeleton3D" index="4"]
+transform = Transform3D(-2.7936783, 5.261047e-09, -9.102959e-07, 2.9395315e-08, 0.5, 1.0750906e-07, -9.10296e-07, -1.924149e-08, 2.793678, -0.40770262, 0.1696994, -6.3085096e-08)
+
+[node name="o_arm_r" parent="Zavok/Model/Omega/Skeleton3D" index="5"]
+transform = Transform3D(-1, 1.3562387e-08, 0, 2.7124765e-08, 0.50000006, 5.8207567e-10, 0, -2.9103792e-10, 1, -0.40770262, 0.40819502, -1.9790605e-08)
+
+[node name="o_torso" parent="Zavok/Model/Omega/Skeleton3D" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6542693e-08, 0.54582244, 0)
+
+[node name="o_foot_l" parent="Zavok/Model/Omega/Skeleton3D" index="7"]
+transform = Transform3D(0.01, 1.1920932e-09, -4.214686e-10, -4.2146853e-10, 0, -0.010000002, -1.1920932e-09, 0.01, 0, 0.124312826, -0.29609984, 0.01726098)
+
+[node name="o_leg_l" parent="Zavok/Model/Omega/Skeleton3D" index="8"]
+transform = Transform3D(8.742278e-08, 1.2628788e-15, -1, -5.2735604e-16, 0.50000006, 2.5257574e-15, 1, 2.6367794e-16, 8.742278e-08, 0.12499999, 0.11967054, -0.004435849)
+
+[node name="o_foot_r" parent="Zavok/Model/Omega/Skeleton3D" index="9"]
+transform = Transform3D(-0.01, -1.1920933e-09, -4.214686e-10, 4.2146853e-10, 0, -0.010000002, -1.1920932e-09, 0.010000001, 0, -0.12431257, -0.2960999, 0.017260846)
 
 [node name="Coin 1" parent="Coins" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.55464, 12.9736, -0.136988)

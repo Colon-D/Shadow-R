@@ -12,15 +12,17 @@ config_version=5
 
 config/name="Shadow R"
 config/description="shadow gaming"
-config/version="1.1.1"
+config/version="1.1.2"
 run/main_scene="uid://cfmqwysj2i577"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/auto_accept_quit=false
+config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/show_image=false
 config/icon="uid://c4wmgbbe6mjwc"
 
 [autoload]
 
 Global="*res://global.gd"
+QuitChecker="*res://quit_checker.gd"
 
 [display]
 

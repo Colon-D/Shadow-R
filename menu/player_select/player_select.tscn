@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bn21l22dpeojw"]
+[gd_scene load_steps=15 format=3 uid="uid://bn21l22dpeojw"]
 
 [ext_resource type="Script" uid="uid://0gbh4sjyyft3" path="res://menu/player_select/player_select.gd" id="1_or3vn"]
 [ext_resource type="Texture2D" uid="uid://d18jsq1ik3bgq" path="res://menu/player_select/bg_circle.png" id="1_psp5w"]
@@ -8,7 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://cyihnkkp3r05w" path="res://sonic.blend" id="3_hluti"]
 [ext_resource type="Material" uid="uid://csnqmmoj0jetg" path="res://player/fake_metal_omega.tres" id="4_ktpn3"]
 [ext_resource type="AudioStream" uid="uid://cey387y2dyafi" path="res://menu/player_select/117 Choose Your Buddy! ~Slap Bass ver.~.ogg" id="5_tq7pd"]
+[ext_resource type="Texture2D" uid="uid://ch5ehmjfimmd" path="res://menu/player_select/bg_box_2.png" id="8_k3pjc"]
+[ext_resource type="Texture2D" uid="uid://b8xkqvgnly2pf" path="res://trophy/trophy.tres" id="8_pdcaf"]
 [ext_resource type="Script" uid="uid://c8pe066hh6agy" path="res://save_file.gd" id="9_ktpn3"]
+[ext_resource type="Texture2D" uid="uid://bugjrrjn1hxpk" path="res://coin_ui.png" id="10_fi22b"]
 [ext_resource type="Script" uid="uid://bk7f1ojdkia61" path="res://menu/player_select/load_characters_from_file.gd" id="10_pdcaf"]
 
 [sub_resource type="Environment" id="Environment_hluti"]
@@ -43,80 +46,20 @@ bones/8/position = Vector3(-0.0945766, 0.0866343, 1.66533e-16)
 bones/8/rotation = Quaternion(0.690346, -0.153046, 0.690346, 0.153046)
 bones/9/rotation = Quaternion(0.130526, -1.57573e-08, -7.77997e-09, 0.991445)
 
-[node name="head_2" parent="Character/Shadow/Skeleton3D" index="0"]
-transform = Transform3D(0.01, 2.17117e-11, -4.21469e-10, -4.21469e-10, 0, -0.01, -2.17117e-11, 0.01, 0, 0, 0, 2.99534e-24)
-
 [node name="hand_l_2" parent="Character/Shadow/Skeleton3D" index="1"]
-transform = Transform3D(0.00984807, -1.74645e-09, 0.00173648, 0.00173648, 1.22761e-09, -0.00984807, -8.18714e-10, 0.01, 1.61376e-09, 0.0241684, 0.00152238, 1.62565e-08)
+transform = Transform3D(0.009848075, -1.7464477e-09, 0.0017364835, 0.001736484, 1.2276132e-09, -0.009848075, -8.187138e-10, 0.009999999, 1.6137625e-09, 0.024168365, 0.001522379, 1.625645e-08)
 
 [node name="arm_l_2" parent="Character/Shadow/Skeleton3D" index="2"]
-transform = Transform3D(0.00906308, -1.65949e-09, 0.00422618, 0.00422618, 2.41271e-09, -0.00906308, -1.19209e-09, 0.01, 1.78814e-09, 0.0265791, -0.0278268, 1.79213e-08)
+transform = Transform3D(0.009063077, -1.6594914e-09, 0.004226183, 0.0042261817, 2.4127056e-09, -0.009063075, -1.1920929e-09, 0.009999999, 1.7881393e-09, 0.026579112, -0.027826764, 1.7921277e-08)
 
 [node name="hand_r_2" parent="Character/Shadow/Skeleton3D" index="3"]
-transform = Transform3D(0.00984807, 5.72466e-10, -0.00173648, -0.00173649, 1.43462e-09, -0.00984807, 2.01081e-09, 0.01, 1.61376e-09, -0.0241684, 0.00152238, 1.62564e-08)
+transform = Transform3D(0.009848075, 5.7246563e-10, -0.0017364847, -0.0017364852, 1.4346184e-09, -0.009848075, 2.0108066e-09, 0.009999999, 1.6137623e-09, -0.024168372, 0.0015223809, 1.6256449e-08)
 
 [node name="arm_r_2" parent="Character/Shadow/Skeleton3D" index="4"]
-transform = Transform3D(0.00906308, 2.7763e-09, -0.00422618, -0.00422618, 5.76603e-10, -0.00906308, 1.11022e-16, 0.01, 1.19209e-09, -0.0265791, -0.0278268, 1.79213e-08)
-
-[node name="tail" parent="Character/Shadow/Skeleton3D" index="5"]
-transform = Transform3D(0.01, 9.92095e-12, -4.21469e-10, -4.21469e-10, 0, -0.01, -9.92095e-12, 0.01, 0, 0, -3.2306e-32, 5.87747e-39)
-
-[node name="torso_2" parent="Character/Shadow/Skeleton3D" index="6"]
-transform = Transform3D(0.01, 9.92095e-12, -4.21469e-10, -4.21469e-10, 0, -0.01, -9.92095e-12, 0.01, 0, 0, -3.2306e-32, 5.87747e-39)
-
-[node name="foot_l_2" parent="Character/Shadow/Skeleton3D" index="7"]
-transform = Transform3D(-0.01, 9.92095e-12, -4.21469e-10, 4.21469e-10, 0, -0.01, 9.92095e-12, 0.01, 0, 0, 0.00259921, 0.000285748)
-
-[node name="leg_l_2" parent="Character/Shadow/Skeleton3D" index="8"]
-transform = Transform3D(-3.17865e-10, -0.01, -5.96046e-10, -5.96046e-10, 1.19209e-09, -0.01, 0.01, 2.78181e-10, 5.2108e-17, 0, 0, -4.93038e-32)
-
-[node name="foot_r_2" parent="Character/Shadow/Skeleton3D" index="9"]
-transform = Transform3D(0.01, 9.92095e-12, -4.21469e-10, -4.21469e-10, 0, -0.01, -9.92095e-12, 0.01, 0, 0, 0.00259921, 0.000285748)
-
-[node name="leg_r_2" parent="Character/Shadow/Skeleton3D" index="10"]
-transform = Transform3D(-3.17865e-10, -0.01, -5.96046e-10, -5.96046e-10, 1.19209e-09, -0.01, 0.01, 2.78181e-10, 5.2108e-17, 0, 0, -4.93038e-32)
+transform = Transform3D(0.009063077, 2.776296e-09, -0.004226182, -0.004226181, 5.766027e-10, -0.009063077, 1.110223e-16, 0.009999999, 1.1920931e-09, -0.026579112, -0.027826764, 1.7921277e-08)
 
 [node name="Rouge" parent="Character" index="1"]
 visible = false
-
-[node name="head_001" parent="Character/Rouge/Skeleton3D" index="0"]
-transform = Transform3D(0.01, 2.17117e-11, -4.21469e-10, -4.21469e-10, 0, -0.01, -2.17117e-11, 0.01, 0, 0, 0, 2.99534e-24)
-
-[node name="hand_l_001" parent="Character/Rouge/Skeleton3D" index="1"]
-transform = Transform3D(0.01, -3.17865e-10, -1.19209e-09, -1.19209e-09, 1.19209e-09, -0.01, 3.17865e-10, 0.01, 1.19209e-09, -7.45058e-09, -5.58794e-09, 4.80825e-09)
-
-[node name="arm_l_001" parent="Character/Rouge/Skeleton3D" index="2"]
-transform = Transform3D(0.01, 5.96046e-10, 1.19209e-09, 5.96046e-10, 2.38419e-09, -0.01, 0, 0.01, 1.78814e-09, -7.45058e-09, 0, 4.80825e-09)
-
-[node name="hand_r_001" parent="Character/Rouge/Skeleton3D" index="3"]
-transform = Transform3D(0.01, -8.74228e-10, 3.78925e-17, 0, 1.19209e-09, -0.01, 8.74228e-10, 0.01, 1.19209e-09, 0, -5.58794e-09, 4.80825e-09)
-
-[node name="arm_r_001" parent="Character/Rouge/Skeleton3D" index="4"]
-transform = Transform3D(0.01, 1.19209e-09, 0, 0, 1.19209e-09, -0.01, -1.19209e-09, 0.01, 1.19209e-09, 7.45058e-09, 0, 4.80825e-09)
-
-[node name="tail_001" parent="Character/Rouge/Skeleton3D" index="5"]
-transform = Transform3D(0.01, 9.92095e-12, -4.21469e-10, -4.21469e-10, 0, -0.01, -9.92095e-12, 0.01, 0, 0, -3.2306e-32, 5.87747e-39)
-
-[node name="torso_001" parent="Character/Rouge/Skeleton3D" index="6"]
-transform = Transform3D(0.01, 9.92095e-12, -4.21469e-10, -4.21469e-10, 0, -0.01, -9.92095e-12, 0.01, 0, 0, -3.2306e-32, 5.87747e-39)
-
-[node name="rouge_wing" parent="Character/Rouge/Skeleton3D" index="7"]
-transform = Transform3D(0.25, 9.92095e-10, -1.05367e-08, -1.05367e-08, 0, -0.25, -2.48024e-10, 1, 0, -0.277846, 0.0391953, -0.0972994)
-
-[node name="rouge_wing_2" parent="Character/Rouge/Skeleton3D" index="8"]
-transform = Transform3D(-0.25, 9.9209e-10, -1.05367e-08, 1.05367e-08, -1.19209e-07, -0.25, 2.48024e-10, 1, -2.98023e-08, 0.277846, 0.0391953, -0.0972994)
-
-[node name="foot_l_001" parent="Character/Rouge/Skeleton3D" index="9"]
-transform = Transform3D(-0.01, 9.92095e-12, -4.21469e-10, 4.21469e-10, 0, -0.01, 9.92095e-12, 0.01, 0, 0, 0.00259921, 0.000285748)
-
-[node name="leg_l_001" parent="Character/Rouge/Skeleton3D" index="10"]
-transform = Transform3D(-3.17865e-10, -0.01, -5.96046e-10, -5.96046e-10, 1.19209e-09, -0.01, 0.01, 2.78181e-10, 5.2108e-17, 0, 0, -4.93038e-32)
-
-[node name="foot_r_001" parent="Character/Rouge/Skeleton3D" index="11"]
-transform = Transform3D(0.01, 9.92095e-12, -4.21469e-10, -4.21469e-10, 0, -0.01, -9.92095e-12, 0.01, 0, 0, 0.00259921, 0.000285748)
-
-[node name="leg_r_001" parent="Character/Rouge/Skeleton3D" index="12"]
-transform = Transform3D(-3.17865e-10, -0.01, -5.96046e-10, -5.96046e-10, 1.19209e-09, -0.01, 0.01, 2.78181e-10, 5.2108e-17, 0, 0, -4.93038e-32)
 
 [node name="Zavok" parent="Character" index="2"]
 visible = false
@@ -124,81 +67,9 @@ visible = false
 [node name="DoomsEye" parent="Character" index="3"]
 visible = false
 
-[node name="de_up_leg2" parent="Character/DoomsEye/Skeleton3D" index="0"]
-transform = Transform3D(0.5, 0, 0, 0, -1.45705e-08, 0.5, 0, -1, -7.28523e-09, 0, 1.15907e-07, -0.976648)
-
-[node name="de_up_leg1" parent="Character/DoomsEye/Skeleton3D" index="1"]
-transform = Transform3D(1, 0, 0, 0, -1.49012e-08, 1, 0, -1, -1.49012e-08, 0, -1.49012e-08, -0.497574)
-
-[node name="de_down_leg2" parent="Character/DoomsEye/Skeleton3D" index="2"]
-transform = Transform3D(-0.5, -3.25841e-07, 3.55271e-15, 1.06581e-14, -5.86125e-08, 0.5, -1.62921e-07, 1, 2.93063e-08, 9.90711e-09, -1.58919e-07, 0.976648)
-
-[node name="de_down_leg1" parent="Character/DoomsEye/Skeleton3D" index="3"]
-transform = Transform3D(-1, -3.25841e-07, 0, 1.42109e-14, -4.47035e-08, 1, -3.25841e-07, 1, 4.47035e-08, -2.13175e-15, -4.47035e-08, 0.497574)
-
-[node name="de_up_right_leg2" parent="Character/DoomsEye/Skeleton3D" index="4"]
-transform = Transform3D(0.25, 0.866026, -4.355e-08, -1.76377e-08, 1.19705e-07, 0.5, 0.433013, -0.5, 6.20986e-08, 0.845802, -1.86551e-07, -0.488324)
-
-[node name="de_up_right_leg1" parent="Character/DoomsEye/Skeleton3D" index="5"]
-transform = Transform3D(0.5, 0.866026, -1.04308e-07, -1.93572e-08, 1.30385e-07, 1, 0.866025, -0.5, 1.15751e-07, 0.430913, 5.73406e-07, -0.248787)
-
-[node name="de_down_left_leg2" parent="Character/DoomsEye/Skeleton3D" index="6"]
-transform = Transform3D(-0.25, -0.866026, -2.47615e-08, -1.1609e-08, -2.65729e-08, 0.5, -0.433013, 0.499999, 1.53402e-08, -0.845802, 2.14962e-07, 0.488324)
-
-[node name="de_down_left_leg1" parent="Character/DoomsEye/Skeleton3D" index="7"]
-transform = Transform3D(-0.499999, -0.866026, -8.59852e-08, -5.18341e-08, -5.21542e-08, 1, -0.866026, 0.499999, 1.86886e-08, -0.430912, 2.30968e-07, 0.248787)
-
-[node name="de_down_right_leg2" parent="Character/DoomsEye/Skeleton3D" index="8"]
-transform = Transform3D(-0.25, 0.866026, -2.18553e-08, -4.85962e-08, -2.28478e-08, 0.5, 0.433013, 0.5, 1.30759e-08, 0.845802, 3.77483e-07, 0.488324)
-
-[node name="de_down_right_leg1" parent="Character/DoomsEye/Skeleton3D" index="9"]
-transform = Transform3D(-0.5, 0.866025, -4.547e-08, -1.12757e-07, -2.98023e-08, 1, 0.866025, 0.5, 4.31083e-08, 0.430912, 5.32717e-07, 0.248787)
-
-[node name="de_up_left_leg2" parent="Character/DoomsEye/Skeleton3D" index="10"]
-transform = Transform3D(0.25, -0.866025, 8.88974e-10, -1.10265e-08, -1.06794e-08, 0.5, -0.433012, -0.500001, -1.22191e-08, -0.845801, 1.88761e-07, -0.488323)
-
-[node name="de_up_left_leg1" parent="Character/DoomsEye/Skeleton3D" index="11"]
-transform = Transform3D(0.500001, -0.866025, -1.33322e-08, -2.49547e-08, -2.98023e-08, 1, -0.866025, -0.500001, -3.65126e-08, -0.430912, 1.41561e-07, -0.248787)
-
-[node name="de_body" parent="Character/DoomsEye/Skeleton3D" index="12"]
-transform = Transform3D(0.285714, 0, 0, 0, 0, 0.214286, 0, -0.285714, 0, 0, 0, -6.77626e-21)
-
-[node name="de_eye" parent="Character/DoomsEye/Skeleton3D" index="13"]
-transform = Transform3D(0.616507, 1.12213e-08, 0.256713, -1.12213e-08, 0.667819, -2.24293e-09, -0.256713, -2.24293e-09, 0.616507, 0, 0.173361, -7.57784e-09)
-
 [node name="Omega" parent="Character" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, -0.5)
 visible = false
-
-[node name="o_hand_l" parent="Character/Omega/Skeleton3D" index="0"]
-transform = Transform3D(2.79368, 6.39223e-09, 9.10296e-07, -3.57157e-08, 0.5, -5.91337e-09, -9.10296e-07, 1.05835e-09, 2.79368, 0.407702, 0.169699, -3.36669e-10)
-
-[node name="o_arm_l" parent="Character/Omega/Skeleton3D" index="1"]
-transform = Transform3D(1, -4.16078e-17, 0, 8.32155e-17, 0.5, 8.32153e-17, 0, -4.16077e-17, 1, 0.407702, 0.408195, -3.36671e-10)
-
-[node name="o_head" parent="Character/Omega/Skeleton3D" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.545822, 0)
-
-[node name="o_leg_r" parent="Character/Omega/Skeleton3D" index="3"]
-transform = Transform3D(-1, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.120564, 0.119671, 0)
-
-[node name="o_hand_r" parent="Character/Omega/Skeleton3D" index="4"]
-transform = Transform3D(-2.79368, -6.39223e-09, -9.10296e-07, -3.57157e-08, 0.5, -5.91337e-09, -9.10296e-07, 1.05835e-09, 2.79368, -0.407703, 0.169699, -3.36671e-10)
-
-[node name="o_arm_r" parent="Character/Omega/Skeleton3D" index="5"]
-transform = Transform3D(-1, 4.16078e-17, 0, 8.32155e-17, 0.5, 8.32153e-17, 0, -4.16077e-17, 1, -0.407703, 0.408195, -3.3669e-10)
-
-[node name="o_torso" parent="Character/Omega/Skeleton3D" index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.545822, 0)
-
-[node name="o_foot_l" parent="Character/Omega/Skeleton3D" index="7"]
-transform = Transform3D(0.01, 1.19209e-09, -4.21468e-10, -4.21468e-10, 0, -0.01, -1.19209e-09, 0.01, 0, 0.124313, -0.2961, 0.017261)
-
-[node name="o_leg_l" parent="Character/Omega/Skeleton3D" index="8"]
-transform = Transform3D(8.74228e-08, 0, -1, 0, 0.5, 0, 1, 0, 8.74228e-08, 0.125, 0.119671, -0.00443602)
-
-[node name="o_foot_r" parent="Character/Omega/Skeleton3D" index="9"]
-transform = Transform3D(-0.01, -1.19209e-09, -4.21468e-10, 4.21468e-10, 0, -0.01, -1.19209e-09, 0.01, 0, -0.124313, -0.2961, 0.0172609)
 
 [node name="AnimationPlayer" parent="Character" index="5"]
 autoplay = "run"
@@ -219,11 +90,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -128.0
+offset_left = -255.99995
 offset_top = -128.0
+offset_right = 255.99995
+offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2, 2)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("1_psp5w")
@@ -236,9 +108,110 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = ExtResource("2_n6ppq")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="bg_box_2" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -120.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("8_k3pjc")
+
+[node name="rr_trophy" type="TextureRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -76.0
+offset_top = -126.0
+offset_right = -36.0
+offset_bottom = -86.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("8_pdcaf")
+
+[node name="rr_coin" type="TextureRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -33.0
+offset_top = -120.0
+offset_right = -1.0
+offset_bottom = -88.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("10_fi22b")
+
+[node name="rj_trophy" type="TextureRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -76.0
+offset_top = -85.0
+offset_right = -36.0
+offset_bottom = -45.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("8_pdcaf")
+
+[node name="rj_coin" type="TextureRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -33.0
+offset_top = -79.54999
+offset_right = -1.0
+offset_bottom = -47.549988
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("10_fi22b")
+
+[node name="rl_trophy" type="TextureRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -76.0
+offset_top = -44.0
+offset_right = -36.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("8_pdcaf")
+
+[node name="rl_coin" type="TextureRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -33.0
+offset_top = -40.0
+offset_right = -1.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("10_fi22b")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_tq7pd")
@@ -247,9 +220,15 @@ autoplay = true
 [node name="SaveFile" type="Node" parent="."]
 script = ExtResource("9_ktpn3")
 
-[node name="LoadCharactersFromFile" type="Node" parent="." node_paths=PackedStringArray("save_file", "player_select")]
+[node name="LoadCharactersFromFile" type="Node" parent="." node_paths=PackedStringArray("save_file", "player_select", "rr_trophy", "rr_coin", "rj_trophy", "rj_coin", "rl_trophy", "rl_coin")]
 script = ExtResource("10_pdcaf")
 save_file = NodePath("../SaveFile")
 player_select = NodePath("..")
+rr_trophy = NodePath("../CanvasLayer/rr_trophy")
+rr_coin = NodePath("../CanvasLayer/rr_coin")
+rj_trophy = NodePath("../CanvasLayer/rj_trophy")
+rj_coin = NodePath("../CanvasLayer/rj_coin")
+rl_trophy = NodePath("../CanvasLayer/rl_trophy")
+rl_coin = NodePath("../CanvasLayer/rl_coin")
 
 [editable path="Character"]

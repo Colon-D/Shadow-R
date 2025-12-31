@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://benk7g74nutuv"]
+
+[ext_resource type="AudioStream" uid="uid://u3n36f41n4q" path="res://quit.ogg" id="1_cqeeg"]
+[ext_resource type="Script" uid="uid://0b78u778lfbe" path="res://quit.gd" id="2_43e7m"]
+
+[node name="Quit" type="AudioStreamPlayer"]
+process_mode = 3
+stream = ExtResource("1_cqeeg")
+autoplay = true
+script = ExtResource("2_43e7m")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

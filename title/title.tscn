@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfmqwysj2i577"]
+[gd_scene load_steps=11 format=3 uid="uid://cfmqwysj2i577"]
 
 [ext_resource type="Script" uid="uid://df24jtsb6fg74" path="res://title/title.gd" id="1_0tjwc"]
 [ext_resource type="Texture2D" uid="uid://ct6k6m3e71o4o" path="res://title/title.png" id="1_yx5l7"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dkrgg27win2wb" path="res://title/title.blend" id="2_nx56k"]
 [ext_resource type="Script" uid="uid://ci1is3r6ewfg4" path="res://title/title_rotate.gd" id="3_6s8lb"]
 [ext_resource type="AudioStream" uid="uid://cqkdvrc0edvcg" path="res://title/02. System , Main Menu shit.ogg" id="5_8xu2e"]
+[ext_resource type="Script" uid="uid://c8pe066hh6agy" path="res://save_file.gd" id="7_4bwyn"]
+[ext_resource type="Script" uid="uid://cchpu3wirqgrx" path="res://title/cheat.gd" id="8_grl6k"]
+[ext_resource type="AudioStream" uid="uid://dm1wxpf4ewu17" path="res://sfx/get_all.ogg" id="9_grl6k"]
 
 [sub_resource type="Environment" id="Environment_nx56k"]
 background_mode = 4
@@ -42,3 +45,12 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 5.1, -1.12, 6.4)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_8xu2e")
 autoplay = true
+
+[node name="SaveFile" type="Node" parent="."]
+script = ExtResource("7_4bwyn")
+
+[node name="Cheat" type="Node" parent="SaveFile"]
+script = ExtResource("8_grl6k")
+
+[node name="get_all" type="AudioStreamPlayer" parent="SaveFile/Cheat"]
+stream = ExtResource("9_grl6k")

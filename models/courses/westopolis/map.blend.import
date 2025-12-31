@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/map.blend-5ac8d5a22d8009bfc7789aafccfbdd20.sc
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=false
 meshes/generate_lods=false
@@ -32,6 +34,9 @@ animation/trimming=false
 animation/remove_immutable_tracks=false
 animation/import_rest_as_RESET=false
 import_script/path="uid://dmpn0enmpyvd4"
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "nodes": {
 "PATH:Inside1": {
@@ -50,9 +55,6 @@ _subresources={
 "physics/layer": 16
 },
 "PATH:Road_004": {
-"physics/layer": 16
-},
-"PATH:Rubble_Frame_001": {
 "physics/layer": 16
 }
 }
@@ -75,3 +77,4 @@ blender/materials/export_materials=1
 blender/animation/limit_playback=false
 blender/animation/always_sample=false
 blender/animation/group_tracks=false
+gltf/naming_version=0

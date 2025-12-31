@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/red_slime.blend-7f4387a1d82f054f8a33358176877
 
 nodes/root_type=""
 nodes/root_name="red_slime"
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=false
 meshes/generate_lods=false
@@ -32,10 +34,14 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path="uid://dmpn0enmpyvd4"
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "red_slime": {
 "use_external/enabled": true,
+"use_external/fallback_path": "res://accelerator/red_slime_material.tres",
 "use_external/path": "uid://cowkkiph03csk"
 }
 }
@@ -58,3 +64,4 @@ blender/materials/export_materials=1
 blender/animation/limit_playback=true
 blender/animation/always_sample=true
 blender/animation/group_tracks=true
+gltf/naming_version=0
